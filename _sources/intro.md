@@ -7,7 +7,7 @@ It does not go in-depth into any particular topic - check out [the Jupyter Book 
 
 Check out the content pages bundled with this sample book to see more.
 
-Hello, Daniel was here!
+Hello, Daniel could be here!
 
 ```{tableofcontents}
 ```
