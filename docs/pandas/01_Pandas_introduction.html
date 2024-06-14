@@ -419,8 +419,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-transpose-a-dataframe">We can transpose a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-is-also-possible-to-rename-columns-afterwards">It is also possible to rename columns afterwards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposing-a-dataframe">Transposing a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-columns">Renaming columns</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#each-column-in-a-dataframe-is-a-series">Each column in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
@@ -428,7 +428,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-a-series-to-an-existing-dataframe">Appending a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to an existing <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-also-create-a-new-column-based-on-the-data-in-an-existing-column">We can also create a new column based on the data in an existing column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-column-based-on-data-in-an-existing-column">Create a new column based on data in an existing column</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
@@ -568,7 +568,7 @@ For more information on <code class="docutils literal notranslate"><span class="
 <p><img alt="Table representaion in spreadsheet software" src="../../_images/01_table_spreadsheet.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the type of the &#39;df&#39; object using the type()type()&#39; function.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the type of the &#39;df&#39; object using the &#39;type()&#39; function.</span>
 
 <span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
@@ -584,12 +584,11 @@ For more information on <code class="docutils literal notranslate"><span class="
 </section>
 <section id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘df’.<br />
+It returns a tuple representing the number of rows and columns (rows, columns).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;shape&#39; attribute to determine the dimensions of the DataFrame &#39;df&#39;.</span>
-<span class="c1"># It returns a tuple representing the number of rows and columns (rows, columns).</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -599,12 +598,11 @@ For more information on <code class="docutils literal notranslate"><span class="
 </div>
 </div>
 </div>
+<p>And we can use the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute to view the data types of each column in the ‘df’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This command provides information about the data type of each column, such as integer, float, or object (string).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;dtypes&#39; attribute to view the data types of each column in the &#39;df&#39; DataFrame.</span>
-<span class="c1"># This command provides information about the data type of each column, such as integer, float, or object (string).</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
@@ -620,13 +618,13 @@ dtype: object
 <p>When asking for the <code class="docutils literal notranslate"><span class="pre">shape</span></code> or <code class="docutils literal notranslate"><span class="pre">dtypes</span></code>, no parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code> are used. Both are an attribute of <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code>. (<code class="docutils literal notranslate"><span class="pre">Series</span></code> will be explained later.)</p>
 <p>Attributes of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code> do not need <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 <p>Attributes represent a characteristic of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>/<code class="docutils literal notranslate"><span class="pre">Series</span></code>, whereas methods (which require parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>) do something with the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>/<code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
-<section id="we-can-transpose-a-dataframe">
-<h3>We can transpose a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#we-can-transpose-a-dataframe" title="Link to this heading">#</a></h3>
+<section id="transposing-a-dataframe">
+<h3>Transposing a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#transposing-a-dataframe" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">transpose</span></code> method swaps the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>’s rows and columns, creating ‘df_transposed’.<br />
+Transposing is useful for reshaping data, making it easier to compare rows or apply certain operations that are typically column-based.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transpose the DataFrame &#39;df&#39; using the &#39;transpose()&#39; method.</span>
-<span class="c1"># This operation swaps the DataFrame&#39;s rows and columns, creating &#39;df_transposed&#39;.</span>
-<span class="c1"># Transposing is useful for reshaping data, making it easier to compare rows or apply certain operations that are typically column-based.</span>
 
 <span class="n">df_transposed</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 </pre></div>
@@ -689,23 +687,24 @@ dtype: object
 </div></div></div>
 </div>
 </section>
-<section id="it-is-also-possible-to-rename-columns-afterwards">
-<h3>It is also possible to rename columns afterwards<a class="headerlink" href="#it-is-also-possible-to-rename-columns-afterwards" title="Link to this heading">#</a></h3>
+<section id="renaming-columns">
+<h3>Renaming columns<a class="headerlink" href="#renaming-columns" title="Link to this heading">#</a></h3>
+<p>We can rename the columns of our <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> after creation.<br />
+This is done by assigning a new list of column names to <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>.<br />
+The new column names are <code class="docutils literal notranslate"><span class="pre">Names</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code>, and <code class="docutils literal notranslate"><span class="pre">Sex</span></code>, in that order.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rename the columns of the DataFrame &#39;df&#39;.</span>
-<span class="c1"># This is done by assigning a new list of column names to &#39;df.columns&#39;.</span>
-<span class="c1"># The new column names are &#39;Names&#39;, &#39;Age&#39;, and &#39;Sex&#39;, in that order.</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Names&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>This method is useful for selectively renaming only one or more columns without changing the entire set of column names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rename the &#39;Age&#39; column to &#39;Ages&#39; in the DataFrame &#39;df&#39;.</span>
-<span class="c1"># This method is useful for selectively renaming only one or more columns without changing the entire set of column names.</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="s1">&#39;Ages&#39;</span><span class="p">})</span>
 </pre></div>
@@ -772,12 +771,10 @@ dtype: object
 <section id="each-column-in-a-dataframe-is-a-series">
 <h2>Each column in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#each-column-in-a-dataframe-is-a-series" title="Link to this heading">#</a></h2>
 <p><img alt="DataFrame Series" src="../../_images/01_table_series.svg" /></p>
+<p>When we access a column in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, this actually returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object containing all the data in that column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the &#39;Ages&#39; column from the DataFrame &#39;df&#39;.</span>
-<span class="c1"># This returns a Series object containing all the data in the &#39;Ages&#39; column.</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ages&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ages&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -806,10 +803,11 @@ Name: Ages, dtype: int64
 </div>
 <section id="we-can-also-create-our-own-series">
 <h3>We can also create our own <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#we-can-also-create-our-own-series" title="Link to this heading">#</a></h3>
+<p>We can create and name a <code class="docutils literal notranslate"><span class="pre">Series</span></code> in the following way.<br />
+The <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter assigns the name ‘Fare’ to the Series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a pandas Series named &#39;fare&#39; with specified values.</span>
-<span class="c1"># The &#39;name&#39; parameter assigns the name &#39;Fare&#39; to the Series.</span>
 
 <span class="n">fare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">7.2500</span><span class="p">,</span> <span class="mf">71.2833</span><span class="p">,</span> <span class="mf">7.9250</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Fare&#39;</span><span class="p">)</span>
 </pre></div>
@@ -852,11 +850,11 @@ Name: Fare, dtype: float64
 </section>
 <section id="appending-a-series-to-an-existing-dataframe">
 <h2>Appending a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to an existing <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#appending-a-series-to-an-existing-dataframe" title="Link to this heading">#</a></h2>
+<p>We can add a <code class="docutils literal notranslate"><span class="pre">Series</span></code> as a new column to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, extending it horizontally.<br />
+Here, the name of the ‘fare’ <code class="docutils literal notranslate"><span class="pre">Series</span></code> (‘Fare’) becomes the column name in the updated <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Concatenate the &#39;fare&#39; Series to the &#39;df&#39; DataFrame along the columns (axis=1).</span>
-<span class="c1"># This adds the &#39;fare&#39; Series as a new column to &#39;df&#39;, extending it horizontally.</span>
-<span class="c1"># The name of the &#39;fare&#39; Series (&#39;Fare&#39;) becomes the column name in the updated DataFrame.</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">fare</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -922,14 +920,14 @@ Name: Fare, dtype: float64
 </table>
 </div></div></div>
 </div>
-<section id="we-can-also-create-a-new-column-based-on-the-data-in-an-existing-column">
-<h3>We can also create a new column based on the data in an existing column<a class="headerlink" href="#we-can-also-create-a-new-column-based-on-the-data-in-an-existing-column" title="Link to this heading">#</a></h3>
+<section id="create-a-new-column-based-on-data-in-an-existing-column">
+<h3>Create a new column based on data in an existing column<a class="headerlink" href="#create-a-new-column-based-on-data-in-an-existing-column" title="Link to this heading">#</a></h3>
+<p>We can also create a new column based on the data in an existing column.</p>
+<p>Here, we create a new column ‘Age_in_3_years’ in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘df’.<br />
+This column is calculated by adding 3 to each value in the ‘Ages’ column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new column &#39;Age_in_3_years&#39; in the DataFrame &#39;df&#39;.</span>
-<span class="c1"># This column is calculated by adding 3 to each value in the &#39;Ages&#39; column.</span>
-
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age_in_3_years&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ages&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Age_in_3_years&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ages&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
@@ -1096,8 +1094,8 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">Attributes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-transpose-a-dataframe">We can transpose a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#it-is-also-possible-to-rename-columns-afterwards">It is also possible to rename columns afterwards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transposing-a-dataframe">Transposing a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#renaming-columns">Renaming columns</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#each-column-in-a-dataframe-is-a-series">Each column in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
@@ -1105,7 +1103,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-a-series-to-an-existing-dataframe">Appending a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to an existing <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-also-create-a-new-column-based-on-the-data-in-an-existing-column">We can also create a new column based on the data in an existing column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-column-based-on-data-in-an-existing-column">Create a new column based on data in an existing column</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
