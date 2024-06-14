@@ -204,12 +204,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_Pandas_introduction.html">Installing (or upgrading) Pandas</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">How to read and write tabular data</a></li>
-
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Import Pandas</a></li>
 
 
@@ -417,20 +411,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to read and write tabular data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-our-current-working-directory">Finding our current working directory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-our-current-working-directory">Finding our current working directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dataframe-to-an-excel-file">Converting a DataFrame to an Excel file</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dataframe-to-an-excel-file">Converting a DataFrame to an Excel file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -444,9 +436,8 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-read-and-write-tabular-data">
 <h1>How to read and write tabular data<a class="headerlink" href="#how-to-read-and-write-tabular-data" title="Link to this heading">#</a></h1>
 <p><img alt="How to read and write tabular data" src="../../_images/02_io_readwrite.svg" /></p>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="import-pandas">
-<h1>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h1>
+<section id="import-pandas">
+<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
@@ -459,8 +450,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="finding-our-current-working-directory">
-<h1>Finding our current working directory<a class="headerlink" href="#finding-our-current-working-directory" title="Link to this heading">#</a></h1>
+<section id="finding-our-current-working-directory">
+<h2>Finding our current working directory<a class="headerlink" href="#finding-our-current-working-directory" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The %pwd command is known as a &quot;magic command&quot; in Jupyter Notebook.</span>
@@ -480,8 +471,8 @@ document.write(`
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="creating-a-dataframe-from-a-csv-file">
-<h1>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h1>
+<section id="creating-a-dataframe-from-a-csv-file">
+<h2>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
@@ -1153,7 +1144,7 @@ document.write(`
 </div></div></div>
 </div>
 <section id="note-on-head-and-tail">
-<h2>Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code><a class="headerlink" href="#note-on-head-and-tail" title="Link to this heading">#</a></h2>
+<h3>Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code><a class="headerlink" href="#note-on-head-and-tail" title="Link to this heading">#</a></h3>
 <p>By default, Pandas limits the display of rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 60 rows.<br />
 Calling a number higher than 60 will display the first five rows followed by an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>), indicating that rows are being skipped, and then display the last five rows of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 To display all rows without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_rows</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:<br />
@@ -1222,6 +1213,7 @@ memory usage: 83.7+ KB
 </div>
 </div>
 </div>
+</section>
 </section>
 <section id="the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">
 <h2>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value<a class="headerlink" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value" title="Link to this heading">#</a></h2>
@@ -1773,9 +1765,8 @@ dtype: int64
 </div></div></div>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="exercise">
-<h1>Exercise:<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h1>
+<section id="exercise">
+<h2>Exercise:<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Extract the two passengers whose point of departure (‘Embarked’) is unknown (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p></li>
 </ul>
@@ -1786,8 +1777,8 @@ dtype: int64
 <p>This solution uses boolean indexing to filter the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’, extracting only the rows where the ‘Embarked’ column contains missing values (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
 This approach allows us to identify the passengers whose point of departure is unknown.</p>
 </details></section>
-<section class="tex2jax_ignore mathjax_ignore" id="converting-a-dataframe-to-an-excel-file">
-<h1>Converting a DataFrame to an Excel file<a class="headerlink" href="#converting-a-dataframe-to-an-excel-file" title="Link to this heading">#</a></h1>
+<section id="converting-a-dataframe-to-an-excel-file">
+<h2>Converting a DataFrame to an Excel file<a class="headerlink" href="#converting-a-dataframe-to-an-excel-file" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the DataFrame &#39;titanic&#39; to an Excel file named &#39;titanic.xlsx&#39;.</span>
@@ -1795,75 +1786,6 @@ This approach allows us to identify the passengers whose point of departure is u
 <span class="c1"># The parameter &#39;index=False&#39; specifies that we do not want to include the row index in the Excel file.</span>
 
 <span class="n">titanic</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Write the DataFrame &#39;titanic&#39; to an Excel file named &#39;titanic.xlsx&#39;.</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># The &#39;to_excel()&#39; method is used to save the DataFrame to an Excel file.</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># The parameter &#39;index=False&#39; specifies that we do not want to include the row index in the Excel file.</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">titanic</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/pandas/util/_decorators.py:333,</span> in <span class="ni">deprecate_nonkeyword_arguments.&lt;locals&gt;.decorate.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">327</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">num_allow_args</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">328</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">329</span>         <span class="n">msg</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arguments</span><span class="o">=</span><span class="n">_format_argument_list</span><span class="p">(</span><span class="n">allow_args</span><span class="p">)),</span>
-<span class="g g-Whitespace">    </span><span class="mi">330</span>         <span class="ne">FutureWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>         <span class="n">stacklevel</span><span class="o">=</span><span class="n">find_stack_level</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">333</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/pandas/core/generic.py:2417,</span> in <span class="ni">NDFrame.to_excel</span><span class="nt">(self, excel_writer, sheet_name, na_rep, float_format, columns, header, index, index_label, startrow, startcol, engine, merge_cells, inf_rep, freeze_panes, storage_options, engine_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2404</span> <span class="kn">from</span> <span class="nn">pandas.io.formats.excel</span> <span class="kn">import</span> <span class="n">ExcelFormatter</span>
-<span class="g g-Whitespace">   </span><span class="mi">2406</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">ExcelFormatter</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2407</span>     <span class="n">df</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2408</span>     <span class="n">na_rep</span><span class="o">=</span><span class="n">na_rep</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2415</span>     <span class="n">inf_rep</span><span class="o">=</span><span class="n">inf_rep</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2416</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2417</span> <span class="n">formatter</span><span class="o">.</span><span class="n">write</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2418</span>     <span class="n">excel_writer</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2419</span>     <span class="n">sheet_name</span><span class="o">=</span><span class="n">sheet_name</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2420</span>     <span class="n">startrow</span><span class="o">=</span><span class="n">startrow</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2421</span>     <span class="n">startcol</span><span class="o">=</span><span class="n">startcol</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2422</span>     <span class="n">freeze_panes</span><span class="o">=</span><span class="n">freeze_panes</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2423</span>     <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2424</span>     <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2425</span>     <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2426</span> <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/pandas/io/formats/excel.py:943,</span> in <span class="ni">ExcelFormatter.write</span><span class="nt">(self, writer, sheet_name, startrow, startcol, freeze_panes, engine, storage_options, engine_kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">941</span>     <span class="n">need_save</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">942</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">943</span>     <span class="n">writer</span> <span class="o">=</span> <span class="n">ExcelWriter</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>         <span class="n">writer</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span>         <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span>         <span class="n">storage_options</span><span class="o">=</span><span class="n">storage_options</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">947</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">948</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">949</span>     <span class="n">need_save</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">951</span> <span class="k">try</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.3/x64/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py:57,</span> in <span class="ni">OpenpyxlWriter.__init__</span><span class="nt">(self, path, engine, date_format, datetime_format, mode, storage_options, if_sheet_exists, engine_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">46</span>     <span class="n">path</span><span class="p">:</span> <span class="n">FilePath</span> <span class="o">|</span> <span class="n">WriteExcelBuffer</span> <span class="o">|</span> <span class="n">ExcelWriter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>     <span class="c1"># Use the openpyxl module as the Excel writer.</span>
-<span class="ne">---&gt; </span><span class="mi">57</span>     <span class="kn">from</span> <span class="nn">openpyxl.workbook</span> <span class="kn">import</span> <span class="n">Workbook</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="n">engine_kwargs</span> <span class="o">=</span> <span class="n">combine_kwargs</span><span class="p">(</span><span class="n">engine_kwargs</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="n">path</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="n">engine_kwargs</span><span class="o">=</span><span class="n">engine_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>     <span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;openpyxl&#39;
 </pre></div>
 </div>
 </div>
@@ -1877,16 +1799,220 @@ This approach allows us to identify the passengers whose point of departure is u
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>male</td>
+      <td>22.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>female</td>
+      <td>35.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>113803</td>
+      <td>53.1000</td>
+      <td>C123</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>887</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Montvila, Rev. Juozas</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>211536</td>
+      <td>13.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>888</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Graham, Miss. Margaret Edith</td>
+      <td>female</td>
+      <td>19.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>112053</td>
+      <td>30.0000</td>
+      <td>B42</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>889</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>W./C. 6607</td>
+      <td>23.4500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>889</th>
+      <td>890</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Behr, Mr. Karl Howell</td>
+      <td>male</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>111369</td>
+      <td>30.0000</td>
+      <td>C148</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>891</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Dooley, Mr. Patrick</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370376</td>
+      <td>7.7500</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
+  </tbody>
+</table>
+<p>891 rows × 12 columns</p>
+</div></div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="remember">
-<h1>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h1>
+<section id="remember">
+<h2>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Getting data in to pandas from many different file formats or data sources is supported by <code class="docutils literal notranslate"><span class="pre">read_*</span></code> functions.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">head()</span></code>, <code class="docutils literal notranslate"><span class="pre">tail()</span></code>, and <code class="docutils literal notranslate"><span class="pre">info()</span></code> methods are convenient for a first check.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code> methods are useful for finding and isolating missing data.</p></li>
 <li><p>Exporting data out of pandas is provided by different <code class="docutils literal notranslate"><span class="pre">to_*</span></code> methods.</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1953,20 +2079,18 @@ This approach allows us to identify the passengers whose point of departure is u
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">How to read and write tabular data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-our-current-working-directory">Finding our current working directory</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-our-current-working-directory">Finding our current working directory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dataframe-to-an-excel-file">Converting a DataFrame to an Excel file</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dataframe-to-an-excel-file">Converting a DataFrame to an Excel file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

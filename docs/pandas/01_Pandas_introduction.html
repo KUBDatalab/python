@@ -204,12 +204,6 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing (or upgrading) Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
-
-
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Import Pandas</a></li>
 
 
@@ -417,6 +411,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulenotfounderror-and-pandas-dependencies"><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-a-pandas-dataframe">Representation of a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
@@ -456,13 +451,21 @@ If you haven’t installed pandas before, this will download and install the lat
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code></p>
 <p>Adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag not only installs pandas if it isn’t already installed but also ensures that if pandas is already installed, it is updated to the latest version. This is useful to make sure you have the newest features and bug fixes.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pandas</span></code></p>
+<section id="modulenotfounderror-and-pandas-dependencies">
+<h2><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies<a class="headerlink" href="#modulenotfounderror-and-pandas-dependencies" title="Link to this heading">#</a></h2>
+<p>When using Pandas, you may encounter the error message <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>. This is caused by so-called Pandas dependencies.</p>
+<p>When you install the pandas library for Python, it requires other libraries to function correctly. These required libraries are called dependencies.
+Dependencies are external libraries that provide additional functionality or capabilities that the main library (in this case, Pandas) relies on to operate.</p>
+<p>When you install Pandas using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer, it automatically installs any required dependencies. However, optional dependencies are not installed by default and must be installed separately if needed.</p>
+<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#optional-dependencies">You can read more about Pandas dependencies here.</a></p>
+</section>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<p>Aliasing pandas as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
+After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the pandas library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
-<span class="c1"># Aliasing pandas as &#39;pd&#39; is a widely adopted convention that simplifies the syntax for accessing its functionalities.</span>
-<span class="c1"># After this statement, you can use &#39;pd&#39; to access all the functionalities provided by the pandas library.</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
@@ -476,10 +479,11 @@ If you haven’t installed pandas before, this will download and install the lat
 </section>
 <section id="creating-our-first-dataframe">
 <h2>Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#creating-our-first-dataframe" title="Link to this heading">#</a></h2>
+<p>We start by creating three lists of equal length (i.e., containing the same amount of elements).<br />
+These lists will be used as columns for a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, with each list representing a column and each element within the list representing a row in that column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># These lists will be used as columns for a DataFrame, </span>
-<span class="c1"># with each list representing a column and each element within the list representing a row in that column.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create three lists named &#39;name&#39;, &#39;age&#39;, and &#39;sex&#39;.</span>
 
 <span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Braund&quot;</span><span class="p">,</span> <span class="s2">&quot;Allen&quot;</span><span class="p">,</span> <span class="s2">&quot;Bonnel&quot;</span><span class="p">]</span>
 <span class="n">age</span> <span class="o">=</span> <span class="p">[</span><span class="mi">22</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">58</span><span class="p">]</span>
@@ -488,12 +492,12 @@ If you haven’t installed pandas before, this will download and install the lat
 </div>
 </div>
 </div>
+<p>We use lists <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">age</span></code>, and <code class="docutils literal notranslate"><span class="pre">sex</span></code> to fill in the columns.<br />
+Each list corresponds to a column in the DataFrame.<br />
+<code class="docutils literal notranslate"><span class="pre">Name</span></code>, <code class="docutils literal notranslate"><span class="pre">Age</span></code>, and <code class="docutils literal notranslate"><span class="pre">Sex</span></code> are the titles of these columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a DataFrame named &#39;df&#39;.</span>
-<span class="c1"># We use lists &#39;name&#39;, &#39;age&#39;, and &#39;sex&#39; to fill in the columns.</span>
-<span class="c1"># Each list corresponds to a column in the DataFrame.</span>
-<span class="c1"># &#39;Name&#39;, &#39;Age&#39;, and &#39;Sex&#39; are the titles of these columns.</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">:</span> <span class="n">sex</span><span class="p">})</span>
 </pre></div>
@@ -1084,6 +1088,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulenotfounderror-and-pandas-dependencies"><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-a-pandas-dataframe">Representation of a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
