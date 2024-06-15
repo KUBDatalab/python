@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/02_Pandas_tabular_data';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Import Pandas" href="03_Pandas_subsets.html" />
+    <link rel="next" title="Creating a DataFrame from a csv file" href="03_Pandas_subsets.html" />
     <link rel="prev" title="Introduction to the Pandas DataFrame" href="01_pandas_dataframe.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,8 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="00_pandas_start.html">Getting started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">How to read and write tabular data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Import Pandas</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
 
 
 
@@ -424,11 +423,11 @@ document.write(`
 <p><img alt="How to read and write tabular data" src="../../_images/02_io_readwrite.svg" /></p>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<p>Aliasing pandas as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
+After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the pandas library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
-<span class="c1"># Aliasing pandas as &#39;pd&#39; is a widely adopted convention that simplifies the syntax for accessing its functionalities.</span>
-<span class="c1"># After this statement, you can use &#39;pd&#39; to access all the functionalities provided by the pandas library.</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
@@ -438,23 +437,13 @@ document.write(`
 </section>
 <section id="finding-our-current-working-directory">
 <h2>Finding our current working directory<a class="headerlink" href="#finding-our-current-working-directory" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The %pwd command is known as a &quot;magic command&quot; in Jupyter Notebook.</span>
-<span class="c1"># (You can read more about magic commands here: https://www.geeksforgeeks.org/useful-ipython-magic-commands/)</span>
-<span class="c1"># It is used to display the current working directory (cwd) within the notebook environment.</span>
-<span class="c1"># This is the folder where the Jupyter Notebook is running.</span>
-<span class="c1"># Understanding the current working directory is important for file operations like reading and writing files.</span>
-
-<span class="o">%</span><span class="k">pwd</span>
+<p>The <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> command is known as a “magic command” in Jupyter Notebook.
+(You can read more about magic commands here: <a class="reference external" href="https://www.geeksforgeeks.org/useful-ipython-magic-commands/">https://www.geeksforgeeks.org/useful-ipython-magic-commands/</a>)<br />
+It is used to display the current working directory (<code class="docutils literal notranslate"><span class="pre">cwd</span></code>) within the notebook environment.
+This is the folder where the Jupyter Notebook is running.<br />
+Understanding the current working directory is important for file operations like reading and writing files.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%pwd
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/home/runner/work/python/python/docs/pandas&#39;
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="creating-a-dataframe-from-a-csv-file">
@@ -2045,7 +2034,7 @@ This approach allows us to identify the passengers whose point of departure is u
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Import Pandas</p>
+        <p class="prev-next-title">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

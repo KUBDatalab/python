@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Import Pandas &#8212; My sample book</title>
+    <title>Creating a DataFrame from a csv file &#8212; My sample book</title>
   
   
   
@@ -190,8 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="00_pandas_start.html">Getting started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Import Pandas</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
 
 
 
@@ -387,7 +386,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Import Pandas</h1>
+    <h1>Creating a DataFrame from a csv file</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,13 +396,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import Pandas</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns-from-a-dataframe">Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inner-square-brackets-define-a-python-list-with-column-names-whereas-the-outer-square-brackets-are-used-to-select-the-data-from-a-pandas-dataframe-as-seen-in-the-previous-example">The inner square brackets define a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> with column names, whereas the outer square brackets are used to select the data from a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as seen in the previous example.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns-from-a-dataframe">Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-specific-rows-from-a-dataframe">Filtering specific rows from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-select-rows-based-on-a-conditional-expression-use-a-condition-inside-the-selection-brackets">To select rows based on a conditional expression, use a condition inside the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-above-is-equivalent-to-filtering-by-rows-for-which-the-class-is-either-2-or-3-and-combining-the-two-statements-with-an-or-operator">The above is equivalent to filtering by rows for which the class is either 2 or 3 and combining the two statements with an <code class="docutils literal notranslate"><span class="pre">|</span></code> (or) operator.</a></li>
@@ -427,28 +425,27 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="import-pandas">
-<h1>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="creating-a-dataframe-from-a-csv-file">
+<h1>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h1>
+<section id="import-pandas">
+<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<p>Aliasing pandas as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
+After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the pandas library.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
-<span class="c1"># Aliasing pandas as &#39;pd&#39; is a widely adopted convention that simplifies the syntax for accessing its functionalities.</span>
-<span class="c1"># After this statement, you can use &#39;pd&#39; to access all the functionalities provided by the pandas library.</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="creating-a-dataframe-from-a-csv-file">
-<h1>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.<br />
+The file is located in the ‘data’ directory, relative to the current working directory.<br />
+The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
-<span class="c1"># The &#39;pd.read_csv()&#39; function is used to read the data from the file &#39;data/titanic.csv&#39;.</span>
-<span class="c1"># The file is located in the &#39;data&#39; directory, relative to the current working directory.</span>
-<span class="c1"># The resulting DataFrame &#39;titanic&#39; contains the dataset, ready for analysis and manipulation.</span>
 
 <span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/titanic.csv&#39;</span><span class="p">)</span>
 </pre></div>
@@ -458,11 +455,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the DataFrame &#39;titanic&#39;.</span>
-<span class="c1"># Note, even though we only see the first and last five rows, we actually read the whole DataFrame into the kernel&#39;s memory.</span>
-<span class="c1"># The pressure on memory usage can be alleviated by using the &#39;head()&#39; method described below.</span>
-<span class="c1"># However, this will only be an issue with very large datasets, so don&#39;t worry too much about it for now.</span>
-<span class="c1"># You can find out how much memory a DataFrame uses by using the &#39;memory_usage()&#39; method:</span>
-<span class="c1"># titanic.memory_usage(deep=True).sum()</span>
 
 <span class="n">titanic</span>
 </pre></div>
@@ -672,14 +664,22 @@ document.write(`
 <p>891 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>Note, even though we only see the first and last five rows, we actually read the whole <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> into the kernel’s memory.<br />
+The pressure on memory usage can be alleviated by using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method described below.<br />
+However, this will only be an issue with very large datasets, so don’t worry too much about it for now.</p>
+<p>You can find out how much memory a DataFrame uses by using the <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> method:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic.memory_usage(deep=True).sum()
+</pre></div>
+</div>
+</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="selecting-specific-columns-from-a-dataframe">
 <h1>Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#selecting-specific-columns-from-a-dataframe" title="Link to this heading">#</a></h1>
 <p><img alt="Selecting specific columns from a DataFrame" src="../../_images/03_subset_columns.svg" /></p>
+<p>This returns a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object containing all the data in the ‘Age’ column:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Access the &#39;Age&#39; column from the DataFrame &#39;titanic&#39;.</span>
-<span class="c1"># This returns a Series object containing all the data in the &#39;Age&#39; column.</span>
 
 <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
 </pre></div>
@@ -716,12 +716,11 @@ Name: Age, Length: 891, dtype: float64
 </div>
 </div>
 </div>
+<p>Use the ‘shape’ attribute to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">Series</span></code>.<br />
+It returns a tuple representing the number of rows and columns (rows, columns).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;shape&#39; attribute to determine the dimensions of the Series.</span>
-<span class="c1"># It returns a tuple representing the number of rows and columns (rows, columns).</span>
-
-<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -734,10 +733,10 @@ Name: Age, Length: 891, dtype: float64
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="calling-multiple-series">
 <h1>Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#calling-multiple-series" title="Link to this heading">#</a></h1>
+<p>This command selects specific columns ‘Age’ and ‘Sex’ from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using double square brackets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the columns &#39;Age&#39; and &#39;Sex&#39; from the &#39;titanic&#39; DataFrame.</span>
-<span class="c1"># This command selects specific columns &#39;Age&#39; and &#39;Sex&#39; from the &#39;titanic&#39; DataFrame using double square brackets.</span>
 
 <span class="n">titanic</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]]</span>
 </pre></div>
@@ -827,8 +826,10 @@ Name: Age, Length: 891, dtype: float64
 <p>891 rows × 2 columns</p>
 </div></div></div>
 </div>
-<section id="the-inner-square-brackets-define-a-python-list-with-column-names-whereas-the-outer-square-brackets-are-used-to-select-the-data-from-a-pandas-dataframe-as-seen-in-the-previous-example">
-<h2>The inner square brackets define a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> with column names, whereas the outer square brackets are used to select the data from a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as seen in the previous example.<a class="headerlink" href="#the-inner-square-brackets-define-a-python-list-with-column-names-whereas-the-outer-square-brackets-are-used-to-select-the-data-from-a-pandas-dataframe-as-seen-in-the-previous-example" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The inner square brackets define a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> with column names, whereas the outer square brackets are used to select the data from a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as seen in the previous example.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;type()&#39; function to determine the data type of the DataFrame subset.</span>
@@ -861,7 +862,6 @@ Name: Age, Length: 891, dtype: float64
 </div>
 </div>
 </div>
-</section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="filtering-specific-rows-from-a-dataframe">
 <h1>Filtering specific rows from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#filtering-specific-rows-from-a-dataframe" title="Link to this heading">#</a></h1>
@@ -1982,13 +1982,12 @@ memory usage: 83.7+ KB
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Import Pandas</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns-from-a-dataframe">Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-inner-square-brackets-define-a-python-list-with-column-names-whereas-the-outer-square-brackets-are-used-to-select-the-data-from-a-pandas-dataframe-as-seen-in-the-previous-example">The inner square brackets define a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> with column names, whereas the outer square brackets are used to select the data from a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as seen in the previous example.</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns-from-a-dataframe">Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-specific-rows-from-a-dataframe">Filtering specific rows from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-select-rows-based-on-a-conditional-expression-use-a-condition-inside-the-selection-brackets">To select rows based on a conditional expression, use a condition inside the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-above-is-equivalent-to-filtering-by-rows-for-which-the-class-is-either-2-or-3-and-combining-the-two-statements-with-an-or-operator">The above is equivalent to filtering by rows for which the class is either 2 or 3 and combining the two statements with an <code class="docutils literal notranslate"><span class="pre">|</span></code> (or) operator.</a></li>
