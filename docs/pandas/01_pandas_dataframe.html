@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Installing (or upgrading) Pandas &#8212; My sample book</title>
+    <title>Introduction to the Pandas DataFrame &#8212; My sample book</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/01_Pandas_introduction';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/01_pandas_dataframe';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="How to read and write tabular data" href="02_Pandas_tabular_data.html" />
-    <link rel="prev" title="Installing (or upgrading) Pandas Z" href="../testtest.html" />
+    <link rel="prev" title="Getting started with Pandas" href="00_pandas_start.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,25 +184,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mymarkdownfile.html">Here’s my sample title</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../01_Pandas_introduction.html">Installing (or upgrading) Pandas</a></li>
-
-
-
-
-
-
-<li class="toctree-l1"><a class="reference internal" href="../testtest.html">Installing (or upgrading) Pandas Z</a></li>
-
-
-
-
-
-
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installing (or upgrading) Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00_pandas_start.html">Getting started with Pandas</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Import Pandas</a></li>
 
@@ -287,7 +273,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/01_Pandas_introduction.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/01_pandas_dataframe.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +303,7 @@
       
       
       
-      <li><a href="../../_sources/docs/pandas/01_Pandas_introduction.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/pandas/01_pandas_dataframe.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Installing (or upgrading) Pandas</h1>
+    <h1>Introduction to the Pandas DataFrame</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -411,7 +397,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulenotfounderror-and-pandas-dependencies"><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-a-pandas-dataframe">Representation of a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
@@ -444,21 +429,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-or-upgrading-pandas">
-<h1>Installing (or upgrading) Pandas<a class="headerlink" href="#installing-or-upgrading-pandas" title="Link to this heading">#</a></h1>
-<p>This command installs the pandas library using pip, Python’s package installer.<br />
-If you haven’t installed pandas before, this will download and install the latest version of pandas along with its dependencies.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pandas</span></code></p>
-<p>Adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag not only installs pandas if it isn’t already installed but also ensures that if pandas is already installed, it is updated to the latest version. This is useful to make sure you have the newest features and bug fixes.</p>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pandas</span></code></p>
-<section id="modulenotfounderror-and-pandas-dependencies">
-<h2><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies<a class="headerlink" href="#modulenotfounderror-and-pandas-dependencies" title="Link to this heading">#</a></h2>
-<p>When using Pandas, you may encounter the error message <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>. This is caused by so-called Pandas dependencies.</p>
-<p>When you install the pandas library for Python, it requires other libraries to function correctly. These required libraries are called dependencies.
-Dependencies are external libraries that provide additional functionality or capabilities that the main library (in this case, Pandas) relies on to operate.</p>
-<p>When you install Pandas using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer, it automatically installs any required dependencies. However, optional dependencies are not installed by default and must be installed separately if needed.</p>
-<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#optional-dependencies">You can read more about Pandas dependencies here.</a></p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-the-pandas-dataframe">
+<h1>Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#introduction-to-the-pandas-dataframe" title="Link to this heading">#</a></h1>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <p>Aliasing pandas as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
@@ -1003,13 +975,15 @@ This column is calculated by adding 3 to each value in the ‘Ages’ column.</p
 <li><p>Create a new column called ‘Fare_in_DKK’ based on the column ‘Fare’.</p></li>
 <li><p>We assume the old fare prices to be in GBP and the exchange rate to be £1 = 8.7 DKK</p></li>
 </ul>
-<details>
-  <summary>Click to reveal solution</summary>
-  <br/>
-<p><code class="docutils literal notranslate"><span class="pre">df['Fare_in_DKK']</span> <span class="pre">=</span> <span class="pre">df['Fare']</span> <span class="pre">*</span> <span class="pre">8.7</span></code></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;Fare_in_DKK&#39;] = df[&#39;Fare&#39;] * 8.7
+</pre></div>
+</div>
 <p>This solution creates a new column in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> named ‘Fare_in_DKK’, which contains the fare prices converted from GBP to DKK using the given exchange rate.<br/>
 Each fare value in GBP is multiplied by the exchange rate to obtain the corresponding fare value in DKK.</p>
-</details></section>
+</div>
+</section>
 <section id="remember">
 <h2>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -1053,12 +1027,12 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../testtest.html"
+       href="00_pandas_start.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Installing (or upgrading) Pandas Z</p>
+        <p class="prev-next-title">Getting started with Pandas</p>
       </div>
     </a>
     <a class="right-next"
@@ -1086,7 +1060,6 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulenotfounderror-and-pandas-dependencies"><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representation-of-a-pandas-dataframe">Representation of a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
