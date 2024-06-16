@@ -398,12 +398,9 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-our-current-working-directory">Finding our current working directory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notna-isna-and-boolean-dataframes"><code class="docutils literal notranslate"><span class="pre">notna()</span></code>, <code class="docutils literal notranslate"><span class="pre">isna()</span></code> and boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dataframe-to-an-excel-file">Converting a DataFrame to an Excel file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
@@ -448,26 +445,28 @@ Understanding the current working directory is important for file operations lik
 </section>
 <section id="creating-a-dataframe-from-a-csv-file">
 <h2>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.<br />
+The file is located in the ‘data’ directory, relative to the current working directory.<br />
+The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
-<span class="c1"># The &#39;pd.read_csv()&#39; function is used to read the data from the file &#39;data/titanic.csv&#39;.</span>
-<span class="c1"># The file is located in the &#39;data&#39; directory, relative to the current working directory.</span>
-<span class="c1"># The resulting DataFrame &#39;titanic&#39; contains the dataset, ready for analysis and manipulation.</span>
 
 <span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/titanic.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Note, even though we only see the first and last five rows, we actually read the whole <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> into the kernel’s memory.<br />
+The pressure on memory usage can be alleviated by using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method described below.</p>
+<p>However, this will only be an issue with very large datasets, so don’t worry too much about it for now.<br />
+You can find out how much memory a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> uses by using the <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> method:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic.memory_usage(deep=True).sum()
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the DataFrame &#39;titanic&#39;.</span>
-<span class="c1"># Note, even though we only see the first and last five rows, we actually read the whole DataFrame into the kernel&#39;s memory.</span>
-<span class="c1"># The pressure on memory usage can be alleviated by using the &#39;head()&#39; method described below.</span>
-<span class="c1"># However, this will only be an issue with very large datasets, so don&#39;t worry too much about it for now.</span>
-<span class="c1"># You can find out how much memory a DataFrame uses by using the &#39;memory_usage()&#39; method:</span>
-<span class="c1"># titanic.memory_usage(deep=True).sum()</span>
 
 <span class="n">titanic</span>
 </pre></div>
@@ -677,12 +676,11 @@ Understanding the current working directory is important for file operations lik
 <p>891 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute can be used to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’.<br />
+It returns a tuple representing the number of rows and columns (rows, columns).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;shape&#39; attribute to determine the dimensions of the DataFrame &#39;titanic&#39;.</span>
-<span class="c1"># It returns a tuple representing the number of rows and columns (rows, columns).</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -692,12 +690,11 @@ Understanding the current working directory is important for file operations lik
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">head()</span></code> method displays the first five rows of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This provides a quick overview of the dataset, showing the column names and the first rows of data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the first few rows of the &#39;titanic&#39; DataFrame using the &#39;head()&#39; method.</span>
-<span class="c1"># This provides a quick overview of the dataset, showing the column names and the first few rows of data.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -814,12 +811,11 @@ Understanding the current working directory is important for file operations lik
 </table>
 </div></div></div>
 </div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">tail()</span></code> method and specifying 3 as argument will display the last three rows of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This allows us to inspect the end of the dataset, showing the last rows of data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the last three rows of the &#39;titanic&#39; DataFrame using the &#39;tail()&#39; method and specifying 3 as argument.</span>
-<span class="c1"># This allows us to inspect the end of the dataset, showing the last few rows of data.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -906,28 +902,28 @@ Understanding the current working directory is important for file operations lik
 </table>
 </div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the first 80 rows of the &#39;titanic&#39; DataFrame using the &#39;head()&#39; method.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<h3 class="rubric" id="note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></h3>
+<p>By default, Pandas limits the display of rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 60 rows.</p>
+<p>Calling a number higher than 60 will display the first five rows followed by an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>), indicating that rows are being skipped, and then display the last five rows of the selection.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic.head(80)
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
     }
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>.dataframe tbody tr th {
+    vertical-align: top;
+}
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
+.dataframe thead th {
+    text-align: right;
+}
+</pre></div>
+</div>
 </style>
 <table border="1" class="dataframe">
   <thead>
@@ -1116,23 +1112,22 @@ Understanding the current working directory is important for file operations lik
   </tbody>
 </table>
 <p>80 rows × 12 columns</p>
-</div></div></div>
 </div>
-<section id="note-on-head-and-tail">
-<h3>Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code><a class="headerlink" href="#note-on-head-and-tail" title="Link to this heading">#</a></h3>
-<p>By default, Pandas limits the display of rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 60 rows.<br />
-Calling a number higher than 60 will display the first five rows followed by an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>), indicating that rows are being skipped, and then display the last five rows of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-To display all rows without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_rows</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:<br />
-<code class="docutils literal notranslate"><span class="pre">pd.set_option('display.max_rows',</span> <span class="pre">None)</span></code></p>
+<p>To display all rows without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_rows</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pd.set_option(&#39;display.max_rows&#39;, None)
+</pre></div>
+</div>
 <p>Likewise, Pandas limits the display of columns in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 20 columns.<br />
-To display all columns without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_columns</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:<br />
-<code class="docutils literal notranslate"><span class="pre">pd.set_option('display.max_columns',</span> <span class="pre">None)</span></code></p>
+To display all columns without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_columns</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pd.set_option(&#39;display.max_columns&#39;, None)
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute can be used to view the data types of each column in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This command provides information about the data type of each column, such as integer, float, or object (string).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;dtypes&#39; attribute to view the data types of each column in the &#39;titanic&#39; DataFrame.</span>
-<span class="c1"># This command provides information about the data type of each column, such as integer, float, or object (string).</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">dtypes</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
@@ -1154,13 +1149,11 @@ dtype: object
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">info()</span></code> method is used to display a concise summary of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This command provides essential information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, including the number of non-null values in each column, the data type of each column, and memory usage.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;info()&#39; method to display a concise summary of the &#39;titanic&#39; DataFrame.</span>
-<span class="c1"># This command provides essential information about the DataFrame, including the number of non-null values in each column,</span>
-<span class="c1"># the data type of each column, and memory usage.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1189,16 +1182,14 @@ memory usage: 83.7+ KB
 </div>
 </div>
 </section>
-</section>
-<section id="the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">
-<h2>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value<a class="headerlink" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value" title="Link to this heading">#</a></h2>
+<section id="notna-isna-and-boolean-dataframes">
+<h2><code class="docutils literal notranslate"><span class="pre">notna()</span></code>, <code class="docutils literal notranslate"><span class="pre">isna()</span></code> and boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s<a class="headerlink" href="#notna-isna-and-boolean-dataframes" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values <em><strong>are not</strong></em> a null value (i.e., not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> method to create a boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> indicating whether each element in ‘titanic’ is not null.<br />
+This command returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of the same shape as ‘titanic’, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates a non-null value, and <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates a null value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;notna()&#39; method to create a boolean DataFrame indicating whether each element in &#39;titanic&#39; is not null.</span>
-<span class="c1"># This command returns a DataFrame of the same shape as &#39;titanic&#39;,</span>
-<span class="c1"># where True indicates a non-null value (i.e., not NaN), and False indicates a null value.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1406,12 +1397,11 @@ memory usage: 83.7+ KB
 <p>891 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> method followed by <code class="docutils literal notranslate"><span class="pre">sum()</span></code> to count the non-null values in each column of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This command calculates the sum of <code class="docutils literal notranslate"><span class="pre">True</span></code> values (non-null) along each column axis, providing a count of non-null values for each column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;notna()&#39; method followed by &#39;sum()&#39; to count the non-null values in each column of the &#39;titanic&#39; DataFrame.</span>
-<span class="c1"># This command calculates the sum of True values (non-null) along each column axis, providing a count of non-null values for each column.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1433,16 +1423,12 @@ dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">
-<h2>The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value<a class="headerlink" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values <em><strong>are</strong></em> a null value (i.e., <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">isna()</span></code> method to create a boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> indicating whether each element in ‘titanic’ is null.<br />
+This command returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of the same shape as ‘titanic’, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates a null value, and <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates a non-null value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;isna()&#39; method to create a boolean DataFrame indicating whether each element in &#39;titanic&#39; is null.</span>
-<span class="c1"># This command returns a DataFrame of the same shape as &#39;titanic&#39;, where True indicates a null value,</span>
-<span class="c1"># and False indicates a non-null value.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1650,12 +1636,11 @@ dtype: int64
 <p>891 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">isna()</span></code> method followed by <code class="docutils literal notranslate"><span class="pre">sum()</span></code> to count the null values in each column of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This command calculates the sum of <code class="docutils literal notranslate"><span class="pre">True</span></code> values (null) along each column axis, providing a count of null values for each column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;isna()&#39; method followed by &#39;sum()&#39; to count the null values in each column of the &#39;titanic&#39; DataFrame.</span>
-<span class="c1"># This command calculates the sum of True values (null) along each column axis, providing a count of null values for each column.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1677,12 +1662,14 @@ dtype: int64
 </div>
 </div>
 </div>
+</section>
+<section id="filtering-on-column-value">
+<h2>Filtering on column value<a class="headerlink" href="#filtering-on-column-value" title="Link to this heading">#</a></h2>
+<p>We can filter a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to select rows where a specific column contains a specific value.</p>
+<p>This command returns a subset of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing only the rows where the ‘PassengerId’ column has the value of 666:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter the &#39;titanic&#39; DataFrame to select rows where the &#39;PassengerId&#39; column equals 666.</span>
-<span class="c1"># This command returns a subset of the DataFrame containing only the rows where the &#39;PassengerId&#39; column has a value of 666.</span>
-
-<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">666</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">666</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1745,32 +1732,32 @@ dtype: int64
 <ul class="simple">
 <li><p>Extract the two passengers whose point of departure (‘Embarked’) is unknown (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p></li>
 </ul>
-<details>
-  <summary>Click to reveal solution</summary>
-  <br/>
-<p><code class="docutils literal notranslate"><span class="pre">titanic[titanic['Embarked'].isna()]</span></code></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic[titanic[&#39;Embarked&#39;].isna()]
+</pre></div>
+</div>
 <p>This solution uses boolean indexing to filter the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’, extracting only the rows where the ‘Embarked’ column contains missing values (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
 This approach allows us to identify the passengers whose point of departure is unknown.</p>
-</details></section>
+</div>
+</section>
 <section id="converting-a-dataframe-to-an-excel-file">
 <h2>Converting a DataFrame to an Excel file<a class="headerlink" href="#converting-a-dataframe-to-an-excel-file" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">to_excel()</span></code> method is used to save the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to an Excel file.</p>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">index=False</span></code> specifies that we do not want to include the row index in the Excel file.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the DataFrame &#39;titanic&#39; to an Excel file named &#39;titanic.xlsx&#39;.</span>
-<span class="c1"># The &#39;to_excel()&#39; method is used to save the DataFrame to an Excel file.</span>
-<span class="c1"># The parameter &#39;index=False&#39; specifies that we do not want to include the row index in the Excel file.</span>
 
 <span class="n">titanic</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>We can read data from an Excel file into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using the <code class="docutils literal notranslate"><span class="pre">read_excel()</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read data from an Excel file named &#39;titanic.xlsx&#39; into a DataFrame using the &#39;read_excel()&#39; function from pandas.</span>
-<span class="c1"># Note, that we are only reading the data, not storing it in a variable.</span>
-
-<span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1978,6 +1965,11 @@ This approach allows us to identify the passengers whose point of departure is u
 <p>891 rows × 12 columns</p>
 </div></div></div>
 </div>
+<p>Note, that we are only reading the data, not storing it in a variable.<br />
+To do so, we could write:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_df = pd.read_excel(&#39;titanic.xlsx&#39;)
+</pre></div>
+</div>
 </section>
 <section id="remember">
 <h2>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h2>
@@ -2056,12 +2048,9 @@ This approach allows us to identify the passengers whose point of departure is u
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finding-our-current-working-directory">Finding our current working directory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notna-conditional-function-returns-a-true-for-each-row-where-the-values-are-not-a-null-value">The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-isna-conditional-function-returns-a-true-for-each-row-where-the-values-are-a-null-value">The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notna-isna-and-boolean-dataframes"><code class="docutils literal notranslate"><span class="pre">notna()</span></code>, <code class="docutils literal notranslate"><span class="pre">isna()</span></code> and boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise:</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-a-dataframe-to-an-excel-file">Converting a DataFrame to an Excel file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
