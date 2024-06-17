@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/02_Pandas_tabular_data';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Creating a DataFrame from a csv file" href="03_Pandas_subsets.html" />
+    <link rel="next" title="Selecting subsets from a DataFrame" href="03_Pandas_subsets.html" />
     <link rel="prev" title="Introduction to the Pandas DataFrame" href="01_pandas_dataframe.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,17 +190,9 @@
 <li class="toctree-l1"><a class="reference internal" href="00_pandas_start.html">Getting started with Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">How to read and write tabular data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
-
-
-
-
 </ul>
 
     </div>
@@ -904,7 +896,7 @@ This allows us to inspect the end of the dataset, showing the last rows of data.
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<h3 class="rubric" id="note-on-head-and-tail">Note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></h3>
+<h3 class="rubric" id="a-note-on-head-and-tail">A note on <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code></h3>
 <p>By default, Pandas limits the display of rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 60 rows.</p>
 <p>Calling a number higher than 60 will display the first five rows followed by an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>), indicating that rows are being skipped, and then display the last five rows of the selection.</p>
 <p>To display all rows without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_rows</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:</p>
@@ -1820,7 +1812,7 @@ To do so, we could write:</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</p>
+        <p class="prev-next-title">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
