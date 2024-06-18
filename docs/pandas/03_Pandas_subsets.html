@@ -184,6 +184,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../mymarkdownfile.html">Here’s my sample title</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admonition_boxes.html">Admonition Boxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../101/01_data_types.html">Data Types</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="current nav bd-sidenav">
@@ -191,7 +196,6 @@
 <li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
 </ul>
 
@@ -388,7 +392,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns-from-a-dataframe">Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
@@ -398,11 +401,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-rows-and-columns-from-a-dataframe">Selecting specific rows and columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -1891,9 +1891,8 @@ memory usage: 83.7+ KB
 <p>We have attached a separate notebook that introduces <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, two properties of pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects that provide methods for indexing.</p>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="remember">
-<h1>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h1>
+<section id="remember">
+<h2>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>When selecting subsets of data, square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> are used.</p></li>
 <li><p>Inside these square brackets, you can use</p>
@@ -1905,6 +1904,7 @@ memory usage: 83.7+ KB
 </ul>
 </li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1971,7 +1971,6 @@ memory usage: 83.7+ KB
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a csv file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns-from-a-dataframe">Selecting specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
@@ -1981,11 +1980,8 @@ memory usage: 83.7+ KB
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-rows-and-columns-from-a-dataframe">Selecting specific rows and columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
 </ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
-</ul>
-
   </nav></div>
 
 </div></div>

@@ -1,0 +1,1072 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Types &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/01_data_types';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Getting started with Pandas" href="../pandas/00_pandas_start.html" />
+    <link rel="prev" title="Admonition Boxes" href="../admonition_boxes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to your Jupyter Book
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Still testing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Help and documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mymarkdownfile.html">Here’s my sample title</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admonition_boxes.html">Admonition Boxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Types</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/03_Pandas_subsets.html">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/101/01_data_types.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/101/01_data_types.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Types</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-types">Check Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice">Slice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-floats">Integers &amp; Floats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-operations">Mathematical operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents">Exponents</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus">Modulus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more-mathemathical-operators">More mathemathical operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-boolean-operations">Table of Boolean operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">Comparisons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-comparison-operations">Table of comparison operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-types">
+<h1>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions</p>
+<ul class="simple">
+<li><p>What kind of data types exist in Python?</p></li>
+<li><p>What are the key differences between the data types?</p></li>
+</ul>
+<p>Objectives</p>
+<ul class="simple">
+<li><p>Understand the essential data types in Python</p></li>
+<li><p>Explain what a string is, and what you can do with it</p></li>
+<li><p>Explain the differences between integers and floats</p></li>
+<li><p>Explain what a boolean is, and how to use comparisons</p></li>
+</ul>
+</div>
+<p>There are four essential kinds of Python data with different powers and capabilities:</p>
+<ul class="simple">
+<li><p><strong>Strings</strong> (Text)</p></li>
+<li><p><strong>Integers</strong> (Whole Numbers)</p></li>
+<li><p><strong>Floats</strong> (Decimal Numbers)</p></li>
+<li><p><strong>Booleans</strong> (True/False)</p></li>
+</ul>
+<p>Take a look at the two examples below.
+What differences do you notice?</p>
+<div class="highlight-code notranslate"><div class="highlight"><pre><span></span>&#39;Here is a some text&#39;
+</pre></div>
+</div>
+<div class="highlight-code notranslate"><div class="highlight"><pre><span></span>42
+</pre></div>
+</div>
+<p>You might be wondering…</p>
+<p>Why is ‘Here is some text’ surrounded by quotation marks while 42 is not?</p>
+<p>Because these are two different “types” of Python data. We will look closer at the different types below.</p>
+<table class="colwidths-auto table" style="border:1px solid black">
+<thead>
+<tr class="row-odd">
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Explanation</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even">
+<td><p>String</p></td>
+<td><p>Text</p></td>
+<td><p>'Anything goes 4 strings!'</p></td>
+</tr>
+<tr class="row-odd">
+<td><p>Integer</p></td>
+<td><p>Whole Numbers</p></td>
+<td><p>42</p></td>
+</tr>
+<tr class="row-even">
+<td><p>Float</p></td>
+<td><p>Decimal Numbers</p></td>
+<td><p>3.1415926</p></td>
+</tr>
+<tr class="row-odd">
+<td><p>Boolean</p></td>
+<td><p>True/False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table><p>Note, that many Python editors and environments (such as Juptyter Lab etc.) will colour the output based on data type. E.g. in Jupyter Lab strings will be in red and integers in green like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Here is a some text&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>
+</pre></div>
+</div>
+<section id="check-data-types">
+<h2>Check Data Types<a class="headerlink" href="#check-data-types" title="Link to this heading">#</a></h2>
+<p>You can check the data type of any value by using the function <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Here is some text&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output <code class="docutils literal notranslate"><span class="pre">str</span></code> is short for string.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<p>The output <code class="docutils literal notranslate"><span class="pre">int</span></code> is short for integer.</p>
+</section>
+<section id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
+<p>A <em>string</em> is a Python data type that is treated like text, even if it contains a number. Strings are always enclosed by either single quotation marks <code class="docutils literal notranslate"><span class="pre">'this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string'</span></code> or double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;this</span> <span class="pre">is</span> <span class="pre">also</span> <span class="pre">a</span> <span class="pre">string&quot;</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;this is a string&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;this is also a string, even though it contains a number like 42&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">this</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">string</span>
+</pre></div>
+</div>
+<p>It doesn’t matter whether you use single or double quotation marks with strings, as long as you use the same kind on either side of the string.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>How can you have quotation marks inside a string?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Escape characters</p>
+<p>Escape characters and how to tell Python to igonre special meanings. This can be handy if you need to make quotation marks inside a string. This can be done in two ways.</p>
+<p>Use the opposite kind of quotation mark inside the string:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;She exclaimed, &#39;This is a quotation inside a string!&#39;&quot;
+</pre></div>
+</div>
+<p>Or “escape” the quotation mark by using a backslash <code class="docutils literal notranslate"><span class="pre">\</span></code> before it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;She exclaimed, \&quot;This is also a quotation inside a string!\&quot;&quot;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="string-methods">
+<h2>String Methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h2>
+<p>Each data type has different properties and capabilities. So there are special things that only strings can do, and there are special ways of interacting with strings.</p>
+<p>For example, you can <strong>index</strong> and <strong>slice</strong> strings, you can <strong>append</strong> strings together.<br />
+Here are a few examples:</p>
+<section id="index">
+<h3>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h3>
+<p>Often in programming languages, individual items in an ordered set of data, can be accessed directly using a numeric index or key value. This process is referred to as indexing.</p>
+<p>In Python, strings are ordered sequences of character data, and thus can be indexed in this way. Individual characters in a string can be accessed by specifying the string name followed by a number in square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
+<p>String indexing in Python is zero-based: the first character in the string has index 0, the next has index 1, and so on. The index of the last character will be the length of the string minus one. It can be illustrated like this:</p>
+<p><img alt="string index" src="../../_images/string_index.png" /></p>
+<p>The individual characters can be accessed by index:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;s&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="slice">
+<h3>Slice<a class="headerlink" href="#slice" title="Link to this heading">#</a></h3>
+<p>Python  allows a form of indexing syntax that extracts substrings from a string, known as string slicing.<br />
+If <code class="docutils literal notranslate"><span class="pre">s</span></code> is a string, an expression of the form <code class="docutils literal notranslate"><span class="pre">s[start:stop]</span></code> returns the portion of <code class="docutils literal notranslate"><span class="pre">s</span></code> starting with position <code class="docutils literal notranslate"><span class="pre">start</span></code>, and up to <em><strong>but not including</strong></em> position <code class="docutils literal notranslate"><span class="pre">stop</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am a s&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="concatenation">
+<h3>Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">+</span></code> operator concatenates strings. It returns a string consisting of the operands joined together, as shown here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span> <span class="o">+</span> <span class="s1">&#39; and so am I&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am a string and so am I&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notice that we have added a space in the beginning of the second string, otherwise there would be no space between ‘string’ and ‘and’. You can also add a space between two strings like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;and so am I&#39;</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am a string and so am I&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="integers-floats">
+<h2>Integers &amp; Floats<a class="headerlink" href="#integers-floats" title="Link to this heading">#</a></h2>
+<p>An <strong>integer</strong> and a <strong>float</strong> are two Python data types for representing numbers.</p>
+<ul class="simple">
+<li><p>Integers represent whole numbers.</p></li>
+<li><p>Floats represent numbers with decimal points.</p></li>
+</ul>
+<p>Integers and floats do not need to be placed in quotation marks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">3.1415926</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
+</pre></div>
+</div>
+</div>
+</div>
+<section id="mathematical-operations">
+<h3>Mathematical operations<a class="headerlink" href="#mathematical-operations" title="Link to this heading">#</a></h3>
+<p>You can do a large range of mathematical calculations and operations with integers and floats. Here are a few examples, for an extended overview you can fold out a table at the end of this section.</p>
+<section id="multiplication">
+<h4>Multiplication<a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h4>
+<p>You can multiply in Python using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">*</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exponents">
+<h4>Exponents<a class="headerlink" href="#exponents" title="Link to this heading">#</a></h4>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">**</span></code> as the exponent operator. An exponent is an expression of the number of times a number is muliplied by itself.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="modulus">
+<h4>Modulus<a class="headerlink" href="#modulus" title="Link to this heading">#</a></h4>
+<p>The modulus or remainder operator looks like this: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code>.
+However, it does not work as a percentage although it might look like one. Instead it divides a with b and the remainder is returned.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">72</span> <span class="o">%</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-mathemathical-operators">
+<h4>More mathemathical operators<a class="headerlink" href="#more-mathemathical-operators" title="Link to this heading">#</a></h4>
+<p>These are just a few of the mathmathical operations in Python - see the table below from Python’s documentation about <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Built-in Types</a>.</p>
+<details>
+<summary style="display:list-item"><i><b>Click here to see more mathmathical operators</b></i><br><br></summary>
+<table class="colwidths-auto table" style="border:1px solid black">
+<thead>
+<tr class="row-odd">
+<th class="head"><p>Operation</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">x + y</span></code></p></td>
+<td><p>sum of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">x - y</span></code></p></td>
+<td><p>difference of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">x * y</span></code></p></td>
+<td><p>product of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">x / y</span></code></p></td>
+<td><p>quotient of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">x // y</span></code></p></td>
+<td><p>floored quotient of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">x % y</span></code></p></td>
+<td><p>remainder of <code class="docutils literal notranslate"><span class="pre">x</span></code> / <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> negated</p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">+x</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> unchanged</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></td>
+<td><p>absolute value or magnitude of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">int(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> converted to integer</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> converted to floating point</p></td>
+</tr>
+<tr class="row-even">
+<td><p><code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> to the power <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code class="docutils literal notranslate"><span class="pre">x ** y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> to the power <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</details></section>
+</section>
+</section>
+<section id="booleans">
+<h2>Booleans<a class="headerlink" href="#booleans" title="Link to this heading">#</a></h2>
+<p>Booleans are “truth” values. They report on whether things in your Python universe are <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. There are the only two options for a boolean: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The boolean operators are <strong>or</strong>, <strong>and</strong>, and <strong>not</strong>. They are used to check if certain conditions are met before the program continues running. This is extremely helpful and even if it seems a bit confusing right now, it will make sense later. Here are a few examples of using boolean logic.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span> <span class="o">&lt;</span> <span class="mi">17</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example above we state that 13 is less than 17 - which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> because 13 is less than 17.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;hello&quot;</span> <span class="o">==</span> <span class="s2">&quot;hi&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the example above we state that ‘hello’ is equal to ‘hi’, which in the computers understanding it is not. Therefore, we get <code class="docutils literal notranslate"><span class="pre">False</span></code> as the output.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">666</span> <span class="o">==</span> <span class="mi">777</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>In this example above we state that 666 is equal to 777, which it is not. Therefore, we get <code class="docutils literal notranslate"><span class="pre">False</span></code> as the output.</p>
+<section id="table-of-boolean-operations">
+<h3>Table of Boolean operations<a class="headerlink" href="#table-of-boolean-operations" title="Link to this heading">#</a></h3>
+<table class="colwidths-auto table" style="border:1px solid black">
+<thead>
+<tr class="row-odd">
+<th class="head"><p>Operation</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even">
+<td><p><code>x or y</code></p></td>
+<td><p>if either x or y is true, then <code>True</code>, else <code>False</code></p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code>x and y</code></p></td>
+<td><p>if both x and y is true, then <code>True</code>, else <code>False</code></p></td>
+</tr>
+<tr class="row-even">
+<td><p><code>not x</code></p></td>
+<td><p>if x is false, then <code>True</code>, else <code>False</code></p></td>
+</tr>
+</tbody>
+</table></section>
+</section>
+<section id="comparisons">
+<h2>Comparisons<a class="headerlink" href="#comparisons" title="Link to this heading">#</a></h2>
+<p>You can compare values in Python using different comparison operations. Comparisons are used to compare different values and objects in Python, which we will learn much more about later. For now take a look at the comparisions and their meaning in the table underneath.</p>
+<section id="table-of-comparison-operations">
+<h3>Table of comparison operations<a class="headerlink" href="#table-of-comparison-operations" title="Link to this heading">#</a></h3>
+<table class="colwidths-auto table" style="border:1px solid black">
+<thead>
+<tr class="row-odd">
+<th class="head"><p>Comparison operation</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even">
+<td><p><code>x < y</code></p></td>
+<td><p><code>True</code> if x is less than y </p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code>x <= y</code></p></td>
+<td><p><code>True</code> if x is less than or equal to y</p></td>
+</tr>
+<tr class="row-even">
+<td><p><code>x > y</code></p></td>
+<td><p><code>True</code> if x is greater than y</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code>x >= y</code></p></td>
+<td><p><code>True</code> if x is greater than or equal to y</p></td>
+</tr>
+<tr class="row-even">
+<td><p><code>x == y</code></p></td>
+<td><p><code>True</code> if x is equal to y</p></td>
+</tr>
+<tr class="row-odd">
+<td><p><code>!=</code></p></td>
+<td><p><code>True</code> if x is not equal to y</p></td>
+</tr>
+</tbody>
+</table><div class="admonition-single-equals-sign-code-code-and-a-double-equals-sign-code-code admonition">
+<p class="admonition-title">Single equals sign <code>=</code> and a double equals sign <code>==</code></p>
+<ul class="simple">
+<li><p>A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is used as the equals operator.</p></li>
+<li><p>A single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is used for variable assignment. (We will learn more about this in the lesson about variables.)</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="key-points">
+<h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>There are 4 data types in Python: <strong>Integers</strong>, <strong>floats</strong>, <strong>strings</strong>, and <strong>booleans</strong></p></li>
+<li><p>You can use the built-in function <code class="docutils literal notranslate"><span class="pre">type()</span></code> to find the type of a value</p></li>
+<li><p>Strings are text, they can be added to one another, you can slice them to get a substring, and use the index to acess the individual character</p></li>
+<li><p>Integers are whole numbers. You can use mathemethical operations on them</p></li>
+<li><p>Floats are decimal numbers. You can use mathemathical opreations on them</p></li>
+<li><p>Booleans are either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
+<li><p>A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is used as the equals operator, a single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is used for variable assignment</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/101"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../admonition_boxes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Admonition Boxes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../pandas/00_pandas_start.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting started with Pandas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-types">Check Data Types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice">Slice</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-floats">Integers &amp; Floats</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-operations">Mathematical operations</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents">Exponents</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus">Modulus</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more-mathemathical-operators">More mathemathical operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-boolean-operations">Table of Boolean operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">Comparisons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-comparison-operations">Table of comparison operations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> <img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

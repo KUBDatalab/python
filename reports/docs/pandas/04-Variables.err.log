@@ -67,9 +67,9 @@ most_frequent_meaningful_words
 ----- stderr -----
 <>:10: SyntaxWarning: invalid escape sequence '\W'
 <>:10: SyntaxWarning: invalid escape sequence '\W'
-/tmp/ipykernel_1987/1664984018.py:10: SyntaxWarning: invalid escape sequence '\W'
+/tmp/ipykernel_2000/1664984018.py:10: SyntaxWarning: invalid escape sequence '\W'
   split_words = re.split("\W+", lowercase_text)
-/tmp/ipykernel_1987/1664984018.py:10: SyntaxWarning: invalid escape sequence '\W'
+/tmp/ipykernel_2000/1664984018.py:10: SyntaxWarning: invalid escape sequence '\W'
   split_words = re.split("\W+", lowercase_text)
 ------------------
 
