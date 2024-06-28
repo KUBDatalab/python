@@ -434,6 +434,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="variables-and-assignment">
 <h1>Variables and assignment<a class="headerlink" href="#variables-and-assignment" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions</p>
@@ -452,7 +453,7 @@ document.write(`
 <p>Variables are one of the fundamental building blocks of Python. A variable is like a tiny container where you store values and data, such as filenames, words, numbers, collections of words and numbers, and more.</p>
 <p>The variable <em>name</em> will point to a value that you “assign” it. You might think about variable assignment like putting a value “into” the variable, as if the variable is a little box 🎁</p>
 <p>(In fact, a variable is not a container as such but more like an adress label that points to a container with a given value. This difference will become relevant once we start talking about <em>lists</em> and <em>mutable</em> data types.)</p>
-<p>You assign variables with an equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code>. In Python, a single equals sign = is the “assignment operator.” (A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is the “real” equals sign.)</p>
+<p>You assign variables with an equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code>. In Python, a single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is the “assignment operator.” (A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is the “real” equals sign.)</p>
 <ul class="simple">
 <li><p>Variables are names for values.</p></li>
 <li><p>In Python the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol assigns the value on the right to the name on the left.</p></li>
@@ -574,7 +575,7 @@ And wraps around to a new line at the end.</p>
 </div>
 </div>
 </div>
-<p>The last line of an error message is usually the most informative. This message lets us know that there is no variable called eye_color in the script.</p>
+<p>The last line of an error message is usually the most informative. This message lets us know that there is no variable called <code class="docutils literal notranslate"><span class="pre">eye_color</span></code> in the script.</p>
 <div class="warning admonition">
 <p class="admonition-title">Variables Persist Between Cells</p>
 <p>Variables defined in one cell exist in all other cells once executed, so the relative location of cells in the notebook do not matter (i.e., cells lower down can still affect those above).</p>
@@ -721,6 +722,23 @@ y = swap  #  x-&gt;3.0 y-&gt;1.0 swap-&gt;1.0
 </pre></div>
 </div>
 </div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span>  <span class="c1"># Initial is assigned the string &quot;left&quot;</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">initial</span>  <span class="c1"># Position is assigned the variable initial, currently &quot;left&quot;</span>
+<span class="n">initial</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span>  <span class="c1"># Initial is assigned the string &quot;right&quot;</span>
+
+<span class="c1"># The last assignment to position is “left”</span>
+</pre></div>
+</div>
+</div>
+</details>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
