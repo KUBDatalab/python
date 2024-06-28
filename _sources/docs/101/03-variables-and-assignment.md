@@ -38,7 +38,7 @@ The variable *name* will point to a value that you “assign” it. You might th
 
 (In fact, a variable is not a container as such but more like an adress label that points to a container with a given value. This difference will become relevant once we start talking about *lists* and *mutable* data types.)
 
-You assign variables with an equals sign (`=`). In Python, a single equals sign = is the “assignment operator.” (A double equals sign `==` is the “real” equals sign.)
+You assign variables with an equals sign `=`. In Python, a single equals sign = is the “assignment operator.” (A double equals sign `==` is the “real” equals sign.)
 
 *   Variables are names for values.
 *   In Python the `=` symbol assigns the value on the right to the name on the left.
@@ -93,6 +93,7 @@ print(ewr_422_yY, 'is', flabadab, 'years old')
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 Use meaningful variable names to help other people understand what the program does.
+
 **The most important "other person" is your future self!**
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
@@ -106,7 +107,9 @@ There are conventions for using upper-case letters at the start of variable name
 
 ### Off-Limits Names
 
-The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as `print`, `True`, and `list`.  Some of these you can overwrite into variable names (not ideal!), but Jupyter Lab (and many other environments and editors) will catch this by colour coding your variable.  If your would-be variable is colour-coded green, rethink your name choice.  This is not something to worry too much about. You can get the object back by resetting your kernel.
+The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as `print`, `True`, and `list`.  
+
+Some of these you can overwrite into variable names (not ideal!), but Jupyter Lab (and many other environments and editors) will catch this by colour coding your variable.  If your would-be variable is colour-coded green, rethink your name choice.  This is not something to worry too much about. You can get the object back by resetting your kernel.
 
 ---
 
@@ -130,7 +133,7 @@ Python has a built-in function called `print()` that prints things as text.
 Provide values to the function (i.e., the things to print) in parentheses.
 To add a string to the printout, wrap the string in single or double quotations.
 The values passed to the function are called ‘arguments’ and are separated by commas.
-When using the `print()` function, we can also separate with a `+` sign. However, when using `+`we have to add spaces in between manually.
+When using the `print()` function, we can also separate with a `+` sign. However, when using `+` we have to add spaces in between manually.
 
 ```{code-cell} ipython3
 print(first_name, 'is', age, 'years old')
@@ -229,7 +232,9 @@ print(color[0])
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-A part of a string is called a substring. A substring can be as short as a single character. A slice is a part of a string (or, more generally, any list-like thing). We take a slice by using `[start:stop]`, where start is replaced with the index of the first element we want and stop is replaced with the index of the element just after the last element we want. Mathematically, you might say that a slice selects `[start:stop]`. The difference between stop and start is the slice’s length. Taking a slice does not change the contents of the original string. Instead, the slice is a copy of part of the original string.
+A part of a string is called a substring. A substring can be as short as a single character. A slice is a part of a string (or, more generally, any list-like thing). We take a slice by using `[start:stop]`, where start is replaced with the index of the first element we want and stop is replaced with the index of the element just after the last element we want.
+
+Mathematically, you might say that a slice selects `[start:stop]`. The difference between stop and start is the slice’s length. Taking a slice does not change the contents of the original string. Instead, the slice is a copy of part of the original string.
 
 ```{code-cell} ipython3
 ---

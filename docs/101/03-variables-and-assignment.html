@@ -452,7 +452,7 @@ document.write(`
 <p>Variables are one of the fundamental building blocks of Python. A variable is like a tiny container where you store values and data, such as filenames, words, numbers, collections of words and numbers, and more.</p>
 <p>The variable <em>name</em> will point to a value that you “assign” it. You might think about variable assignment like putting a value “into” the variable, as if the variable is a little box 🎁</p>
 <p>(In fact, a variable is not a container as such but more like an adress label that points to a container with a given value. This difference will become relevant once we start talking about <em>lists</em> and <em>mutable</em> data types.)</p>
-<p>You assign variables with an equals sign (<code class="docutils literal notranslate"><span class="pre">=</span></code>). In Python, a single equals sign = is the “assignment operator.” (A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is the “real” equals sign.)</p>
+<p>You assign variables with an equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code>. In Python, a single equals sign = is the “assignment operator.” (A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is the “real” equals sign.)</p>
 <ul class="simple">
 <li><p>Variables are names for values.</p></li>
 <li><p>In Python the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol assigns the value on the right to the name on the left.</p></li>
@@ -503,8 +503,8 @@ As you start to code, you will almost certainly be tempted to use extremely shor
 </div>
 </div>
 </div>
-<p>Use meaningful variable names to help other people understand what the program does.
-<strong>The most important “other person” is your future self!</strong></p>
+<p>Use meaningful variable names to help other people understand what the program does.</p>
+<p><strong>The most important “other person” is your future self!</strong></p>
 </section>
 <section id="python-is-case-sensitive">
 <h3>Python is case-sensitive<a class="headerlink" href="#python-is-case-sensitive" title="Link to this heading">#</a></h3>
@@ -513,7 +513,8 @@ There are conventions for using upper-case letters at the start of variable name
 </section>
 <section id="off-limits-names">
 <h3>Off-Limits Names<a class="headerlink" href="#off-limits-names" title="Link to this heading">#</a></h3>
-<p>The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">list</span></code>.  Some of these you can overwrite into variable names (not ideal!), but Jupyter Lab (and many other environments and editors) will catch this by colour coding your variable.  If your would-be variable is colour-coded green, rethink your name choice.  This is not something to worry too much about. You can get the object back by resetting your kernel.</p>
+<p>The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
+<p>Some of these you can overwrite into variable names (not ideal!), but Jupyter Lab (and many other environments and editors) will catch this by colour coding your variable.  If your would-be variable is colour-coded green, rethink your name choice.  This is not something to worry too much about. You can get the object back by resetting your kernel.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -538,7 +539,7 @@ There are conventions for using upper-case letters at the start of variable name
 Provide values to the function (i.e., the things to print) in parentheses.
 To add a string to the printout, wrap the string in single or double quotations.
 The values passed to the function are called ‘arguments’ and are separated by commas.
-When using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, we can also separate with a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign. However, when using <code class="docutils literal notranslate"><span class="pre">+</span></code>we have to add spaces in between manually.</p>
+When using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, we can also separate with a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign. However, when using <code class="docutils literal notranslate"><span class="pre">+</span></code> we have to add spaces in between manually.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;years old&#39;</span><span class="p">)</span>
@@ -631,7 +632,8 @@ Use the position’s index in square brackets to get the character at that posit
 </div>
 <section id="use-a-slice-to-get-a-substring">
 <h3>Use a slice to get a substring<a class="headerlink" href="#use-a-slice-to-get-a-substring" title="Link to this heading">#</a></h3>
-<p>A part of a string is called a substring. A substring can be as short as a single character. A slice is a part of a string (or, more generally, any list-like thing). We take a slice by using <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>, where start is replaced with the index of the first element we want and stop is replaced with the index of the element just after the last element we want. Mathematically, you might say that a slice selects <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>. The difference between stop and start is the slice’s length. Taking a slice does not change the contents of the original string. Instead, the slice is a copy of part of the original string.</p>
+<p>A part of a string is called a substring. A substring can be as short as a single character. A slice is a part of a string (or, more generally, any list-like thing). We take a slice by using <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>, where start is replaced with the index of the first element we want and stop is replaced with the index of the element just after the last element we want.</p>
+<p>Mathematically, you might say that a slice selects <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>. The difference between stop and start is the slice’s length. Taking a slice does not change the contents of the original string. Instead, the slice is a copy of part of the original string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
