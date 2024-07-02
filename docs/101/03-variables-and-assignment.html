@@ -395,17 +395,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-variables-to-store-values">Use variables to store values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable names</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-is-case-sensitive">Python is case-sensitive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-variables-to-store-values">Use variables to store values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable names</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-is-case-sensitive">Python is case-sensitive</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits Names</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-slicing-and-the-lenght-of-variables">Index, slicing and the lenght of variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
@@ -458,7 +458,7 @@ document.write(`
 <li><p>Variables are names for values.</p></li>
 <li><p>In Python the <code class="docutils literal notranslate"><span class="pre">=</span></code> symbol assigns the value on the right to the name on the left.</p></li>
 <li><p>The variable is created when a value is assigned to it.</p></li>
-<li><p>Here, Python assigns an age to a variable <code class="docutils literal notranslate"><span class="pre">age</span></code>
+<li><p>Here, we are assigning an age to a variable <code class="docutils literal notranslate"><span class="pre">age</span></code>
 and a name in quotation marks to a variable <code class="docutils literal notranslate"><span class="pre">first_name</span></code>:</p></li>
 </ul>
 <div class="cell docutils container">
@@ -469,9 +469,8 @@ and a name in quotation marks to a variable <code class="docutils literal notran
 </div>
 </div>
 </div>
-</section>
 <section id="variable-names">
-<h2>Variable names<a class="headerlink" href="#variable-names" title="Link to this heading">#</a></h2>
+<h3>Variable names<a class="headerlink" href="#variable-names" title="Link to this heading">#</a></h3>
 <p>Variable names can be as long or as short as you want, but there are certain rules you must follow.</p>
 <p>Variables:</p>
 <ul class="simple">
@@ -486,10 +485,11 @@ For example <code class="docutils literal notranslate"><span class="pre">my_firs
 You can read more about naming conventions in Python <a class="reference external" href="https://peps.python.org/pep-0008/#naming-conventions">here</a>.</p></li>
 </ul>
 <section id="use-meaningful-variable-names">
-<h3>Use meaningful variable names<a class="headerlink" href="#use-meaningful-variable-names" title="Link to this heading">#</a></h3>
+<h4>Use meaningful variable names<a class="headerlink" href="#use-meaningful-variable-names" title="Link to this heading">#</a></h4>
 <p>Python doesn’t care what you call variables as long as they obey the rules (alphanumeric characters and the underscore).<br />
 As you start to code, you will almost certainly be tempted to use extremely short variables names like <code class="docutils literal notranslate"><span class="pre">f</span></code>. Your fingers will get tired. Your coffee will wear off. You will see other people using variables like <code class="docutils literal notranslate"><span class="pre">f</span></code>. You’ll promise yourself that you’ll definitely remember what <code class="docutils literal notranslate"><span class="pre">f</span></code> means. But you probably won’t.</p>
-<p>So, resist the temptation of bad variable names! Clear and precisely-named variables will:</p>
+<p>So, resist the temptation of bad variable names!</p>
+<p>Clear and precisely-named variables will:</p>
 <ul class="simple">
 <li><p>Make your code more readable (both to yourself and others).</p></li>
 <li><p>Reinforce your understanding of Python and what’s happening in the code.</p></li>
@@ -508,14 +508,15 @@ As you start to code, you will almost certainly be tempted to use extremely shor
 <p><strong>The most important “other person” is your future self!</strong></p>
 </section>
 <section id="python-is-case-sensitive">
-<h3>Python is case-sensitive<a class="headerlink" href="#python-is-case-sensitive" title="Link to this heading">#</a></h3>
+<h4>Python is case-sensitive<a class="headerlink" href="#python-is-case-sensitive" title="Link to this heading">#</a></h4>
 <p>Python thinks that upper- and lower-case letters are different, so <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> are different variables.
 There are conventions for using upper-case letters at the start of variable names so we will use lower-case letters for now.</p>
 </section>
 <section id="off-limits-names">
-<h3>Off-Limits Names<a class="headerlink" href="#off-limits-names" title="Link to this heading">#</a></h3>
+<h4>Off-Limits Names<a class="headerlink" href="#off-limits-names" title="Link to this heading">#</a></h4>
 <p>The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <p>Some of these you can overwrite into variable names (not ideal!), but Jupyter Lab (and many other environments and editors) will catch this by colour coding your variable.  If your would-be variable is colour-coded green, rethink your name choice.  This is not something to worry too much about. You can get the object back by resetting your kernel.</p>
+</section>
 </section>
 </section>
 <hr class="docutils" />
@@ -555,8 +556,9 @@ When using the <code class="docutils literal notranslate"><span class="pre">prin
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">print()</span></code> automatically puts a single space between items to separate them.
 And wraps around to a new line at the end.</p>
+</section>
 <section id="variables-must-be-created-before-they-are-used">
-<h3>Variables must be created before they are used<a class="headerlink" href="#variables-must-be-created-before-they-are-used" title="Link to this heading">#</a></h3>
+<h2>Variables must be created before they are used<a class="headerlink" href="#variables-must-be-created-before-they-are-used" title="Link to this heading">#</a></h2>
 <p>If a variable doesn’t exist yet, or if the name has been misspelled, Python reports an error (unlike some languages, which “guess” a default value).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -588,7 +590,6 @@ And wraps around to a new line at the end.</p>
 As far as Python is concerned, all of the source code is one long set of instructions.</p></li>
 </ul>
 </div>
-</section>
 </section>
 <hr class="docutils" />
 <section id="variables-can-be-used-in-calculations">
@@ -672,14 +673,32 @@ Use the position’s index in square brackets to get the character at that posit
 <hr class="docutils" />
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>In the following you will find a series of exercises - try to solve them on your own before looking at the solution.</p>
+<p>In the following you will find a series of exercises - try to solve them on your own before looking at the solution. You can either find the solution by clicking the blue solution button or sometimes by clicking “Show code cell output”. Have fun!</p>
 <section id="exercise-1-choosing-a-name">
 <h3>Exercise 1: Choosing a Name<a class="headerlink" href="#exercise-1-choosing-a-name" title="Link to this heading">#</a></h3>
-<p>Which is a better variable name, m, min, or minutes? Why?
-Hint: think about which code you would rather inherit from someone who is leaving the library:</p>
-<p>ts = m * 60 + s</p>
-<p>tot_sec = min * 60 + sec</p>
-<p>total_seconds = minutes * 60 + seconds</p>
+<p>Which is a better variable name, m, min, or minutes? Why?</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">s</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tot_sec</span> <span class="o">=</span> <span class="nb">min</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">sec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_seconds</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">seconds</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Hint: think about which code you would rather inherit from someone who is leaving the library.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>minutes is better because <code class="docutils literal notranslate"><span class="pre">min</span></code> might mean something like “minimum” (and actually does in Python, but we haven’t seen that yet).</p>
@@ -723,23 +742,6 @@ y = swap  #  x-&gt;3.0 y-&gt;1.0 swap-&gt;1.0
 </div>
 </div>
 </div>
-<div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span>  <span class="c1"># Initial is assigned the string &quot;left&quot;</span>
-<span class="n">position</span> <span class="o">=</span> <span class="n">initial</span>  <span class="c1"># Position is assigned the variable initial, currently &quot;left&quot;</span>
-<span class="n">initial</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span>  <span class="c1"># Initial is assigned the string &quot;right&quot;</span>
-
-<span class="c1"># The last assignment to position is “left”</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <div class="highlight-code notranslate"><div class="highlight"><pre><span></span>initial = &quot;left&quot;  # Initial is assigned the string &quot;left&quot;
@@ -754,7 +756,7 @@ print(position)
 <hr class="docutils" />
 <section id="exercise-4-can-you-slice-integers">
 <h3>Exercise 4: Can you slice integers?<a class="headerlink" href="#exercise-4-can-you-slice-integers" title="Link to this heading">#</a></h3>
-<p>If you assign a = 123, what happens if you try to get the second digit of a?</p>
+<p>If you assign <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">123</span></code>, what happens if you try to get the second digit of <code class="docutils literal notranslate"><span class="pre">a</span></code>?</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <div class="highlight-code notranslate"><div class="highlight"><pre><span></span>a = 123
@@ -767,16 +769,28 @@ print(a[1])
 <hr class="docutils" />
 <section id="exercise-5-slicing">
 <h3>Exercise 5: Slicing<a class="headerlink" href="#exercise-5-slicing" title="Link to this heading">#</a></h3>
-<p>What does the following program print?</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
+<p>a) What does the following program print?
+Try figuring it out without clicking “Show code cell output”.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">library_name</span> <span class="o">=</span> <span class="s1">&#39;social sciences&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;library_name[1:3] is:&#39;</span><span class="p">,</span> <span class="n">library_name</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>library_name[1:3] is: oc
+</pre></div>
 </div>
-<p>If <code class="docutils literal notranslate"><span class="pre">thing</span></code> is a variable name, low is a low number, and high is a high number:</p>
+</div>
+</details>
+</div>
+<p>b) If <code class="docutils literal notranslate"><span class="pre">thing</span></code> is a variable name, <code class="docutils literal notranslate"><span class="pre">low</span></code> is a low number, and <code class="docutils literal notranslate"><span class="pre">high</span></code> is a high number:</p>
 <ol class="arabic simple">
 <li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[low:high]</span></code> do?</p></li>
 <li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[low:]</span></code> (without a value after the colon) do?</p></li>
@@ -786,9 +800,6 @@ print(a[1])
 </ol>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<div class="highlight-code notranslate"><div class="highlight"><pre><span></span>library_name[1:3] is: oc
-</pre></div>
-</div>
 <ol class="arabic simple">
 <li><p>It will slice the string, starting at the low index and ending an element before the high index</p></li>
 <li><p>It will slice the string, starting at the low index and stopping at the end of the string</p></li>
@@ -881,17 +892,17 @@ print(a[1])
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-variables-to-store-values">Use variables to store values</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable names</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-is-case-sensitive">Python is case-sensitive</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits Names</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-variables-to-store-values">Use variables to store values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable names</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-is-case-sensitive">Python is case-sensitive</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits Names</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-slicing-and-the-lenght-of-variables">Index, slicing and the lenght of variables</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
