@@ -412,6 +412,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a Type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to Numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with Different Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students">Exercise 6: Number of Students</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
@@ -811,18 +812,71 @@ third = &quot;1.1&quot;
 </ol>
 </div>
 </section>
+<hr class="docutils" />
+<section id="exercise-6-number-of-students">
+<h3>Exercise 6: Number of Students<a class="headerlink" href="#exercise-6-number-of-students" title="Link to this heading">#</a></h3>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Recap on Division Types</p>
+<p>There are three different types of division:</p>
+<ol class="arabic simple">
+<li><p>‘Normal’ division (aka floating-point division) is what most people may be
+familiar with:<br />
+5 / 2 = 2.5</p></li>
+<li><p>Floor division, which cuts out the part after the period:<br />
+5 // 2 = 2</p></li>
+<li><p>Modulo division, which only keeps the remained after division:<br />
+5 % 2 = 1</p></li>
+</ol>
+<p>In Python 3,  the <code class="docutils literal notranslate"><span class="pre">/</span></code> operator performs floating-point division, the <code class="docutils literal notranslate"><span class="pre">//</span></code> operator performs floor division, and the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator calculates the modulo division:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>print(&#39;5 / 3:&#39;, 5/3)
+print(&#39;5 // 3:&#39;, 5//3)
+print(&#39;5 % 3:&#39;, 5%3)
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>5 / 3: 1.6666666666666667
+5 // 3: 1
+5 % 3: 2
+</pre></div>
+</div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">num_students</span></code> is the number of students enrolled in a course (let say 600), and <code class="docutils literal notranslate"><span class="pre">num_per_class</span></code> is the number that can attend a single class (let say 42):</p>
+<p>Write an expression that calculates the number of classes needed to teach everyone.</p>
+<p>The output should look like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>600 students, 42 per class
+14 full classes, plus an extra class with only 12 students
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Depending on requirements it might be important to detect when the number of students per class doesn’t divide the number of students evenly.</p>
+<p>Detect it with the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) and test if the remainder that it returns is greater than 0.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>num_students = 600
+num_per_class = 42
+num_classes = num_students // num_per_class
+remainder = num_students % num_per_class
+
+print(num_students, &#39;students,&#39;, num_per_class, &#39;per class&#39;)
+print(num_classes, &#39;full classes, plus an extra class with only&#39;, remainder, &#39;students&#39;)
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>600 students, 42 per class
+14 full classes, plus an extra class with only 12 students
+</pre></div>
+</div>
+</div>
+</section>
 </section>
 <section id="keypoints">
 <h2>Keypoints<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>“Every value has a type.”</p></li>
-<li><p>“Use the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code> to find the type of a value.”</p></li>
-<li><p>“Types control what operations can be done on values.”</p></li>
-<li><p>“Strings can be added and multiplied.”</p></li>
-<li><p>“Strings have a length (but numbers don’t).”</p></li>
-<li><p>“Preventing Errors: Handling numbers and strings in Python operations.”</p></li>
-<li><p>“Integers and floats can be mixed freely in operations.”</p></li>
-<li><p>“Variables only change value when something is assigned to them.”</p></li>
+<li><p>Every value has a type.</p></li>
+<li><p>Use the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code> to find the type of a value.</p></li>
+<li><p>Types control what operations can be done on values.</p></li>
+<li><p>Strings can be added and multiplied.</p></li>
+<li><p>Strings have a length (but numbers don’t).</p></li>
+<li><p>Preventing Errors: Handling numbers and strings in Python operations.</p></li>
+<li><p>Integers and floats can be mixed freely in operations.</p></li>
+<li><p>Variables only change value when something is assigned to them.</p></li>
 </ul>
 </section>
 </section>
@@ -907,6 +961,7 @@ third = &quot;1.1&quot;
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a Type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to Numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with Different Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students">Exercise 6: Number of Students</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
