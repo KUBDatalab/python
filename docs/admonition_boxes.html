@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -192,6 +192,7 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="101/01_data_types.html">Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="101/03-variables-and-assignment.html">Variables and assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="101/03_type_conversion.html">Data Types and Type Conversion</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
@@ -400,6 +401,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#her-folger-forst-markdown-kode-til-admonition-boxes-derefter-den-renderede-version">Her følger først markdown-kode til admonition boxes, derefter den renderede version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alt-herunder-er-tests-fra-ting-fundet-andetsteds">Alt herunder er tests fra ting fundet andetsteds</a></li>
 </ul>
             </nav>
         </div>
@@ -564,6 +566,68 @@ An example of an admonition with a title and a warning style.
 <p>An example of an admonition with a title and a warning style.</p>
 </div>
 </section>
+<section id="alt-herunder-er-tests-fra-ting-fundet-andetsteds">
+<h2>Alt herunder er tests fra ting fundet andetsteds<a class="headerlink" href="#alt-herunder-er-tests-fra-ting-fundet-andetsteds" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">:::{</span><span class="n">seealso</span><span class="p">}</span>
+<span class="n">For</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">syntax</span> <span class="n">extensions</span> <span class="ow">in</span> <span class="n">MyST</span><span class="p">,</span> <span class="n">see</span> <span class="p">[</span><span class="n">the</span> <span class="n">MyST</span> <span class="n">documentation</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">myst</span><span class="o">-</span><span class="n">parser</span><span class="o">.</span><span class="n">readthedocs</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">en</span><span class="o">/</span><span class="n">latest</span><span class="o">/</span><span class="n">using</span><span class="o">/</span><span class="n">syntax</span><span class="o">-</span><span class="n">optional</span><span class="o">.</span><span class="n">html</span><span class="p">)</span><span class="o">.</span>
+<span class="p">:::</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For a list of syntax extensions in MyST, see <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html">the MyST documentation</a>.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{admonition} My title
+:class: seealso
+My content
+```
+</pre></div>
+</div>
+<div class="seealso admonition">
+<p class="admonition-title">My title</p>
+<p>My content</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{admonition} My title
+:class: todo
+My content
+```
+</pre></div>
+</div>
+<div class="todo admonition">
+<p class="admonition-title">My title</p>
+<p>My content</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{todo} This is an example
+of a todo directive.
+```
+</pre></div>
+</div>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>This is an example
+of a todo directive.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{admonition} My title
+:class: seealso
+My content
+```
+</pre></div>
+</div>
+<div class="seealso admonition">
+<p class="admonition-title">My title</p>
+<p>My content</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{seealso} This is an example
+of a seealso directive.
+```
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>This is an example
+of a seealso directive.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -635,6 +699,7 @@ An example of an admonition with a title and a warning style.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#her-folger-forst-markdown-kode-til-admonition-boxes-derefter-den-renderede-version">Her følger først markdown-kode til admonition boxes, derefter den renderede version</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alt-herunder-er-tests-fra-ting-fundet-andetsteds">Alt herunder er tests fra ting fundet andetsteds</a></li>
 </ul>
   </nav></div>
 
