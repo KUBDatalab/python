@@ -396,22 +396,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-from-lesson-about-data-types">Recap from lesson about Data Types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-value-has-a-type">Every value has a type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-function-type-to-find-the-type-of-a-value">Use the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code> to find the type of a value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-control-what-operations-can-be-performed">Types control what operations can be performed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-and-operators-on-strings">Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-control-what-operations-or-methods-can-be-performed-on-a-given-value">Types control what operations (or methods) can be performed on a given value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-use-the-and-operators-on-strings">You can use the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preventing-errors-handling-numbers-and-strings-in-python-operations">Preventing Errors: Handling numbers and strings in Python Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-and-floats-can-be-mixed-freely-in-operations">Integers and floats can be mixed freely in operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-different-data-types">Dealing with different data types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-and-floats-can-be-mixed-freely-in-operations">Integers and floats can be mixed freely in operations</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-only-change-value-when-something-is-assigned-to-them">Variables only change value when something is assigned to them</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-type-conversion">Automatic Type Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-type">Choose a Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-to-numbers">Strings to Numbers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-with-different-types">Arithmetic with Different Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-fractions">Exercise 1: Fractions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-automatic-type-conversion">Exercise 2: Automatic Type Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with Different Types</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
@@ -442,12 +442,11 @@ document.write(`
 <li><p>Use built-in functions to convert between integers, floating point numbers, and strings.</p></li>
 </ul>
 </div>
-<section id="recap-from-lesson-about-data-types">
-<h2>Recap from lesson about Data Types<a class="headerlink" href="#recap-from-lesson-about-data-types" title="Link to this heading">#</a></h2>
-<section id="every-value-has-a-type">
-<h3>Every value has a type<a class="headerlink" href="#every-value-has-a-type" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<div class="seealso dropdown admonition">
+<p class="admonition-title">Recap on Data Types</p>
+<p>Every value in a program has a specific type.</p>
 <ul class="simple">
-<li><p>Every value in a program has a specific type.</p></li>
 <li><p>Integer (<code class="docutils literal notranslate"><span class="pre">int</span></code>): whole numbers like 3 or -512.</p></li>
 <li><p>Floating point number (<code class="docutils literal notranslate"><span class="pre">float</span></code>): fractional numbers like 3.14159 or -2.5.</p></li>
 <li><p>Whole numbers may also be stored as floats, e.g. <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, but <code class="docutils literal notranslate"><span class="pre">1.0</span></code> would still be stored as a <code class="docutils literal notranslate"><span class="pre">float</span></code>.</p></li>
@@ -458,10 +457,7 @@ document.write(`
 </ul>
 </li>
 </ul>
-</section>
-<section id="use-the-built-in-function-type-to-find-the-type-of-a-value">
-<h3>Use the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code> to find the type of a value<a class="headerlink" href="#use-the-built-in-function-type-to-find-the-type-of-a-value" title="Link to this heading">#</a></h3>
-<p>We can use the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code> to find out what type a value has.</p>
+<p>We can use the built-in function <code class="docutils literal notranslate"><span class="pre">type()</span></code> to find out what type a value has.</p>
 <ul class="simple">
 <li><p>This works on variables as well.</p>
 <ul>
@@ -470,35 +466,11 @@ document.write(`
 </ul>
 </li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">52</span><span class="p">))</span>
-</pre></div>
+<p>See more in the <a class="reference internal" href="01_data_types.html"><span class="doc std std-doc">Data Types</span></a> lesson.</p>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;int&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Biochemistry&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">title</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;str&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="types-control-what-operations-or-methods-can-be-performed-on-a-given-value">
-<h2>Types control what operations (or methods) can be performed on a given value<a class="headerlink" href="#types-control-what-operations-or-methods-can-be-performed-on-a-given-value" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="types-control-what-operations-can-be-performed">
+<h2>Types control what operations can be performed<a class="headerlink" href="#types-control-what-operations-can-be-performed" title="Link to this heading">#</a></h2>
 <p>A value’s type determines what the program can do to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -521,7 +493,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span> <span class="o">-</span> <span class="s1">&#39;h&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;str&#39;
@@ -529,9 +501,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="you-can-use-the-and-operators-on-strings">
-<h2>You can use the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings<a class="headerlink" href="#you-can-use-the-and-operators-on-strings" title="Link to this heading">#</a></h2>
+<section id="using-the-and-operators-on-strings">
+<h3>Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings<a class="headerlink" href="#using-the-and-operators-on-strings" title="Link to this heading">#</a></h3>
 <p>“Adding” character strings concatenates them.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -564,7 +535,7 @@ document.write(`
 <p>Here, the variable “separator” is set to the value “=” (equals sign) ten times in a row.</p>
 </section>
 <section id="strings-have-a-length-but-numbers-don-t">
-<h2>Strings have a length (but numbers don’t)<a class="headerlink" href="#strings-have-a-length-but-numbers-don-t" title="Link to this heading">#</a></h2>
+<h3>Strings have a length (but numbers don’t)<a class="headerlink" href="#strings-have-a-length-but-numbers-don-t" title="Link to this heading">#</a></h3>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">len</span></code> counts the number of characters in a string.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -588,7 +559,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="mi">52</span><span class="p">))</span>
 
 <span class="ne">TypeError</span>: object of type &#39;int&#39; has no len()
@@ -597,8 +568,10 @@ document.write(`
 </div>
 </div>
 </section>
-<section id="preventing-errors-handling-numbers-and-strings-in-python-operations">
-<h2>Preventing Errors: Handling numbers and strings in Python Operations<a class="headerlink" href="#preventing-errors-handling-numbers-and-strings-in-python-operations" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="dealing-with-different-data-types">
+<h2>Dealing with different data types<a class="headerlink" href="#dealing-with-different-data-types" title="Link to this heading">#</a></h2>
 <p>You cannot add numbers and strings.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -609,7 +582,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="s1">&#39;A&#39;</span><span class="p">)</span>
 
 <span class="ne">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;
@@ -633,9 +606,8 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
 <section id="integers-and-floats-can-be-mixed-freely-in-operations">
-<h2>Integers and floats can be mixed freely in operations<a class="headerlink" href="#integers-and-floats-can-be-mixed-freely-in-operations" title="Link to this heading">#</a></h2>
+<h3>Integers and floats can be mixed freely in operations<a class="headerlink" href="#integers-and-floats-can-be-mixed-freely-in-operations" title="Link to this heading">#</a></h3>
 <p>Integers and floating-point numbers can be mixed in arithmetic.</p>
 <p>Python automatically converts integers to floats as needed.</p>
 <div class="cell docutils container">
@@ -653,6 +625,8 @@ three squared is 9.0
 </div>
 </div>
 </section>
+</section>
+<hr class="docutils" />
 <section id="variables-only-change-value-when-something-is-assigned-to-them">
 <h2>Variables only change value when something is assigned to them<a class="headerlink" href="#variables-only-change-value-when-something-is-assigned-to-them" title="Link to this heading">#</a></h2>
 <p>If we make one cell in a spreadsheet depend on another, and update the latter, the former updates automatically.</p>
@@ -678,38 +652,40 @@ three squared is 9.0
 <hr class="docutils" />
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<div class="admonition-fractions admonition">
-<p class="admonition-title">Fractions</p>
+<section id="exercise-1-fractions">
+<h3>Exercise 1: Fractions<a class="headerlink" href="#exercise-1-fractions" title="Link to this heading">#</a></h3>
 <p>What type of value is 3.4? How can you find out?</p>
-<div class="tip dropdown admonition">
+<div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>It is a floating-point number (often abbreviated “float”).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mf">3.4</span><span class="p">))</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>print(type(3.4))
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
-</div>
-<section id="automatic-type-conversion">
-<h3>Automatic Type Conversion<a class="headerlink" href="#automatic-type-conversion" title="Link to this heading">#</a></h3>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-automatic-type-conversion">
+<h3>Exercise 2: Automatic Type Conversion<a class="headerlink" href="#exercise-2-automatic-type-conversion" title="Link to this heading">#</a></h3>
 <p>What type of value is 3.25 + 4?</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>It is a float.<br />
 Integers are automatically converted to floats as necessary.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="mf">3.25</span> <span class="o">+</span> <span class="mi">4</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">))</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>result = 3.25 + 4
+print(result, &#39;is&#39;, type(result))
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>7.25 is &lt;class &#39;float&#39;&gt;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>7.25 is &lt;class &#39;float&#39;&gt;
 </pre></div>
 </div>
 </div>
 </section>
-<section id="choose-a-type">
-<h3>Choose a Type<a class="headerlink" href="#choose-a-type" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<section id="exercise-3-choose-a-type">
+<h3>Exercise 3: Choose a Type<a class="headerlink" href="#exercise-3-choose-a-type" title="Link to this heading">#</a></h3>
 <p>What type of value (integer, floating point number, or character string) would you use to represent each of the following?</p>
 <p>Try to come up with more than one good answer for each problem.<br />
 For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?</p>
@@ -731,74 +707,89 @@ For example, in  # 1, when would counting days with a floating point variable ma
 </ol>
 </div>
 </section>
-<section id="strings-to-numbers">
-<h3>Strings to Numbers<a class="headerlink" href="#strings-to-numbers" title="Link to this heading">#</a></h3>
+<hr class="docutils" />
+<section id="exercise-4-strings-to-numbers">
+<h3>Exercise 4: Strings to Numbers<a class="headerlink" href="#exercise-4-strings-to-numbers" title="Link to this heading">#</a></h3>
 <p>Where reasonable, <code class="docutils literal notranslate"><span class="pre">float()</span></code> will convert at string or an integer to a floating point number, and <code class="docutils literal notranslate"><span class="pre">int()</span></code> wil convert a string or a floating point number to an integer.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;3.4&quot;</span><span class="p">))</span>
+<p>(Note, conversion is some times also called typecast.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;3.4&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;float to int:&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.4</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">string</span> <span class="n">to</span> <span class="nb">float</span><span class="p">:</span> <span class="mf">3.4</span>
-<span class="nb">float</span> <span class="n">to</span> <span class="nb">int</span><span class="p">:</span> <span class="mi">3</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>string to float: 3.4
+float to int: 3
 </pre></div>
 </div>
-<p><strong>Note:</strong> conversion is some times also called typecast.</p>
+</div>
+</div>
 <p>If the conversion doesn’t make sense, however, an error message will occur:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">))</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="n">df3b790bf0a2</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">()</span>
-<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">))</span>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">))</span>
 
-<span class="ne">ValueError</span><span class="p">:</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">convert</span> <span class="n">string</span> <span class="n">to</span> <span class="nb">float</span><span class="p">:</span> <span class="s1">&#39;Hello world!&#39;</span>
+<span class="ne">ValueError</span>: could not convert string to float: &#39;Hello world!&#39;
 </pre></div>
 </div>
+</div>
+</div>
+<p><strong>Given the information above:</strong></p>
 <ol class="arabic simple">
-<li><p>Given this information, what do you expect the following program to do?</p></li>
+<li><p>What do you expect the following program to do?</p></li>
 <li><p>What does it actually do?</p></li>
 <li><p>Why do you think it does that?</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fractional string to int:&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;3.4&quot;</span><span class="p">))</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>print(&quot;fractional string to int:&quot;, int(&quot;3.4&quot;))
 </pre></div>
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>What do you expect this program to do?<br />
-It would not be so unreasonable to expect the Python <code class="docutils literal notranslate"><span class="pre">int()</span></code> command to convert the string “3.4” to 3.4 and an additional type conversion to 3.<br />
+<p>It would not be so unreasonable to expect the Python <code class="docutils literal notranslate"><span class="pre">int()</span></code> command to convert the string “3.4” to 3.4 and an additional type conversion to 3.<br />
 After all, Python performs a lot of other magic - isn’t that part of its charm?</p>
 <p>However, Python throws an error. Why? To be consistent, possibly.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span>                                <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="o">----&gt;</span> <span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fractional string to int:&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;3.4&quot;</span><span class="p">))</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+Cell In[1], line 1
+----&gt; 1 print(&quot;fractional string to int:&quot;, int(&quot;3.4&quot;))
 
-<span class="ne">ValueError</span><span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">int</span><span class="p">()</span> <span class="k">with</span> <span class="n">base</span> <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;3.4&#39;</span>
+ValueError: invalid literal for int() with base 10: &#39;3.4&#39;
 </pre></div>
 </div>
 <p>If you ask Python to perform two consecutive typecasts, you must convert it explicitly in code.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">num_as_string</span> <span class="o">=</span> <span class="s2">&quot;3.4&quot;</span>
-<span class="n">num_as_float</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">num_as_string</span><span class="p">)</span>
-<span class="n">num_as_int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_as_float</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num_as_int</span><span class="p">)</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>num_as_string = &quot;3.4&quot;
+num_as_float = float(num_as_string)
+num_as_int = int(num_as_float)
+print(num_as_int)
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 <p>We could also write it in a single line like this: <code class="docutils literal notranslate"><span class="pre">int(float(&quot;3.4&quot;))</span></code></p>
 </div>
 </section>
-<section id="arithmetic-with-different-types">
-<h3>Arithmetic with Different Types<a class="headerlink" href="#arithmetic-with-different-types" title="Link to this heading">#</a></h3>
-<p>Which of the following will print 2.0?</p>
-<p>Note: there may be more than one right answer.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="mf">1.0</span>
-<span class="n">second</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
-<span class="n">third</span> <span class="o">=</span> <span class="s2">&quot;1.1&quot;</span>
+<hr class="docutils" />
+<section id="exercise-5-arithmetic-with-different-types">
+<h3>Exercise 5: Arithmetic with Different Types<a class="headerlink" href="#exercise-5-arithmetic-with-different-types" title="Link to this heading">#</a></h3>
+<p>Given this code:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>first = 1.0
+second = &quot;1&quot;
+third = &quot;1.1&quot;
 </pre></div>
 </div>
+<p>Which of the following will print 2.0?</p>
+<p>(There may be more than one right answer.)</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">+</span> <span class="pre">float(second)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">float(second)</span> <span class="pre">+</span> <span class="pre">float(third)</span></code></p></li>
@@ -811,12 +802,12 @@ After all, Python performs a lot of other magic - isn’t that part of its charm
 <p class="admonition-title">Solution</p>
 <p>Answer: 1 and 4.</p>
 <ol class="arabic simple">
-<li><p>is correct</p></li>
-<li><p>gives 2.1</p></li>
-<li><p>gives an error because we cannot convert text to int directly</p></li>
-<li><p>is correct</p></li>
-<li><p>gives 2 (as an integer not as a float)</p></li>
-<li><p>gives an error because <code class="docutils literal notranslate"><span class="pre">second</span></code> is a string.</p></li>
+<li><p>Is correct.</p></li>
+<li><p>Gives 2.1.</p></li>
+<li><p>Gives an error because we cannot convert text to int directly.</p></li>
+<li><p>Is correct.</p></li>
+<li><p>Gives 2 (as an integer not as a float).</p></li>
+<li><p>Gives an error because <code class="docutils literal notranslate"><span class="pre">second</span></code> is a string.</p></li>
 </ol>
 </div>
 </section>
@@ -900,22 +891,22 @@ After all, Python performs a lot of other magic - isn’t that part of its charm
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap-from-lesson-about-data-types">Recap from lesson about Data Types</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-value-has-a-type">Every value has a type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-function-type-to-find-the-type-of-a-value">Use the built-in function <code class="docutils literal notranslate"><span class="pre">type</span></code> to find the type of a value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-control-what-operations-can-be-performed">Types control what operations can be performed</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-and-operators-on-strings">Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-control-what-operations-or-methods-can-be-performed-on-a-given-value">Types control what operations (or methods) can be performed on a given value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#you-can-use-the-and-operators-on-strings">You can use the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preventing-errors-handling-numbers-and-strings-in-python-operations">Preventing Errors: Handling numbers and strings in Python Operations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-and-floats-can-be-mixed-freely-in-operations">Integers and floats can be mixed freely in operations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-different-data-types">Dealing with different data types</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-and-floats-can-be-mixed-freely-in-operations">Integers and floats can be mixed freely in operations</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-only-change-value-when-something-is-assigned-to-them">Variables only change value when something is assigned to them</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-type-conversion">Automatic Type Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#choose-a-type">Choose a Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-to-numbers">Strings to Numbers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-with-different-types">Arithmetic with Different Types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-fractions">Exercise 1: Fractions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-automatic-type-conversion">Exercise 2: Automatic Type Conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with Different Types</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>

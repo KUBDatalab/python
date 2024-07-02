@@ -408,7 +408,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-slicing-and-the-lenght-of-variables">Index, slicing and the lenght of variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-slicing-and-length">Indexing, slicing, and length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-function-len-to-find-the-length-of-a-string">Use the built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> to find the length of a string</a></li>
 </ul>
@@ -435,7 +435,6 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="variables-and-assignment">
 <h1>Variables and assignment<a class="headerlink" href="#variables-and-assignment" title="Link to this heading">#</a></h1>
-<hr class="docutils" />
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions</p>
@@ -483,7 +482,10 @@ So we won’t do that until we understand the convention.</p></li>
 <li><p>The standard naming convention for variable names in Python is the so-called “snake case”,
 where each word is separated by an underscore.For example <code class="docutils literal notranslate"><span class="pre">my_first_variable</span></code>.</p></li>
 </ul>
+<div class="seealso admonition">
+<p class="admonition-title">Naming Conventions</p>
 <p>You can read more about naming conventions in Python <a class="reference external" href="https://peps.python.org/pep-0008/#naming-conventions">here</a>.</p>
+</div>
 <section id="use-meaningful-variable-names">
 <h4>Use meaningful variable names<a class="headerlink" href="#use-meaningful-variable-names" title="Link to this heading">#</a></h4>
 <p>Python doesn’t care what you call variables as long as they obey the rules (alphanumeric characters and the underscore).<br />
@@ -557,6 +559,7 @@ When using the <code class="docutils literal notranslate"><span class="pre">prin
 <p><code class="docutils literal notranslate"><span class="pre">print()</span></code> automatically puts a single space between items to separate them.
 And wraps around to a new line at the end.</p>
 </section>
+<hr class="docutils" />
 <section id="variables-must-be-created-before-they-are-used">
 <h2>Variables must be created before they are used<a class="headerlink" href="#variables-must-be-created-before-they-are-used" title="Link to this heading">#</a></h2>
 <p>If a variable doesn’t exist yet, or if the name has been misspelled, Python reports an error (unlike some languages, which “guess” a default value).</p>
@@ -612,8 +615,8 @@ Remember, we assigned 42 to age a few lines ago.</p>
 <p>This code works in the following way. We are reassigning the value of the variable age by taking its previous value (42) and adding 3, thus getting our new value of 45.</p>
 </section>
 <hr class="docutils" />
-<section id="index-slicing-and-the-lenght-of-variables">
-<h2>Index, slicing and the lenght of variables<a class="headerlink" href="#index-slicing-and-the-lenght-of-variables" title="Link to this heading">#</a></h2>
+<section id="indexing-slicing-and-length">
+<h2>Indexing, slicing, and length<a class="headerlink" href="#indexing-slicing-and-length" title="Link to this heading">#</a></h2>
 <p>You can use an index to get a single character from a string. The characters (individual letters, numbers, and so on) in a string are ordered. For example, the string ‘AB’ is not the same as ‘BA’. Because of this ordering, we can treat the string as a list of characters.</p>
 <p>Each position in the string (first, second, etc.) is given a number.
 This number is called an index or sometimes a subscript.
@@ -677,31 +680,19 @@ Use the position’s index in square brackets to get the character at that posit
 <section id="exercise-1-choosing-a-name">
 <h3>Exercise 1: Choosing a Name<a class="headerlink" href="#exercise-1-choosing-a-name" title="Link to this heading">#</a></h3>
 <p>Which is a better variable name, m, min, or minutes? Why?</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">m</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">s</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ts = m * 60 + s
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tot_sec</span> <span class="o">=</span> <span class="nb">min</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">sec</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tot_sec = min * 60 + sec
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_seconds</span> <span class="o">=</span> <span class="n">minutes</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">seconds</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>total_seconds = minutes * 60 + seconds
 </pre></div>
-</div>
-</div>
 </div>
 <p>Hint: think about which code you would rather inherit from someone who is leaving the library.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>minutes is better because <code class="docutils literal notranslate"><span class="pre">min</span></code> might mean something like “minimum” (and actually does in Python, but we haven’t seen that yet).</p>
+<p><code class="docutils literal notranslate"><span class="pre">minutes</span></code> is better because <code class="docutils literal notranslate"><span class="pre">min</span></code> might mean something like “minimum” (and actually does in Python, but we haven’t seen that yet).</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -721,12 +712,14 @@ Use the position’s index in square brackets to get the character at that posit
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<div class="highlight-code notranslate"><div class="highlight"><pre><span></span>swap = x  #  x-&gt;1.0 y-&gt;3.0 swap-&gt;1.0
-x = y     #  x-&gt;3.0 y-&gt;3.0 swap-&gt;1.0
-y = swap  #  x-&gt;3.0 y-&gt;1.0 swap-&gt;1.0
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>x = 1.0   #  x-&gt;1.0
+y = 3.0   #  x-&gt;3.0
+swap = x  #  x-&gt;1.0, y-&gt;3.0, swap-&gt;1.0
+x = y     #  x-&gt;3.0, y-&gt;3.0, swap-&gt;1.0
+y = swap  #  x-&gt;3.0, y-&gt;1.0, swap-&gt;1.0
 </pre></div>
 </div>
-<p>These three lines exchange the values in x and y using the swap variable for temporary storage. This is a fairly common programming idiom.</p>
+<p>These three lines exchange the values in <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> using the swap variable for temporary storage. This is a fairly common programming idiom.</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -744,13 +737,13 @@ y = swap  #  x-&gt;3.0 y-&gt;1.0 swap-&gt;1.0
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<div class="highlight-code notranslate"><div class="highlight"><pre><span></span>initial = &quot;left&quot;  # Initial is assigned the string &quot;left&quot;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>initial = &quot;left&quot;    # Initial is assigned the string &quot;left&quot;
 position = initial  # Position is assigned the variable initial, currently &quot;left&quot;
-initial = &quot;right&quot;  # Initial is assigned the string &quot;right&quot;
+initial = &quot;right&quot;   # Initial is assigned the string &quot;right&quot;
 print(position)
 </pre></div>
 </div>
-<p>The last assignment to position is “left”</p>
+<p>The last assignment to <code class="docutils literal notranslate"><span class="pre">position</span></code> is “left”.</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -759,11 +752,13 @@ print(position)
 <p>If you assign <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">123</span></code>, what happens if you try to get the second digit of <code class="docutils literal notranslate"><span class="pre">a</span></code>?</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<div class="highlight-code notranslate"><div class="highlight"><pre><span></span>a = 123
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>a = 123
 print(a[1])
 </pre></div>
 </div>
-<p>TypeError: ‘int’ object is not subscriptable</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TypeError: &#39;int&#39; object is not subscriptable
+</pre></div>
+</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -904,7 +899,7 @@ Try figuring it out without clicking “Show code cell output”.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#index-slicing-and-the-lenght-of-variables">Index, slicing and the lenght of variables</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-slicing-and-length">Indexing, slicing, and length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-function-len-to-find-the-length-of-a-string">Use the built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> to find the length of a string</a></li>
 </ul>

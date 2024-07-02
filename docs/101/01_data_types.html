@@ -396,12 +396,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-types">Check Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice">Slice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-type-function">The <code class="docutils literal notranslate"><span class="pre">type()</span></code> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slice">Slice</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-floats">Integers &amp; Floats</a><ul class="nav section-nav flex-column">
@@ -409,19 +411,12 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents">Exponents</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus">Modulus</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more-mathematical-operators">More mathematical operators</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-boolean-operations">Table of Boolean operations</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">Comparisons</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-comparison-operations">Table of comparison operations</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">Comparisons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
 </ul>
             </nav>
@@ -445,10 +440,10 @@ document.write(`
 </ul>
 <p>Objectives</p>
 <ul class="simple">
-<li><p>Understand the essential data types in Python</p></li>
-<li><p>Explain what a string is, and what you can do with it</p></li>
-<li><p>Explain the differences between integers and floats</p></li>
-<li><p>Explain what a boolean is, and how to use comparisons</p></li>
+<li><p>Understand the essential data types in Python.</p></li>
+<li><p>Explain what a string is, and what you can do with it.</p></li>
+<li><p>Explain the differences between integers and floats.</p></li>
+<li><p>Explain what a boolean is, and how to use comparisons.</p></li>
 </ul>
 </div>
 <p>There are four essential kinds of Python data with different powers and capabilities:</p>
@@ -460,10 +455,10 @@ document.write(`
 </ul>
 <p>Take a look at the two examples below.
 What differences do you notice?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Here is a some text&#39;</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Here is a some text&#39;
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>42
 </pre></div>
 </div>
 <p>You might be wondering…</p>
@@ -506,8 +501,9 @@ What differences do you notice?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span>
 </pre></div>
 </div>
-<section id="check-data-types">
-<h2>Check Data Types<a class="headerlink" href="#check-data-types" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="the-type-function">
+<h2>The <code class="docutils literal notranslate"><span class="pre">type()</span></code> function<a class="headerlink" href="#the-type-function" title="Link to this heading">#</a></h2>
 <p>You can check the data type of any value by using the function <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -536,6 +532,7 @@ What differences do you notice?</p>
 </div>
 <p>The output <code class="docutils literal notranslate"><span class="pre">int</span></code> is short for integer.</p>
 </section>
+<hr class="docutils" />
 <section id="strings">
 <h2>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
 <p>A <em>string</em> is a Python data type that is treated like text, even if it contains a number. Strings are always enclosed by either single quotation marks <code class="docutils literal notranslate"><span class="pre">'this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">string'</span></code> or double quotation marks <code class="docutils literal notranslate"><span class="pre">&quot;this</span> <span class="pre">is</span> <span class="pre">also</span> <span class="pre">a</span> <span class="pre">string&quot;</span></code>.</p>
@@ -549,11 +546,8 @@ What differences do you notice?</p>
 </pre></div>
 </div>
 <p>It doesn’t matter whether you use single or double quotation marks with strings, as long as you use the same kind on either side of the string.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>How can you have quotation marks inside a string?</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Escape characters</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">How can you have quotation marks inside a string?</p>
 <p>Escape characters and how to tell Python to igonre special meanings. This can be handy if you need to make quotation marks inside a string. This can be done in two ways.</p>
 <p>Use the opposite kind of quotation mark inside the string:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;She exclaimed, &#39;This is a quotation inside a string!&#39;&quot;
@@ -564,15 +558,13 @@ What differences do you notice?</p>
 </pre></div>
 </div>
 </div>
-</div>
-</section>
 <section id="string-methods">
-<h2>String Methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h2>
+<h3>String Methods<a class="headerlink" href="#string-methods" title="Link to this heading">#</a></h3>
 <p>Each data type has different properties and capabilities. So there are special things that only strings can do, and there are special ways of interacting with strings.</p>
 <p>For example, you can <strong>index</strong> and <strong>slice</strong> strings, you can <strong>append</strong> strings together.<br />
 Here are a few examples:</p>
 <section id="index">
-<h3>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h3>
+<h4>Index<a class="headerlink" href="#index" title="Link to this heading">#</a></h4>
 <p>Often in programming languages, individual items in an ordered set of data, can be accessed directly using a numeric index or key value. This process is referred to as indexing.</p>
 <p>In Python, strings are ordered sequences of character data, and thus can be indexed in this way. Individual characters in a string can be accessed by specifying the string name followed by a number in square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.</p>
 <p>String indexing in Python is zero-based: the first character in the string has index 0, the next has index 1, and so on. The index of the last character will be the length of the string minus one. It can be illustrated like this:</p>
@@ -604,7 +596,7 @@ Here are a few examples:</p>
 </div>
 </section>
 <section id="slice">
-<h3>Slice<a class="headerlink" href="#slice" title="Link to this heading">#</a></h3>
+<h4>Slice<a class="headerlink" href="#slice" title="Link to this heading">#</a></h4>
 <p>Python  allows a form of indexing syntax that extracts substrings from a string, known as string slicing.<br />
 If <code class="docutils literal notranslate"><span class="pre">s</span></code> is a string, an expression of the form <code class="docutils literal notranslate"><span class="pre">s[start:stop]</span></code> returns the portion of <code class="docutils literal notranslate"><span class="pre">s</span></code> starting with position <code class="docutils literal notranslate"><span class="pre">start</span></code>, and up to <em><strong>but not including</strong></em> position <code class="docutils literal notranslate"><span class="pre">stop</span></code>:</p>
 <div class="cell docutils container">
@@ -621,7 +613,7 @@ If <code class="docutils literal notranslate"><span class="pre">s</span></code> 
 </div>
 </section>
 <section id="concatenation">
-<h3>Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h3>
+<h4>Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">+</span></code> operator concatenates strings. It returns a string consisting of the operands joined together, as shown here:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -650,6 +642,8 @@ If <code class="docutils literal notranslate"><span class="pre">s</span></code> 
 </div>
 </section>
 </section>
+</section>
+<hr class="docutils" />
 <section id="integers-floats">
 <h2>Integers &amp; Floats<a class="headerlink" href="#integers-floats" title="Link to this heading">#</a></h2>
 <p>An <strong>integer</strong> and a <strong>float</strong> are two Python data types for representing numbers.</p>
@@ -733,77 +727,62 @@ However, it does not work as a percentage although it might look like one. Inste
 </div>
 </div>
 </div>
-</section>
-<section id="more-mathematical-operators">
-<h4>More mathematical operators<a class="headerlink" href="#more-mathematical-operators" title="Link to this heading">#</a></h4>
-<p>These are just a few of the mathmathical operations in Python - see the table below from Python’s documentation about <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html">Built-in Types</a>.</p>
-<details>
-<summary style="display:list-item"><i><b>Click here to see more mathematical operators</b></i><br><br></summary>
-<table class="colwidths-auto table" style="border:1px solid black">
+<div class="tip dropdown admonition">
+<p class="admonition-title">Table of Mathematical Operations</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd">
-<th class="head"><p>Operation</p></th>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">x + y</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">+</span> <span class="pre">y</span></code></p></td>
 <td><p>sum of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">x - y</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">-</span> <span class="pre">y</span></code></p></td>
 <td><p>difference of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">x * y</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span></code></p></td>
 <td><p>product of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">x / y</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">/</span> <span class="pre">y</span></code></p></td>
 <td><p>quotient of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">x // y</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">y</span></code></p></td>
 <td><p>floored quotient of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">x % y</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%</span> <span class="pre">y</span></code></p></td>
 <td><p>remainder of <code class="docutils literal notranslate"><span class="pre">x</span></code> / <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">-x</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> negated</p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">+x</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">+x</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> unchanged</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">abs(x)</span></code></p></td>
 <td><p>absolute value or magnitude of <code class="docutils literal notranslate"><span class="pre">x</span></code></p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">int(x)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">int(x)</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> converted to integer</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">float(x)</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> converted to floating point</p></td>
 </tr>
-<tr class="row-even">
-<td><p><code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">pow(x,</span> <span class="pre">y)</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> to the power <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code class="docutils literal notranslate"><span class="pre">x ** y</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">**</span> <span class="pre">y</span></code></p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">x</span></code> to the power <code class="docutils literal notranslate"><span class="pre">y</span></code></p></td>
 </tr>
 </tbody>
 </table>
-</details></section>
+</div>
+</div>
 </section>
 </section>
+</section>
+<hr class="docutils" />
 <section id="booleans">
 <h2>Booleans<a class="headerlink" href="#booleans" title="Link to this heading">#</a></h2>
 <p>Booleans are “truth” values. They report on whether things in your Python universe are <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. There are the only two options for a boolean: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The boolean operators are <strong>or</strong>, <strong>and</strong>, and <strong>not</strong>. They are used to check if certain conditions are met before the program continues running. This is extremely helpful and even if it seems a bit confusing right now, it will make sense later. Here are a few examples of using boolean logic.</p>
@@ -846,70 +825,66 @@ However, it does not work as a percentage although it might look like one. Inste
 </div>
 </div>
 <p>In this example above we state that 666 is equal to 777, which it is not. Therefore, we get <code class="docutils literal notranslate"><span class="pre">False</span></code> as the output.</p>
-<section id="table-of-boolean-operations">
-<h3>Table of Boolean operations<a class="headerlink" href="#table-of-boolean-operations" title="Link to this heading">#</a></h3>
-<table class="colwidths-auto table" style="border:1px solid black">
+<div class="tip dropdown admonition">
+<p class="admonition-title">Table of Boolean Operations</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd">
-<th class="head"><p>Operation</p></th>
+<tr class="row-odd"><th class="head"><p>Operation</p></th>
 <th class="head"><p>Result</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even">
-<td><p><code>x or y</code></p></td>
-<td><p>if either x or y is true, then <code>True</code>, else <code>False</code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">or</span> <span class="pre">y</span></code></p></td>
+<td><p>if either x or y is true, then <code class="docutils literal notranslate"><span class="pre">True</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code>x and y</code></p></td>
-<td><p>if both x and y is true, then <code>True</code>, else <code>False</code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">and</span> <span class="pre">y</span></code></p></td>
+<td><p>if both x and y is true, then <code class="docutils literal notranslate"><span class="pre">True</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
-<tr class="row-even">
-<td><p><code>not x</code></p></td>
-<td><p>if x is false, then <code>True</code>, else <code>False</code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">x</span></code></p></td>
+<td><p>if x is false, then <code class="docutils literal notranslate"><span class="pre">True</span></code>, else <code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
 </tbody>
-</table></section>
+</table>
+</div>
+</div>
 </section>
+<hr class="docutils" />
 <section id="comparisons">
 <h2>Comparisons<a class="headerlink" href="#comparisons" title="Link to this heading">#</a></h2>
 <p>You can compare values in Python using different comparison operations. Comparisons are used to compare different values and objects in Python, which we will learn much more about later. For now take a look at the comparisions and their meaning in the table underneath.</p>
-<section id="table-of-comparison-operations">
-<h3>Table of comparison operations<a class="headerlink" href="#table-of-comparison-operations" title="Link to this heading">#</a></h3>
-<table class="colwidths-auto table" style="border:1px solid black">
+<div class="tip dropdown admonition">
+<p class="admonition-title">Table of Boolean Operations</p>
+<div class="pst-scrollable-table-container"><table class="table">
 <thead>
-<tr class="row-odd">
-<th class="head"><p>Comparison operation</p></th>
+<tr class="row-odd"><th class="head"><p>Comparison operation</p></th>
 <th class="head"><p>Explanation</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even">
-<td><p><code>x < y</code></p></td>
-<td><p><code>True</code> if x is less than y </p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if x is less than y</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code>x <= y</code></p></td>
-<td><p><code>True</code> if x is less than or equal to y</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&lt;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if x is less than or equal to y</p></td>
 </tr>
-<tr class="row-even">
-<td><p><code>x > y</code></p></td>
-<td><p><code>True</code> if x is greater than y</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if x is greater than y</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code>x >= y</code></p></td>
-<td><p><code>True</code> if x is greater than or equal to y</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">&gt;=</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if x is greater than or equal to y</p></td>
 </tr>
-<tr class="row-even">
-<td><p><code>x == y</code></p></td>
-<td><p><code>True</code> if x is equal to y</p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if x is equal to y</p></td>
 </tr>
-<tr class="row-odd">
-<td><p><code>!=</code></p></td>
-<td><p><code>True</code> if x is not equal to y</p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if x is not equal to y</p></td>
 </tr>
 </tbody>
-</table><div class="admonition-single-equals-sign-code-code-and-a-double-equals-sign-code-code admonition">
+</table>
+</div>
+</div>
+<hr class="docutils" />
+<div class="attention admonition">
 <p class="admonition-title">Single equals sign <code>=</code> and a double equals sign <code>==</code></p>
 <ul class="simple">
 <li><p>A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is used as the equals operator.</p></li>
@@ -917,17 +892,17 @@ However, it does not work as a percentage although it might look like one. Inste
 </ul>
 </div>
 </section>
-</section>
+<hr class="docutils" />
 <section id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>There are 4 data types in Python: <strong>Integers</strong>, <strong>floats</strong>, <strong>strings</strong>, and <strong>booleans</strong></p></li>
-<li><p>You can use the built-in function <code class="docutils literal notranslate"><span class="pre">type()</span></code> to find the type of a value</p></li>
-<li><p>Strings are text, they can be added to one another, you can slice them to get a substring, and use the index to acess the individual character</p></li>
-<li><p>Integers are whole numbers. You can use mathemathical operations on them</p></li>
-<li><p>Floats are decimal numbers. You can use mathemathical opreations on them</p></li>
-<li><p>Booleans are either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p></li>
-<li><p>A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is used as the equals operator, a single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is used for variable assignment</p></li>
+<li><p>There are 4 data types in Python: <strong>Integers</strong>, <strong>floats</strong>, <strong>strings</strong>, and <strong>booleans</strong>.</p></li>
+<li><p>You can use the built-in function <code class="docutils literal notranslate"><span class="pre">type()</span></code> to find the type of a value.</p></li>
+<li><p>Strings are text, they can be added to one another, you can slice them to get a substring, and use the index to acess the individual character.</p></li>
+<li><p>Integers are whole numbers. You can use mathemathical operations on them.</p></li>
+<li><p>Floats are decimal numbers. You can use mathemathical opreations on them.</p></li>
+<li><p>Booleans are either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+<li><p>A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is used as the equals operator, a single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is used for variable assignment.</p></li>
 </ul>
 </section>
 </section>
@@ -996,12 +971,14 @@ However, it does not work as a percentage although it might look like one. Inste
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#check-data-types">Check Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slice">Slice</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-type-function">The <code class="docutils literal notranslate"><span class="pre">type()</span></code> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strings">Strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string-methods">String Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#index">Index</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slice">Slice</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenation">Concatenation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integers-floats">Integers &amp; Floats</a><ul class="nav section-nav flex-column">
@@ -1009,19 +986,12 @@ However, it does not work as a percentage although it might look like one. Inste
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#multiplication">Multiplication</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exponents">Exponents</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modulus">Modulus</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#more-mathematical-operators">More mathematical operators</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-boolean-operations">Table of Boolean operations</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">Comparisons</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-comparison-operations">Table of comparison operations</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#booleans">Booleans</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparisons">Comparisons</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
 </ul>
   </nav></div>
