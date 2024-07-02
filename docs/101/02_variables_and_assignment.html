@@ -409,8 +409,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-slicing-and-length">Indexing, slicing, and length</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-function-len-to-find-the-length-of-a-string">Use the built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> to find the length of a string</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-length-of-a-string">Find the length of a string</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
@@ -617,6 +618,8 @@ Remember, we assigned 42 to age a few lines ago.</p>
 <hr class="docutils" />
 <section id="indexing-slicing-and-length">
 <h2>Indexing, slicing, and length<a class="headerlink" href="#indexing-slicing-and-length" title="Link to this heading">#</a></h2>
+<section id="indexing">
+<h3>Indexing<a class="headerlink" href="#indexing" title="Link to this heading">#</a></h3>
 <p>You can use an index to get a single character from a string. The characters (individual letters, numbers, and so on) in a string are ordered. For example, the string ‘AB’ is not the same as ‘BA’. Because of this ordering, we can treat the string as a list of characters.</p>
 <p>Each position in the string (first, second, etc.) is given a number.
 This number is called an index or sometimes a subscript.
@@ -635,6 +638,7 @@ Use the position’s index in square brackets to get the character at that posit
 </div>
 </div>
 </div>
+</section>
 <section id="use-a-slice-to-get-a-substring">
 <h3>Use a slice to get a substring<a class="headerlink" href="#use-a-slice-to-get-a-substring" title="Link to this heading">#</a></h3>
 <p>A part of a string is called a substring. A substring can be as short as a single character. A slice is a part of a string (or, more generally, any list-like thing). We take a slice by using <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>, where start is replaced with the index of the first element we want and stop is replaced with the index of the element just after the last element we want.</p>
@@ -653,8 +657,8 @@ Use the position’s index in square brackets to get the character at that posit
 </div>
 </div>
 </section>
-<section id="use-the-built-in-function-len-to-find-the-length-of-a-string">
-<h3>Use the built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> to find the length of a string<a class="headerlink" href="#use-the-built-in-function-len-to-find-the-length-of-a-string" title="Link to this heading">#</a></h3>
+<section id="find-the-length-of-a-string">
+<h3>Find the length of a string<a class="headerlink" href="#find-the-length-of-a-string" title="Link to this heading">#</a></h3>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> is used to find the length of a string (and later, of other data types, too).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,7 +680,8 @@ Use the position’s index in square brackets to get the character at that posit
 <hr class="docutils" />
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<p>In the following you will find a series of exercises - try to solve them on your own before looking at the solution. You can either find the solution by clicking the blue solution button or sometimes by clicking “Show code cell output”. Have fun!</p>
+<p>In the following you will find a series of exercises - try to solve them on your own before looking at the solution. You can either find the solution by clicking the blue solution button or sometimes by clicking “Show code cell output”.</p>
+<p>Have fun!</p>
 <section id="exercise-1-choosing-a-name">
 <h3>Exercise 1: Choosing a Name<a class="headerlink" href="#exercise-1-choosing-a-name" title="Link to this heading">#</a></h3>
 <p>Which is a better variable name, m, min, or minutes? Why?</p>
@@ -787,11 +792,11 @@ Try figuring it out without clicking “Show code cell output”.</p>
 </div>
 <p>b) If <code class="docutils literal notranslate"><span class="pre">thing</span></code> is a variable name, <code class="docutils literal notranslate"><span class="pre">low</span></code> is a low number, and <code class="docutils literal notranslate"><span class="pre">high</span></code> is a high number:</p>
 <ol class="arabic simple">
-<li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[low:high]</span></code> do?</p></li>
-<li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[low:]</span></code> (without a value after the colon) do?</p></li>
-<li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[:high]</span></code> (without a value before the colon) do?</p></li>
-<li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[:]</span></code> (just a colon) do?</p></li>
-<li><p>What does thing<code class="docutils literal notranslate"><span class="pre">[number:negative-number]</span></code> do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[low:high]</span></code> do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[low:]</span></code> (without a value after the colon) do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[:high]</span></code> (without a value before the colon) do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[:]</span></code> (just a colon) do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[number:negative-number]</span></code> do?</p></li>
 </ol>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -900,8 +905,9 @@ Try figuring it out without clicking “Show code cell output”.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-slicing-and-length">Indexing, slicing, and length</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-function-len-to-find-the-length-of-a-string">Use the built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> to find the length of a string</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-the-length-of-a-string">Find the length of a string</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
