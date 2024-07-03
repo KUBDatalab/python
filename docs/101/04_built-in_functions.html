@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; My sample book</title>
+    <title>Built-in Functions and Help &#8212; My sample book</title>
   
   
   
@@ -189,10 +189,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../admonition_boxes.html">Admonition Boxes</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_variables_and_assignment.html">Variables and assignment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_type_conversion.html">Data Types and Type Conversion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Built-in Functions and Help</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
@@ -386,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Built-in Functions and Help</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -395,9 +396,30 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-comments-to-add-documentation-to-programs">Use comments to add documentation to programs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built-in Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-min-and-round"><code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-may-only-work-for-certain-combinations-of-arguments">Functions may only work for certain (combinations of) arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-may-have-default-values-for-some-arguments">Functions may have default values for some arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-function-returns-something">Every function returns something</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-help-function">Use the built-in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-messages">Error Messages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-errors">Syntax Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-errors">Runtime Errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-spot-the-difference">Exercise 1: Spot the Difference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-what-happens-when">Exercise 2: What Happens When?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-why-not">Exercise 3: Why Not?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-last-character-of-a-string">Exercise 4: Last Character of a String</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints:</a></li>
+</ul>
             </nav>
         </div>
     </div>
@@ -408,7 +430,460 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="built-in-functions-and-help">
+<h1>Built-in Functions and Help<a class="headerlink" href="#built-in-functions-and-help" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>How can I use built-in functions?</p></li>
+<li><p>How can I find out what they do?</p></li>
+<li><p>What kind of errors can occur in programs?</p></li>
+</ul>
+<p>Objectives:</p>
+<ul class="simple">
+<li><p>Explain the purpose of functions.</p></li>
+<li><p>Correctly call built-in Python functions.</p></li>
+<li><p>Use help to display documentation for built-in functions.</p></li>
+<li><p>Correctly describe situations in which SyntaxError and NameError occur.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="use-comments-to-add-documentation-to-programs">
+<h2>Use comments to add documentation to programs<a class="headerlink" href="#use-comments-to-add-documentation-to-programs" title="Link to this heading">#</a></h2>
+<p>When coding, it is always a good idea to write comments explaining what the code does - and why.<br />
+Comments will help other people understand what the program does.<br />
+Just like we spoke about in regards to meaningful variable names, the most important “other person” is your future self!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This sentence isn&#39;t executed by Python.</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Python for Absolute Beginners&#39;</span>   <span class="c1"># Neither is this comment - anything after &#39;#&#39; is ignored.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="built-in-functions">
+<h2>Built-in Functions<a class="headerlink" href="#built-in-functions" title="Link to this heading">#</a></h2>
+<p>A function may take zero or more arguments.</p>
+<p>We have seen some functions already (like <code class="docutils literal notranslate"><span class="pre">print()</span></code> and <code class="docutils literal notranslate"><span class="pre">type()</span></code>) — now let’s take a closer look.</p>
+<ul class="simple">
+<li><p>An <em>argument</em> is a value passed into a function.</p></li>
+<li><p>Any arguments you want to pass into a function must go into the <code class="docutils literal notranslate"><span class="pre">()</span></code></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(&quot;I</span> <span class="pre">am</span> <span class="pre">an</span> <span class="pre">argument</span> <span class="pre">and</span> <span class="pre">must</span> <span class="pre">go</span> <span class="pre">here.&quot;)</span></code></p></li>
+</ul>
+</li>
+<li><p>You must always use parentheses, because this is how Python knows you are calling a function.</p>
+<ul>
+<li><p>You leave them empty if you don’t want or need to pass any arguments in.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code> takes exactly one argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">int()</span></code>, <code class="docutils literal notranslate"><span class="pre">str()</span></code>, and <code class="docutils literal notranslate"><span class="pre">float()</span></code> create a new value from an existing one.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print()</span></code> takes zero or more arguments.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">print()</span></code> prints a blank line.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>before
+
+after
+</pre></div>
+</div>
+</div>
+</div>
+<section id="max-min-and-round">
+<h3><code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code><a class="headerlink" href="#max-min-and-round" title="Link to this heading">#</a></h3>
+<p>Commonly-used built-in functions include <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code>.</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">max()</span></code> to find the largest value of one or more values.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">min()</span></code> to find the smallest value of one or more values.</p></li>
+<li><p>Both work on character strings as well as numbers.</p>
+<ul>
+<li><p>“Larger” and “smaller” use (0-9, A-Z, a-z) to compare letters.</p></li>
+<li><p>This means that:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'a'</span></code> is smaller than <code class="docutils literal notranslate"><span class="pre">'b'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'A'</span></code> is smaller than <code class="docutils literal notranslate"><span class="pre">'a'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'0'</span></code> is smaller than <code class="docutils literal notranslate"><span class="pre">'A'</span></code></p></li>
+</ul>
+</li>
+<li><p>This is useful for ordering alphabetically.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+a
+A
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>To see more built-in functions, visit the <a class="reference external" href="https://docs.python.org/3/library/functions.html">Python Documentation</a></p>
+</div>
+</section>
+<section id="functions-may-only-work-for-certain-combinations-of-arguments">
+<h3>Functions may only work for certain (combinations of) arguments<a class="headerlink" href="#functions-may-only-work-for-certain-combinations-of-arguments" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code> and <code class="docutils literal notranslate"><span class="pre">min()</span></code> must be given at least one argument.</p></li>
+<li><p>And they must be given things that can meaningfully be compared.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span>
+
+<span class="ne">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>The error message tells us, that we cannot compare strings and integers.</p>
+</section>
+<section id="functions-may-have-default-values-for-some-arguments">
+<h3>Functions may have default values for some arguments<a class="headerlink" href="#functions-may-have-default-values-for-some-arguments" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">round()</span></code> will round off a floating-point number.</p></li>
+<li><p>By default, rounds to zero decimal places.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.712</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can specify the number of decimal places we want:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.712</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.7
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="every-function-returns-something">
+<h3>Every function returns something<a class="headerlink" href="#every-function-returns-something" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Every function call produces some result.</p></li>
+<li><p>If the function doesn’t have a useful result to return,
+it usually returns the special value <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result of print is&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>example
+result of print is None
+</pre></div>
+</div>
+</div>
+</div>
+<p>Contrary to what we might expect, <code class="docutils literal notranslate"><span class="pre">print()</span></code> does not return any value as such. I carries out the execution (i.e., it prints), but after that nothing is returned. Thus, it has a return value of <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="use-the-built-in-help-function">
+<h2>Use the built-in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function<a class="headerlink" href="#use-the-built-in-help-function" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Every built-in function has online documentation.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">round</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on built-in function round in module builtins:
+
+round(number, ndigits=None)
+    Round a number to a given precision in decimal digits.
+
+    The return value is an integer if ndigits is omitted or None.  Otherwise
+    the return value has the same type as the number.  ndigits may be negative.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="error-messages">
+<h2>Error Messages<a class="headerlink" href="#error-messages" title="Link to this heading">#</a></h2>
+<section id="syntax-errors">
+<h3>Syntax Errors<a class="headerlink" href="#syntax-errors" title="Link to this heading">#</a></h3>
+<p>Python reports a syntax error when grammar rules (that’s Python grammar, not English grammar) have been violated.</p>
+<p>You’ve seen errors when you try to use a function incorrectly, but you can also have errors when you use punctuation incorrectly.</p>
+<ul class="simple">
+<li><p>Python will run the program up until that point, but if the grammar of that line
+of code has produced an error, then the program will shut down with an error.</p></li>
+<li><p>Error messages will try and guide you to the point, where the error happened.</p></li>
+<li><p>Python error messages may vary slightly depending on your Python environment.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Forgot to close the quotation marks around the string.</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Feng</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Feng</span>
+           <span class="o">^</span>
+<span class="ne">SyntaxError</span>: unterminated string literal (detected at line 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># An extra &#39;=&#39; in the assignment.</span>
+<span class="n">age</span> <span class="o">=</span> <span class="o">=</span> <span class="mi">52</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="o">=</span> <span class="mi">52</span>
+          <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
+<p>Look more closely at the error message:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span>
+                       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: incomplete input
+</pre></div>
+</div>
+</div>
+</div>
+<p>The message indicates a problem in cell number 1 on first line of the input (“line 1”).</p>
+<p>Next is the problematic line of code, indicating the problem with a <code class="docutils literal notranslate"><span class="pre">^</span></code> pointer.</p>
+</section>
+<section id="runtime-errors">
+<h3>Runtime Errors<a class="headerlink" href="#runtime-errors" title="Link to this heading">#</a></h3>
+<p>Python reports a runtime error when something goes wrong while a program is executing.</p>
+<p>In Python, a runtime error is an error that occurs while a Python program is running. These errors are also known as exceptions.</p>
+<p>Runtime errors in Python are typically caused by unexpected conditions or events that disrupt the normal flow of the program.</p>
+<p>They can happen for various reasons, for example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">53</span>
+<span class="n">remaining</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">aege</span> <span class="c1"># mis-spelled &#39;age&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">53</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">-</span> <span class="n">aege</span> <span class="c1"># mis-spelled &#39;age&#39;</span>
+
+<span class="ne">NameError</span>: name &#39;aege&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can:</p>
+<ul class="simple">
+<li><p>Fix syntax errors by reading the source.</p></li>
+<li><p>Fix runtime errors by tracing execution.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-spot-the-difference">
+<h3>Exercise 1: Spot the Difference<a class="headerlink" href="#exercise-1-spot-the-difference" title="Link to this heading">#</a></h3>
+<p>Try to solve the two questions before you click “Show code cell output”.</p>
+<ol class="arabic simple">
+<li><p>Predict what each of the <code class="docutils literal notranslate"><span class="pre">print</span></code> statements in the program below will print.</p></li>
+<li><p>Does <code class="docutils literal notranslate"><span class="pre">max(len(rich),</span> <span class="pre">poor)</span></code> run or produce an error message?<br />
+If it runs, does its result make sense to you? (Remember that we are comparing the <em>value</em> of the variable and not the <em>name</em> of the variable.)</p></li>
+</ol>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rich</span> <span class="o">=</span> <span class="s2">&quot;gold&quot;</span>
+<span class="n">poor</span> <span class="o">=</span> <span class="s2">&quot;tin&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">rich</span><span class="p">,</span> <span class="n">poor</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rich</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">poor</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tin
+4
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-what-happens-when">
+<h3>Exercise 2: What Happens When?<a class="headerlink" href="#exercise-2-what-happens-when" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Explain in simple terms the order of operations in the following program:</p>
+<ul class="simple">
+<li><p>When does the addition happen?</p></li>
+<li><p>When does the subtraction happen?</p></li>
+<li><p>When is each function called, etc.?</p></li>
+</ul>
+</li>
+<li><p>What is the final value of <code class="docutils literal notranslate"><span class="pre">word</span></code>?</p></li>
+</ol>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;blah &#39;</span>
+<span class="n">word</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">word</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="s1">&#39;blur &#39;</span><span class="p">,</span> <span class="s1">&#39;aaah &#39;</span><span class="p">),</span> <span class="s1">&#39;Ping&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>aaah 
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ol class="arabic simple">
+<li><p><strong>Initialization</strong>: <code class="docutils literal notranslate"><span class="pre">word</span></code> is assigned the initial value ‘blah ‘.</p></li>
+<li><p><strong>Inside <code class="docutils literal notranslate"><span class="pre">max()</span></code> function</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">word</span> <span class="pre">*</span> <span class="pre">2</span></code> results in ‘blah blah ‘. (Repeats the string ‘blah ‘ twice using <code class="docutils literal notranslate"><span class="pre">*</span></code>.)</p></li>
+<li><p>‘blah blah ‘ + ‘blur ‘ results in ‘blah blah blur ‘. (Concatenates the two strings using <code class="docutils literal notranslate"><span class="pre">+</span></code>.)</p></li>
+<li><p>‘aaah ‘ is compared with ‘blah blah blur ‘. The <code class="docutils literal notranslate"><span class="pre">min()</span></code> function returns the smaller of the two strings, which is ‘aaah ‘.</p></li>
+</ul>
+</li>
+<li><p><strong>Outer <code class="docutils literal notranslate"><span class="pre">max()</span></code> function</strong>:</p>
+<ul class="simple">
+<li><p>The result of the <code class="docutils literal notranslate"><span class="pre">min()</span></code> function (‘aaah ‘) is passed as an argument.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">max()</span></code> function then compares ‘aaah ‘ with ‘Ping’ and returns the larger of the two strings, which is ‘aaah’, since lower case letters are indexed higher than upper case letters in Python.</p></li>
+</ul>
+</li>
+<li><p><strong>Assignment</strong>: Finally, the value ‘aaah’ is assigned to the variable <code class="docutils literal notranslate"><span class="pre">word</span></code>.</p></li>
+<li><p><strong>Output</strong>: The program prints the value of <code class="docutils literal notranslate"><span class="pre">word</span></code>, which is ‘aaah’.</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-why-not">
+<h3>Exercise 3: Why Not?<a class="headerlink" href="#exercise-3-why-not" title="Link to this heading">#</a></h3>
+<p>Why don’t <code class="docutils literal notranslate"><span class="pre">max()</span></code> and <code class="docutils literal notranslate"><span class="pre">min()</span></code> return <code class="docutils literal notranslate"><span class="pre">None</span></code> when they are given no arguments?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Both functions require at least one argument to execute.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>print(max())
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>TypeError: max expected at least 1 argument, got 0
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-4-last-character-of-a-string">
+<h3>Exercise 4: Last Character of a String<a class="headerlink" href="#exercise-4-last-character-of-a-string" title="Link to this heading">#</a></h3>
+<p>If Python starts counting from zero, and <code class="docutils literal notranslate"><span class="pre">len()</span></code> returns the number of characters in a string, what index expression will get the last character in the string <code class="docutils literal notranslate"><span class="pre">name</span></code>?</p>
+<p>(Note: we will see a simpler way to do this in a later episode.)</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>name[len(name) - 1]
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;s&#39;
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="keypoints">
+<h2>Keypoints:<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use comments to add documentation to programs.</p></li>
+<li><p>A function may take zero or more arguments.</p></li>
+<li><p>Commonly-used built-in functions include <code class="docutils literal notranslate"><span class="pre">min</span></code>, <code class="docutils literal notranslate"><span class="pre">max</span></code>, and <code class="docutils literal notranslate"><span class="pre">round</span></code>.</p></li>
+<li><p>Functions may only work for certain (combinations of) arguments.</p></li>
+<li><p>Functions may have default values for some arguments.</p></li>
+<li><p>Every function returns something.</p></li>
+<li><p>Use the built-in function <code class="docutils literal notranslate"><span class="pre">help</span></code> to get help for a function.</p></li>
+<li><p>Python reports a syntax error when it can’t understand the source of a program.</p></li>
+<li><p>Python reports a runtime error when something goes wrong while a program is executing.</p></li>
+</ul>
+</section>
+</section>
+
     <script type="text/x-thebe-config">
     {
         requestKernel: true,
@@ -472,9 +947,30 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contents
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-comments-to-add-documentation-to-programs">Use comments to add documentation to programs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-functions">Built-in Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#max-min-and-round"><code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-may-only-work-for-certain-combinations-of-arguments">Functions may only work for certain (combinations of) arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-may-have-default-values-for-some-arguments">Functions may have default values for some arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#every-function-returns-something">Every function returns something</a></li>
 </ul>
-
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-built-in-help-function">Use the built-in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-messages">Error Messages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax-errors">Syntax Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-errors">Runtime Errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-spot-the-difference">Exercise 1: Spot the Difference</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-what-happens-when">Exercise 2: What Happens When?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-why-not">Exercise 3: Why Not?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-last-character-of-a-string">Exercise 4: Last Character of a String</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints:</a></li>
+</ul>
   </nav></div>
 
 </div></div>
