@@ -945,8 +945,9 @@ eniroulf
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;lithium&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -956,14 +957,22 @@ eniroulf
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>lithium
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i
+
+lithium
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<p>There is no 20th index, so the entire string is captured.</p>
-<p>There is no element after the -1 index.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ol class="arabic simple">
+<li><p>Index <code class="docutils literal notranslate"><span class="pre">[1]</span></code> is the second character <code class="docutils literal notranslate"><span class="pre">i</span></code> (remember, Python is zero indexed). It goes up to but not including index <code class="docutils literal notranslate"><span class="pre">[2]</span></code>. Thus, only <code class="docutils literal notranslate"><span class="pre">i</span></code> is printed.</p></li>
+<li><p>There is no element after index <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, so an empty line is printed.</p></li>
+<li><p>There is no index <code class="docutils literal notranslate"><span class="pre">[20]</span></code>, so the entire string is captured and printed.</p></li>
+</ol>
+</div>
 </section>
 <hr class="docutils" />
 <section id="exercises-6-sort-and-sorted">
@@ -1012,7 +1021,10 @@ eniroulf
 </div>
 </details>
 </div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <p><code class="docutils literal notranslate"><span class="pre">sorted(letters)</span></code> returns a sorted copy of the list without changing the original list, while <code class="docutils literal notranslate"><span class="pre">letters.sort()</span></code> sorts the original list but does not return anything, i.e. returns <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</div>
 </section>
 <hr class="docutils" />
 <section id="exercise-7-copying-or-not">
@@ -1061,10 +1073,13 @@ eniroulf
 </div>
 </details>
 </div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
 <p><code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">old</span></code> is assigning <code class="docutils literal notranslate"><span class="pre">old</span></code> to <code class="docutils literal notranslate"><span class="pre">new</span></code>.<br />
 This means that the two variables both point to the same value.<br />
 Thus, changing the contents of either variable will affect the other.</p>
 <p>In contrast, <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">old[:]</span></code> is a <strong>slice assignment</strong>, which will only return a copy of <code class="docutils literal notranslate"><span class="pre">old</span></code>.</p>
+</div>
 </section>
 <hr class="docutils" />
 <section id="exercise-8-from-strings-to-lists-and-back">

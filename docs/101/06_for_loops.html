@@ -376,7 +376,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -392,6 +394,31 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How For Loops Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-syntax">For Loop Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-structure">For Loop Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-loop-variables">Naming Loop Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-statements-in-a-for-loop">Multiple Statements in a For Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-range-with-the-for-loop">Using <code class="docutils literal notranslate"><span class="pre">range</span></code> with the For Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-accumulator-variables">Using Accumulator Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-classifying-errors">Exercise 1: Classifying Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tracing-execution">Exercise 2: Tracing Execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-reversing-a-string">Exercise 3: Reversing a String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-practice-accumulating">Exercise 4: Practice Accumulating</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-cumulative-sum">Exercise 5: Cumulative Sum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-identifying-variable-name-errors">Exercise 6: Identifying Variable Name Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-identifying-item-errors">Exercise 7: Identifying Item Errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -403,6 +430,656 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="for-loops">
 <h1>For Loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>How can I make a program repeat a task?</p></li>
+</ul>
+<p>Objectives:</p>
+<ul class="simple">
+<li><p>Explain what for loops are normally used for.</p></li>
+<li><p>Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration.</p></li>
+<li><p>Write for loops that use accumulator values.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="how-for-loops-work">
+<h2>How For Loops Work<a class="headerlink" href="#how-for-loops-work" title="Link to this heading">#</a></h2>
+<p>A <em>for loop</em> executes commands once for each value in a collection</p>
+<p>Doing calculations on the values in a list one by one is as painful as working with <code class="docutils literal notranslate"><span class="pre">temperature_001</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature_002</span></code>, etc.</p>
+<ul class="simple">
+<li><p>A for loop tells Python to execute some statements once for each value in a list, a character string, or some other collection.</p></li>
+<li><p>“For each thing in this group, do these operations”</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+5
+</pre></div>
+</div>
+</div>
+</div>
+<p>The for loop above is equivalent to:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+5
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The variable name (here <code class="docutils literal notranslate"><span class="pre">number</span></code>) is a name that you choose, when you create the for loop.</p></li>
+<li><p>You can choose any variable name you want.</p></li>
+<li><p>But don’t use an already existing variable name, as this will then be overwritten.</p></li>
+<li><p>The variable persists after the loop is done and will contain the last used value.</p></li>
+<li><p>In the case above, <code class="docutils literal notranslate"><span class="pre">number</span></code> will contain the integer 5 after the for loop is finished.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="for-loop-syntax">
+<h2>For Loop Syntax<a class="headerlink" href="#for-loop-syntax" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The first line of the for loop must end with a colon, and the body must be indented.</p></li>
+<li><p>The colon at the end of the first line signals the start of a <em>block</em> of statements.</p></li>
+<li><p>Python uses indentation to show <em>nesting</em> (rather than <code class="docutils literal notranslate"><span class="pre">{}</span></code> or <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code>, which are used in some other programming languages).</p>
+<ul>
+<li><p>Any consistent indentation is legal, but almost everyone uses four spaces or tab.</p></li>
+<li><p>IDEs like Jupyter Lab will automatically create an indentation after the colon.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Indentation is always meaningful in Python.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">firstName</span> <span class="o">=</span> <span class="s2">&quot;Jon&quot;</span>
+  <span class="n">lastName</span> <span class="o">=</span> <span class="s2">&quot;Smith&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">lastName</span> <span class="o">=</span> <span class="s2">&quot;Smith&quot;</span>
+    <span class="o">^</span>
+<span class="ne">IndentationError</span>: unexpected indent
+</pre></div>
+</div>
+</div>
+</div>
+<p>This error can be fixed by removing the indentation at the beginning of the second line.</p>
+</section>
+<hr class="docutils" />
+<section id="for-loop-structure">
+<h2>For Loop Structure<a class="headerlink" href="#for-loop-structure" title="Link to this heading">#</a></h2>
+<p>A for loop is made up of a collection, a loop variable, and a body.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+3
+5
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>The collection, <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">5]</span></code>, is what the loop is being run on.</p></li>
+<li><p>The body, <code class="docutils literal notranslate"><span class="pre">print(number)</span></code>, specifies what to do for each value in the collection.</p></li>
+<li><p>The loop variable, <code class="docutils literal notranslate"><span class="pre">number</span></code>, is what changes for each <em>iteration</em> of the loop.</p>
+<ul>
+<li><p>It “contains” <code class="docutils literal notranslate"><span class="pre">2</span></code> in the first iteration, <code class="docutils literal notranslate"><span class="pre">3</span></code> in the second iteration, and <code class="docutils literal notranslate"><span class="pre">5</span></code> in the third iteration.</p></li>
+<li><p>After the for loop is finished, <code class="docutils literal notranslate"><span class="pre">number</span></code> still contains <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="naming-loop-variables">
+<h2>Naming Loop Variables<a class="headerlink" href="#naming-loop-variables" title="Link to this heading">#</a></h2>
+<p>Loop variable names follow the normal variable name conventions.</p>
+<ul class="simple">
+<li><p>Loop variables will:</p>
+<ul>
+<li><p>Be created on demand during the course of each loop.</p></li>
+<li><p>Persist after the loop finishes.</p></li>
+<li><p>Often be used in the course of the loop.</p>
+<ul>
+<li><p>So give them a meaningful name you’ll understand as the body code in your loop grows.</p></li>
+<li><p>Example: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">single_letter</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">asdf</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Use a new variable name to avoid overwriting a data collection you need to keep for later.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="multiple-statements-in-a-for-loop">
+<h2>Multiple Statements in a For Loop<a class="headerlink" href="#multiple-statements-in-a-for-loop" title="Link to this heading">#</a></h2>
+<p>The body of a loop can contain many statements.</p>
+<ul class="simple">
+<li><p>You can have as much code as you like inside of a loop.</p></li>
+<li><p>But keep in mind, the more code you have, the more difficult it can be to keep track of.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
+    <span class="n">squared</span> <span class="o">=</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="n">cubed</span> <span class="o">=</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">3</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;squared is:&quot;</span><span class="p">,</span> <span class="n">squared</span><span class="p">,</span> <span class="s2">&quot;, and the number&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;cubed is:&quot;</span><span class="p">,</span> <span class="n">cubed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number 2 squared is: 4 , and the number 2 cubed is: 8
+The number 3 squared is: 9 , and the number 3 cubed is: 27
+The number 5 squared is: 25 , and the number 5 cubed is: 125
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="using-range-with-the-for-loop">
+<h2>Using <code class="docutils literal notranslate"><span class="pre">range</span></code> with the For Loop<a class="headerlink" href="#using-range-with-the-for-loop" title="Link to this heading">#</a></h2>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">range</span></code> to go through a sequence of numbers.</p>
+<ul class="simple">
+<li><p>The built-in function <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a sequence of numbers.</p>
+<ul>
+<li><p><em>Not</em> a list: the numbers are produced on demand
+to make looping over large ranges more efficient.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(N)</span></code> is the numbers 0, 1, 2, … N-1</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A range is not a list: range(0, 3)&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A range is not a list: range(0, 3)
+0
+1
+2
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or use <code class="docutils literal notranslate"><span class="pre">range</span></code> to repeat an action a set number of times.</p>
+<ul class="simple">
+<li><p>You don’t actually have to use the iterable variable’s value.</p></li>
+<li><p>Use this structure to simply repeat an action some number of times.</p>
+<ul>
+<li><p>That number of times goes into the <code class="docutils literal notranslate"><span class="pre">range</span></code> function.</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Again!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Again!
+Again!
+Again!
+Again!
+Again!
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="using-accumulator-variables">
+<h2>Using Accumulator Variables<a class="headerlink" href="#using-accumulator-variables" title="Link to this heading">#</a></h2>
+<p>A common pattern in programs is to:</p>
+<ol class="arabic simple">
+<li><p>Initialize an <em>accumulator</em> variable to zero, the empty string, or the empty list.</p></li>
+<li><p>Update the variable with values from a collection.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sum all of the integers from 1 to 10.</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="p">(</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notice, that we use <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+<p>This is because <code class="docutils literal notranslate"><span class="pre">range(10)</span></code> will go through the numbers from 0 up to <strong>but not including</strong> 10. I.e., from 0 to 9.</p>
+</div>
+<p>Read <code class="docutils literal notranslate"><span class="pre">total</span> <span class="pre">=</span> <span class="pre">total</span> <span class="pre">+</span> <span class="pre">(number</span> <span class="pre">+</span> <span class="pre">1)</span></code> as:</p>
+<ul class="simple">
+<li><p>Add 1 to the current value of the loop variable <code class="docutils literal notranslate"><span class="pre">number</span></code>.</p>
+<ul>
+<li><p>We have to add <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">+</span> <span class="pre">1</span></code> because <code class="docutils literal notranslate"><span class="pre">range</span></code> produces the numbers 0…9, not 1…10.</p></li>
+</ul>
+</li>
+<li><p>Add that to the current value of the accumulator variable <code class="docutils literal notranslate"><span class="pre">total</span></code>.</p></li>
+<li><p>Assign that to <code class="docutils literal notranslate"><span class="pre">total</span></code>, replacing the current value.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-classifying-errors">
+<h3>Exercise 1: Classifying Errors<a class="headerlink" href="#exercise-1-classifying-errors" title="Link to this heading">#</a></h3>
+<p>Is an indentation error a syntax error or a runtime error?</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>It is a syntax error. The problem has to do with the placement of the code, not its logic.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-tracing-execution">
+<h3>Exercise 2: Tracing Execution<a class="headerlink" href="#exercise-2-tracing-execution" title="Link to this heading">#</a></h3>
+<p>Create a table showing the numbers of the lines that are executed when this program runs, and the values of the variables after each line is executed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39;fish&#39;</span><span class="p">]:</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Code line #</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">total</span></code></p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">animal</span></code></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>‘cat’</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>‘cat’</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>‘dog’</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>‘dog’</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>‘elephant’</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>3</p></td>
+<td><p>‘elephant’</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>‘fish’</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>4</p></td>
+<td><p>‘fish’</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p>Line 1 initializes the variable <code class="docutils literal notranslate"><span class="pre">total</span></code> with a value of 0.</p></li>
+<li><p>Line 2 begins a for loop that iterates over the list <code class="docutils literal notranslate"><span class="pre">['cat',</span> <span class="pre">'dog',</span> <span class="pre">'elephant',</span> <span class="pre">'fish']</span></code>.</p>
+<ul>
+<li><p>Line 2 is the first iteration, where <code class="docutils literal notranslate"><span class="pre">animal</span></code> takes the value ‘cat’, and <code class="docutils literal notranslate"><span class="pre">total</span></code> retains 0.</p></li>
+<li><p>Line 3 increments <code class="docutils literal notranslate"><span class="pre">total</span></code> by 1, making it 1, and <code class="docutils literal notranslate"><span class="pre">animal</span></code> retains the value ‘cat’.</p></li>
+<li><p>Line 2 is the second iteration, where <code class="docutils literal notranslate"><span class="pre">animal</span></code> takes the value ‘dog’, and <code class="docutils literal notranslate"><span class="pre">total</span></code> retains 1.</p></li>
+<li><p>Line 3 increments <code class="docutils literal notranslate"><span class="pre">total</span></code> by 1, making it 2, and <code class="docutils literal notranslate"><span class="pre">animal</span></code> retains the value ‘dog’.</p></li>
+<li><p>Line 2 is the third iteration, where <code class="docutils literal notranslate"><span class="pre">animal</span></code> takes the value ‘elephant’, and <code class="docutils literal notranslate"><span class="pre">total</span></code> retains 2.</p></li>
+<li><p>Line 3 increments <code class="docutils literal notranslate"><span class="pre">total</span></code> by 1, making it 3, and <code class="docutils literal notranslate"><span class="pre">animal</span></code> retains the value ‘elephant’.</p></li>
+<li><p>Line 2 is the fourth iteration, where <code class="docutils literal notranslate"><span class="pre">animal</span></code> takes the value ‘fish’, and <code class="docutils literal notranslate"><span class="pre">total</span></code> retains 3.</p></li>
+<li><p>Line 3 increments <code class="docutils literal notranslate"><span class="pre">total</span></code> by 1, making it 4, and <code class="docutils literal notranslate"><span class="pre">animal</span></code> retains the value ‘fish’.</p></li>
+</ul>
+</li>
+</ul>
+<p>After the program finishes, <code class="docutils literal notranslate"><span class="pre">total</span></code> is 4, and <code class="docutils literal notranslate"><span class="pre">animal</span></code> retains its value from the last iteration, which is ‘fish’.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-reversing-a-string">
+<h3>Exercise 3: Reversing a String<a class="headerlink" href="#exercise-3-reversing-a-string" title="Link to this heading">#</a></h3>
+<p>Fill in the blanks in the program below so that it prints “nit” (the reverse of the original character string “tin”).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>original = &quot;tin&quot;
+result = ____
+for char in original:
+    result = ____
+print(result)
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code> is an empty string because we use it to build or accumulate on our reverse string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code> is the loop variable for <code class="docutils literal notranslate"><span class="pre">original</span></code>.</p></li>
+<li><p>For each iteration of the loop, <code class="docutils literal notranslate"><span class="pre">char</span></code> takes on one value (character) from <code class="docutils literal notranslate"><span class="pre">original</span></code>.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">char</span></code> to the beginning of <code class="docutils literal notranslate"><span class="pre">result</span></code> to change the order of the string.</p></li>
+<li><p>Our loop code should look like this:</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="s2">&quot;tin&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">original</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">char</span> <span class="o">+</span> <span class="n">result</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nit
+</pre></div>
+</div>
+<p>If you were to explain the loop step by step, the iterations would look something like this:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#First loop
+char = &quot;t&quot;
+result = &quot;&quot;
+char + result = &quot;t&quot;
+
+#Second loop
+char = &quot;i&quot;
+result = &quot;t&quot;
+char + result = &quot;it&quot;
+
+#Third loop
+char = &quot;n&quot;
+result = &quot;it&quot;
+char + result = &quot;nit&quot;
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-4-practice-accumulating">
+<h3>Exercise 4: Practice Accumulating<a class="headerlink" href="#exercise-4-practice-accumulating" title="Link to this heading">#</a></h3>
+<p>Fill in the blanks in each of the programs below to produce the indicated result.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Total length of the strings in the list: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; 12
+total = 0
+for word in [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]:
+    ____ = ____ + len(word)
+print(total)
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Total length of the strings in the list: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; 12</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]:</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># List of word lengths: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; [3, 5, 4]
+lengths = ____
+for word in [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]:
+    lengths.____(____)
+print(lengths)
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of word lengths: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; [3, 5, 4]</span>
+<span class="n">lengths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]:</span>
+    <span class="n">lengths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[3, 5, 4]
+</pre></div>
+</div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Concatenate all words: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; &quot;redgreenblue&quot;
+words = [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;]
+result = ____
+for ____ in ____:
+    ____
+print(result)
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Concatenate all words: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; &quot;redgreenblue&quot;</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">result</span> <span class="o">+</span> <span class="n">word</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>redgreenblue
+</pre></div>
+</div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Create acronym: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; &quot;rgb&quot;
+# write the whole thing
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">acronym</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">colours</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">colour</span> <span class="ow">in</span> <span class="n">colours</span><span class="p">:</span>
+    <span class="n">acronym</span> <span class="o">=</span> <span class="n">acronym</span> <span class="o">+</span> <span class="n">colour</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">acronym</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>rgb
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-5-cumulative-sum">
+<h3>Exercise 5: Cumulative Sum<a class="headerlink" href="#exercise-5-cumulative-sum" title="Link to this heading">#</a></h3>
+<p>Reorder and properly indent the lines of code below so that they print an array with the cumulative sum of data.</p>
+<p>The result should be <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">10]</span></code>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cumulative += [sum]
+for number in data:
+cumulative = []
+sum += number
+print(cumulative)
+sum = 0
+data = [1,2,2,5]
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<span class="n">cumulative</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+  <span class="nb">sum</span> <span class="o">+=</span> <span class="n">number</span>
+  <span class="n">cumulative</span> <span class="o">+=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cumulative</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[1, 3, 5, 10]
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-6-identifying-variable-name-errors">
+<h3>Exercise 6: Identifying Variable Name Errors<a class="headerlink" href="#exercise-6-identifying-variable-name-errors" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Read the code below and try to identify what the errors are <em>without</em> running it.</p></li>
+<li><p>Run the code and read the error message. What type of <code class="docutils literal notranslate"><span class="pre">NameError</span></code> do you think this is? Is it a string with no quotes, a misspelled variable, or a variable that should have been defined but was not?</p></li>
+<li><p>Fix the error.</p></li>
+<li><p>Repeat steps 2 and 3, until you have fixed all the errors.</p></li>
+</ol>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># use a if the number is a multiple of 3, otherwise use b</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Number</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s2">&quot;b&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># use a if the number is a multiple of 3, otherwise use b</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">if</span> <span class="p">(</span><span class="n">Number</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="n">a</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">NameError</span>: name &#39;Number&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">NameError</span></code> consists in a variable that should have been defined but was not.</p>
+<p>Notice the buttom of the error message:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NameError: name &#39;Number&#39; is not defined
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-7-identifying-item-errors">
+<h3>Exercise 7: Identifying Item Errors<a class="headerlink" href="#exercise-7-identifying-item-errors" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Read the code below and try to identify what the errors are <em>without</em> running it.</p></li>
+<li><p>Run the code, and read the error message. What type of error is it?</p></li>
+<li><p>Fix the error.</p></li>
+</ol>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My favorite season is &#39;</span><span class="p">,</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My favorite season is &#39;</span><span class="p">,</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+
+<span class="ne">IndexError</span>: list index out of range
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>It is an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>IndexError: list index out of range
+</pre></div>
+</div>
+<p>The problem is that <code class="docutils literal notranslate"><span class="pre">4</span></code> points to an item that doesn’t exist in the list. Remember the first item of a list in Python is <code class="docutils literal notranslate"><span class="pre">0</span></code>.<br />
+Replace <code class="docutils literal notranslate"><span class="pre">seasons[4]</span></code> with <code class="docutils literal notranslate"><span class="pre">seasons[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">seasons[1]</span></code>, <code class="docutils literal notranslate"><span class="pre">seasons[2]</span></code>, or <code class="docutils literal notranslate"><span class="pre">seasons[3]</span></code> to have the different items of the list printed.</p>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="keypoints">
+<h2>Keypoints<a class="headerlink" href="#keypoints" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A <em>for loop</em> (<code class="docutils literal notranslate"><span class="pre">for</span></code>) executes commands once for each value in a collection.</p></li>
+<li><p>The first line of the for loop must end with a colon, and the body must be indented.</p></li>
+<li><p>Indentation is always meaningful in Python.</p></li>
+<li><p>A for loop is made up of a collection, a loop variable, and a body.</p></li>
+<li><p>Loop variables can be called anything (but it is strongly advised to have a meaningful name to the looping variable).</p></li>
+<li><p>The body of a loop can contain many statements.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">range</span></code> to iterate over a sequence of numbers.</p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -459,6 +1136,38 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How For Loops Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-syntax">For Loop Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-structure">For Loop Structure</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-loop-variables">Naming Loop Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-statements-in-a-for-loop">Multiple Statements in a For Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-range-with-the-for-loop">Using <code class="docutils literal notranslate"><span class="pre">range</span></code> with the For Loop</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-accumulator-variables">Using Accumulator Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-classifying-errors">Exercise 1: Classifying Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tracing-execution">Exercise 2: Tracing Execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-reversing-a-string">Exercise 3: Reversing a String</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-practice-accumulating">Exercise 4: Practice Accumulating</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-cumulative-sum">Exercise 5: Cumulative Sum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-identifying-variable-name-errors">Exercise 6: Identifying Variable Name Errors</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-identifying-item-errors">Exercise 7: Identifying Item Errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
