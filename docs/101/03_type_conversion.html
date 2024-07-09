@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Types and Type Conversion &#8212; My sample book</title>
+    <title>Data types and type conversion &#8212; My sample book</title>
   
   
   
@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/03_type_conversion';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Built-in Functions and Help" href="04_built-in_functions.html" />
+    <link rel="next" title="Built-in Functions and help" href="04_built-in_functions.html" />
     <link rel="prev" title="Variables and assignment" href="02_variables_and_assignment.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,9 +179,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Still testing</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to..</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Help and documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup.html">Install &amp; run python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionary.html">Learn all the new words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Get help and find documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -190,11 +192,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="00_setup.html">Installing &amp; running Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_variables_and_assignment.html">Variables and assignment</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Types and Type Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_built-in_functions.html">Built-in Functions and Help</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data types and type conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_built-in_functions.html">Built-in Functions and help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_lists.html">Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_for_loops.html">For Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
@@ -202,7 +203,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas/02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas/03_Pandas_subsets.html">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas/04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
@@ -391,7 +392,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Types and Type Conversion</h1>
+    <h1>Data types and type conversion</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -401,7 +402,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-control-what-operations-can-be-performed">Types control what operations can be performed</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-control-operations">Data types control operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-and-operators-on-strings">Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
 </ul>
@@ -413,11 +414,11 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-only-change-value-when-something-is-assigned-to-them">Variables only change value when something is assigned to them</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-fractions">Exercise 1: Fractions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-automatic-type-conversion">Exercise 2: Automatic Type Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to Numbers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with Different Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students">Exercise 6: Number of Students</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-automatic-type-conversion">Exercise 2: Automatic type conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with different types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students">Exercise 6: Number of students</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>
@@ -433,7 +434,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-types-and-type-conversion">
-<h1>Data Types and Type Conversion<a class="headerlink" href="#data-types-and-type-conversion" title="Link to this heading">#</a></h1>
+<h1>Data types and type conversion<a class="headerlink" href="#data-types-and-type-conversion" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions</p>
@@ -475,8 +476,8 @@ document.write(`
 <p>See more in the <a class="reference internal" href="01_data_types.html"><span class="doc std std-doc">Data Types</span></a> lesson.</p>
 </div>
 <hr class="docutils" />
-<section id="types-control-what-operations-can-be-performed">
-<h2>Types control what operations can be performed<a class="headerlink" href="#types-control-what-operations-can-be-performed" title="Link to this heading">#</a></h2>
+<section id="data-types-control-operations">
+<h2>Data types control operations<a class="headerlink" href="#data-types-control-operations" title="Link to this heading">#</a></h2>
 <p>A value’s type determines what the program can do to it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -618,10 +619,7 @@ document.write(`
 </div>
 <section id="integers-and-floats-can-be-mixed-freely-in-operations">
 <h3>Integers and floats can be mixed freely in operations<a class="headerlink" href="#integers-and-floats-can-be-mixed-freely-in-operations" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Integers and floating-point numbers can be mixed in arithmetic.</p></li>
-<li><p>Python automatically converts integers to floats as needed.</p></li>
-</ul>
+<p>Integers and floating-point numbers can be mixed in arithmetic. Python automatically converts integers to floats as needed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;half is&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
@@ -680,7 +678,7 @@ three squared is 9.0
 </section>
 <hr class="docutils" />
 <section id="exercise-2-automatic-type-conversion">
-<h3>Exercise 2: Automatic Type Conversion<a class="headerlink" href="#exercise-2-automatic-type-conversion" title="Link to this heading">#</a></h3>
+<h3>Exercise 2: Automatic type conversion<a class="headerlink" href="#exercise-2-automatic-type-conversion" title="Link to this heading">#</a></h3>
 <p>What type of value is 3.25 + 4?</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -697,7 +695,7 @@ Integers are automatically converted to floats as necessary.</p>
 </section>
 <hr class="docutils" />
 <section id="exercise-3-choose-a-type">
-<h3>Exercise 3: Choose a Type<a class="headerlink" href="#exercise-3-choose-a-type" title="Link to this heading">#</a></h3>
+<h3>Exercise 3: Choose a type<a class="headerlink" href="#exercise-3-choose-a-type" title="Link to this heading">#</a></h3>
 <p>What type of value (integer, floating point number, or character string) would you use to represent each of the following?</p>
 <p>Try to come up with more than one good answer for each problem.<br />
 For example, in  # 1, when would counting days with a floating point variable make more sense than using an integer?</p>
@@ -721,7 +719,7 @@ For example, in  # 1, when would counting days with a floating point variable ma
 </section>
 <hr class="docutils" />
 <section id="exercise-4-strings-to-numbers">
-<h3>Exercise 4: Strings to Numbers<a class="headerlink" href="#exercise-4-strings-to-numbers" title="Link to this heading">#</a></h3>
+<h3>Exercise 4: Strings to numbers<a class="headerlink" href="#exercise-4-strings-to-numbers" title="Link to this heading">#</a></h3>
 <p>Where reasonable, <code class="docutils literal notranslate"><span class="pre">float()</span></code> will convert at string or an integer to a floating point number, and <code class="docutils literal notranslate"><span class="pre">int()</span></code> wil convert a string or a floating point number to an integer.</p>
 <p>(Note, conversion is some times also called typecast.)</p>
 <div class="cell docutils container">
@@ -793,7 +791,7 @@ ValueError: invalid literal for int() with base 10: &#39;3.4&#39;
 </section>
 <hr class="docutils" />
 <section id="exercise-5-arithmetic-with-different-types">
-<h3>Exercise 5: Arithmetic with Different Types<a class="headerlink" href="#exercise-5-arithmetic-with-different-types" title="Link to this heading">#</a></h3>
+<h3>Exercise 5: Arithmetic with different types<a class="headerlink" href="#exercise-5-arithmetic-with-different-types" title="Link to this heading">#</a></h3>
 <p>Given this code:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>first = 1.0
 second = &quot;1&quot;
@@ -825,9 +823,9 @@ third = &quot;1.1&quot;
 </section>
 <hr class="docutils" />
 <section id="exercise-6-number-of-students">
-<h3>Exercise 6: Number of Students<a class="headerlink" href="#exercise-6-number-of-students" title="Link to this heading">#</a></h3>
+<h3>Exercise 6: Number of students<a class="headerlink" href="#exercise-6-number-of-students" title="Link to this heading">#</a></h3>
 <div class="tip dropdown admonition">
-<p class="admonition-title">Recap on Division Types</p>
+<p class="admonition-title">Recap on division types</p>
 <p>There are three different types of division:</p>
 <ol class="arabic simple">
 <li><p>‘Normal’ division (aka floating-point division) is what most people may be
@@ -936,7 +934,7 @@ print(&#39;5 % 3:&#39;, 5%3)
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Built-in Functions and Help</p>
+        <p class="prev-next-title">Built-in Functions and help</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -956,7 +954,7 @@ print(&#39;5 % 3:&#39;, 5%3)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#types-control-what-operations-can-be-performed">Types control what operations can be performed</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-control-operations">Data types control operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-and-operators-on-strings">Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
 </ul>
@@ -968,11 +966,11 @@ print(&#39;5 % 3:&#39;, 5%3)
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-only-change-value-when-something-is-assigned-to-them">Variables only change value when something is assigned to them</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-fractions">Exercise 1: Fractions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-automatic-type-conversion">Exercise 2: Automatic Type Conversion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a Type</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to Numbers</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with Different Types</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students">Exercise 6: Number of Students</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-automatic-type-conversion">Exercise 2: Automatic type conversion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type">Exercise 3: Choose a type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers">Exercise 4: Strings to numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-arithmetic-with-different-types">Exercise 5: Arithmetic with different types</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students">Exercise 6: Number of students</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keypoints">Keypoints</a></li>

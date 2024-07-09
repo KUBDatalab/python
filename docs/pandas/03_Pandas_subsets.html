@@ -179,9 +179,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Still testing</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to..</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Help and documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup.html">Install &amp; run python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionary.html">Learn all the new words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Get help and find documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -190,11 +192,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../101/00_setup.html">Installing &amp; running Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/01_data_types.html">Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/02_variables_and_assignment.html">Variables and assignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../101/03_type_conversion.html">Data Types and Type Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../101/04_built-in_functions.html">Built-in Functions and Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/03_type_conversion.html">Data types and type conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/04_built-in_functions.html">Built-in Functions and help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/05_lists.html">Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/06_for_loops.html">For Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/07_conditionals.html">Conditionals</a></li>
@@ -202,7 +203,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="00_pandas_start.html">Getting started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
@@ -410,7 +411,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-rows-and-columns-from-a-dataframe">Selecting specific rows and columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
         </div>
@@ -663,13 +664,6 @@ The resulting <code class="docutils literal notranslate"><span class="pre">DataF
 </table>
 <p>891 rows × 12 columns</p>
 </div></div></div>
-</div>
-<p>Note, even though we only see the first and last five rows, we actually read the whole <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> into the kernel’s memory.<br />
-The pressure on memory usage can be alleviated by using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method described below.<br />
-However, this will only be an issue with very large datasets, so don’t worry too much about it for now.</p>
-<p>You can find out how much memory a DataFrame uses by using the <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> method:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic.memory_usage(deep=True).sum()
-</pre></div>
 </div>
 </section>
 <section id="selecting-specific-columns-from-a-dataframe">
@@ -1900,8 +1894,8 @@ memory usage: 83.7+ KB
 <p>We have attached a separate notebook that introduces <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, two properties of pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects that provide methods for indexing.</p>
 </div>
 </section>
-<section id="remember">
-<h2>REMEMBER<a class="headerlink" href="#remember" title="Link to this heading">#</a></h2>
+<section id="key-points">
+<h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>When selecting subsets of data, square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> are used.</p></li>
 <li><p>Inside these square brackets, you can use</p>
@@ -1989,7 +1983,7 @@ memory usage: 83.7+ KB
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-rows-and-columns-from-a-dataframe">Selecting specific rows and columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remember">REMEMBER</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>
 

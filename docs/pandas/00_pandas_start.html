@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/00_pandas_start';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to the Pandas DataFrame" href="01_pandas_dataframe.html" />
+    <link rel="next" title="Pandas DataFrame" href="01_pandas_dataframe.html" />
     <link rel="prev" title="Conditionals" href="../101/07_conditionals.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,9 +179,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Still testing</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to..</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Help and documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup.html">Install &amp; run python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionary.html">Learn all the new words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Get help and find documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -190,11 +192,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../101/00_setup.html">Installing &amp; running Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/01_data_types.html">Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/02_variables_and_assignment.html">Variables and assignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../101/03_type_conversion.html">Data Types and Type Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../101/04_built-in_functions.html">Built-in Functions and Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/03_type_conversion.html">Data types and type conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/04_built-in_functions.html">Built-in Functions and help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/05_lists.html">Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/06_for_loops.html">For Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../101/07_conditionals.html">Conditionals</a></li>
@@ -202,7 +203,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
@@ -403,7 +404,6 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution">Attribution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-or-upgrading-pandas-from-pypi">Installing (or upgrading) Pandas from PyPI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulenotfounderror-and-pandas-dependencies"><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas">Importing Pandas</a></li>
 </ul>
             </nav>
@@ -418,15 +418,15 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-pandas">
 <h1>Getting started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Link to this heading">#</a></h1>
-<p>Welcome to our Pandas course!</p>
 <p>Before we get started, you may need to install Pandas - depending on how/where you are running Python.
-This guide is intented for people running a local installation of Python and using Jupyter notebooks.</p>
+This guide is intented for people running a local installation of Python and using Jupyter notebooks or Jupyter Lab.</p>
 <p>There are many ways to install Pandas. Ours is just one. <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html">You can read more here.</a></p>
 <section id="attribution">
 <h2>Attribution<a class="headerlink" href="#attribution" title="Link to this heading">#</a></h2>
 <p><img alt="CC Attribution" src="https://mirrors.creativecommons.org/presskit/icons/by.png" /></p>
 <p>Our Pandas teaching material has to a large extend been copied and modified from the official <a class="reference external" href="https://pandas.pydata.org/docs/index.html">Pandas documentation</a>.</p>
 </section>
+<hr class="docutils" />
 <section id="installing-or-upgrading-pandas-from-pypi">
 <h2>Installing (or upgrading) Pandas from PyPI<a class="headerlink" href="#installing-or-upgrading-pandas-from-pypi" title="Link to this heading">#</a></h2>
 <p>Pandas can be installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code> from <a class="reference external" href="https://pypi.org/project/pandas">PyPi</a>.</p>
@@ -448,21 +448,21 @@ However, you can run shell commands directly from Jupyter notebooks by adding an
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>! pip install --upgrade pandas
 </pre></div>
 </div>
-</section>
-<section id="modulenotfounderror-and-pandas-dependencies">
-<h2><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies<a class="headerlink" href="#modulenotfounderror-and-pandas-dependencies" title="Link to this heading">#</a></h2>
+<div class="attention dropdown admonition">
+<p class="admonition-title">ModuleNotFoundError</p>
 <p>When using Pandas, you may encounter the error message <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>. This is caused by so-called Pandas dependencies.</p>
 <p>When you install the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for Python, it requires other libraries to function correctly. These required libraries are called dependencies.
 Dependencies are external libraries that provide additional functionality or capabilities that the main library (in this case, Pandas) relies on to operate.</p>
 <p>When you install Pandas using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer, it automatically installs any required dependencies. However, optional dependencies are not installed by default and must be installed separately if needed.</p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#optional-dependencies">You can read more about Pandas dependencies here.</a></p>
 <p>In our case, we will be working with Excel files. All Excel-related dependencies can be installed in one go with this command:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>pip install &quot;pandas[excel]&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;pandas[excel]&quot;</span>
 </pre></div>
 </div>
 <p>Or - if run in a Jupyter notebook:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>! pip install &quot;pandas[excel]&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install &quot;pandas[excel]&quot;
 </pre></div>
+</div>
 </div>
 </section>
 <section id="importing-pandas">
@@ -523,7 +523,7 @@ import pandas as pd
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+        <p class="prev-next-title">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -545,7 +545,6 @@ import pandas as pd
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution">Attribution</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-or-upgrading-pandas-from-pypi">Installing (or upgrading) Pandas from PyPI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulenotfounderror-and-pandas-dependencies"><code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code> and Pandas dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas">Importing Pandas</a></li>
 </ul>
   </nav></div>

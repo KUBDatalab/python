@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/02_variables_and_assignment';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Data Types and Type Conversion" href="03_type_conversion.html" />
+    <link rel="next" title="Data types and type conversion" href="03_type_conversion.html" />
     <link rel="prev" title="Data Types" href="01_data_types.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,9 +179,11 @@
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Still testing</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to..</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Help and documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../00_setup.html">Install &amp; run python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionary.html">Learn all the new words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Get help and find documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
@@ -190,11 +192,10 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="00_setup.html">Installing &amp; running Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Variables and assignment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_type_conversion.html">Data Types and Type Conversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_built-in_functions.html">Built-in Functions and Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_type_conversion.html">Data types and type conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_built-in_functions.html">Built-in Functions and help</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_lists.html">Lists</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_for_loops.html">For Loops</a></li>
 <li class="toctree-l1"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
@@ -202,7 +203,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting started with Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Introduction to the Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas/02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas/03_Pandas_subsets.html">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pandas/04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
@@ -405,14 +406,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable names</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-is-case-sensitive">Python is case-sensitive</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits Names</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits names</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-calculations">Variables in calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-slicing-and-length">Indexing, slicing, and length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
@@ -532,7 +533,7 @@ As you start to code, you will almost certainly be tempted to use extremely shor
 There are conventions for using upper-case letters at the start of variable names so we will use lower-case letters for now.</p>
 </section>
 <section id="off-limits-names">
-<h4>Off-Limits Names<a class="headerlink" href="#off-limits-names" title="Link to this heading">#</a></h4>
+<h4>Off-Limits names<a class="headerlink" href="#off-limits-names" title="Link to this heading">#</a></h4>
 <p>The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <p>Some of these you can overwrite into variable names (not ideal!), but Jupyter Lab (and many other environments and editors) will catch this by colour coding your variable.  If your would-be variable is colour-coded green, rethink your name choice.  This is not something to worry too much about. You can get the object back by resetting your kernel.</p>
 </section>
@@ -612,8 +613,8 @@ As far as Python is concerned, all of the source code is one long set of instruc
 </div>
 </section>
 <hr class="docutils" />
-<section id="variables-can-be-used-in-calculations">
-<h2>Variables can be used in calculations<a class="headerlink" href="#variables-can-be-used-in-calculations" title="Link to this heading">#</a></h2>
+<section id="variables-in-calculations">
+<h2>Variables in calculations<a class="headerlink" href="#variables-in-calculations" title="Link to this heading">#</a></h2>
 <p>We can use variables in calculations just as if they were values.</p>
 <p>Remember, we assigned 42 to age a few lines ago.</p>
 <div class="cell docutils container">
@@ -886,7 +887,7 @@ Try figuring it out without clicking “Show code cell output”.</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Data Types and Type Conversion</p>
+        <p class="prev-next-title">Data types and type conversion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -910,14 +911,14 @@ Try figuring it out without clicking “Show code cell output”.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-names">Variable names</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#use-meaningful-variable-names">Use meaningful variable names</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-is-case-sensitive">Python is case-sensitive</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits Names</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#off-limits-names">Off-Limits names</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-print-to-display-values">Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-must-be-created-before-they-are-used">Variables must be created before they are used</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-can-be-used-in-calculations">Variables can be used in calculations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-in-calculations">Variables in calculations</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing-slicing-and-length">Indexing, slicing, and length</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#indexing">Indexing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-a-slice-to-get-a-substring">Use a slice to get a substring</a></li>
