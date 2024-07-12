@@ -501,13 +501,9 @@ whale
 <ul class="simple">
 <li><p>The first line of the for loop must end with a colon, and the body must be indented.</p></li>
 <li><p>The colon at the end of the first line signals the start of a <em>block</em> of statements.</p></li>
-<li><p>Python uses indentation to show <em>nesting</em> (rather than <code class="docutils literal notranslate"><span class="pre">{}</span></code> or <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code>, which are used in some other programming languages).</p>
-<ul>
-<li><p>Any consistent indentation is legal, but almost everyone uses four spaces or tab.</p></li>
-<li><p>IDEs like Jupyter Lab will automatically create an indentation after the colon.</p></li>
+<li><p>Python uses indentation to show <em>nesting</em> (rather than <code class="docutils literal notranslate"><span class="pre">{}</span></code> or <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code>, which are used in some other programming languages).</p></li>
 </ul>
-</li>
-</ul>
+<p>Any consistent indentation is legal, but almost everyone uses four spaces or tab. IDEs like Jupyter Lab will automatically create an indentation after the colon.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;giraffe&quot;</span><span class="p">,</span> <span class="s2">&quot;whale&quot;</span><span class="p">]:</span>
@@ -524,9 +520,7 @@ whale
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Indentation is always meaningful in Python.</p></li>
-</ul>
+<p><strong>Indentation is always meaningful in Python.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">firstName</span> <span class="o">=</span> <span class="s2">&quot;Jon&quot;</span>
@@ -585,21 +579,15 @@ whale
 <section id="naming-loop-variables">
 <h2>Naming loop variables<a class="headerlink" href="#naming-loop-variables" title="Link to this heading">#</a></h2>
 <p>Loop variable names follow the normal variable name conventions.</p>
+<p>Loop variables will:</p>
 <ul class="simple">
-<li><p>Loop variables will:</p>
-<ul>
 <li><p>Be created on demand during the course of each loop.</p></li>
 <li><p>Persist after the loop finishes.</p></li>
-<li><p>Often be used in the course of the loop.</p>
-<ul>
-<li><p>So give them a meaningful name you’ll understand as the body code in your loop grows.</p></li>
-<li><p>Example: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">single_letter</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">asdf</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code>.</p></li>
+<li><p>Often be used in the course of the loop.</p></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>Use a new variable name to avoid overwriting a data collection you need to keep for later.</p></li>
-</ul>
+<p>So give them a meaningful name you’ll understand as the body code in your loop grows.
+Example: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">single_letter</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">asdf</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code>.</p>
+<p>Use a new variable name to avoid overwriting a data collection you need to keep for later.</p>
 </section>
 <hr class="docutils" />
 <section id="multiple-statements-in-a-for-loop">
@@ -633,12 +621,7 @@ The number 5 squared is: 25 , and the number 5 cubed is: 125
 <h2>Using <code class="docutils literal notranslate"><span class="pre">range</span></code> with the for loop<a class="headerlink" href="#using-range-with-the-for-loop" title="Link to this heading">#</a></h2>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">range</span></code> to go through a sequence of numbers.</p>
 <ul class="simple">
-<li><p>The built-in function <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a sequence of numbers.</p>
-<ul>
-<li><p><em>Not</em> a list: the numbers are produced on demand
-to make looping over large ranges more efficient.</p></li>
-</ul>
-</li>
+<li><p>The built-in function <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a sequence of numbers. <em>Not</em> a list: the numbers are produced on demand to make looping over large ranges more efficient.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">range(N)</span></code> is the numbers 0, 1, 2, … N-1</p></li>
 </ul>
 <div class="cell docutils container">
@@ -659,14 +642,8 @@ to make looping over large ranges more efficient.</p></li>
 </div>
 </div>
 <p>Or use <code class="docutils literal notranslate"><span class="pre">range</span></code> to repeat an action a set number of times.</p>
-<ul class="simple">
-<li><p>You don’t actually have to use the iterable variable’s value.</p></li>
-<li><p>Use this structure to simply repeat an action some number of times.</p>
-<ul>
-<li><p>That number of times goes into the <code class="docutils literal notranslate"><span class="pre">range</span></code> function.</p></li>
-</ul>
-</li>
-</ul>
+<p>You don’t actually have to use the iterable variable’s value. Use this structure to simply repeat an action some number of times.</p>
+<p>That number of times goes into the <code class="docutils literal notranslate"><span class="pre">range</span></code> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>

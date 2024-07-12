@@ -459,9 +459,9 @@ document.write(`
 <h2>What are lists?<a class="headerlink" href="#what-are-lists" title="Link to this heading">#</a></h2>
 <p>A list is a Python data type that stores many items in a single structure.</p>
 <p>Scenario: You have set up an thermometer to do temperature measurements in a storage room for rare books.</p>
+<p>Doing calculations with a hundred variables called <code class="docutils literal notranslate"><span class="pre">temperature_001</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature_002</span></code>, etc.,
+would be at least as slow as doing them by hand.</p>
 <ul class="simple">
-<li><p>Doing calculations with a hundred variables called <code class="docutils literal notranslate"><span class="pre">temperature_001</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature_002</span></code>, etc.,
-would be at least as slow as doing them by hand.</p></li>
 <li><p>Use a <em>list</em> to store many items together.</p>
 <ul>
 <li><p>List items are contained within square brackets <code class="docutils literal notranslate"><span class="pre">[...]</span></code>.</p></li>
@@ -511,10 +511,8 @@ fourth item of temperatures: 17.6
 <section id="slicing-lists">
 <h3>Slicing lists<a class="headerlink" href="#slicing-lists" title="Link to this heading">#</a></h3>
 <p>Just like with strings, we can use indexing syntax to slice lists.</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">l</span></code> is a list, an expression of the form <code class="docutils literal notranslate"><span class="pre">l[start:stop]</span></code> returns the portion of <code class="docutils literal notranslate"><span class="pre">l</span></code> starting with position <code class="docutils literal notranslate"><span class="pre">start</span></code>, and up to <em><strong>but not including</strong></em> position <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</p></li>
-<li><p>Take a look at the example with the list of temperatures:</p></li>
-</ul>
+<p><em>If <code class="docutils literal notranslate"><span class="pre">l</span></code> is a list, an expression of the form <code class="docutils literal notranslate"><span class="pre">l[start:stop]</span></code> returns the portion of <code class="docutils literal notranslate"><span class="pre">l</span></code> starting with position <code class="docutils literal notranslate"><span class="pre">start</span></code>, and up to <em><strong>but not including</strong></em> position <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</em></p>
+<p>Take a look at the example with the list of temperatures:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
@@ -533,9 +531,7 @@ fourth item of temperatures: 17.6
 <section id="replacing-list-items">
 <h3>Replacing list items<a class="headerlink" href="#replacing-list-items" title="Link to this heading">#</a></h3>
 <p>Lists’ items can be replaced by assigning to them.</p>
-<ul class="simple">
-<li><p>Use an index expression on the left of the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>) to replace a value:</p></li>
-</ul>
+<p>You can use an index expression on the left of the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>) to replace a value:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">16.5</span>
@@ -553,9 +549,7 @@ fourth item of temperatures: 17.6
 <section id="appending-to-lists">
 <h3>Appending to lists<a class="headerlink" href="#appending-to-lists" title="Link to this heading">#</a></h3>
 <p>Appending items to a list lengthens it.</p>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">list_name.append</span></code> to add items to the end of a list:</p></li>
-</ul>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">list_name.append</span></code> to add items to the end of a list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperatures is initially:&#39;</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">)</span>
@@ -572,15 +566,9 @@ temperatures has become: [16.5, 17.5, 17.7, 17.5, 17.6, 17.9, 18.2]
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.append()</span></code> is a <em>method</em> of lists.</p>
-<ul>
-<li><p>A method is similar to a function, but tied to a particular object.</p></li>
-</ul>
-</li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">object_name.method_name</span></code> to call methods.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">help(list)</span></code> for a preview.</p></li>
-</ul>
+<p><code class="docutils literal notranslate"><span class="pre">.append()</span></code> is a <em>method</em> of lists.
+*   A method is similar to a function, but tied to a particular object.</p>
+<p>You can use <code class="docutils literal notranslate"><span class="pre">object_name.method_name</span></code> to call methods and <code class="docutils literal notranslate"><span class="pre">help(list)</span></code> for a preview.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Table of List Methods</p>
 <p>For more in-depth information, see the <a class="reference external" href="https://docs.python.org/3/tutorial/datastructures.html">Python Documentation</a>.</p>
@@ -669,14 +657,11 @@ numbers after removing last item: [2, 3, 5, 7]
 <section id="empty-lists">
 <h2>Empty lists<a class="headerlink" href="#empty-lists" title="Link to this heading">#</a></h2>
 <p>The empty list contains no items.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">[]</span></code> on its own to represent a list that doesn’t contain any items.</p>
 <ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">[]</span></code> on its own to represent a list that doesn’t contain any items.</p>
-<ul>
 <li><p>“The zero of lists.”</p></li>
 </ul>
-</li>
-<li><p>Helpful as a starting point for collecting values (which we will see in the next episode about <a class="reference internal" href="06_for_loops.html"><span class="doc std std-doc">For Loops</span></a>.</p></li>
-</ul>
+<p>This is helpful as a starting point for collecting values (which we will see in the next episode about <a class="reference internal" href="06_for_loops.html"><span class="doc std std-doc">For Loops</span></a>.</p>
 </section>
 <hr class="docutils" />
 <section id="lists-may-contain-items-of-different-data-types">
@@ -720,16 +705,12 @@ third character: i
 </div>
 <p>Lists and character strings are both <em>collections</em>.</p>
 <p><strong>But!</strong></p>
+<p>You cannot alter the characters in a string after it has been created.</p>
 <ul class="simple">
-<li><p>You cannot alter the characters in a string after it has been created.</p>
-<ul>
 <li><p><em>Immutable</em>: cannot be changed after creation. E.g., strings.</p></li>
 <li><p>In contrast, lists are <em>mutable</em>: they can be modified in place.</p></li>
 </ul>
-</li>
-<li><p>Python considers the string to be a single value with parts,
-not a collection of values.</p></li>
-</ul>
+<p>Python considers the string to be a single value with parts, not a collection of values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_titel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N&#39;</span>
@@ -747,7 +728,7 @@ not a collection of values.</p></li>
 </div>
 </div>
 </div>
-<div class="note admonition">
+<div class="important admonition">
 <p class="admonition-title">Notice the difference between overwriting and changing values</p>
 <p>In Python, when you use the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>) with a variable (<em>and not a variable index!</em>), it doesn’t change the original value of the variable.</p>
 <p>Instead, it replaces the current value of the variable with the new value on the right-hand side of the assignment.</p>
@@ -793,13 +774,9 @@ not a collection of values.</p></li>
 </section>
 <section id="indexing-beyond-the-end">
 <h2>Indexing beyond the end<a class="headerlink" href="#indexing-beyond-the-end" title="Link to this heading">#</a></h2>
-<p>Indexing beyond the end of the collection is an error.</p>
+<p>Indexing beyond the end of the collection is an error. Therefore, python reports an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> if we attempt to access a value that doesn’t exist.</p>
 <ul class="simple">
-<li><p>Python reports an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> if we attempt to access a value that doesn’t exist.</p>
-<ul>
 <li><p>This is a kind of <a class="reference internal" href="04_built-in_functions.html"><span class="doc std std-doc">runtime error</span></a>.</p></li>
-</ul>
-</li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
