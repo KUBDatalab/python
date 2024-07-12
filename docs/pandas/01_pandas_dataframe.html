@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/01_pandas_dataframe';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="How to read and write tabular data" href="02_Pandas_tabular_data.html" />
+    <link rel="next" title="Read and write tabular data" href="02_Pandas_tabular_data.html" />
     <link rel="prev" title="Getting started with Pandas" href="00_pandas_start.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -204,9 +204,9 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="00_pandas_start.html">Getting started with Pandas</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">How to read and write tabular data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Selecting subsets from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_Pandas_loc_iloc.html">What are <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Pandas_tabular_data.html">Read and write tabular data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_Pandas_subsets.html">Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_Pandas_loc_iloc.html"><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
 
     </div>
@@ -417,7 +417,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-also-create-our-own-series">We can also create our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-a-series-to-a-dataframe">Appending a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-column-based-on-data-in-an-existing-column">Create a new column based on data in an existing column</a></li>
 </ul>
 </li>
@@ -453,6 +453,7 @@ document.write(`
 After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the pandas library.</p>
 </div>
 </section>
+<hr class="docutils" />
 <section id="dataframe">
 <h2><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h2>
 <p><img alt="Representation of a Pandas DataFrame" src="../../_images/01_table_dataframe.svg" /></p>
@@ -834,8 +835,8 @@ Name: Fare, dtype: float64
 </section>
 </section>
 <hr class="docutils" />
-<section id="appending-a-series-to-a-dataframe">
-<h2>Appending a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#appending-a-series-to-a-dataframe" title="Link to this heading">#</a></h2>
+<section id="appending-series">
+<h2>Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#appending-series" title="Link to this heading">#</a></h2>
 <p>We can add a <code class="docutils literal notranslate"><span class="pre">Series</span></code> as a new column to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, extending it horizontally.<br />
 Here, the name of the ‘fare’ <code class="docutils literal notranslate"><span class="pre">Series</span></code> (‘Fare’) becomes the column name in the updated <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="cell docutils container">
@@ -1054,7 +1055,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">How to read and write tabular data</p>
+        <p class="prev-next-title">Read and write tabular data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1089,7 +1090,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-also-create-our-own-series">We can also create our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-a-series-to-a-dataframe">Appending a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-column-based-on-data-in-an-existing-column">Create a new column based on data in an existing column</a></li>
 </ul>
 </li>
