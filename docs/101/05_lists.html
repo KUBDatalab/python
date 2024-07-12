@@ -705,15 +705,15 @@ numbers after removing last item: [2, 3, 5, 7]
 <p>Remember that you can get single characters from a character string using indexes in square brackets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;carbon&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zeroth character:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;third character:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_titel</span> <span class="o">=</span> <span class="s1">&#39;To Kill a Mockingbird&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zeroth character:&#39;</span><span class="p">,</span> <span class="n">book_titel</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;third character:&#39;</span><span class="p">,</span> <span class="n">book_titel</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zeroth character: c
-third character: b
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zeroth character: T
+third character: i
 </pre></div>
 </div>
 </div>
@@ -732,15 +732,15 @@ not a collection of values.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_titel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N&#39;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">book_titel</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N&#39;</span>
 
 <span class="ne">TypeError</span>: &#39;str&#39; object does not support item assignment
 </pre></div>
@@ -754,40 +754,40 @@ not a collection of values.</p></li>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;carbon&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
-<span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;helium&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_titel</span> <span class="o">=</span> <span class="s1">&#39;To Kill a Mockingbird&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book_titel</span><span class="p">)</span>
+<span class="n">book_titel</span> <span class="o">=</span> <span class="s1">&#39;1984&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book_titel</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>carbon
-helium
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To Kill a Mockingbird
+1984
 </pre></div>
 </div>
 </div>
 </div>
-<p>In the code above, the variable <code class="docutils literal notranslate"><span class="pre">element</span></code> initially holds the value ‘carbon’, but when the second line is executed, it is overwritten with the new value ‘helium’.</p>
-<p>The old value ‘carbon’ is effectively discarded, and <code class="docutils literal notranslate"><span class="pre">element</span></code> now contains ‘helium’.</p>
+<p>In the code above, the variable <code class="docutils literal notranslate"><span class="pre">book_titel</span></code> initially holds the value ‘To Kill a Mockingbird’, but when the second line is executed, it is overwritten with the new value ‘1984’.</p>
+<p>The old value ‘To Kill a Mockingbird’ is effectively discarded, and <code class="docutils literal notranslate"><span class="pre">book_titel</span></code> now contains ‘1984’.</p>
 <p>In contrast, when assigning to a list index:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;carbon&#39;</span><span class="p">,</span> <span class="s1">&#39;helium&#39;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
-<span class="n">elements</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;hydrogen&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">elements</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;To Kill a Mockingbird&#39;</span><span class="p">,</span> <span class="s1">&#39;1984&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book_titles</span><span class="p">)</span>
+<span class="n">book_titles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Romeo and Juliet&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">book_titles</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;carbon&#39;, &#39;helium&#39;]
-[&#39;hydrogen&#39;, &#39;helium&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;To Kill a Mockingbird&#39;, &#39;1984&#39;]
+[&#39;Romeo and Juliet&#39;, &#39;1984&#39;]
 </pre></div>
 </div>
 </div>
 </div>
-<p>We don’t overwrite the variable <code class="docutils literal notranslate"><span class="pre">elements</span></code> but rather we <em>change</em> the content of the zeroth index.</p>
+<p>We don’t overwrite the variable <code class="docutils literal notranslate"><span class="pre">book_titles</span></code> but rather we <em>change</em> the content of the zeroth index.</p>
 <p>Thus, the difference between <em>immutable</em> and <em>mutable</em> data types.</p>
 </section>
 </section>
@@ -803,17 +803,17 @@ helium
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99th element of element is:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99th book of book_titles is:&#39;</span><span class="p">,</span> <span class="n">book_titles</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99th element of element is:&#39;</span><span class="p">,</span> <span class="n">element</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99th book of book_titles is:&#39;</span><span class="p">,</span> <span class="n">book_titles</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
 
-<span class="ne">IndexError</span>: string index out of range
+<span class="ne">IndexError</span>: list index out of range
 </pre></div>
 </div>
 </div>
@@ -870,8 +870,8 @@ second time: [3, 5]
 <p>What does the following program print?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;helium&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">harrypotter1</span> <span class="o">=</span> <span class="s2">&quot;the philosopher&#39;s stone&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">harrypotter1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -881,7 +881,7 @@ second time: [3, 5]
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e
 </pre></div>
 </div>
 </div>
@@ -890,8 +890,8 @@ second time: [3, 5]
 <ol class="arabic simple">
 <li><p>How does Python interpret a negative index?</p></li>
 <li><p>If a list or string has N elements, what is the most negative index that can safely be used with it, and what location does that index represent?</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">values</span></code> is a list, what does <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">values[-1]</span></code> do?</p></li>
-<li><p>How can you display all elements but the last one without changing <code class="docutils literal notranslate"><span class="pre">values</span></code>?<br />
+<li><p>If <code class="docutils literal notranslate"><span class="pre">harrypotter1</span></code> is a list, what does <code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">harrypotter1[-1]</span></code> do?</p></li>
+<li><p>How can you display all elements but the last one without changing <code class="docutils literal notranslate"><span class="pre">harrypotter1</span></code>?<br />
 (Hint: you will need to combine slicing and negative indexing.)</p></li>
 </ol>
 <div class="dropdown admonition">
@@ -900,7 +900,7 @@ second time: [3, 5]
 <li><p>A negative index begins at the final element.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-(N)</span></code> corresponds to the first index, which is the [0] index.</p></li>
 <li><p>It removes the final element of the list.</p></li>
-<li><p>You could do the following: <code class="docutils literal notranslate"><span class="pre">print(values[0:-1])</span></code></p></li>
+<li><p>You could do the following: <code class="docutils literal notranslate"><span class="pre">print(harrypotter1[0:-1])</span></code></p></li>
 </ol>
 </div>
 </section>
@@ -910,9 +910,9 @@ second time: [3, 5]
 <p>What does the following program print?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;fluorine&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song</span> <span class="o">=</span> <span class="s1">&#39;despacito&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -922,8 +922,8 @@ second time: [3, 5]
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>furn
-eniroulf
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dsaio
+oticapsed
 </pre></div>
 </div>
 </div>
@@ -937,7 +937,7 @@ eniroulf
 <p class="admonition-title">Solution</p>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stride</span></code> indicates both the number of steps, and from which end: positive starts from first element, negative from the last element.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">element[1::2]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">song[1::2]</span></code></p></li>
 </ol>
 </div>
 </section>
@@ -947,10 +947,10 @@ eniroulf
 <p>What does the following program print?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">element</span> <span class="o">=</span> <span class="s1">&#39;lithium&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">song</span> <span class="o">=</span> <span class="s1">&#39;blinding lights&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">song</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -960,9 +960,9 @@ eniroulf
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>i
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>l
 
-lithium
+blinding lights
 </pre></div>
 </div>
 </div>
@@ -971,7 +971,7 @@ lithium
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <ol class="arabic simple">
-<li><p>Index <code class="docutils literal notranslate"><span class="pre">[1]</span></code> is the second character <code class="docutils literal notranslate"><span class="pre">i</span></code> (remember, Python is zero indexed). It goes up to but not including index <code class="docutils literal notranslate"><span class="pre">[2]</span></code>. Thus, only <code class="docutils literal notranslate"><span class="pre">i</span></code> is printed.</p></li>
+<li><p>Index <code class="docutils literal notranslate"><span class="pre">[1]</span></code> is the second character <code class="docutils literal notranslate"><span class="pre">l</span></code> (remember, Python is zero indexed). It goes up to but not including index <code class="docutils literal notranslate"><span class="pre">[2]</span></code>. Thus, only <code class="docutils literal notranslate"><span class="pre">l</span></code> is printed.</p></li>
 <li><p>There is no element after index <code class="docutils literal notranslate"><span class="pre">[-1]</span></code>, so an empty line is printed.</p></li>
 <li><p>There is no index <code class="docutils literal notranslate"><span class="pre">[20]</span></code>, so the entire string is captured and printed.</p></li>
 </ol>

@@ -402,7 +402,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-woops-work">How <em>for woops</em> Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How <em>for loops</em> work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-syntax">For loop syntax</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-structure">For loop structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-loop-variables">Naming loop variables</a></li>
@@ -447,25 +447,25 @@ document.write(`
 </ul>
 </div>
 <hr class="docutils" />
-<section id="how-for-woops-work">
-<h2>How <em>for woops</em> Work<a class="headerlink" href="#how-for-woops-work" title="Link to this heading">#</a></h2>
+<section id="how-for-loops-work">
+<h2>How <em>for loops</em> work<a class="headerlink" href="#how-for-loops-work" title="Link to this heading">#</a></h2>
 <p>A <em>for loop</em> executes commands once for each value in a collection</p>
-<p>Doing calculations on the values in a list one by one is as painful as working with <code class="docutils literal notranslate"><span class="pre">temperature_001</span></code>, <code class="docutils literal notranslate"><span class="pre">temperature_002</span></code>, etc.</p>
+<p>Doing calculations on the values in a list one by one is as painful and not very fast. Instead we can use a for loop.</p>
 <ul class="simple">
 <li><p>A for loop tells Python to execute some statements once for each value in a list, a character string, or some other collection.</p></li>
 <li><p>“For each thing in this group, do these operations”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;giraffe&quot;</span><span class="p">,</span> <span class="s2">&quot;whale&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-3
-5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog
+giraffe
+whale
 </pre></div>
 </div>
 </div>
@@ -473,26 +473,26 @@ document.write(`
 <p>The for loop above is equivalent to:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;giraffe&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;whale&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-3
-5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog
+giraffe
+whale
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>The variable name (here <code class="docutils literal notranslate"><span class="pre">number</span></code>) is a name that you choose, when you create the for loop.</p></li>
+<li><p>The variable name (here <code class="docutils literal notranslate"><span class="pre">animal</span></code>) is a name that you choose, when you create the for loop.</p></li>
 <li><p>You can choose any variable name you want.</p></li>
 <li><p>But don’t use an already existing variable name, as this will then be overwritten.</p></li>
 <li><p>The variable persists after the loop is done and will contain the last used value.</p></li>
-<li><p>In the case above, <code class="docutils literal notranslate"><span class="pre">number</span></code> will contain the integer 5 after the for loop is finished.</p></li>
+<li><p>In the case above, <code class="docutils literal notranslate"><span class="pre">animal</span></code> will contain the integer 5 after the for loop is finished.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -510,14 +510,14 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;giraffe&quot;</span><span class="p">,</span> <span class="s2">&quot;whale&quot;</span><span class="p">]:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: expected an indented block after &#39;for&#39; statement on line 1
 </pre></div>
@@ -535,7 +535,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
     <span class="n">lastName</span> <span class="o">=</span> <span class="s2">&quot;Smith&quot;</span>
     <span class="o">^</span>
 <span class="ne">IndentationError</span>: unexpected indent
@@ -549,28 +549,34 @@ document.write(`
 <section id="for-loop-structure">
 <h2>For loop structure<a class="headerlink" href="#for-loop-structure" title="Link to this heading">#</a></h2>
 <p>A for loop is made up of a collection, a loop variable, and a body.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;giraffe&quot;</span><span class="p">,</span> <span class="s2">&quot;whale&quot;</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-3
-5
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog
+giraffe
+whale
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <ul class="simple">
-<li><p>The collection, <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">3,</span> <span class="pre">5]</span></code>, is what the loop is being run on.</p></li>
-<li><p>The body, <code class="docutils literal notranslate"><span class="pre">print(number)</span></code>, specifies what to do for each value in the collection.</p></li>
-<li><p>The loop variable, <code class="docutils literal notranslate"><span class="pre">number</span></code>, is what changes for each <em>iteration</em> of the loop.</p>
+<li><p>The collection, <code class="docutils literal notranslate"><span class="pre">[&quot;dog&quot;,</span> <span class="pre">&quot;giraffe&quot;,</span> <span class="pre">&quot;whale&quot;]</span></code>, is what the loop is being run on.</p></li>
+<li><p>The body, <code class="docutils literal notranslate"><span class="pre">print(animal)</span></code>, specifies what to do for each value in the collection.</p></li>
+<li><p>The loop variable, <code class="docutils literal notranslate"><span class="pre">animal</span></code>, is what changes for each <em>iteration</em> of the loop.</p>
 <ul>
-<li><p>It “contains” <code class="docutils literal notranslate"><span class="pre">2</span></code> in the first iteration, <code class="docutils literal notranslate"><span class="pre">3</span></code> in the second iteration, and <code class="docutils literal notranslate"><span class="pre">5</span></code> in the third iteration.</p></li>
-<li><p>After the for loop is finished, <code class="docutils literal notranslate"><span class="pre">number</span></code> still contains <code class="docutils literal notranslate"><span class="pre">5</span></code>.</p></li>
+<li><p>It “contains” <code class="docutils literal notranslate"><span class="pre">dog</span></code> in the first iteration, <code class="docutils literal notranslate"><span class="pre">giraffe</span></code> in the second iteration, and <code class="docutils literal notranslate"><span class="pre">whale</span></code> in the third iteration.</p></li>
+<li><p>After the for loop is finished, <code class="docutils literal notranslate"><span class="pre">animal</span></code> still contains <code class="docutils literal notranslate"><span class="pre">whale</span></code>.</p></li>
 </ul>
 </li>
 </ul>
@@ -814,8 +820,8 @@ Again!
 <hr class="docutils" />
 <section id="exercise-3-reversing-a-string">
 <h3>Exercise 3: Reversing a string<a class="headerlink" href="#exercise-3-reversing-a-string" title="Link to this heading">#</a></h3>
-<p>Fill in the blanks in the program below so that it prints “nit” (the reverse of the original character string “tin”).</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>original = &quot;tin&quot;
+<p>Fill in the blanks in the program below so that it prints “gip” (the reverse of the original character string “pig”).</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>original = &quot;pig&quot;
 result = ____
 for char in original:
     result = ____
@@ -832,31 +838,31 @@ print(result)
 <li><p>Add <code class="docutils literal notranslate"><span class="pre">char</span></code> to the beginning of <code class="docutils literal notranslate"><span class="pre">result</span></code> to change the order of the string.</p></li>
 <li><p>Our loop code should look like this:</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="s2">&quot;tin&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="s2">&quot;pig&quot;</span>
 <span class="n">result</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
 <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">original</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">char</span> <span class="o">+</span> <span class="n">result</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>nit
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>gip
 </pre></div>
 </div>
 <p>If you were to explain the loop step by step, the iterations would look something like this:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>#First loop
-char = &quot;t&quot;
+char = &quot;p&quot;
 result = &quot;&quot;
-char + result = &quot;t&quot;
+char + result = &quot;p&quot;
 
 #Second loop
 char = &quot;i&quot;
-result = &quot;t&quot;
-char + result = &quot;it&quot;
+result = &quot;p&quot;
+char + result = &quot;ip&quot;
 
 #Third loop
 char = &quot;n&quot;
-result = &quot;it&quot;
-char + result = &quot;nit&quot;
+result = &quot;ip&quot;
+char + result = &quot;gip&quot;
 </pre></div>
 </div>
 </div>
@@ -1004,7 +1010,7 @@ data = [1,2,2,5]
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># use a if the number is a multiple of 3, otherwise use b</span>
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">if</span> <span class="p">(</span><span class="n">Number</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1049,7 +1055,7 @@ data = [1,2,2,5]
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My favorite season is &#39;</span><span class="p">,</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1149,7 +1155,7 @@ Replace <code class="docutils literal notranslate"><span class="pre">seasons[4]<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-woops-work">How <em>for woops</em> Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How <em>for loops</em> work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-syntax">For loop syntax</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-structure">For loop structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-loop-variables">Naming loop variables</a></li>
