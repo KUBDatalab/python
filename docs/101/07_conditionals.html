@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to KUB Datalab’s Python teaching material
+                    Welcome to KUB Datalab’s Python course
                 </a>
             </li>
         </ul>
@@ -409,15 +409,18 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-are-tested-once-in-order">Conditions are tested once, in order</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements">Compound statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements">Compound statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analyzing-social-media-impact">Example: analyzing social media impact</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-syntax">The <code class="docutils literal notranslate"><span class="pre">while</span></code> syntax</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loops">Infinite loops</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-tracing-execution">Exercise 1: Tracing execution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-trimming-values">Exercise 2: Trimming values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-what-does-this-program-print">Exercise 1: What does this program print?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-fill-in-the-blanks">Exercise 2: Fill in the blanks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-using-the-input-function">Exercise 3: Using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-the-number-guessing-game">Exercise 4: The number guessing game</a></li>
 </ul>
@@ -597,9 +600,9 @@ But if <em>one</em> conditional is fulfilled, Python will “step out of” the 
 </div>
 </div>
 </div>
-<div class="dropdown admonition">
+<div class="attention admonition">
 <p class="admonition-title">What is the problem with the script above?</p>
-<p>The problem is that a grade can never be higher than ‘C’, since any points above 70 will be “caught” by the if condition. Thus, the elif conditions will never be tested.</p>
+<p>The problem is that a grade can never be higher than ‘C’, since any points above 70 will be “caught” by the if condition. Thus, the <code class="docutils literal notranslate"><span class="pre">elif</span></code> conditions will never be tested.</p>
 </div>
 <p>A better way to write the above script, would be:</p>
 <div class="cell docutils container">
@@ -621,7 +624,7 @@ But if <em>one</em> conditional is fulfilled, Python will “step out of” the 
 </div>
 </div>
 <p>Remember that Python scripts are run “chronologically”, i.e., from the top down.
-This means, that a script will not automatically go back and re-evaluate if values change.</p>
+This means, that a script will not automatically go back and re-evaluate if values change. Have a look at this scipt of the speed of a car:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="mf">10.0</span>
@@ -639,7 +642,8 @@ This means, that a script will not automatically go back and re-evaluate if valu
 </div>
 </div>
 </div>
-<p>Often conditionals are used in a loop to “evolve” the values of variables.</p>
+<p>It stays at adjusting speed as the new assignment of the value <code class="docutils literal notranslate"><span class="pre">50.0</span></code>does not automatically start the script over.</p>
+<p>Often conditionals are used in a loop to “evolve” the values of variables. This can be done like this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="mf">10.0</span>
@@ -680,42 +684,55 @@ You can combine relations within a conditional using an and/or or.
 This is called compound statements.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>This is an example
-You can read more about compound statements in the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html">official documentation</a>.</p>
+<p>You can read more about compound statements in the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html">official documentation</a>.</p>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mass</span>     <span class="o">=</span> <span class="p">[</span> <span class="mf">3.54</span><span class="p">,</span>  <span class="mf">2.07</span><span class="p">,</span>  <span class="mf">9.22</span><span class="p">,</span>  <span class="mf">1.86</span><span class="p">,</span>  <span class="mf">1.71</span><span class="p">]</span>
-<span class="n">speed</span>    <span class="o">=</span> <span class="p">[</span><span class="mf">10.00</span><span class="p">,</span> <span class="mf">20.00</span><span class="p">,</span> <span class="mf">30.00</span><span class="p">,</span> <span class="mf">25.00</span><span class="p">,</span> <span class="mf">20.00</span><span class="p">]</span>
+<section id="example-analyzing-social-media-impact">
+<h3>Example: analyzing social media impact<a class="headerlink" href="#example-analyzing-social-media-impact" title="Link to this heading">#</a></h3>
+<p>Imagine you are working on a project to analyze social media posts for a campaign. Your goal is to categorize posts based on their engagement metrics, such as the number of likes and shares, to determine their impact. You have data that includes the engagement metrics of various posts, and you want to classify them to understand their effectiveness better.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists of engagement metrics: likes and shares for each social media post</span>
+<span class="n">likes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
+<span class="n">shares</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 
+<span class="c1"># Loop through each post&#39;s data</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fast heavy object. Duck!&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Normal traffic&quot;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Slow light object. Ignore it.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;High impact post. Excellent engagement!&quot;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moderate impact post. Decent engagement.&quot;</span><span class="p">)</span>
+        
+    <span class="k">elif</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Low impact post. Needs improvement.&quot;</span><span class="p">)</span>
+        
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Whoa! Something is up with the data. Check it.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unexpected data. Check the engagement metrics.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Normal traffic
-Normal traffic
-Fast heavy object. Duck!
-Whoa! Something is up with the data. Check it.
-Slow light object. Ignore it.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moderate impact post. Decent engagement.
+Moderate impact post. Decent engagement.
+High impact post. Excellent engagement!
+Low impact post. Needs improvement.
+Low impact post. Needs improvement.
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>If no parentheses are used, Python will read code based on <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#operator-precedence">operator precedence</a>.
 However, a good general rule is to always use parentheses when mixing and and or in the same condition.
 That is, instead of:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
 </pre></div>
 </div>
 </div>
@@ -723,8 +740,8 @@ That is, instead of:</p>
 <p>You should write it like one of these two so it is perfectly clear to a reader (and to Python) what you really mean:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">)</span> <span class="ow">and</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
-<span class="k">if</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="ow">or</span> <span class="p">(</span><span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="p">(</span><span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">):</span>
 </pre></div>
 </div>
 </div>
@@ -732,11 +749,12 @@ That is, instead of:</p>
 <div class="attention admonition">
 <p class="admonition-title">Notice</p>
 <p>Notice that the two statements above test for something different!
-The first statement requires mass to be outside the range of 2 to 5 and the speed to be greater than 20.
+The first statement requires likes to be outside the range of 100 to 500 and the shares to be greater than 50.
 The second statement requires either of these two to be true:
-mass must be smaller than 2, or
-mass must be greater than 5 and speed must be greater than 20.</p>
+likes must be smaller than 100, or
+likes must be greater than 500 and shares must be greater than 50.</p>
 </div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="while-loops">
@@ -799,24 +817,19 @@ A way to stop the loop could be:</p>
 <hr class="docutils" />
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<section id="exercise-1-tracing-execution">
-<h3>Exercise 1: Tracing execution<a class="headerlink" href="#exercise-1-tracing-execution" title="Link to this heading">#</a></h3>
-<p>What does this program print?</p>
+<section id="exercise-1-what-does-this-program-print">
+<h3>Exercise 1: What does this program print?<a class="headerlink" href="#exercise-1-what-does-this-program-print" title="Link to this heading">#</a></h3>
+<p>Suppose we have a coffee machine that adjusts brewing pressure for making really delicious espresso. The brewing pressure is currently 8.5 bars. What kind of coffee if the machine brewing at the moment?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Suppose we have a coffee machine that adjusts brewing pressure</span>
-<span class="n">pressure</span> <span class="o">=</span> <span class="mf">9.5</span>  <span class="c1"># Brewing pressure in bars</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span> <span class="o">=</span> <span class="mf">8.5</span>  <span class="c1"># Brewing pressure in bars</span>
 
-<span class="c1"># Adjust the brewing pressure based on some arbitrary conditions</span>
 <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mf">7.0</span><span class="p">:</span>
-    <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;Brewing strong coffee&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Brewing delicious strong coffee&quot;</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mf">5.0</span><span class="p">:</span>
-    <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;Brewing regular coffee&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Brewing regular coffee&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">action</span> <span class="o">=</span> <span class="s2">&quot;Adjusting pressure for delicate espresso&quot;</span>
-
-<span class="c1"># Print the action of the coffee machine</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Coffee machine action:&quot;</span><span class="p">,</span> <span class="n">action</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adjusting pressure for delicate espresso&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -826,7 +839,7 @@ A way to stop the loop could be:</p>
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coffee machine action: Brewing strong coffee
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Brewing delicious strong coffee
 </pre></div>
 </div>
 </div>
@@ -834,8 +847,8 @@ A way to stop the loop could be:</p>
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-2-trimming-values">
-<h3>Exercise 2: Trimming values<a class="headerlink" href="#exercise-2-trimming-values" title="Link to this heading">#</a></h3>
+<section id="exercise-2-fill-in-the-blanks">
+<h3>Exercise 2: Fill in the blanks<a class="headerlink" href="#exercise-2-fill-in-the-blanks" title="Link to this heading">#</a></h3>
 <p>Fill in the blanks so that this program creates a new list containing zeroes (0) where the original list’s values were negative and ones (1) where the original list’s values were zero or positive.</p>
 <p><strong>Input</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
@@ -944,6 +957,7 @@ Congratulations! You guessed the correct number in 3 attempts.
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
+<p>This problem can be solved in more than one way - however this is how we would recommend it done to provide clarity and to use the skills you have learned so far.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="c1"># Generate a random secret number between 1 and 20</span>
@@ -1060,15 +1074,18 @@ Congratulations! You guessed the correct number in 3 attempts.
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-are-tested-once-in-order">Conditions are tested once, in order</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements">Compound statements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements">Compound statements</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analyzing-social-media-impact">Example: analyzing social media impact</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-while-syntax">The <code class="docutils literal notranslate"><span class="pre">while</span></code> syntax</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-loops">Infinite loops</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-tracing-execution">Exercise 1: Tracing execution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-trimming-values">Exercise 2: Trimming values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-what-does-this-program-print">Exercise 1: What does this program print?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-fill-in-the-blanks">Exercise 2: Fill in the blanks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-using-the-input-function">Exercise 3: Using the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-the-number-guessing-game">Exercise 4: The number guessing game</a></li>
 </ul>

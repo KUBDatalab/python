@@ -175,7 +175,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to KUB Datalab’s Python teaching material
+                    Welcome to KUB Datalab’s Python course
                 </a>
             </li>
         </ul>
@@ -413,7 +413,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-classifying-errors">Exercise 1: Classifying errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tracing-execution">Exercise 2: Tracing execution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-reversing-a-string">Exercise 3: Reversing a string</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-practice-accumulating">Exercise 4: Practice accumulating</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-fill-in-the-blanks">Exercise 4: Fill in the blanks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-cumulative-sum">Exercise 5: Cumulative sum</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-identifying-variable-name-errors">Exercise 6: Identifying variable name errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-identifying-item-errors">Exercise 7: Identifying item errors</a></li>
@@ -599,18 +599,32 @@ Example: <code class="docutils literal notranslate"><span class="pre">for</span>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">numbers</span><span class="p">:</span>
-    <span class="n">squared</span> <span class="o">=</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="n">cubed</span> <span class="o">=</span> <span class="n">n</span> <span class="o">**</span> <span class="mi">3</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The number&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;squared is:&quot;</span><span class="p">,</span> <span class="n">squared</span><span class="p">,</span> <span class="s2">&quot;, and the number&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;cubed is:&quot;</span><span class="p">,</span> <span class="n">cubed</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of pages read in each book</span>
+<span class="n">pages_read</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">75</span><span class="p">]</span>
+
+<span class="c1"># Loop through each book&#39;s pages read</span>
+<span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="n">pages_read</span><span class="p">:</span>
+    <span class="c1"># Calculate the total pages read and the remaining pages</span>
+    <span class="n">total_pages</span> <span class="o">=</span> <span class="n">pages</span>
+    <span class="n">pages_remaining</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">-</span> <span class="n">pages</span>
+    
+    <span class="c1"># Print the results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;For a book with&quot;</span><span class="p">,</span> <span class="n">pages</span><span class="p">,</span> <span class="s2">&quot;pages read so far,&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total pages read:&quot;</span><span class="p">,</span> <span class="n">total_pages</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Pages remaining to reach 200:&quot;</span><span class="p">,</span> <span class="n">pages_remaining</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The number 2 squared is: 4 , and the number 2 cubed is: 8
-The number 3 squared is: 9 , and the number 3 cubed is: 27
-The number 5 squared is: 25 , and the number 5 cubed is: 125
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For a book with 45 pages read so far,
+Total pages read: 45
+Pages remaining to reach 200: 155
+For a book with 120 pages read so far,
+Total pages read: 120
+Pages remaining to reach 200: 80
+For a book with 75 pages read so far,
+Total pages read: 75
+Pages remaining to reach 200: 125
 </pre></div>
 </div>
 </div>
@@ -845,8 +859,8 @@ char + result = &quot;gip&quot;
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-4-practice-accumulating">
-<h3>Exercise 4: Practice accumulating<a class="headerlink" href="#exercise-4-practice-accumulating" title="Link to this heading">#</a></h3>
+<section id="exercise-4-fill-in-the-blanks">
+<h3>Exercise 4: Fill in the blanks<a class="headerlink" href="#exercise-4-fill-in-the-blanks" title="Link to this heading">#</a></h3>
 <p>Fill in the blanks in each of the programs below to produce the indicated result.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span># Total length of the strings in the list: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; 12
 total = 0
@@ -931,7 +945,8 @@ print(result)
 <hr class="docutils" />
 <section id="exercise-5-cumulative-sum">
 <h3>Exercise 5: Cumulative sum<a class="headerlink" href="#exercise-5-cumulative-sum" title="Link to this heading">#</a></h3>
-<p>Reorder and properly indent the lines of code below so that they print an array with the cumulative sum of data.</p>
+<p>Reorder and properly indent the lines of code below so that they print an array with the cumulative sum of data.
+The cumulative sum is calculated by adding each number to the sum of all previous numbers.</p>
 <p>The result should be <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">3,</span> <span class="pre">5,</span> <span class="pre">10]</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>cumulative += [sum]
 for number in data:
@@ -987,7 +1002,7 @@ data = [1,2,2,5]
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">13</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1"># use a if the number is a multiple of 3, otherwise use b</span>
 <span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">if</span> <span class="p">(</span><span class="n">Number</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1003,7 +1018,7 @@ data = [1,2,2,5]
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">NameError</span></code> consists in a variable that should have been defined but was not.</p>
-<p>Notice the buttom of the error message:</p>
+<p>Notice the bottom of the error message:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>NameError: name &#39;Number&#39; is not defined
 </pre></div>
 </div>
@@ -1032,7 +1047,7 @@ data = [1,2,2,5]
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My favorite season is &#39;</span><span class="p">,</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 
@@ -1143,7 +1158,7 @@ Replace <code class="docutils literal notranslate"><span class="pre">seasons[4]<
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-classifying-errors">Exercise 1: Classifying errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-tracing-execution">Exercise 2: Tracing execution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-reversing-a-string">Exercise 3: Reversing a string</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-practice-accumulating">Exercise 4: Practice accumulating</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-fill-in-the-blanks">Exercise 4: Fill in the blanks</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-cumulative-sum">Exercise 5: Cumulative sum</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-identifying-variable-name-errors">Exercise 6: Identifying variable name errors</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-identifying-item-errors">Exercise 7: Identifying item errors</a></li>
