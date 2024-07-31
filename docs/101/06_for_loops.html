@@ -402,7 +402,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How <em>for loops</em> work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How for loops work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-syntax">For loop syntax</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-structure">For loop structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-loop-variables">Naming loop variables</a></li>
@@ -448,12 +448,12 @@ document.write(`
 </div>
 <hr class="docutils" />
 <section id="how-for-loops-work">
-<h2>How <em>for loops</em> work<a class="headerlink" href="#how-for-loops-work" title="Link to this heading">#</a></h2>
+<h2>How for loops work<a class="headerlink" href="#how-for-loops-work" title="Link to this heading">#</a></h2>
 <p>A <em>for loop</em> executes commands once for each value in a collection</p>
 <p>Doing calculations on the values in a list one by one is as painful and not very fast. Instead we can use a for loop.</p>
 <ul class="simple">
 <li><p>A for loop tells Python to execute some statements once for each value in a list, a character string, or some other collection.</p></li>
-<li><p>“For each thing in this group, do these operations”</p></li>
+<li><p>“For each thing in this group, do these operations.”</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -492,7 +492,7 @@ whale
 <li><p>You can choose any variable name you want.</p></li>
 <li><p>But don’t use an already existing variable name, as this will then be overwritten.</p></li>
 <li><p>The variable persists after the loop is done and will contain the last used value.</p></li>
-<li><p>In the case above, <code class="docutils literal notranslate"><span class="pre">animal</span></code> will contain the integer 5 after the for loop is finished.</p></li>
+<li><p>In the case above, <code class="docutils literal notranslate"><span class="pre">animal</span></code> will contain the string “whale” after the for loop is finished.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -565,14 +565,14 @@ whale
 </details>
 </div>
 <ul class="simple">
-<li><p>The collection, <code class="docutils literal notranslate"><span class="pre">[&quot;dog&quot;,</span> <span class="pre">&quot;giraffe&quot;,</span> <span class="pre">&quot;whale&quot;]</span></code>, is what the loop is being run on.</p></li>
-<li><p>The body, <code class="docutils literal notranslate"><span class="pre">print(animal)</span></code>, specifies what to do for each value in the collection.</p></li>
-<li><p>The loop variable, <code class="docutils literal notranslate"><span class="pre">animal</span></code>, is what changes for each <em>iteration</em> of the loop.</p>
+<li><p>The <strong>collection</strong>, <code class="docutils literal notranslate"><span class="pre">[&quot;dog&quot;,</span> <span class="pre">&quot;giraffe&quot;,</span> <span class="pre">&quot;whale&quot;]</span></code>, is what the loop is being run on.</p></li>
+<li><p>The <strong>loop variable</strong>, <code class="docutils literal notranslate"><span class="pre">animal</span></code>, is what changes for each <em>iteration</em> of the loop.</p>
 <ul>
 <li><p>It “contains” <code class="docutils literal notranslate"><span class="pre">dog</span></code> in the first iteration, <code class="docutils literal notranslate"><span class="pre">giraffe</span></code> in the second iteration, and <code class="docutils literal notranslate"><span class="pre">whale</span></code> in the third iteration.</p></li>
 <li><p>After the for loop is finished, <code class="docutils literal notranslate"><span class="pre">animal</span></code> still contains <code class="docutils literal notranslate"><span class="pre">whale</span></code>.</p></li>
 </ul>
 </li>
+<li><p>The <strong>body</strong>, <code class="docutils literal notranslate"><span class="pre">print(animal)</span></code>, specifies what to do for each value in the collection.</p></li>
 </ul>
 </section>
 <hr class="docutils" />
@@ -582,8 +582,8 @@ whale
 <p>Loop variables will:</p>
 <ul class="simple">
 <li><p>Be created on demand during the course of each loop.</p></li>
-<li><p>Persist after the loop finishes.</p></li>
 <li><p>Often be used in the course of the loop.</p></li>
+<li><p>Persist after the loop finishes.</p></li>
 </ul>
 <p>So give them a meaningful name you’ll understand as the body code in your loop grows.
 Example: <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">single_letter</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code> instead of <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">asdf</span> <span class="pre">in</span> <span class="pre">['A',</span> <span class="pre">'B',</span> <span class="pre">'C',</span> <span class="pre">'D']:</span></code>.</p>
@@ -1147,7 +1147,7 @@ Replace <code class="docutils literal notranslate"><span class="pre">seasons[4]<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How <em>for loops</em> work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-for-loops-work">How for loops work</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-syntax">For loop syntax</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loop-structure">For loop structure</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naming-loop-variables">Naming loop variables</a></li>
