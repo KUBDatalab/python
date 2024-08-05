@@ -1,0 +1,792 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RegEx and Frankenstein &#8212; My sample book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/test/regex_and_frankenstein';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="2024 Open Data Science" href="2024_ods.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome to KUB Datalab’s Python Course
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to..</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00_setup.html">Install &amp; Run Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dictionary.html">Learn All the New Words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../help_and_documentation.html">Get Help and Find Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown.html">Markdown Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks.html">Content with notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-notebooks.html">Notebooks with MyST Markdown</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mymarkdownfile.html">Here’s my sample title</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../admonition_boxes.html">Admonition Boxes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../101/01_data_types.html">Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/02_variables_and_assignment.html">Variables and Assignment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/03_type_conversion.html">Data Types and Type Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/04_built-in_functions.html">Built-in Functions and Help</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/05_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/06_for_loops.html">For Loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../101/07_conditionals.html">Conditionals</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/02_Pandas_tabular_data.html">Read and Write Tabular Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/03_Pandas_subsets.html">Subsets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/04_Pandas_loc_iloc.html"><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Courses at University of Copenhagen</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="2024_ods.html">2024 Open Data Science</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">RegEx and Frankenstein</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/test/regex_and_frankenstein.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/test/regex_and_frankenstein.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>RegEx and Frankenstein</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-files">Read files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metacharacters">Metacharacters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#w-along-with-b">w+ along with \b</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-metacharacters-as-well-as-pipes-lists-and-question-marks">More metacharacters, as well as pipes, lists and question marks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curly-brackets">Curly brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#square-brackets-a-z">Square brackets [A-Z]</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="regex-and-frankenstein">
+<h1>RegEx and Frankenstein<a class="headerlink" href="#regex-and-frankenstein" title="Link to this heading">#</a></h1>
+<p>Online RegEx Tester: <a class="reference external" href="https://regex101.com/">https://regex101.com/</a> is a helpful site for learning how to use regular expressions (Regex).</p>
+<p>W3schools also has a very useful page about RegEx. <a class="reference external" href="https://www.w3schools.com/python/python_regex.asp">https://www.w3schools.com/python/python_regex.asp</a></p>
+<p>Regex’s use is very widespread because RegEx is super smart in relation to text processing, because it can be used to perform advanced searches. RegEx is used for search engines and for search and replace functions. Working with RegEx is definitely an experience in itself, but when you get an insight into the scope of tasks that can be solved with RegEx, you realize that it is an incredibly good tool.</p>
+<p>This notebook doesn’t try to teach you everything about RegEx, but it does try to create learning about it, and only a few of the possibilities are illustrated below.</p>
+<p>In addition to RegEx, this notebook contains many loops and list comprehensions, so that way you can also get an insight into how to write this sort of thing.</p>
+<section id="read-files">
+<h2>Read files<a class="headerlink" href="#read-files" title="Link to this heading">#</a></h2>
+<p>We get the book Frankenstein from Project Gutenberg and use it for the rest of the workshop. We download the Plain Text UTF-8 version.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span> 
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://gutenberg.org/cache/epub/84/pg84.txt&#39;</span>
+<span class="n">raw_text</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="n">text_start</span> <span class="o">=</span> <span class="n">raw_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;*** START OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN; OR, THE MODERN PROMETHEUS ***&#39;</span><span class="p">)</span>
+<span class="n">text_start</span> <span class="o">=</span> <span class="n">text_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;*** START OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN; OR, THE MODERN PROMETHEUS ***&#39;</span><span class="p">)</span>
+<span class="n">text_end</span> <span class="o">=</span> <span class="n">raw_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;*** END OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN; OR, THE MODERN PROMETHEUS ***&#39;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">raw_text</span><span class="p">[</span><span class="n">text_start</span><span class="p">:</span><span class="n">text_end</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Frankenstein;\r\n\r\nor, the Modern Prometheus\r\n\r\nby Mary Wollstonecraft (Godwin) Shelley\r\n\r\n\r\n CONTENTS&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="metacharacters">
+<h2>Metacharacters<a class="headerlink" href="#metacharacters" title="Link to this heading">#</a></h2>
+<p>\b \S and \w and the + sign</p>
+<p>These metadatacharacters are relevant when cleaning text data.</p>
+<p>Cleaning the text will often be a fundamental necessity before working on using different methods to analyze the text. Cleaning often consists of removing grammatical characters, ensuring that all uppercase letters are changed to lowercase, and that <a class="reference external" href="https://en.wikipedia.org/wiki/Stop_word">stop words</a> have been filtered out.</p>
+<p>When we need to clean our text of grammatical characters, we use RegEX patterns and Python string methods. Below we test two different RegEX patterns.</p>
+<p>When we work with RegEx, the website <a class="reference external" href="https://regex101.com/">regex101.com</a> is a brilliant tool, because we can get help partly to understand Regex, partly to write a Regex pattern.</p>
+<p>Try to open the page and insert this text string: <em>Chapter 1 I am by birth a Genevese, and my family is one of the most distinguished of that republic.</em> in the field ‘TEXT STRING’.</p>
+<p><strong>First RegEX pattern ‘\b\S+\b’</strong>.</p>
+<p>In the ‘REGULAR EXPRESSION’ field you can write this pattern <em>‘\b\S+\b’</em>.</p>
+<p>\b : \b finds the position at the boundary of a word (word boundary). \S: \S matches any non-space +: + matches the previous character between one and an unlimited number of times, as many times as possible until the next character. They say the plus is greedy. \b : \b finds the position at the boundary of a word (word boundary).</p>
+<p>When you set \b\S+\b, you match from, you match all “non-space characters” as well as underscores, but not symbols such as periods, commas, question marks.</p>
+<p><strong>Other RegEX pattern ‘\w+’</strong>.
+Another Regex pattern that is also used for cleaning is ‘\w+’.
+\w: \w matches any alphabetic letter (uppercase and lowercase), any number, or an underscore (_). +: + matches the preceding character one or more times.</p>
+<p>When you put \w+ together, you match whole words composed of letters, digits and underscores.</p>
+<p><strong>Comparison of the two RegEX patterns</strong></p>
+<p>In the first method, <em>There-for</em> remains in a word</p>
+<p>In the second method it becomes two words, <em>There for</em>.</p>
+<p>Search e.g. after <em>About two o’clock</em>.</p>
+<p>In the first method, <em>o’clock</em> remains a word.</p>
+<p>In the second method it becomes two words, <em>o clock</em>.</p>
+<p>Both methods leave us with underscores (_), so to get rid of underscores we use stitch’s .replace() method.</p>
+<p>Try both methods below and inspect the result.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">def</span> <span class="nf">clean_text_1</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># Use \w+ regex pattern to extract words</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b\S+\b&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Join the extracted words into a cleaned text</span>
+    <span class="n">cleaned_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cleaned_text</span>
+
+
+<span class="k">def</span> <span class="nf">clean_text_2</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="c1"># Use \w+ regex pattern to extract words</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+
+    <span class="c1"># Join the extracted words into a cleaned text</span>
+    <span class="n">cleaned_text</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">cleaned_text</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">clean_text_1</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cleaned_text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frankenstein or the Modern Prometheus by Mary Wollstonecraft Godwin Shelley CONTENTS Letter 1 Letter
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">clean_text_2</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cleaned_text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frankenstein or the Modern Prometheus by Mary Wollstonecraft Godwin Shelley CONTENTS Letter 1 Letter
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="w-along-with-b">
+<h2>w+ along with \b<a class="headerlink" href="#w-along-with-b" title="Link to this heading">#</a></h2>
+<p>Find words with special endings, e.g. <em>day</em>, can be a help to gain insight into where and when the literature takes place.</p>
+<p>Why doesn’t anything happen on a Friday?</p>
+<p>You can also use the endings to find grammatical forms, e.g. words with a long affix will be relatively easy to identify.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ending</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+day\b&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ending</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;yesterday&#39;, &#39;holiday&#39;, &#39;Monday&#39;, &#39;Yesterday&#39;, &#39;Sunday&#39;, &#39;Thursday&#39;, &#39;today&#39;, &#39;today&#39;, &#39;yesterday&#39;, &#39;yesterday&#39;, &#39;everyday&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="more-metacharacters-as-well-as-pipes-lists-and-question-marks">
+<h2>More metacharacters, as well as pipes, lists and question marks<a class="headerlink" href="#more-metacharacters-as-well-as-pipes-lists-and-question-marks" title="Link to this heading">#</a></h2>
+<p>In literature, comparisons are often used to illustrate points more clearly by putting pictures on what you want to describe. Comparisons also contribute to making the text more lively and interesting.</p>
+<p>But regex makes it a manageable task to retrieve examples of comparisons in Grimm’s fairy tales, because we can find text strings that follow the pattern of a typical comparison.</p>
+<p>We can illustrate it in the following way. We look for phrases whose pattern is either as a … or as an ….</p>
+<p>The RegEx pattern can be written like this:</p>
+<p>‘as\sa\s\w+’</p>
+<p>The word ‘as’ is followed by \s, meaning white space, followed by a, then followed by \s, followed by \w, meaning word charater, followed by + meaning “one or more of the previous”.</p>
+<p>If you also want to search for “as an …” there are two ways to do it.</p>
+<p>First way is to use pipe |. Pipe means “or”. The regex pattern will then look like this: ‘as\sa\s\w+|as\san\s\w+’</p>
+<p>Another way is to use the square brackets [ ].</p>
+<p>It looks like this: ‘as\sa[n]?\s\w+’. In the list, letters can be added that can stand in that place in the word. The question mark indicates that the letter may or may not be there.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as a delusion&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa\s\w+|as\san\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as an under&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as an infant&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as an inferior&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as an uncouth&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as an easier&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as an odious&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as an irresistible&#39;, &#39;as an historical&#39;, &#39;as an air&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as an excellent&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as an extreme&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as an insuperable&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as an agitation&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as an event&#39;, &#39;as a delusion&#39;, &#39;as an occurrence&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa[n]?\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as an under&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as an infant&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as an inferior&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as an uncouth&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as an easier&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as an odious&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as an irresistible&#39;, &#39;as an historical&#39;, &#39;as an air&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as an excellent&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as an extreme&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as an insuperable&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as an agitation&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as an event&#39;, &#39;as a delusion&#39;, &#39;as an occurrence&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="curly-brackets">
+<h2>Curly brackets<a class="headerlink" href="#curly-brackets" title="Link to this heading">#</a></h2>
+<p>Curly brackets are for example relevant when making a concordance (word and context).</p>
+<p>We want to find excerpts of text that contain storm, because we are actually interested in pointing down in the text and seeing how exactly the terms are used.</p>
+<p>For this we need to use the full stop ( . ) because it gives us more word characters and {30} searches for us to get 30 word characters before we hit the letters Turk.</p>
+<p>The period {30} after Turk gives us another 30 word characters.</p>
+<p>Try to see if you can use some of what has been reviewed above to include text extracts that contain the word Roman..</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.</span><span class="si">{30}</span><span class="s1">storm.</span><span class="si">{30}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;st be his story frightful the storm which embraced the gallant ve&#39;,
+ &#39;t violent and terrible thunderstorm It advanced from behind the m&#39;,
+ &#39; heavens I remained while the storm lasted watching its progress &#39;,
+ &#39; of preservation to avert the storm that was even then hanging in&#39;,
+ &#39;he most beautiful figures The storm appeared to approach rapidly &#39;,
+ &#39; on although the darkness and storm increased every minute and th&#39;,
+ &#39; from the preceding flash The storm as is often the case in Switz&#39;,
+ &#39; the heavens The most violent storm hung exactly north of the tow&#39;,
+ &#39; the village of Copêt Another storm enlightened Jura with faint f&#39;,
+ &#39;y retreats What were rain and storm to me My mule was brought to &#39;,
+ &#39;ning to rise Suddenly a heavy storm of rain descended I had been &#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="square-brackets-a-z">
+<h2>Square brackets [A-Z]<a class="headerlink" href="#square-brackets-a-z" title="Link to this heading">#</a></h2>
+<p>Find words that start with capital letters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">upper_case_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[A-Z]\w+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">upper_case_word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frankenstein&#39;, &#39;Modern&#39;, &#39;Prometheus&#39;, &#39;Mary&#39;, &#39;Wollstonecraft&#39;, &#39;Godwin&#39;, &#39;Shelley&#39;, &#39;CONTENTS&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Letter&#39;, &#39;To&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;St&#39;, &#39;Petersburgh&#39;, &#39;Dec&#39;, &#39;You&#39;, &#39;London&#39;, &#39;Petersburgh&#39;, &#39;Do&#39;, &#39;This&#39;, &#39;Inspirited&#39;, &#39;There&#39;, &#39;Margaret&#39;, &#39;There&#39;, &#39;Its&#39;, &#39;What&#39;, &#39;These&#39;, &#39;But&#39;, &#39;These&#39;, &#39;This&#39;, &#39;North&#39;, &#39;Pacific&#39;, &#39;Ocean&#39;, &#39;You&#39;, &#39;Uncle&#39;, &#39;Thomas&#39;, &#39;My&#39;, &#39;These&#39;, &#39;These&#39;, &#39;Homer&#39;, &#39;Shakespeare&#39;, &#39;You&#39;, &#39;But&#39;, &#39;Six&#39;, &#39;North&#39;, &#39;Sea&#39;, &#39;Twice&#39;, &#39;Greenland&#39;, &#39;And&#39;, &#39;Margaret&#39;, &#39;My&#39;, &#39;Oh&#39;, &#39;My&#39;, &#39;This&#39;, &#39;Russia&#39;, &#39;They&#39;, &#39;English&#39;, &#39;The&#39;, &#39;St&#39;, &#39;Petersburgh&#39;, &#39;Archangel&#39;, &#39;June&#39;, &#39;Ah&#39;, &#39;If&#39;, &#39;If&#39;, &#39;Farewell&#39;, &#39;Margaret&#39;, &#39;Heaven&#39;, &#39;Your&#39;, &#39;Walton&#39;, &#39;Letter&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mange af disse ord er skrevet med stort, fordi de optræder efter et punktum, og på den måde er de ikke, hvad jeg vil kalde for “ægte” ord med stort.</p>
+<p>Hvis man vil bortfiltrere de “uægte” ord fra sin liste, så kan man afsløre dem ved at lave et loop og indsætte en betingelse, der kan tjekke om, ordene skulle være skrevet med småt andre steder i teksterne, fordi hvis de er det, så er de “uægte”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">true_upper_case</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">upper_case_word</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+        <span class="n">true_upper_case</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">true_upper_case</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frankenstein&#39;, &#39;Prometheus&#39;, &#39;Mary&#39;, &#39;Wollstonecraft&#39;, &#39;Godwin&#39;, &#39;Shelley&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;Petersburgh&#39;, &#39;London&#39;, &#39;Petersburgh&#39;, &#39;Margaret&#39;, &#39;Pacific&#39;, &#39;Thomas&#39;, &#39;Homer&#39;, &#39;Shakespeare&#39;, &#39;Greenland&#39;, &#39;Margaret&#39;, &#39;Russia&#39;, &#39;English&#39;, &#39;Petersburgh&#39;, &#39;June&#39;, &#39;Ah&#39;, &#39;Margaret&#39;, &#39;Walton&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;Margaret&#39;, &#39;Thomas&#39;, &#39;Englishman&#39;, &#39;Russian&#39;, &#39;Turk&#39;, &#39;Africa&#39;, &#39;America&#39;, &#39;Robert&#39;, &#39;Walton&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;July&#39;, &#39;England&#39;, &#39;England&#39;, &#39;Adieu&#39;, &#39;Margaret&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;August&#39;, &#39;Monday&#39;, &#39;July&#39;, &#39;European&#39;, &#39;English&#39;, &#39;Margaret&#39;, &#39;Margaret&#39;, &#39;August&#39;, &#39;August&#39;, &#39;Walton&#39;, &#39;Chapter&#39;, &#39;Genevese&#39;, &#39;Beaufort&#39;, &#39;Lucerne&#39;, &#39;Beaufort&#39;, &#39;Beaufort&#39;, &#39;Reuss&#39;, &#39;Beaufort&#39;, &#39;Caroline&#39;, &#39;Beaufort&#39;, &#39;Beaufort&#39;, &#39;Geneva&#39;, &#39;Caroline&#39;, &#39;Italy&#39;, &#39;Italy&#39;, &#39;Germany&#39;, &#39;France&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/test"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="2024_ods.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2024 Open Data Science</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#read-files">Read files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metacharacters">Metacharacters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#w-along-with-b">w+ along with \b</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-metacharacters-as-well-as-pipes-lists-and-question-marks">More metacharacters, as well as pipes, lists and question marks</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#curly-brackets">Curly brackets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#square-brackets-a-z">Square brackets [A-Z]</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> <img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
