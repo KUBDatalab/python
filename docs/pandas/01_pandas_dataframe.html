@@ -410,7 +410,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-data-table-representation">Pandas data table representation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-and-dictionaries"><code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> and <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></a></li>
 </ul>
@@ -421,7 +421,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-also-create-our-own-series">We can also create our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-own-series">Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
@@ -461,9 +461,10 @@ After this statement, you can use <code class="docutils literal notranslate"><sp
 </div>
 </section>
 <hr class="docutils" />
-<section id="dataframe">
-<h2><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#dataframe" title="Link to this heading">#</a></h2>
+<section id="pandas-data-table-representation">
+<h2>Pandas data table representation<a class="headerlink" href="#pandas-data-table-representation" title="Link to this heading">#</a></h2>
 <p><img alt="Representation of a Pandas DataFrame" src="../../_images/01_table_dataframe.svg" /></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a two-dimensional data structure in the Pandas library, designed to hold and manage data efficiently. It organizes data into labeled columns and rows, allowing you to store various types of data, such as numbers, text, and categorical values, all within the same structure.</p>
 <section id="creating-our-first-dataframe">
 <h3>Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#creating-our-first-dataframe" title="Link to this heading">#</a></h3>
 <p>We start by creating three lists of equal length (i.e., containing the same amount of elements).<br />
@@ -494,10 +495,10 @@ Each list corresponds to a column in the DataFrame.<br />
 </section>
 <section id="dataframes-and-dictionaries">
 <h3><code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> and <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code><a class="headerlink" href="#dataframes-and-dictionaries" title="Link to this heading">#</a></h3>
-<p>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in pandas is similar to creating a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>. The <code class="docutils literal notranslate"><span class="pre">key</span></code>s in the <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> become the column names, while the <code class="docutils literal notranslate"><span class="pre">value</span></code>s, which are <code class="docutils literal notranslate"><span class="pre">list</span></code>s or <code class="docutils literal notranslate"><span class="pre">array</span></code>s, form the columns’ data. \</p>
+<p>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> in pandas is similar to creating a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>. The <code class="docutils literal notranslate"><span class="pre">key</span></code>s in the <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> become the column names, while the <code class="docutils literal notranslate"><span class="pre">value</span></code>s, which are <code class="docutils literal notranslate"><span class="pre">list</span></code>s or <code class="docutils literal notranslate"><span class="pre">array</span></code>s, form the columns’ data.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p>For more information on <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>s in Python, see <a class="reference external" href="https://www.geeksforgeeks.org/python-dictionary/">geeksforgeeks</a></p>
+<p>For more information on <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>s in Python, see <a class="reference external" href="https://www.geeksforgeeks.org/python-dictionary/">GeeksforGeeks</a></p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -575,7 +576,7 @@ Each list corresponds to a column in the DataFrame.<br />
 <hr class="docutils" />
 <section id="attributes">
 <h2>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h2>
-<p>We can use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘df’.<br />
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 It returns a tuple representing the number of rows and columns (rows, columns).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -589,7 +590,7 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </div>
 </div>
-<p>And we can use the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute to view the data types of each column in the ‘df’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+<p>And we can use the <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute to view the data types of each column in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 This command provides information about the data type of each column, such as integer, float, or object (string).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -693,7 +694,7 @@ The new column names are <code class="docutils literal notranslate"><span class=
 </div>
 </div>
 </div>
-<p>This method is useful for selectively renaming only one or more columns without changing the entire set of column names:</p>
+<p>The method below is useful for selectively renaming only one or more columns without changing the entire set of column names:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Rename the &#39;Age&#39; column to &#39;Ages&#39; in the DataFrame &#39;df&#39;.</span>
@@ -794,8 +795,8 @@ Name: Ages, dtype: int64
 </div>
 </div>
 </div>
-<section id="we-can-also-create-our-own-series">
-<h3>We can also create our own <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#we-can-also-create-our-own-series" title="Link to this heading">#</a></h3>
+<section id="creating-our-own-series">
+<h3>Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#creating-our-own-series" title="Link to this heading">#</a></h3>
 <p>We can create and name a <code class="docutils literal notranslate"><span class="pre">Series</span></code> in the following way.<br />
 The <code class="docutils literal notranslate"><span class="pre">name</span></code> parameter assigns the name ‘Fare’ to the Series.</p>
 <div class="cell docutils container">
@@ -855,6 +856,10 @@ Here, the name of the ‘fare’ <code class="docutils literal notranslate"><spa
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument in <code class="docutils literal notranslate"><span class="pre">pandas.concat()</span></code> determines whether you are combining data along rows or columns:</p>
+<p><code class="docutils literal notranslate"><span class="pre">axis=0</span></code> (Default): Concatenation along Rows<br />
+<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>: Concatenation along Columns</p>
+<p>(When concatenating along <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>, Pandas aligns on the index by default. If indices do not match, you may see <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values where data is missing.)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the updated DataFrame &#39;df&#39;.</span>
@@ -1083,7 +1088,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframe"><code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-data-table-representation">Pandas data table representation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-and-dictionaries"><code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> and <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></a></li>
 </ul>
@@ -1094,7 +1099,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-can-also-create-our-own-series">We can also create our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-own-series">Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
