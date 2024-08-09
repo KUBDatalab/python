@@ -454,7 +454,7 @@ document.write(`
 <hr class="docutils" />
 <section id="current-working-directory">
 <h2>Current working directory<a class="headerlink" href="#current-working-directory" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> command is known as a “magic command” in Jupyter Notebook.
+<p>The <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> command (<em><strong>p</strong></em>rint <em><strong>w</strong></em>orking <em><strong>d</strong></em>irectory) is known as a “magic command” in Jupyter Notebook.
 You can read more about magic commands <a class="reference external" href="https://www.geeksforgeeks.org/useful-ipython-magic-commands/">here.</a></p>
 <p>It is used to display the current working directory (<code class="docutils literal notranslate"><span class="pre">cwd</span></code>) within the notebook environment.</p>
 <p>This is the folder where the Jupyter Notebook is running.<br />
@@ -950,7 +950,7 @@ This allows us to inspect the end of the dataset, showing the last rows of data.
 </div></div></div>
 </details>
 </div>
-<div class="admonition-a-note-on-head-and-tail admonition">
+<div class="tip dropdown admonition">
 <p class="admonition-title">A note on head() and tail()</p>
 <p>By default, Pandas limits the display of rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 60 rows.</p>
 <p>Calling a number higher than 60 will display the first five rows followed by an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>), indicating that rows are being skipped, and then display the last five rows of the selection.</p>
@@ -998,17 +998,12 @@ dtype: object
 <h3><code class="docutils literal notranslate"><span class="pre">info()</span></code><a class="headerlink" href="#info" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">info()</span></code> method is used to display a concise summary of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 This command provides essential information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, including the number of non-null values in each column, the data type of each column, and memory usage.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 891 entries, 0 to 890
@@ -1032,7 +1027,6 @@ memory usage: 83.7+ KB
 </pre></div>
 </div>
 </div>
-</details>
 </div>
 </section>
 </section>
