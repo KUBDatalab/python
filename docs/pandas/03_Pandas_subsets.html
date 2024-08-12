@@ -410,13 +410,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-from-csv">Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from csv</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-specific-columns">Select specific columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-multiple-series">Call multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-rows">Filter rows</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-rows-based-on-conditional-expressions">Select rows based on conditional expressions</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
@@ -445,11 +442,17 @@ document.write(`
 </div>
 </section>
 <hr class="docutils" />
-<section id="create-a-dataframe-from-csv">
-<h2>Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from csv<a class="headerlink" href="#create-a-dataframe-from-csv" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.<br />
-The file is located in the ‘data’ directory, relative to the current working directory.<br />
-The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
+<section id="creating-a-dataframe-from-a-csv-file">
+<h2>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h2>
+<p>CSV (Comma Separated Values) is a simple file format used to store tabular data, such as a spreadsheet or database.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>For more information on working with CSV files in Python, see <a class="reference external" href="https://www.geeksforgeeks.org/working-csv-files-python/">GeeksforGeeks</a>.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.</p>
+<p>The file is located in the ‘data’ directory, <em><strong>relative to the current working directory</strong></em>.<br />
+I.e., in the folder where your notebook is located, you should have a folder named ‘data’ containing the file ‘titanic.csv’.</p>
+<p>The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
@@ -679,8 +682,8 @@ The resulting <code class="docutils literal notranslate"><span class="pre">DataF
 </div>
 </section>
 <hr class="docutils" />
-<section id="select-specific-columns">
-<h2>Select specific columns<a class="headerlink" href="#select-specific-columns" title="Link to this heading">#</a></h2>
+<section id="selecting-specific-columns">
+<h2>Selecting specific columns<a class="headerlink" href="#selecting-specific-columns" title="Link to this heading">#</a></h2>
 <p><img alt="Selecting specific columns from a DataFrame" src="../../_images/03_subset_columns.svg" /></p>
 <p>Access the ‘Age’ column from the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ to return a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object containing all the data in the ‘Age’ column:</p>
 <div class="cell docutils container">
@@ -736,8 +739,8 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </section>
 <hr class="docutils" />
-<section id="call-multiple-series">
-<h2>Call multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#call-multiple-series" title="Link to this heading">#</a></h2>
+<section id="calling-multiple-series">
+<h2>Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#calling-multiple-series" title="Link to this heading">#</a></h2>
 <p>Select columns ‘Age’ and ‘Sex’ from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using double square brackets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -867,10 +870,13 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </section>
 <hr class="docutils" />
-<section id="filter-rows">
-<h2>Filter rows<a class="headerlink" href="#filter-rows" title="Link to this heading">#</a></h2>
+<section id="filtering-rows-based-on-conditional-expressions">
+<h2>Filtering rows based on conditional expressions<a class="headerlink" href="#filtering-rows-based-on-conditional-expressions" title="Link to this heading">#</a></h2>
 <p><img alt="Filtering specific rows from a DataFrame" src="../../_images/03_subset_rows.svg" /></p>
-<p>This code below returns a subset of the DataFrame containing only the rows where the ‘Age’ column has a value greater than 35.</p>
+<p>We can use filtering to extract subsets of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>To select rows based on a conditional expression, use a condition inside the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.<br />
+The condition inside the selection brackets checks for rows where the specified column’s values exceed a certain threshold.</p>
+<p>The code below returns a subset of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing only the rows where the ‘Age’ column has a value greater than 35.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Age&#39; column is greater than 35.</span>
@@ -1089,11 +1095,8 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div></div></div>
 </details>
 </div>
-<section id="select-rows-based-on-conditional-expressions">
-<h3>Select rows based on conditional expressions<a class="headerlink" href="#select-rows-based-on-conditional-expressions" title="Link to this heading">#</a></h3>
-<p>To select rows based on a conditional expression, use a condition inside the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.<br />
-The condition inside the selection brackets checks for rows where the specified column’s values exceed a certain threshold.</p>
-<p>The following command evaluates the condition ‘titanic[‘Age’] &gt; 35’ element-wise, resulting in a boolean <code class="docutils literal notranslate"><span class="pre">Series</span></code> where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding passenger’s age is greater than 35.</p>
+<p>What happens inside the square brackets is that Pandas evaluates the condition ‘titanic[‘Age’] &gt; 35’ element-wise, resulting in a boolean <code class="docutils literal notranslate"><span class="pre">Series</span></code> where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding passenger’s age is greater than 35.</p>
+<p>This is called a boolean mask.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a boolean mask to filter rows where the age of passengers is greater than 35.</span>
@@ -1346,9 +1349,9 @@ Name: Age, Length: 891, dtype: bool
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The above is equivalent to filtering by rows for which the class is either 2 or 3 and combining the two statements with an <code class="docutils literal notranslate"><span class="pre">|</span></code> (or) operator.</p>
+<p>The above is equivalent to filtering by rows for which the class is either 2 or 3 and combining the two statements with an <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR) operator.</p>
 <p>When combining multiple conditional statements, each condition must be surrounded by parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.<br />
-Moreover, you can not use <code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">and</span></code> but need to use the <code class="docutils literal notranslate"><span class="pre">or</span></code> operator <code class="docutils literal notranslate"><span class="pre">|</span></code> and the <code class="docutils literal notranslate"><span class="pre">and</span></code> operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
+Moreover, you can not use <code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">and</span></code> but need to use the OR operator <code class="docutils literal notranslate"><span class="pre">|</span></code> and the AND operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
 </div>
 <p>The following code uses boolean indexing with logical OR (<code class="docutils literal notranslate"><span class="pre">|</span></code>) to create a mask, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding ‘Pclass’ value is either 2 or 3.</p>
 <div class="cell tag_hide-output docutils container">
@@ -1569,10 +1572,10 @@ Moreover, you can not use <code class="docutils literal notranslate"><span class
 </div></div></div>
 </details>
 </div>
-<p>Remember that the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a <code class="docutils literal notranslate"><span class="pre">Null</span></code> value.</p>
-<p>As such, this can be combined with the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> to filter the data table.</p>
-<p>Filter rows in the ‘titanic’ DataFrame where ‘Embarked’ values are not null (not NaN).
-‘notna()’ returns <code class="docutils literal notranslate"><span class="pre">True</span></code> for non-null values, allowing us to select rows with valid embarkation data.</p>
+<p>Remember that the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a ‘null’ value (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
+As such, this can be combined with the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> to filter the data table.</p>
+<p>Filter rows in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> where ‘Embarked’ values are not null (not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
+<code class="docutils literal notranslate"><span class="pre">notna()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> for non-null values, allowing us to select rows with valid embarkation data.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
@@ -1826,7 +1829,7 @@ memory usage: 83.7+ KB
 </div>
 </details>
 </div>
-</section>
+<p>Comparing the two number of rows (889 and 891) tells us, that two rows are missing embarkation data.</p>
 </section>
 <hr class="docutils" />
 <section id="selecting-rows-and-columns">
@@ -2026,13 +2029,10 @@ memory usage: 83.7+ KB
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-from-csv">Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from csv</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-specific-columns">Select specific columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#call-multiple-series">Call multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-rows">Filter rows</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#select-rows-based-on-conditional-expressions">Select rows based on conditional expressions</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
