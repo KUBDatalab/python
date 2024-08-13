@@ -409,11 +409,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas-create-a-dataframe">Import Pandas &amp; create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-from-csv">Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-rows-and-columns-using-loc-and-iloc">Select  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns-using-loc-and-iloc">Selecting  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information-about-loc-and-iloc">More information about <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
@@ -430,7 +430,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="loc-and-iloc">
 <h1><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#loc-and-iloc" title="Link to this heading">#</a></h1>
 <p><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> in Pandas are technically properties that return a specialized indexer object. These indexer objects allow for label-based (<code class="docutils literal notranslate"><span class="pre">loc</span></code>) and integer-based (<code class="docutils literal notranslate"><span class="pre">iloc</span></code>) indexing. Although they behave similarly to methods in that you use them to perform actions (i.e., selecting or slicing data), they are properties because they return an indexing object rather than directly executing a function.</p>
-<p>When you access <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, what you’re getting is not a simple value but an object that has its own methods and behaviors, specifically designed to handle indexing operations. This design allows for the concise and powerful data selection syntax that pandas is known for.</p>
+<p>When you access <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, what you’re getting is not a simple value but an object that has its own methods and behaviors, specifically designed to handle indexing operations. This design allows for the concise and powerful data selection syntax that Pandas is known for.</p>
 <hr class="docutils" />
 <div class="admonition-when-to-use-loc-or-iloc admonition">
 <p class="admonition-title">When to use loc or iloc</p>
@@ -442,8 +442,8 @@ document.write(`
 </ol>
 <p>In summary, while boolean masks are powerful for filtering rows based on conditions, <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> are essential for a wide range of other data selection tasks, particularly those involving specific column selection, positional indexing, and complex indexing scenarios that go beyond what boolean masks can achieve on their own.</p>
 </div>
-<section id="import-pandas-create-a-dataframe">
-<h2>Import Pandas &amp; create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#import-pandas-create-a-dataframe" title="Link to this heading">#</a></h2>
+<section id="import-pandas">
+<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
@@ -453,11 +453,8 @@ document.write(`
 </div>
 </div>
 </div>
-<section id="create-a-dataframe-from-csv">
-<h3>Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from csv<a class="headerlink" href="#create-a-dataframe-from-csv" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.<br />
-The file is located in the ‘data’ directory, relative to the current working directory.<br />
-The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
+<section id="creating-a-dataframe-from-a-csv-file">
+<h3>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
@@ -470,13 +467,13 @@ The resulting <code class="docutils literal notranslate"><span class="pre">DataF
 </section>
 </section>
 <hr class="docutils" />
-<section id="select-rows-and-columns-using-loc-and-iloc">
-<h2>Select  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#select-rows-and-columns-using-loc-and-iloc" title="Link to this heading">#</a></h2>
+<section id="selecting-rows-and-columns-using-loc-and-iloc">
+<h2>Selecting  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#selecting-rows-and-columns-using-loc-and-iloc" title="Link to this heading">#</a></h2>
 <p><img alt="How to select specific rows and columns from a DataFrame" src="../../_images/03_subset_columns_rows.svg" /></p>
 <p>We have seen how we can filter rows in the titanic <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <p>The code below uses boolean indexing to first filter rows where the age is greater than 35, and then selects specific columns ‘Name’ and ‘Pclass’ using double square brackets.</p>
 <ul class="simple">
-<li><p>Filter rows in the ‘titanic’ DataFrame where the age is greater than 35,</p></li>
+<li><p>Filter rows in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> where the age is greater than 35.</p></li>
 <li><p>Then select only the ‘Name’ and ‘Pclass’ columns for these filtered rows.</p></li>
 </ul>
 <div class="cell tag_hide-output docutils container">
@@ -575,16 +572,11 @@ The resulting <code class="docutils literal notranslate"><span class="pre">DataF
 </div></div></div>
 </details>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">When using loc/iloc</p>
-<p>The part <em>before the comma</em> is the <em>rows</em> you want</p>
-<p>The part <em>after the comma</em> is the <em>columns</em> you want to select</p>
-</div>
 <p>We can perform the same filtering using label-based indexing: <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
-<p>The following code provides a more explicit way of selecting rows and columns based on labels, where</p>
+<p>The following code provides a more explicit way of selecting rows and columns based on labels, where:</p>
 <ul class="simple">
-<li><p>the first argument specifies the row selection condition (‘Age’ &gt; 35),</p></li>
-<li><p>and the second argument specifies the column selection (‘Name’ and ‘Pclass’).</p></li>
+<li><p>The first argument specifies the row selection condition (‘Age’ &gt; 35).</p></li>
+<li><p>The second argument specifies the column selection (‘Name’ and ‘Pclass’).</p></li>
 </ul>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -681,6 +673,11 @@ The resulting <code class="docutils literal notranslate"><span class="pre">DataF
 <p>217 rows × 2 columns</p>
 </div></div></div>
 </details>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">When using loc/iloc</p>
+<p>The part <em>before the comma</em> is the <em>rows</em> you want</p>
+<p>The part <em>after the comma</em> is the <em>columns</em> you want to select</p>
 </div>
 <p>We can also filter using integer position-based location: <code class="docutils literal notranslate"><span class="pre">iloc</span></code>.</p>
 <p>The code below selects a subset of rows and columns from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using integer positions.<br />
@@ -844,7 +841,10 @@ Index positions start from 0 and the end position is exclusive, so the selected 
 </div>
 <p>We can rewrite the statement above using <code class="docutils literal notranslate"><span class="pre">loc</span></code> instead.</p>
 <p><strong>Note that with <code class="docutils literal notranslate"><span class="pre">loc</span></code> the slicing is inclusive on both ends!</strong></p>
-<p>[‘Pclass’, ‘Name’, ‘Sex’, ‘Age’] explicitly lists the column names corresponding to the integer positions 2 to 5 (inclusive).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">9:24</span></code> specifies the rows from index label 9 to 24 (inclusive).</p></li>
+<li><p>[‘Pclass’, ‘Name’, ‘Sex’, ‘Age’] explicitly lists the column names corresponding to the integer positions 2 to 5 (inclusive).</p></li>
+</ul>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">]]</span>
@@ -999,19 +999,18 @@ Index positions start from 0 and the end position is exclusive, so the selected 
 </div></div></div>
 </details>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">9:24</span></code> specifies the rows from index label 9 to 24 (inclusive).</p>
 </section>
 <hr class="docutils" />
 <section id="combining-loc-and-iloc">
 <h2>Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#combining-loc-and-iloc" title="Link to this heading">#</a></h2>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select</p>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select:</p>
 <ul class="simple">
-<li><p>rows from index position 9 to 25 (exclusive)</p></li>
-<li><p>and columns from index position 2 to 6 (exclusive)</p></li>
+<li><p>Rows from index position 9 to 25 (exclusive).</p></li>
+<li><p>Columns from index position 2 to 6 (exclusive).</p></li>
 </ul>
-<p>Then further filter these rows using <code class="docutils literal notranslate"><span class="pre">loc</span></code> based on the condition where</p>
+<p>Then further filter these rows using <code class="docutils literal notranslate"><span class="pre">loc</span></code> based on the condition where:</p>
 <ul class="simple">
-<li><p>‘Age’ is greater than 35</p></li>
+<li><p>‘Age’ is greater than 35.</p></li>
 </ul>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -1153,11 +1152,11 @@ Index positions start from 0 and the end position is exclusive, so the selected 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas-create-a-dataframe">Import Pandas &amp; create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-from-csv">Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#select-rows-and-columns-using-loc-and-iloc">Select  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns-using-loc-and-iloc">Selecting  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information-about-loc-and-iloc">More information about <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
