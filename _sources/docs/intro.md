@@ -1,4 +1,6 @@
-# Welcome to KUB Datalab's Python Course
+# Welcome
+
+Welcome to KUB Datalab's Python ressources.
 
 The  material you have in front of you is connected to [KUB Datalab](https://kub.kb.dk/datalab) at [Copenhagen University Library](https://kub.ku.dk/english/). We currently offer a two-part introduction to Python for absolute beginners as well as an introduction to the library Pandas. 
 
