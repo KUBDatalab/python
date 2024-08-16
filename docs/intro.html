@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/intro';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sign up for a Course" href="sign_up.html" />
+    <link rel="next" title="Install &amp; Run Python" href="howto/setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,10 +182,10 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to...</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="sign_up.html">Sign up for a Course</a></li>
-<li class="toctree-l1"><a class="reference internal" href="00_setup.html">Install &amp; Run Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dictionary.html">Learn All the New Words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help_and_documentation.html">Get Help and Find Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/setup.html">Install &amp; Run Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/interact.html">Interact With This Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/dictionary.html">Learn All the New Words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
 <ul class="nav bd-sidenav">
@@ -322,7 +322,7 @@
       
       
       
-      <li><a href="../_sources/docs/intro.md" target="_blank"
+      <li><a href="../_sources/docs/intro.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -332,7 +332,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -393,7 +393,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -409,6 +411,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution"><i aria-hidden="true" class="fab fa-creative-commons-by"></i> Attribution</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -424,55 +434,27 @@ document.write(`
 <p>The  material you have in front of you is connected to <a class="reference external" href="https://kub.kb.dk/datalab">KUB Datalab</a> at <a class="reference external" href="https://kub.ku.dk/english/">Copenhagen University Library</a>. We currently offer a two-part introduction to Python for absolute beginners as well as an introduction to the library Pandas.</p>
 <p>You can find and sign up for our courses <a class="reference external" href="https://kubkalender.kb.dk/calendar/datalab">here</a>. Before you attend the beginners’ class, please make sure to visit the How to… “Install &amp; Run Python” page so we can get the most out of our time together.</p>
 <p>The materials you find in this Jupyter Book are intended to help students learn how to code in Python. All pages can be downloaded as a Jupyter Notebook as well as pdf. That means that you can work with most of the code locally on your computer.</p>
-<p>How to download notebooks</p>
 <p>Below you can see the different elements of our courses.</p>
 <hr class="docutils" />
-<div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to...</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="sign_up.html">Sign up for a Course</a></li>
-<li class="toctree-l1"><a class="reference internal" href="00_setup.html">Install &amp; Run Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dictionary.html">Learn All the New Words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="help_and_documentation.html">Get Help and Find Documentation</a></li>
+<section id="attribution">
+<h2><i class="fab fa-creative-commons-by" aria-hidden="true"></i> Attribution<a class="headerlink" href="#attribution" title="Link to this heading">#</a></h2>
+<p>Much of the teaching material presented here has been inspired by, borrowed from, and modified based on the work of others.<br />
+We extend our deepest thanks to these giants on whose proverbial shoulders we stand and encourage you to visit their pages for more Python inspiration.</p>
+<ul class="simple">
+<li><p>Library Carpentry’s <a class="reference external" href="https://librarycarpentry.org/lc-python-intro/">Python Intro for Libraries </a></p></li>
+<li><p>The official <a class="reference external" href="https://pandas.pydata.org/docs/index.html">Pandas documentaion</a></p></li>
+<li><p>Melanie Walsh’s <a class="reference external" href="https://melaniewalsh.github.io/Intro-Cultural-Analytics/">Introduction to Cultural Analytics &amp; Python</a></p></li>
 </ul>
+<p>Should we inadvertently have missed acknowledging anyone, please let us know so we can ensure proper recognition.</p>
+</section>
+<hr class="docutils" />
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="101/part1.html">Part 1</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="101/01_data_types.html">Data Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="101/02_variables_and_assignment.html">Variables and Assignment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="101/03_type_conversion.html">Data Types and Type Conversion</a></li>
-<li class="toctree-l2"><a class="reference internal" href="101/04_built-in_functions.html">Built-in Functions and Help</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="101/part2.html">Part 2</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="101/05_lists.html">Lists</a></li>
-<li class="toctree-l2"><a class="reference internal" href="101/06_for_loops.html">For Loops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="101/07_conditionals.html">Conditionals</a></li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="pandas/getting_started.html">Getting Started with Data Analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas/03_pandas_subsets.html">Subsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas/04_pandas_loc_iloc.html"><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="pandas/05_pandas_summary_statistics.html">Summary Statistics</a></li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Other</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="test/2024_ods.html">2024 Open Data Science</a></li>
-</ul>
 </div>
 </section>
 
@@ -507,11 +489,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="sign_up.html"
+       href="howto/setup.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Sign up for a Course</p>
+        <p class="prev-next-title">Install &amp; Run Python</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -521,6 +503,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#attribution"><i aria-hidden="true" class="fab fa-creative-commons-by"></i> Attribution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
