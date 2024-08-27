@@ -390,7 +390,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -406,6 +408,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -415,11 +425,17 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="part-2">
+  <style>
+.bd-toc {
+    display: none;
+}
+</style><section class="tex2jax_ignore mathjax_ignore" id="part-2">
 <h1>Part 2<a class="headerlink" href="#part-2" title="Link to this heading">#</a></h1>
 <p>Python for Absolute Beginners, Part 2.</p>
-<p>In this second part of our introduction to Python, you will build on the foundations from Part 1 to start creating small scripts. By the end of this course, you’ll even have the opportunity to create a small game!</p>
-<p>To participate in this course, it is essential that you have either completed Part 1 or possess an understanding of the topics covered there. This will ensure that you are well-prepared to take full advantage of the more advanced concepts we’ll explore in Part 2.</p>
+<p>In this second part of our introduction to Python, you will build on the foundations from Part 1 to start writing short scripts. By the end of this course, you’ll even have the opportunity to create a small game!</p>
+<p>To participate in this course, it is essential that you either have completed Part 1 or possess an understanding of the topics covered there. This will ensure that you are well prepared to take full advantage of the more advanced concepts in Part 2.</p>
+<section id="content">
+<h2>Content<a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="05_lists.html">Lists</a></li>
@@ -427,6 +443,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -483,6 +500,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
