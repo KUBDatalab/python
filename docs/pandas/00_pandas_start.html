@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -437,7 +437,7 @@ This guide is intented for people running a local installation of Python and usi
 <p>Pandas can be installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code> from <a class="reference external" href="https://pypi.org/project/pandas">PyPi</a>.</p>
 <p>This command installs the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer.<br />
 If you haven’t installed Pandas before, this will download and install the latest version of Pandas along with its dependencies.</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>  <span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
 </pre></div>
@@ -446,7 +446,7 @@ If you haven’t installed Pandas before, this will download and install the lat
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span></code> commands are most often run through a shell such as the <strong>Terminal</strong> on macOS or the <strong>Command Prompt</strong> on Windows.<br />
 However, you can run shell commands directly from Jupyter notebooks by adding an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> in front of the command:</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas
 </pre></div>
@@ -454,7 +454,7 @@ However, you can run shell commands directly from Jupyter notebooks by adding an
 </div>
 </div>
 <p>Adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag not only installs pandas if it isn’t already installed but also ensures that if Pandas is already installed, it is updated to the latest version. This is useful to make sure you have the newest features and bug fixes.</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span>
 </pre></div>
@@ -462,7 +462,7 @@ However, you can run shell commands directly from Jupyter notebooks by adding an
 </div>
 </div>
 <p>Again, we can run this shell command directly in Jupyter notebooks:</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pandas
 </pre></div>
@@ -493,7 +493,7 @@ Dependencies are external libraries that provide additional functionality or cap
 This is conventionally done at the top of the script (together with any other imports) to make it easier for future readers (including ourselves!) to see, which packages are used.</p>
 <p>Aliasing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
 After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
 

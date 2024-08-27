@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -466,13 +466,18 @@ document.write(`
 <li><p>A for loop tells Python to execute some statements once for each value in a list, a character string, or some other collection.</p></li>
 <li><p>“For each thing in this group, do these operations.”</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;giraffe&quot;</span><span class="p">,</span> <span class="s2">&quot;whale&quot;</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog
 giraffe
@@ -480,16 +485,22 @@ whale
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The for loop above is equivalent to:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;giraffe&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;whale&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dog
 giraffe
@@ -497,6 +508,7 @@ whale
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <ul class="simple">
 <li><p>The variable name (here <code class="docutils literal notranslate"><span class="pre">animal</span></code>) is a name that you choose, when you create the for loop.</p></li>
@@ -515,13 +527,18 @@ whale
 <li><p>Python uses indentation to show <em>nesting</em> (rather than <code class="docutils literal notranslate"><span class="pre">{}</span></code> or <code class="docutils literal notranslate"><span class="pre">begin</span></code>/<code class="docutils literal notranslate"><span class="pre">end</span></code>, which are used in some other programming languages).</p></li>
 </ul>
 <p>Any consistent indentation is legal, but almost everyone uses four spaces or tab. IDEs like Jupyter Lab will automatically create an indentation after the colon.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;giraffe&quot;</span><span class="p">,</span> <span class="s2">&quot;whale&quot;</span><span class="p">]:</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
@@ -530,15 +547,21 @@ whale
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>Indentation is always meaningful in Python.</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">firstName</span> <span class="o">=</span> <span class="s2">&quot;Jon&quot;</span>
   <span class="n">lastName</span> <span class="o">=</span> <span class="s2">&quot;Smith&quot;</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
     <span class="n">lastName</span> <span class="o">=</span> <span class="s2">&quot;Smith&quot;</span>
@@ -547,6 +570,7 @@ whale
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>This error can be fixed by removing the indentation at the beginning of the second line.</p>
 </section>
@@ -608,8 +632,8 @@ Example: <code class="docutils literal notranslate"><span class="pre">for</span>
 <li><p>You can have as much code as you like inside of a loop.</p></li>
 <li><p>But keep in mind, the more code you have, the more difficult it can be to keep track of.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># List of pages read in a book of 200 pages</span>
 <span class="n">pages_read</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">75</span><span class="p">]</span>
 
@@ -624,6 +648,11 @@ Example: <code class="docutils literal notranslate"><span class="pre">for</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>For a book with 45 pages read so far,
 Pages remaining to reach 200: 155
@@ -634,6 +663,7 @@ Pages remaining to reach 200: 125
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
@@ -644,14 +674,19 @@ Pages remaining to reach 200: 125
 <li><p>The built-in function <code class="docutils literal notranslate"><span class="pre">range</span></code> produces a sequence of numbers. <em>Not</em> a list: the numbers are produced on demand to make looping over large ranges more efficient.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">range(N)</span></code> is the numbers 0, 1, 2, … N-1</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A range is not a list: range(0, 3)&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A range is not a list: range(0, 3)
 0
@@ -660,17 +695,23 @@ Pages remaining to reach 200: 125
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Or use <code class="docutils literal notranslate"><span class="pre">range</span></code> to repeat an action a set number of times.</p>
 <p>You don’t actually have to use the iterable variable’s value. Use this structure to simply repeat an action some number of times.</p>
 <p>That number of times goes into the <code class="docutils literal notranslate"><span class="pre">range</span></code> function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Again!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Again!
 Again!
@@ -680,6 +721,7 @@ Again!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
@@ -690,8 +732,8 @@ Again!
 <li><p>Initialize an <em>accumulator</em> variable to zero, the empty string, or the empty list.</p></li>
 <li><p>Update the variable with values from a collection.</p></li>
 </ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sum all of the integers from 1 to 10.</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -700,11 +742,17 @@ Again!
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>55
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -737,7 +785,7 @@ Again!
 <section id="exercise-2-tracing-execution">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 2: Tracing execution<a class="headerlink" href="#exercise-2-tracing-execution" title="Link to this heading">#</a></h3>
 <p>Create a table showing the numbers of the lines that are executed when this program runs, and the values of the variables after each line is executed.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">animal</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;elephant&#39;</span><span class="p">,</span> <span class="s1">&#39;fish&#39;</span><span class="p">]:</span>

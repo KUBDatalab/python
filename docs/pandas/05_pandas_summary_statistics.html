@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -433,7 +433,7 @@ document.write(`
 <h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading">#</a></h1>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
 
@@ -447,7 +447,7 @@ document.write(`
 <section id="creating-a-dataframe-from-a-csv-file">
 <h2>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
 
@@ -680,27 +680,38 @@ document.write(`
 <h2>Aggregating statistics<a class="headerlink" href="#aggregating-statistics" title="Link to this heading">#</a></h2>
 <p><img alt="Aggregating statistics from a single coloumn in a DataFrame" src="../../_images/05_aggregate.svg" /></p>
 <p>What is the average age of the Titanic passengers?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(29.69911764705882)
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Different statistics are available and can be applied to columns with numerical data. Operations in general exclude missing data and operate across rows by default.</p>
 <p><img alt="Aggregating statistics from a multiple coloumns in a DataFrame" src="../../_images/05_reduction.svg" /></p>
 <p>What is the median age and ticket fare price of the Titanic passengers?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Fare&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age     28.0000
 Fare    14.4542
@@ -708,15 +719,21 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The statistic applied to multiple columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (the selection of two columns returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, see the <a class="reference internal" href="03_pandas_subsets.html"><span class="doc std std-doc">subset data tutorial</span></a>) is calculated for each numeric column.</p>
 <p>The aggregating statistic can be calculated for multiple columns at the same time. For this we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Fare&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -784,10 +801,11 @@ dtype: float64
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 <p>Instead of the predefined statistics, specific combinations of aggregating statistics for given columns can be defined using the <code class="docutils literal notranslate"><span class="pre">DataFrame.agg()</span></code> method:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
     <span class="p">{</span>
         <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">],</span>
@@ -797,6 +815,11 @@ dtype: float64
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -849,6 +872,7 @@ dtype: float64
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">Descriptive statistics</p>
@@ -860,12 +884,17 @@ dtype: float64
 <h2>Aggregating statistics grouped by category<a class="headerlink" href="#aggregating-statistics-grouped-by-category" title="Link to this heading">#</a></h2>
 <p><img alt="Aggregating statistics grouped by category" src="../../_images/05_groupby.svg" /></p>
 <p>What is the average age for male versus female Titanic passengers?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -904,6 +933,7 @@ dtype: float64
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 <p>As our interest is the average age for each gender, a subselection on these two columns is made first: <code class="docutils literal notranslate"><span class="pre">titanic[[&quot;Sex&quot;,</span> <span class="pre">&quot;Age&quot;]]</span></code>.<br />
 Next, the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method is applied on the ‘Sex’ column to make a group per category. The average age for each gender is calculated and returned.</p>
@@ -915,12 +945,17 @@ Next, the <code class="docutils literal notranslate"><span class="pre">groupby()
 </ul>
 <p>The apply and combine steps are typically done together in Pandas.</p>
 <p>In the previous example, we explicitly selected the 2 columns first. If not, the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method is applied to each column containing numerical columns by passing <code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -983,14 +1018,20 @@ Next, the <code class="docutils literal notranslate"><span class="pre">groupby()
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 <p>It does not make much sense to get the average value of the ‘Pclass’. If we are only interested in the average age for each gender, the selection of columns (rectangular brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> as usual) is supported on the grouped data as well:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex
 female    27.915709
@@ -999,6 +1040,7 @@ Name: Age, dtype: float64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><img alt="The split-apply-combine pattern" src="../../_images/05_groupby_select_detail.svg" /></p>
 <div class="seealso dropdown admonition">
@@ -1006,12 +1048,17 @@ Name: Age, dtype: float64
 <p>The Pclass column contains numerical data but actually represents 3 categories (or factors) with respectively the labels ‘1’, ‘2’ and ‘3’. Calculating statistics on these does not make much sense. Therefore, pandas provides a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data type to handle this type of data. More information is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/categorical.html">Categorical data</a>.</p>
 </div>
 <p>What is the mean ticket fare price for each of the sex and cabin class combinations?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Pclass&quot;</span><span class="p">])[</span><span class="s2">&quot;Fare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex     Pclass
 female  1         106.125798
@@ -1024,6 +1071,7 @@ Name: Fare, dtype: float64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Grouping can be done by multiple columns at the same time. Provide the column names as a list to the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method.</p>
 <div class="seealso dropdown admonition">
@@ -1035,12 +1083,17 @@ Name: Fare, dtype: float64
 <h2>Count number of records by category<a class="headerlink" href="#count-number-of-records-by-category" title="Link to this heading">#</a></h2>
 <p><img alt="Counting number of records by category" src="../../_images/05_valuecounts.svg" /></p>
 <p>What is the number of passengers in each of the cabin classes?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;Pclass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass
 3    491
@@ -1050,15 +1103,21 @@ Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method counts the number of records for each category in a column.</p>
 <p>The function is a shortcut, as it is actually a groupby operation in combination with counting of the number of records within each group:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Pclass&quot;</span><span class="p">)[</span><span class="s2">&quot;Pclass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass
 1    216
@@ -1068,6 +1127,7 @@ Name: Pclass, dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

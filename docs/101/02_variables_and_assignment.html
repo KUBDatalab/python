@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -479,7 +479,7 @@ document.write(`
 <li><p>Here, we are assigning an age to a variable <code class="docutils literal notranslate"><span class="pre">age</span></code>
 and a name in quotation marks to a variable <code class="docutils literal notranslate"><span class="pre">first_name</span></code>:</p></li>
 </ul>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">42</span>
 <span class="n">first_name</span> <span class="o">=</span> <span class="s2">&quot;Ahmed&quot;</span>
@@ -554,17 +554,23 @@ There are conventions for using upper-case letters at the start of variable name
 <section id="use-print-to-display-values">
 <h2>Use <code class="docutils literal notranslate"><span class="pre">print()</span></code> to display values<a class="headerlink" href="#use-print-to-display-values" title="Link to this heading">#</a></h2>
 <p>We can check to see what’s “inside” variables by running a cell with the variable’s name. This is one of the handiest features of a Jupyter notebook. Outside the Jupyter environment, you would need to use the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function to display the variable.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_name</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Ahmed&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>You can run the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function inside the Jupyter environment, too. This is sometimes useful because Jupyter will only display the last variable in a cell, while <code class="docutils literal notranslate"><span class="pre">print()</span></code> can display multiple variables.</p>
 <p>Additionally, Jupyter will display text with \n characters (which means “new line”), while <code class="docutils literal notranslate"><span class="pre">print()</span></code> will display the text appropriately formatted with new lines.</p>
@@ -573,17 +579,23 @@ Provide values to the function (i.e., the things to print) in parentheses.
 To add a string to the printout, wrap the string in single or double quotations.
 The values passed to the function are called ‘arguments’ and are separated by commas.
 When using the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function, we can also separate with a <code class="docutils literal notranslate"><span class="pre">+</span></code> sign. However, when using <code class="docutils literal notranslate"><span class="pre">+</span></code> we have to add spaces in between manually.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;years old&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ahmed is 42 years old
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">print()</span></code> automatically puts a single space between items to separate them.
 And wraps around to a new line at the end.</p>
@@ -592,12 +604,17 @@ And wraps around to a new line at the end.</p>
 <section id="variables-must-be-created-before-they-are-used">
 <h2>Variables must be created before they are used<a class="headerlink" href="#variables-must-be-created-before-they-are-used" title="Link to this heading">#</a></h2>
 <p>If a variable doesn’t exist yet, or if the name has been misspelled, Python reports an error (unlike some languages, which “guess” a default value).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">eye_color</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
@@ -608,6 +625,7 @@ And wraps around to a new line at the end.</p>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The last line of an error message is usually the most informative. This message lets us know that there is no variable called <code class="docutils literal notranslate"><span class="pre">eye_color</span></code> in the script.</p>
 <div class="attention admonition">
@@ -628,18 +646,24 @@ As far as Python is concerned, all of the source code is one long set of instruc
 <h2>Variables in calculations<a class="headerlink" href="#variables-in-calculations" title="Link to this heading">#</a></h2>
 <p>We can use variables in calculations just as if they were values.</p>
 <p>Remember, we assigned 42 to age a few lines ago.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">3</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Age in three years:&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age in three years: 45
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>This code works in the following way. We are reassigning the value of the variable age by taking its previous value (42) and adding 3, thus getting our new value of 45.</p>
 </section>
@@ -653,53 +677,71 @@ As far as Python is concerned, all of the source code is one long set of instruc
 This number is called an index or sometimes a subscript.
 Indices are numbered from 0 rather than 1.
 Use the position’s index in square brackets to get the character at that position.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;green&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="use-a-slice-to-get-a-substring">
 <h3>Use a slice to get a substring<a class="headerlink" href="#use-a-slice-to-get-a-substring" title="Link to this heading">#</a></h3>
 <p>A part of a string is called a substring. A substring can be as short as a single character. A slice is a part of a string (or, more generally, any list-like thing). We take a slice by using <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>, where start is replaced with the index of the first element we want and stop is replaced with the index of the element just after the last element we want.</p>
 <p>Mathematically, you might say that a slice selects <code class="docutils literal notranslate"><span class="pre">[start:stop]</span></code>. The difference between stop and start is the slice’s length. Taking a slice does not change the contents of the original string. Instead, the slice is a copy of part of the original string.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">color</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>blu
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="find-the-length-of-a-string">
 <h3>Find the length of a string<a class="headerlink" href="#find-the-length-of-a-string" title="Link to this heading">#</a></h3>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> is used to find the length of a string (and later, of other data types, too).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Note that the result is 3 and not 5. This is because it is the length of the value of the variable (i.e. <code class="docutils literal notranslate"><span class="pre">'red'</span></code>) that is being counted and not the name of the variable (i.e. <code class="docutils literal notranslate"><span class="pre">color</span></code>)</p>
 <p>Also note that nested functions are evaluated from the inside out, just like in mathematics. Thus, Python first reads the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function, then the <code class="docutils literal notranslate"><span class="pre">print()</span></code> function.</p>

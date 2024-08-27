@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -440,7 +440,7 @@ document.write(`
 <section id="read-files">
 <h2>Read files<a class="headerlink" href="#read-files" title="Link to this heading">#</a></h2>
 <p>We get the book Frankenstein from Project Gutenberg and use it for the rest of the workshop. We download the Plain Text UTF-8 version.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span> 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://gutenberg.org/cache/epub/84/pg84.txt&#39;</span>
@@ -453,17 +453,23 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Frankenstein;\r\n\r\nor, the Modern Prometheus\r\n\r\nby Mary Wollstonecraft (Godwin) Shelley\r\n\r\n\r\n CONTENTS&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="metacharacters">
@@ -490,7 +496,7 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 <p>In the second method it becomes two words, <em>o clock</em>.</p>
 <p>Both methods leave us with underscores (_), so to get rid of underscores we use stitch’s .replace() method.</p>
 <p>Try both methods below and inspect the result.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
@@ -516,33 +522,45 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">clean_text_1</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">cleaned_text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frankenstein or the Modern Prometheus by Mary Wollstonecraft Godwin Shelley CONTENTS Letter 1 Letter
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">clean_text_2</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">cleaned_text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frankenstein or the Modern Prometheus by Mary Wollstonecraft Godwin Shelley CONTENTS Letter 1 Letter
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="w-along-with-b">
@@ -550,18 +568,24 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 <p>Find words with special endings, e.g. <em>day</em>, can be a help to gain insight into where and when the literature takes place.</p>
 <p>Why doesn’t anything happen on a Friday?</p>
 <p>You can also use the endings to find grammatical forms, e.g. words with a long affix will be relatively easy to identify.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ending</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+day\b&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ending</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;yesterday&#39;, &#39;holiday&#39;, &#39;Monday&#39;, &#39;Yesterday&#39;, &#39;Sunday&#39;, &#39;Thursday&#39;, &#39;today&#39;, &#39;today&#39;, &#39;yesterday&#39;, &#39;yesterday&#39;, &#39;everyday&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="more-metacharacters-as-well-as-pipes-lists-and-question-marks">
@@ -576,44 +600,62 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 <p>First way is to use pipe |. Pipe means “or”. The regex pattern will then look like this: ‘as\sa\s\w+|as\san\s\w+’</p>
 <p>Another way is to use the square brackets [ ].</p>
 <p>It looks like this: ‘as\sa[n]?\s\w+’. In the list, letters can be added that can stand in that place in the word. The question mark indicates that the letter may or may not be there.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as a delusion&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa\s\w+|as\san\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as an under&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as an infant&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as an inferior&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as an uncouth&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as an easier&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as an odious&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as an irresistible&#39;, &#39;as an historical&#39;, &#39;as an air&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as an excellent&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as an extreme&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as an insuperable&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as an agitation&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as an event&#39;, &#39;as a delusion&#39;, &#39;as an occurrence&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa[n]?\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as an under&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as an infant&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as an inferior&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as an uncouth&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as an easier&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as an odious&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as an irresistible&#39;, &#39;as an historical&#39;, &#39;as an air&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as an excellent&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as an extreme&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as an insuperable&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as an agitation&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as an event&#39;, &#39;as a delusion&#39;, &#39;as an occurrence&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="curly-brackets">
@@ -623,12 +665,17 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 <p>For this we need to use the full stop ( . ) because it gives us more word characters and {30} searches for us to get 30 word characters before we hit the letters Turk.</p>
 <p>The period {30} after Turk gives us another 30 word characters.</p>
 <p>Try to see if you can use some of what has been reviewed above to include text extracts that contain the word Roman..</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.</span><span class="si">{30}</span><span class="s1">storm.</span><span class="si">{30}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;st be his story frightful the storm which embraced the gallant ve&#39;,
  &#39;t violent and terrible thunderstorm It advanced from behind the m&#39;,
@@ -644,28 +691,35 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="square-brackets-a-z">
 <h2>Square brackets [A-Z]<a class="headerlink" href="#square-brackets-a-z" title="Link to this heading">#</a></h2>
 <p>Find words that start with capital letters</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">upper_case_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[A-Z]\w+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">upper_case_word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frankenstein&#39;, &#39;Modern&#39;, &#39;Prometheus&#39;, &#39;Mary&#39;, &#39;Wollstonecraft&#39;, &#39;Godwin&#39;, &#39;Shelley&#39;, &#39;CONTENTS&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Letter&#39;, &#39;To&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;St&#39;, &#39;Petersburgh&#39;, &#39;Dec&#39;, &#39;You&#39;, &#39;London&#39;, &#39;Petersburgh&#39;, &#39;Do&#39;, &#39;This&#39;, &#39;Inspirited&#39;, &#39;There&#39;, &#39;Margaret&#39;, &#39;There&#39;, &#39;Its&#39;, &#39;What&#39;, &#39;These&#39;, &#39;But&#39;, &#39;These&#39;, &#39;This&#39;, &#39;North&#39;, &#39;Pacific&#39;, &#39;Ocean&#39;, &#39;You&#39;, &#39;Uncle&#39;, &#39;Thomas&#39;, &#39;My&#39;, &#39;These&#39;, &#39;These&#39;, &#39;Homer&#39;, &#39;Shakespeare&#39;, &#39;You&#39;, &#39;But&#39;, &#39;Six&#39;, &#39;North&#39;, &#39;Sea&#39;, &#39;Twice&#39;, &#39;Greenland&#39;, &#39;And&#39;, &#39;Margaret&#39;, &#39;My&#39;, &#39;Oh&#39;, &#39;My&#39;, &#39;This&#39;, &#39;Russia&#39;, &#39;They&#39;, &#39;English&#39;, &#39;The&#39;, &#39;St&#39;, &#39;Petersburgh&#39;, &#39;Archangel&#39;, &#39;June&#39;, &#39;Ah&#39;, &#39;If&#39;, &#39;If&#39;, &#39;Farewell&#39;, &#39;Margaret&#39;, &#39;Heaven&#39;, &#39;Your&#39;, &#39;Walton&#39;, &#39;Letter&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Mange af disse ord er skrevet med stort, fordi de optræder efter et punktum, og på den måde er de ikke, hvad jeg vil kalde for “ægte” ord med stort.</p>
 <p>Hvis man vil bortfiltrere de “uægte” ord fra sin liste, så kan man afsløre dem ved at lave et loop og indsætte en betingelse, der kan tjekke om, ordene skulle være skrevet med småt andre steder i teksterne, fordi hvis de er det, så er de “uægte”.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">true_upper_case</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">upper_case_word</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
@@ -674,11 +728,17 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frankenstein&#39;, &#39;Prometheus&#39;, &#39;Mary&#39;, &#39;Wollstonecraft&#39;, &#39;Godwin&#39;, &#39;Shelley&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;Petersburgh&#39;, &#39;London&#39;, &#39;Petersburgh&#39;, &#39;Margaret&#39;, &#39;Pacific&#39;, &#39;Thomas&#39;, &#39;Homer&#39;, &#39;Shakespeare&#39;, &#39;Greenland&#39;, &#39;Margaret&#39;, &#39;Russia&#39;, &#39;English&#39;, &#39;Petersburgh&#39;, &#39;June&#39;, &#39;Ah&#39;, &#39;Margaret&#39;, &#39;Walton&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;Margaret&#39;, &#39;Thomas&#39;, &#39;Englishman&#39;, &#39;Russian&#39;, &#39;Turk&#39;, &#39;Africa&#39;, &#39;America&#39;, &#39;Robert&#39;, &#39;Walton&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;July&#39;, &#39;England&#39;, &#39;England&#39;, &#39;Adieu&#39;, &#39;Margaret&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;August&#39;, &#39;Monday&#39;, &#39;July&#39;, &#39;European&#39;, &#39;English&#39;, &#39;Margaret&#39;, &#39;Margaret&#39;, &#39;August&#39;, &#39;August&#39;, &#39;Walton&#39;, &#39;Chapter&#39;, &#39;Genevese&#39;, &#39;Beaufort&#39;, &#39;Lucerne&#39;, &#39;Beaufort&#39;, &#39;Beaufort&#39;, &#39;Reuss&#39;, &#39;Beaufort&#39;, &#39;Caroline&#39;, &#39;Beaufort&#39;, &#39;Beaufort&#39;, &#39;Geneva&#39;, &#39;Caroline&#39;, &#39;Italy&#39;, &#39;Italy&#39;, &#39;Germany&#39;, &#39;France&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -482,20 +482,26 @@ would be at least as slow as doing them by hand.</p>
 </li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">len()</span></code> to find out how many items are in a list.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mf">17.3</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">,</span> <span class="mf">17.7</span><span class="p">,</span> <span class="mf">17.5</span><span class="p">,</span> <span class="mf">17.6</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperatures:&#39;</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;length:&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">temperatures</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>temperatures: [17.3, 17.5, 17.7, 17.5, 17.6]
 length: 5
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="indexing-lists">
 <h3>Indexing lists<a class="headerlink" href="#indexing-lists" title="Link to this heading">#</a></h3>
@@ -504,19 +510,25 @@ length: 5
 <li><p>Just like with strings, we can use index to find a given item in a list.</p></li>
 <li><p>And just like with strings, the elements in a list are 0-indexed. (See lesson about <a class="reference internal" href="01_data_types.html"><span class="doc std std-doc">Data Types</span></a>.)</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zeroth item of temperatures:&#39;</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fourth item of temperatures:&#39;</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zeroth item of temperatures: 17.3
 fourth item of temperatures: 17.6
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="slicing-lists">
@@ -524,45 +536,57 @@ fourth item of temperatures: 17.6
 <p>Just like with strings, we can use indexing syntax to slice lists.</p>
 <p><em>If <code class="docutils literal notranslate"><span class="pre">l</span></code> is a list, an expression of the form <code class="docutils literal notranslate"><span class="pre">l[start:stop]</span></code> returns the portion of <code class="docutils literal notranslate"><span class="pre">l</span></code> starting with position <code class="docutils literal notranslate"><span class="pre">start</span></code>, and up to <em><strong>but not including</strong></em> position <code class="docutils literal notranslate"><span class="pre">stop</span></code>.</em></p>
 <p>Take a look at the example with the list of temperatures:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">temperatures</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">temperatures</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[17.3, 17.5, 17.7, 17.5, 17.6]
 [17.5, 17.7, 17.5]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="replacing-list-items">
 <h3>Replacing list items<a class="headerlink" href="#replacing-list-items" title="Link to this heading">#</a></h3>
 <p>Lists’ items can be replaced by assigning to them.</p>
 <p>You can use an index expression on the left of the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>) to replace a value:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperatures</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">16.5</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperatures is now:&#39;</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>temperatures is now: [16.5, 17.5, 17.7, 17.5, 17.6]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="appending-to-lists">
 <h3>Appending to lists<a class="headerlink" href="#appending-to-lists" title="Link to this heading">#</a></h3>
 <p>Appending items to a list lengthens it.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">list_name.append</span></code> to add items to the end of a list:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;temperatures is initially:&#39;</span><span class="p">,</span> <span class="n">temperatures</span><span class="p">)</span>
 <span class="n">temperatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">17.9</span><span class="p">)</span>
 <span class="n">temperatures</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">18.2</span><span class="p">)</span>
@@ -570,12 +594,18 @@ fourth item of temperatures: 17.6
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>temperatures is initially: [16.5, 17.5, 17.7, 17.5, 17.6]
 temperatures has become: [16.5, 17.5, 17.7, 17.5, 17.6, 17.9, 18.2]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.append()</span></code> is a <em>method</em> of lists.
 *   A method is similar to a function, but tied to a particular object.</p>
@@ -641,8 +671,8 @@ temperatures has become: [16.5, 17.5, 17.7, 17.5, 17.6, 17.9, 18.2]
 <li><p><code class="docutils literal notranslate"><span class="pre">del</span> <span class="pre">list_name[index]</span></code> removes an item from a list and shortens the list.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">del</span></code> is not a function or a method, but a statement in the Python language.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;numbers before removing last item:&#39;</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
 <span class="k">del</span> <span class="n">numbers</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
@@ -650,12 +680,18 @@ temperatures has become: [16.5, 17.5, 17.7, 17.5, 17.6, 17.9, 18.2]
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>numbers before removing last item: [2, 3, 5, 7, 11]
 numbers after removing last item: [2, 3, 5, 7]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -678,18 +714,24 @@ numbers after removing last item: [2, 3, 5, 7]
 <section id="lists-may-contain-items-of-different-data-types">
 <h2>Lists may contain items of different data types<a class="headerlink" href="#lists-may-contain-items-of-different-data-types" title="Link to this heading">#</a></h2>
 <p>A single list may contain numbers, strings, and anything else.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">goals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;Create lists.&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;Extract items from lists.&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;Modify lists.&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">goals</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, &#39;Create lists.&#39;, 2, &#39;Extract items from lists.&#39;, 3, &#39;Modify lists.&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="lists-are-mutable">
@@ -699,20 +741,26 @@ numbers after removing last item: [2, 3, 5, 7]
 <section id="character-strings-are-immutable">
 <h3>Character strings are immutable<a class="headerlink" href="#character-strings-are-immutable" title="Link to this heading">#</a></h3>
 <p>Remember that you can get single characters from a character string using indexes in square brackets:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_title</span> <span class="o">=</span> <span class="s1">&#39;To Kill a Mockingbird&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;zeroth character:&#39;</span><span class="p">,</span> <span class="n">book_title</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;third character:&#39;</span><span class="p">,</span> <span class="n">book_title</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>zeroth character: T
 third character: i
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Lists and character strings are both <em>collections</em>.</p>
 <p><strong>But!</strong></p>
@@ -722,12 +770,17 @@ third character: i
 <li><p>In contrast, lists are <em>mutable</em>: they can be modified in place.</p></li>
 </ul>
 <p>Python considers the string to be a single value with parts, not a collection of values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_title</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;N&#39;</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
@@ -738,14 +791,15 @@ third character: i
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="important admonition">
 <p class="admonition-title">Notice the difference between overwriting and changing values</p>
 <p>In Python, when you use the assignment operator (<code class="docutils literal notranslate"><span class="pre">=</span></code>) with a variable (<em>and not a variable index!</em>), it doesn’t change the original value of the variable.</p>
 <p>Instead, it replaces the current value of the variable with the new value on the right-hand side of the assignment.</p>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_title</span> <span class="o">=</span> <span class="s1">&#39;To Kill a Mockingbird&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">book_title</span><span class="p">)</span>
 <span class="n">book_title</span> <span class="o">=</span> <span class="s1">&#39;1984&#39;</span>
@@ -753,18 +807,24 @@ third character: i
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>To Kill a Mockingbird
 1984
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>In the code above, the variable <code class="docutils literal notranslate"><span class="pre">book_title</span></code> initially holds the value ‘To Kill a Mockingbird’, but when the second line is executed, it is overwritten with the new value ‘1984’.</p>
 <p>The old value ‘To Kill a Mockingbird’ is effectively discarded, and <code class="docutils literal notranslate"><span class="pre">book_title</span></code> now contains ‘1984’.</p>
 <p>In contrast, when assigning to a list index:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">book_titles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;To Kill a Mockingbird&#39;</span><span class="p">,</span> <span class="s1">&#39;1984&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">book_titles</span><span class="p">)</span>
 <span class="n">book_titles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Romeo and Juliet&#39;</span>
@@ -772,12 +832,18 @@ third character: i
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;To Kill a Mockingbird&#39;, &#39;1984&#39;]
 [&#39;Romeo and Juliet&#39;, &#39;1984&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>We don’t overwrite the variable <code class="docutils literal notranslate"><span class="pre">book_titles</span></code> but rather we <em>change</em> the content of the zeroth index.</p>
 <p>Thus, the difference between <em>immutable</em> and <em>mutable</em> data types.</p>
@@ -789,12 +855,17 @@ third character: i
 <ul class="simple">
 <li><p>This is a kind of <a class="reference internal" href="04_built-in_functions.html"><span class="doc std std-doc">runtime error</span></a>.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;99th book of book_titles is:&#39;</span><span class="p">,</span> <span class="n">book_titles</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
@@ -805,6 +876,7 @@ third character: i
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
@@ -1076,14 +1148,19 @@ Thus, changing the contents of either variable will affect the other.</p>
 <section id="exercise-8-from-strings-to-lists-and-back">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 8: From strings to lists and back<a class="headerlink" href="#exercise-8-from-strings-to-lists-and-back" title="Link to this heading">#</a></h3>
 <p>Given this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;string to list:&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;tin&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list to string:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list to string:&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>string to list: [&#39;t&#39;, &#39;i&#39;, &#39;n&#39;]
 list to string: gold
@@ -1091,6 +1168,7 @@ list to string: g-o-l-d
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <ol class="arabic simple">
 <li><p>Explain in simple terms what <code class="docutils literal notranslate"><span class="pre">list('some</span> <span class="pre">string')</span></code> does.</p></li>

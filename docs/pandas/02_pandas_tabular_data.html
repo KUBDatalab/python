@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -445,7 +445,7 @@ document.write(`
 <p><img alt="How to read and write tabular data" src="../../_images/02_io_readwrite.svg" /></p>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
 
@@ -479,7 +479,7 @@ Understanding the current working directory is important for file operations lik
 <p>The file is located in the ‘data’ directory, <em><strong>relative to the current working directory</strong></em>.<br />
 I.e., in the folder where your notebook is located, you should have a folder named ‘data’ containing the file ‘titanic.csv’.</p>
 <p>The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
 
@@ -488,14 +488,19 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the DataFrame &#39;titanic&#39;.</span>
 
 <span class="n">titanic</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -699,6 +704,7 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 </table>
 <p>891 rows × 12 columns</p>
 </div></div></div>
+</details>
 </div>
 <p>Note, even though we only see the first and last five rows, we actually read the whole <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> into the kernel’s memory.</p>
 <div class="tip dropdown admonition">
@@ -718,17 +724,23 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 <h3><code class="docutils literal notranslate"><span class="pre">shape</span></code><a class="headerlink" href="#shape" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute can be used to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’.<br />
 It returns a tuple representing the number of rows and columns (rows, columns).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(891, 12)
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="head">
@@ -979,12 +991,17 @@ To display all columns without truncation, you can set the <code class="docutils
 <h3><code class="docutils literal notranslate"><span class="pre">dtypes</span></code><a class="headerlink" href="#dtypes" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute can be used to view the data types of each column in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 This command provides information about the data type of each column, such as integer, float, or object (string).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId      int64
 Survived         int64
@@ -1002,18 +1019,24 @@ dtype: object
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="info">
 <h3><code class="docutils literal notranslate"><span class="pre">info()</span></code><a class="headerlink" href="#info" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">info()</span></code> method is used to display a concise summary of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 This command provides essential information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, including the number of non-null values in each column, the data type of each column, and memory usage.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 891 entries, 0 to 890
@@ -1037,6 +1060,7 @@ memory usage: 83.7+ KB
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -1551,12 +1575,17 @@ dtype: int64
 <h2>Filtering on column value<a class="headerlink" href="#filtering-on-column-value" title="Link to this heading">#</a></h2>
 <p>We can filter a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to select rows where a specific column contains a specific value.</p>
 <p>This command returns a subset of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing only the rows where the ‘PassengerId’ column has the value of 666:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">666</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1609,6 +1638,7 @@ dtype: int64
   </tbody>
 </table>
 </div></div></div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
@@ -1629,7 +1659,7 @@ This approach allows us to identify the passengers whose point of departure is u
 <h2>Reading and writing Excel files<a class="headerlink" href="#reading-and-writing-excel-files" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">to_excel()</span></code> method is used to save the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to an Excel file.</p>
 <p>The parameter <code class="docutils literal notranslate"><span class="pre">index=False</span></code> specifies that we do not want to include the row index in the Excel file.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the DataFrame &#39;titanic&#39; to an Excel file named &#39;titanic.xlsx&#39;.</span>
 

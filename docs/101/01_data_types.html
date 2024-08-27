@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -525,30 +525,42 @@ What differences do you notice?</p>
 <section id="the-type-function">
 <h2>The <code class="docutils literal notranslate"><span class="pre">type()</span></code> function<a class="headerlink" href="#the-type-function" title="Link to this heading">#</a></h2>
 <p>You can check the data type of any value by using the function <code class="docutils literal notranslate"><span class="pre">type()</span></code>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;Here is some text&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>str
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The output <code class="docutils literal notranslate"><span class="pre">str</span></code> is short for string.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The output <code class="docutils literal notranslate"><span class="pre">int</span></code> is short for integer.</p>
 </section>
@@ -591,75 +603,105 @@ Here are a few examples:</p>
 <p><img alt="string index" src="../../_images/string_index.png" /></p>
 <p><br />
 The individual characters can be accessed by index:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span><span class="p">[</span><span class="mi">7</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;s&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="slice">
 <h4>Slice<a class="headerlink" href="#slice" title="Link to this heading">#</a></h4>
 <p>Python  allows a form of indexing syntax that extracts substrings from a string, known as string slicing.<br />
 If <code class="docutils literal notranslate"><span class="pre">s</span></code> is a string, an expression of the form <code class="docutils literal notranslate"><span class="pre">s[start:stop]</span></code> returns the portion of <code class="docutils literal notranslate"><span class="pre">s</span></code> starting with position <code class="docutils literal notranslate"><span class="pre">start</span></code>, and up to <em><strong>but not including</strong></em> position <code class="docutils literal notranslate"><span class="pre">stop</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am a s&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="concatenation">
 <h4>Concatenation<a class="headerlink" href="#concatenation" title="Link to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">+</span></code> operator concatenates strings. It returns a string consisting of the operands joined together, as shown here:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span> <span class="o">+</span> <span class="s1">&#39; and so am I&#39;</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am a string and so am I&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Notice that we have added a space in the beginning of the second string, otherwise there would be no space between ‘string’ and ‘and’. You can also add a space between two strings like this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;I am a string&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;and so am I&#39;</span> 
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;I am a string and so am I&#39;
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -673,29 +715,41 @@ If <code class="docutils literal notranslate"><span class="pre">s</span></code> 
 <li><p>Floats represent numbers with decimal points.</p></li>
 </ul>
 <p>Integers and floats do not need to be placed in quotation marks.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>int
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">3.1415926</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section id="mathematical-operations">
 <h3>Mathematical operations<a class="headerlink" href="#mathematical-operations" title="Link to this heading">#</a></h3>
@@ -703,50 +757,68 @@ If <code class="docutils literal notranslate"><span class="pre">s</span></code> 
 <section id="multiplication">
 <h4>Multiplication<a class="headerlink" href="#multiplication" title="Link to this heading">#</a></h4>
 <p>You can multiply in Python using the <code class="docutils literal notranslate"><span class="pre">*</span></code> operator:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">*</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>8
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="exponents">
 <h4>Exponents<a class="headerlink" href="#exponents" title="Link to this heading">#</a></h4>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">**</span></code> as the exponent operator. An exponent is an expression of the number of times a number is muliplied by itself.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="modulus">
 <h4>Modulus<a class="headerlink" href="#modulus" title="Link to this heading">#</a></h4>
 <p>The modulus or remainder operator looks like this: <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code>.
 However, it does not work as a percentage although it might look like one. Instead it divides a with b and the remainder is returned.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">72</span> <span class="o">%</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Table of Mathematical Operations</p>
@@ -807,43 +879,61 @@ However, it does not work as a percentage although it might look like one. Inste
 <section id="booleans">
 <h2>Booleans<a class="headerlink" href="#booleans" title="Link to this heading">#</a></h2>
 <p>Booleans are “truth” values. They report on whether things in your Python universe are <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. There are the only two options for a boolean: <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The boolean operators are <strong>or</strong>, <strong>and</strong>, and <strong>not</strong>. They are used to check if certain conditions are met before the program continues running. This is extremely helpful and even if it seems a bit confusing right now, it will make sense later. Here are a few examples of using boolean logic.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">13</span> <span class="o">&lt;</span> <span class="mi">17</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>In this example above we state that 13 is less than 17 - which returns <code class="docutils literal notranslate"><span class="pre">True</span></code> because 13 is less than 17.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;hello&quot;</span> <span class="o">==</span> <span class="s2">&quot;hi&quot;</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>In the example above we state that ‘hello’ is equal to ‘hi’, which in the computers understanding it is not. Therefore, we get <code class="docutils literal notranslate"><span class="pre">False</span></code> as the output.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">666</span> <span class="o">==</span> <span class="mi">777</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>In this example above we state that 666 is equal to 777, which it is not. Therefore, we get <code class="docutils literal notranslate"><span class="pre">False</span></code> as the output.</p>
 <div class="tip dropdown admonition">

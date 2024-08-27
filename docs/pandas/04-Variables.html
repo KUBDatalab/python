@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -444,43 +444,61 @@ document.write(`
 <h2>Assigning Variables<a class="headerlink" href="#assigning-variables" title="Link to this heading">#</a></h2>
 <p>The variable name will point to a value that you “assign” it. You might think about variable assignment like putting a value “into” the variable, as if the variable is a little box 🎁</p>
 <p>You assign variables with an equals <code class="docutils literal notranslate"><span class="pre">=</span></code> sign. In Python, a single equals sign <code class="docutils literal notranslate"><span class="pre">=</span></code> is the “assignment operator.” A double equals sign <code class="docutils literal notranslate"><span class="pre">==</span></code> is the “real” equals sign.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_variable</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">new_variable</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">different_variable</span> <span class="o">=</span> <span class="s2">&quot;I&#39;m another variable!&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">different_variable</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I&#39;m another variable!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Let’s look at some of the variables that we used when we counted the most frequent words in Charlotte Perkins Gilman’s “The Yellow Wallpaper.”</p>
 <div class="cell tag_output_scroll tag_hide-output docutils container">
@@ -540,9 +558,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2254/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
-/tmp/ipykernel_2254/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -582,8 +600,8 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">number_of_desired_words</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">full_text</span></code></p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt&quot;</span>
 <span class="n">number_of_desired_words</span> <span class="o">=</span> <span class="mi">40</span>
 <span class="n">stopwords</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;me&#39;</span><span class="p">,</span> <span class="s1">&#39;my&#39;</span><span class="p">,</span> <span class="s1">&#39;myself&#39;</span><span class="p">,</span> <span class="s1">&#39;we&#39;</span><span class="p">,</span> <span class="s1">&#39;our&#39;</span><span class="p">,</span> <span class="s1">&#39;ours&#39;</span><span class="p">,</span> <span class="s1">&#39;ourselves&#39;</span><span class="p">,</span> <span class="s1">&#39;you&#39;</span><span class="p">,</span> <span class="s1">&#39;your&#39;</span><span class="p">,</span> <span class="s1">&#39;yours&#39;</span><span class="p">,</span>
@@ -603,6 +621,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
@@ -629,6 +652,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="jupyter-display-vs-print">
@@ -818,7 +842,7 @@ document.write(`
 </details>
 </div>
 <p>Your turn! Pick another variable from the script above and see what’s inside it below.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#your_chosen_variable</span>
 </pre></div>
@@ -927,8 +951,8 @@ document.write(`
 </ul>
 <p><strong>Example Python Code ❌ With Unclear Variable Names❌</strong></p>
 <p>For the sake of illustration, here’s some of our same word count Python code with poorly named variables. The code works exactly the same as our original code, but it’s a lot harder to read.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sp</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="n">lt</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">sw</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="n">lt</span><span class="p">)</span>
@@ -941,12 +965,17 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2254/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   sw = re.split(&quot;\W+&quot;, lt)
-/tmp/ipykernel_2254/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   sw = re.split(&quot;\W+&quot;, lt)
 </pre></div>
 </div>
@@ -971,10 +1000,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>Example Python Code ✨ With Clearer Variable Names ✨</strong></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_into_words</span><span class="p">(</span><span class="n">any_chunk_of_text</span><span class="p">):</span>
     <span class="n">lowercase_text</span> <span class="o">=</span> <span class="n">any_chunk_of_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">split_words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;\W+&quot;</span><span class="p">,</span> <span class="n">lowercase_text</span><span class="p">)</span>
@@ -987,12 +1017,17 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2254/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
-/tmp/ipykernel_2254/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -1017,18 +1052,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="off-limits-names">
 <h3>Off-Limits Names<a class="headerlink" href="#off-limits-names" title="Link to this heading">#</a></h3>
 <p>The only variable names that are off-limits are names that are reserved by, or built into, the Python programming language itself — such as <code class="docutils literal notranslate"><span class="pre">print</span></code>, <code class="docutils literal notranslate"><span class="pre">True</span></code>, and <code class="docutils literal notranslate"><span class="pre">list</span></code>.</p>
 <p>This is not something to worry too much about. You’ll know very quickly if a name is reserved by Python because it will show up in green and often give you an error message.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kc">True</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt&quot;</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="kc">True</span> <span class="o">=</span> <span class="s2">&quot;../texts/literature/The-Yellow-Wallpaper_Charlotte-Perkins-Gilman.txt&quot;</span>
@@ -1037,6 +1078,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -1044,7 +1086,7 @@ document.write(`
 <h2>Re-Assigning Variables<a class="headerlink" href="#re-assigning-variables" title="Link to this heading">#</a></h2>
 <p>Variable assignment does not set a variable in stone. You can later re-assign the same variable a different value.</p>
 <p>For instance, I could re-assign <code class="docutils literal notranslate"><span class="pre">filepath_of_text</span></code> to the filepath for the lyrics of Beyonce’s album <em>Lemonade</em> instead of Perkins-Gilman’s “The Yellow Wallpaper.”</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filepath_of_text</span> <span class="o">=</span> <span class="s2">&quot;../texts/music/Beyonce-Lemonade.txt&quot;</span>
 </pre></div>
@@ -1097,9 +1139,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2254/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
-/tmp/ipykernel_2254/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -1149,7 +1191,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell tag_hide-cell tag_output_scroll docutils container">
+<div class="cell tag_hide-cell tag_output_scroll tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell content</span>
@@ -1168,8 +1210,8 @@ document.write(`
 </details>
 </div>
 <p>Then assign <code class="docutils literal notranslate"><span class="pre">filepath_of_text</span></code> to the corresponding filepath below. Be sure to explore what happens when you change the values for <code class="docutils literal notranslate"><span class="pre">number_of_desired_words</span></code> and <code class="docutils literal notranslate"><span class="pre">stopwords</span></code>, as well.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
@@ -1206,10 +1248,15 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2254/387211622.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2326/387211622.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -1220,6 +1267,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
