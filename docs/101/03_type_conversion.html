@@ -421,7 +421,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-control-operations">Data types control operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-and-operators-on-strings">Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-do-not">Strings have a length (but numbers do not)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-different-data-types">Dealing with different data types</a><ul class="nav section-nav flex-column">
@@ -477,7 +477,7 @@ document.write(`
 <li><p>Character string (usually called “string”, <code class="docutils literal notranslate"><span class="pre">str</span></code>): text (but not necessarily only letters).</p>
 <ul>
 <li><p>Written in either single quotes or double quotes (as long as they match).</p></li>
-<li><p>The quotation marks aren’t printed using <code class="docutils literal notranslate"><span class="pre">print()</span></code>, but may appear when viewing a value in the Jupyter Notebook or other Python interpreter.</p></li>
+<li><p>The quotation marks are not printed using <code class="docutils literal notranslate"><span class="pre">print()</span></code>, but may appear when viewing a value in the Jupyter Notebook or other Python interpreter.</p></li>
 </ul>
 </li>
 </ul>
@@ -560,7 +560,7 @@ document.write(`
 </details>
 </div>
 <p>Multiplying a character string by an integer <em>N</em> creates a new string that consists of that character string repeated  <em>N</em> times (since multiplication is repeated addition).</p>
-<p>There are more ways that traditional math operators will work on other data types. There isn’t a perfect formula for figuring out what they do, so experimentation is valuable.</p>
+<p>There are more ways that traditional math operators will work on other data types. There is not a perfect formula for figuring out what they do, so experimentation is valuable.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">separator</span> <span class="o">=</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">10</span>
@@ -582,8 +582,8 @@ document.write(`
 </div>
 <p>Here, the variable “separator” is set to the value “=” (equals sign) ten times in a row.</p>
 </section>
-<section id="strings-have-a-length-but-numbers-don-t">
-<h3>Strings have a length (but numbers don’t)<a class="headerlink" href="#strings-have-a-length-but-numbers-don-t" title="Link to this heading">#</a></h3>
+<section id="strings-have-a-length-but-numbers-do-not">
+<h3>Strings have a length (but numbers do not)<a class="headerlink" href="#strings-have-a-length-but-numbers-do-not" title="Link to this heading">#</a></h3>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">len()</span></code> counts the number of characters in a string.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -658,7 +658,7 @@ document.write(`
 </div>
 </details>
 </div>
-<p>This is not allowed because it’s ambiguous: should <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">'2'</span></code> be <code class="docutils literal notranslate"><span class="pre">3</span></code> or <code class="docutils literal notranslate"><span class="pre">'12'</span></code>?</p>
+<p>This is not allowed because it is ambiguous: should <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">'2'</span></code> be <code class="docutils literal notranslate"><span class="pre">3</span></code> or <code class="docutils literal notranslate"><span class="pre">'12'</span></code>?</p>
 <ul class="simple">
 <li><p>Some types can be converted to other types by using the type name as a function.</p></li>
 </ul>
@@ -819,7 +819,7 @@ float to int: 3
 </div>
 </details>
 </div>
-<p>If the conversion doesn’t make sense, however, an error message will occur:</p>
+<p>If the conversion does not make sense, however, an error message will occur:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;Hello world!&quot;</span><span class="p">))</span>
@@ -855,7 +855,7 @@ float to int: 3
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p>It would not be so unreasonable to expect the Python <code class="docutils literal notranslate"><span class="pre">int()</span></code> command to convert the string “3.4” to 3.4 and an additional type conversion to 3.<br />
-After all, Python performs a lot of other magic - isn’t that part of its charm?</p>
+After all, Python performs a lot of other magic - is that not part of its charm?</p>
 <p>However, Python throws an error. Why? To be consistent, possibly.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
 ValueError                                Traceback (most recent call last)
@@ -946,7 +946,7 @@ print(&#39;5 % 3:&#39;, 5%3)
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>Depending on requirements it might be important to detect when the number of students per class doesn’t divide the number of students evenly.</p>
+<p>Depending on requirements it might be important to detect when the number of students per class does not divide the number of students evenly.</p>
 <p>Detect it with the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) and test if the remainder that it returns is greater than 0.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_students</span> <span class="o">=</span> <span class="mi">600</span>
 <span class="n">num_per_class</span> <span class="o">=</span> <span class="mi">42</span>
@@ -971,7 +971,7 @@ print(&#39;5 % 3:&#39;, 5%3)
 <li><p>Use the built-in function <code class="docutils literal notranslate"><span class="pre">type()</span></code> to find the type of a value.</p></li>
 <li><p>Types control what operations can be done on values.</p></li>
 <li><p>Strings can be added and multiplied.</p></li>
-<li><p>Strings have a length (but numbers don’t).</p></li>
+<li><p>Strings have a length (but numbers do not).</p></li>
 <li><p>Preventing Errors: Handling numbers and strings in Python operations.</p></li>
 <li><p>Integers and floats can be mixed freely in operations.</p></li>
 <li><p>Variables only change value when something is assigned to them.</p></li>
@@ -1045,7 +1045,7 @@ print(&#39;5 % 3:&#39;, 5%3)
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types-control-operations">Data types control operations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-and-operators-on-strings">Using the <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">*</span></code> operators on strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-don-t">Strings have a length (but numbers don’t)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#strings-have-a-length-but-numbers-do-not">Strings have a length (but numbers do not)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-different-data-types">Dealing with different data types</a><ul class="nav section-nav flex-column">

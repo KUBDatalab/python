@@ -396,7 +396,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -412,6 +414,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -423,16 +433,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="get-started-with-jupyterlab">
 <h1>Get Started with JupyterLab<a class="headerlink" href="#get-started-with-jupyterlab" title="Link to this heading">#</a></h1>
-<p>This resource is designed to help you navigate and make the most of JupyterLab, whether you’re just getting started or looking to enhance your workflow.</p>
-<p>In the “Open and Navigate JupyterLab” section, you’ll find essential tips on opening files, managing your workspace, and saving your work effectively.</p>
-<p>The “Code in JupyterLab” section provides a deeper dive into running code cells, understanding the different modes, and efficiently organizing your notebook through creating, deleting, and moving cells. You’ll also learn about useful features like auto-closing brackets and managing kernels.</p>
+<p>This resource is designed to help you navigate and make the most of JupyterLab, whether you are just getting started or looking to enhance your workflow.</p>
+<p>In the “Open and Navigate JupyterLab” section, you will find essential tips on opening files, managing your workspace, and saving your work effectively.</p>
+<p>The “Code in JupyterLab” section provides a deeper dive into running code cells, understanding the different modes, and efficiently organizing your notebook through creating, deleting, and moving cells. You will also learn about useful features like auto-closing brackets and managing kernels.</p>
 <p>For more in-depth information, visit the official <a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/user/">JupyterLab User Guide</a>.</p>
+<hr class="docutils" />
+<section id="content">
+<h2>Content<a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlab_1.html">Open and Navigate JupyterLab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jupyterlab_2.html">Code in JupyterLab</a></li>
 </ul>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -489,6 +503,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
