@@ -610,6 +610,18 @@ document.write(`
 <li><p><strong>Opening Files</strong>: Double-click on any file in the File Browser to open it. Jupyter Notebooks will open in a new tab, and text files, Python scripts, and other file types will open in their respective editors.</p></li>
 <li><p><strong>Renaming Files and Folders</strong>: Right-click on a file or folder in the File Browser and select “Rename” to change its name.</p></li>
 <li><p><strong>Running Code Cells in Notebooks</strong>: Inside a Jupyter Notebook, click inside a code cell and press <code class="docutils literal notranslate"><span class="pre">Shift</span> <span class="pre">+</span> <span class="pre">Enter</span></code> to execute the code in that cell.</p></li>
+<li><p><strong>Saving and Reverting Notebooks</strong>:</p>
+<ul>
+<li><p><strong>Manual Saving</strong>: You can manually save your notebook at any time by clicking the save icon <i class="fas fa-save" aria-hidden="true"></i> in the toolbar or by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></code> (Windows) or <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">S</span></code> (macOS).</p></li>
+<li><p><strong>Autosave Feature</strong>: Jupyter Notebooks come with an autosave feature that saves your work automatically at regular intervals. By default, this happens every 120 seconds (2 minutes). You can adjust the autosave interval by modifying the notebook settings if needed.</p>
+<ul>
+<li><p><strong>Checking Autosave</strong>: To see when the notebook was last saved, you can check the <strong>File Browser</strong> in JupyterLab. The last modified time is displayed next to the notebook’s name, indicating how long ago the last save occurred. This reflects the most recent autosave or manual save.</p></li>
+<li><p><strong>Creating Checkpoints</strong>: In JupyterLab, a single checkpoint is automatically created each time you manually save the notebook. You can manually save your notebook by clicking the save icon <i class="fas fa-save" aria-hidden="true"></i> in the toolbar, by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">S</span></code> (Windows) or <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">S</span></code> (macOS), or by selecting “Save Notebook” from the File menu.</p></li>
+</ul>
+</li>
+<li><p><strong>Reverting to Checkpoints</strong>: If you need to revert to the last manually saved state of your notebook, you can do so by selecting “Revert to Checkpoint” in the File menu. This allows you to go back to the state of the notebook at the last manual save, effectively undoing changes made by any subsequent autosaves. However, JupyterLab only maintains the most recent checkpoint, so you cannot revert to multiple earlier states.</p></li>
+</ul>
+</li>
 <li><p><strong>Terminal in JupyterLab</strong>: You can open a Terminal within JupyterLab by clicking on the terminal icon in the Launcher (the tab with the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon). This can be useful for running additional commands directly from within JupyterLab.</p></li>
 <li><p><strong>Shutting Down JupyterLab</strong>: To stop the JupyterLab server, go back to your Terminal, Command Prompt, or PowerShell window where JupyterLab was started, and press <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">C</span></code>. Confirm the shutdown if prompted.</p></li>
 </ul>
