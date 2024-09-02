@@ -427,7 +427,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-are-tested-once-in-order">Conditions are tested once, in order</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements">Compound statements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analyzing-social-media-impact">Example: analyzing social media impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analysing-social-media-impact">Example: Analysing social media impact</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a><ul class="nav section-nav flex-column">
@@ -474,8 +474,8 @@ document.write(`
 <h2><code class="docutils literal notranslate"><span class="pre">if</span></code> statements control whether or not a block of code is executed<a class="headerlink" href="#if-statements-control-whether-or-not-a-block-of-code-is-executed" title="Link to this heading">#</a></h2>
 <p>An <code class="docutils literal notranslate"><span class="pre">if</span></code> statement (more properly called a conditional statement) controls whether some block of code is executed or not.</p>
 <p>It can look like this in pseudocode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">some</span> <span class="n">criteria</span> <span class="ow">is</span> <span class="n">met</span><span class="p">:</span>
-    <span class="n">then</span> <span class="n">do</span> <span class="n">this</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>if some criteria is met:
+    then do this
 </pre></div>
 </div>
 <p>The structure is similar to a <code class="docutils literal notranslate"><span class="pre">for</span></code> statement:</p>
@@ -751,9 +751,10 @@ This is called compound statements.</p>
 <p class="admonition-title">See also</p>
 <p>You can read more about compound statements in the <a class="reference external" href="https://docs.python.org/3/reference/compound_stmts.html">official documentation</a>.</p>
 </div>
-<section id="example-analyzing-social-media-impact">
-<h3>Example: analyzing social media impact<a class="headerlink" href="#example-analyzing-social-media-impact" title="Link to this heading">#</a></h3>
-<p>Imagine you are working on a project to analyze social media posts for a campaign. Your goal is to categorize posts based on their engagement metrics, such as the number of likes and shares, to determine their impact. You have data that includes the engagement metrics of various posts, and you want to classify them to understand their effectiveness better.</p>
+<section id="example-analysing-social-media-impact">
+<h3>Example: Analysing social media impact<a class="headerlink" href="#example-analysing-social-media-impact" title="Link to this heading">#</a></h3>
+<p>Imagine you are working on a project to analyse social media posts for a campaign. Your goal is to categorise posts based on their engagement metrics, such as the number of likes and shares, to determine their impact.<br />
+You have data that includes the engagement metrics of various posts, and you want to classify them to understand their effectiveness better.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lists of engagement metrics: likes and shares for each social media post</span>
@@ -793,31 +794,28 @@ Low impact post. Needs improvement.
 </details>
 </div>
 <p>If no parentheses are used, Python will read code based on <a class="reference external" href="https://docs.python.org/3/reference/expressions.html#operator-precedence">operator precedence</a>.
-However, a good general rule is to always use parentheses when mixing and and or in the same condition.
+However, a good general rule is to always use parentheses when mixing <em>and</em> and <em>or</em> in the same condition.
 That is, instead of:</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>You should write it like one of these two so it is perfectly clear to a reader (and to Python) what you really mean:</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
-<span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="p">(</span><span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span><span class="p">)</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
 </pre></div>
 </div>
-</div>
+<p>Or:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="p">(</span><span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">):</span>
+</pre></div>
 </div>
 <div class="attention admonition">
 <p class="admonition-title">Notice</p>
-<p>Notice that the two statements above test for something different!
-The first statement requires likes to be outside the range of 100 to 500 and the shares to be greater than 50.
-The second statement requires either of these two to be true:
-likes must be smaller than 100, or
-likes must be greater than 500 and shares must be greater than 50.</p>
+<p>Notice that the two statements above test for something different!<br />
+The first statement requires:<br />
+likes to be outside the range of 100 to 500 <em>and</em> the shares to be greater than 50.<br />
+The second statement requires either of these two to be true:<br />
+likes must be smaller than 100,<br />
+or:<br />
+likes must be greater than 500 <em>and</em> shares must be greater than 50.</p>
 </div>
 </section>
 </section>
@@ -1146,7 +1144,7 @@ Congratulations! You guessed the correct number in 3 attempts.
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditions-are-tested-once-in-order">Conditions are tested once, in order</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compound-statements">Compound statements</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analyzing-social-media-impact">Example: analyzing social media impact</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-analysing-social-media-impact">Example: Analysing social media impact</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While loops</a><ul class="nav section-nav flex-column">

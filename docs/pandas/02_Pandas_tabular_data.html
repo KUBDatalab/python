@@ -417,6 +417,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-titanic-data">Download the Titanic data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
@@ -447,6 +448,12 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="read-and-write-tabular-data">
 <h1>Read and Write Tabular Data<a class="headerlink" href="#read-and-write-tabular-data" title="Link to this heading">#</a></h1>
 <p><img alt="How to read and write tabular data" src="../../_images/02_io_readwrite.svg" /></p>
+<section id="download-the-titanic-data">
+<h2>Download the Titanic data<a class="headerlink" href="#download-the-titanic-data" title="Link to this heading">#</a></h2>
+<p>For this page and the ones that follow, we will be working with the Titanic dataset. The full dataset can be found on <a class="reference external" href="https://www.kaggle.com/c/titanic/data">Kaggle</a>, but we will only be using the training data, which we have made available <a class="reference download internal" download="" href="../../_downloads/5c974b1590223ac1e1608a8361b2efc2/titanic.csv"><span class="xref download myst">here</span></a>.</p>
+<p>To follow the exercises and use the code exactly as written below, you will need to download the data and place it in a folder called “data” in the same directory as your Jupyter notebook. In other words, the folder where your notebook is located should contain a subfolder named “data”, which holds the file “titanic.csv”.</p>
+</section>
+<hr class="docutils" />
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -467,7 +474,7 @@ You can read more about magic commands <a class="reference external" href="https
 <p>It is used to display the current working directory (<code class="docutils literal notranslate"><span class="pre">cwd</span></code>) within the notebook environment.</p>
 <p>This is the folder where the Jupyter Notebook is running.<br />
 Understanding the current working directory is important for file operations like reading and writing files.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%pwd
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%pwd
 </pre></div>
 </div>
 </section>
@@ -716,7 +723,7 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 <p>The pressure on memory usage can be alleviated by using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method described below.</p>
 <p>However, this will only be an issue with very large datasets, so do not worry too much about it for now.</p>
 <p>You can find out how much memory a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> uses by using the <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> method:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>titanic.memory_usage(deep=True).sum()
 </pre></div>
 </div>
 </div>
@@ -1971,6 +1978,7 @@ To do so, we could write:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-titanic-data">Download the Titanic data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
