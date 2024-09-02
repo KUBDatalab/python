@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Read and Write Tabular Data &#8212; KUB Datalab - Python</title>
+    <title>Subsets &#8212; KUB Datalab - Python</title>
   
   
   
@@ -57,12 +57,10 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/02_pandas_tabular_data';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/original_03_pandas_subsets';</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Subsets" href="03_pandas_subsets.html" />
-    <link rel="prev" title="Pandas DataFrame" href="01_pandas_dataframe.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -124,6 +122,8 @@
     <div class="bd-container__inner bd-page-width">
       
       
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -214,11 +214,11 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="getting_started.html">Getting Started with Data Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="00_pandas_start.html">Getting Started with Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Read and Write Tabular Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_loc_iloc.html"><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_pandas_summary_statistics.html">Summary Statistics</a></li>
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/02_pandas_tabular_data.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/original_03_pandas_subsets.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@
       
       
       
-      <li><a href="../../_sources/docs/pandas/02_pandas_tabular_data.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/pandas/original_03_pandas_subsets.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Read and Write Tabular Data</h1>
+    <h1>Subsets</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -419,22 +419,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-titanic-data">Download the Titanic data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-on-the-dataframe">Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dtypes"><code class="docutils literal notranslate"><span class="pre">dtypes</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#info"><code class="docutils literal notranslate"><span class="pre">info()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notna-and-isna"><code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-excel-files">Reading and writing Excel files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
@@ -447,15 +437,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="read-and-write-tabular-data">
-<h1>Read and Write Tabular Data<a class="headerlink" href="#read-and-write-tabular-data" title="Link to this heading">#</a></h1>
-<p><img alt="How to read and write tabular data" src="../../_images/02_io_readwrite.svg" /></p>
-<section id="download-the-titanic-data">
-<h2>Download the Titanic data<a class="headerlink" href="#download-the-titanic-data" title="Link to this heading">#</a></h2>
-<p>For this page and the ones that follow, we will be working with the Titanic dataset. The full dataset can be found on <a class="reference external" href="https://www.kaggle.com/c/titanic/data">Kaggle</a>, but we will only be using the training data, which we have made available <a class="reference download internal" download="" href="../../_downloads/5c974b1590223ac1e1608a8361b2efc2/titanic.csv"><span class="xref download myst">here</span></a>.</p>
-<p>To follow the exercises and use the code exactly as written below, you will need to download the data and place it in a folder called ‘data’ in the same directory as your Jupyter notebook. In other words, the folder where your notebook is located should contain a subfolder named ‘data’, which holds the file ‘titanic.csv’.</p>
-</section>
-<hr class="docutils" />
+  <section class="tex2jax_ignore mathjax_ignore" id="subsets">
+<h1>Subsets<a class="headerlink" href="#subsets" title="Link to this heading">#</a></h1>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -469,29 +452,9 @@ document.write(`
 </div>
 </section>
 <hr class="docutils" />
-<section id="current-working-directory">
-<h2>Current working directory<a class="headerlink" href="#current-working-directory" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">%pwd</span></code> command (<em><strong>p</strong></em>rint <em><strong>w</strong></em>orking <em><strong>d</strong></em>irectory) is known as a “magic command” in Jupyter Notebook.<br />
-You can read more about magic commands <a class="reference external" href="https://www.geeksforgeeks.org/useful-ipython-magic-commands/">here.</a></p>
-<p>It is used to display the current working directory (<code class="docutils literal notranslate"><span class="pre">cwd</span></code>) within the notebook environment.</p>
-<p>This is the folder where the Jupyter Notebook is running.<br />
-Understanding the current working directory is important for file operations like reading and writing files.</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>%pwd
-</pre></div>
-</div>
-</section>
-<hr class="docutils" />
 <section id="creating-a-dataframe-from-a-csv-file">
 <h2>Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file<a class="headerlink" href="#creating-a-dataframe-from-a-csv-file" title="Link to this heading">#</a></h2>
-<p>CSV (Comma Separated Values) is a simple file format used to store tabular data, such as a spreadsheet or database.</p>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>For more information on working with CSV files in Python, see <a class="reference external" href="https://www.geeksforgeeks.org/working-csv-files-python/">GeeksforGeeks</a>.</p>
-</div>
 <p>The <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code> function is used to read the data from the file ‘data/titanic.csv’.</p>
-<p>The file is located in the ‘data’ directory, <em><strong>relative to the current working directory</strong></em>.<br />
-I.e., in the folder where your notebook is located, you should have a folder named ‘data’ containing the file ‘titanic.csv’.</p>
-<p>The resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ contains the dataset, ready for analysis and manipulation.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
@@ -719,27 +682,15 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 </div></div></div>
 </details>
 </div>
-<p>Note, even though we only see the first and last five rows, we actually read the whole <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> into the kernel’s memory.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Memory usage</p>
-<p>The pressure on memory usage can be alleviated by using the <code class="docutils literal notranslate"><span class="pre">head()</span></code> method described below.</p>
-<p>However, this will only be an issue with very large datasets, so do not worry too much about it for now.</p>
-<p>You can find out how much memory a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> uses by using the <code class="docutils literal notranslate"><span class="pre">memory_usage()</span></code> method:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>titanic.memory_usage(deep=True).sum()
-</pre></div>
-</div>
-</div>
 </section>
 <hr class="docutils" />
-<section id="getting-information-on-the-dataframe">
-<h2>Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#getting-information-on-the-dataframe" title="Link to this heading">#</a></h2>
-<section id="shape">
-<h3><code class="docutils literal notranslate"><span class="pre">shape</span></code><a class="headerlink" href="#shape" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute can be used to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’.<br />
-It returns a tuple representing the number of rows and columns (rows, columns).</p>
+<section id="selecting-specific-columns">
+<h2>Selecting specific columns<a class="headerlink" href="#selecting-specific-columns" title="Link to this heading">#</a></h2>
+<p><img alt="Selecting specific columns from a DataFrame" src="../../_images/03_subset_columns.svg" /></p>
+<p>Access the ‘Age’ column from the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’ to return a <code class="docutils literal notranslate"><span class="pre">Series</span></code> object containing all the data in the ‘Age’ column:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -749,20 +700,478 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(891, 12)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      22.0
+1      38.0
+2      26.0
+3      35.0
+4      35.0
+       ... 
+886    27.0
+887    19.0
+888     NaN
+889    26.0
+890    32.0
+Name: Age, Length: 891, dtype: float64
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the type of the &#39;Age&#39; column in &#39;titanic&#39; using the &#39;type()&#39; function.</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.series.Series
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">Series</span></code>.<br />
+It returns a tuple representing the number of rows and columns (rows, columns).</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(891,)
 </pre></div>
 </div>
 </div>
 </details>
 </div>
 </section>
-<section id="head">
-<h3><code class="docutils literal notranslate"><span class="pre">head()</span></code><a class="headerlink" href="#head" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">head()</span></code> method displays the first five rows of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This provides a quick overview of the dataset, showing the column names and the first rows of data.</p>
+<hr class="docutils" />
+<section id="calling-multiple-series">
+<h2>Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#calling-multiple-series" title="Link to this heading">#</a></h2>
+<p>Select columns ‘Age’ and ‘Sex’ from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using double square brackets:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the columns &#39;Age&#39; and &#39;Sex&#39; from the &#39;titanic&#39; DataFrame.</span>
+
+<span class="n">titanic</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Sex</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>22.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>38.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>26.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>35.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>35.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>27.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>887</th>
+      <td>19.0</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>NaN</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <th>889</th>
+      <td>26.0</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>32.0</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+<p>891 rows × 2 columns</p>
+</div></div></div>
+</details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The inner square brackets define a Python <code class="docutils literal notranslate"><span class="pre">list</span></code> with column names, whereas the outer square brackets are used to select the data from a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> as seen in the previous example.</p>
+</div>
+<p>Select columns ‘Age’ and ‘Sex’ from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using double square brackets, and then apply the <code class="docutils literal notranslate"><span class="pre">type()</span></code> function to the resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> subset:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;type()&#39; function to determine the data type of the DataFrame subset.</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">titanic</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>pandas.core.frame.DataFrame
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Select columns ‘Age’ and ‘Sex’ from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using double square brackets, and then apply the <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute to the resulting <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> subset:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use the &#39;shape&#39; attribute to determine the dimensions of the DataFrame subset.</span>
+
+<span class="n">titanic</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(891, 2)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="filtering-rows-based-on-conditional-expressions">
+<h2>Filtering rows based on conditional expressions<a class="headerlink" href="#filtering-rows-based-on-conditional-expressions" title="Link to this heading">#</a></h2>
+<p><img alt="Filtering specific rows from a DataFrame" src="../../_images/03_subset_rows.svg" /></p>
+<p>We can use filtering to extract subsets of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
+<p>To select rows based on a conditional expression, use a condition inside the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.<br />
+The condition inside the selection brackets checks for rows where the specified column’s values exceed a certain threshold.</p>
+<p>The code below returns a subset of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing only the rows where the ‘Age’ column has a value greater than 35.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Age&#39; column is greater than 35.</span>
+
+<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Ticket</th>
+      <th>Fare</th>
+      <th>Cabin</th>
+      <th>Embarked</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>female</td>
+      <td>38.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>PC 17599</td>
+      <td>71.2833</td>
+      <td>C85</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>0</td>
+      <td>1</td>
+      <td>McCarthy, Mr. Timothy J</td>
+      <td>male</td>
+      <td>54.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>17463</td>
+      <td>51.8625</td>
+      <td>E46</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>12</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Bonnell, Miss. Elizabeth</td>
+      <td>female</td>
+      <td>58.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>113783</td>
+      <td>26.5500</td>
+      <td>C103</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>14</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Andersson, Mr. Anders Johan</td>
+      <td>male</td>
+      <td>39.0</td>
+      <td>1</td>
+      <td>5</td>
+      <td>347082</td>
+      <td>31.2750</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>16</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
+      <td>female</td>
+      <td>55.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>248706</td>
+      <td>16.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>865</th>
+      <td>866</td>
+      <td>1</td>
+      <td>2</td>
+      <td>Bystrom, Mrs. (Karolina)</td>
+      <td>female</td>
+      <td>42.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>236852</td>
+      <td>13.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>871</th>
+      <td>872</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Beckwith, Mrs. Richard Leonard (Sallie Monypeny)</td>
+      <td>female</td>
+      <td>47.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11751</td>
+      <td>52.5542</td>
+      <td>D35</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>873</th>
+      <td>874</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Vander Cruyssen, Mr. Victor</td>
+      <td>male</td>
+      <td>47.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>345765</td>
+      <td>9.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>879</th>
+      <td>880</td>
+      <td>1</td>
+      <td>1</td>
+      <td>Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)</td>
+      <td>female</td>
+      <td>56.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>11767</td>
+      <td>83.1583</td>
+      <td>C50</td>
+      <td>C</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>886</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Rice, Mrs. William (Margaret Norton)</td>
+      <td>female</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>382652</td>
+      <td>29.1250</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
+  </tbody>
+</table>
+<p>217 rows × 12 columns</p>
+</div></div></div>
+</details>
+</div>
+<p>What happens inside the square brackets is that Pandas evaluates the condition ‘titanic[‘Age’] &gt; 35’ element-wise, resulting in a boolean <code class="docutils literal notranslate"><span class="pre">Series</span></code> where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding passenger’s age is greater than 35.</p>
+<p>This is called a boolean mask.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a boolean mask to filter rows where the age of passengers is greater than 35.</span>
+
+<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
+1       True
+2      False
+3      False
+4      False
+       ...  
+886    False
+887    False
+888    False
+889    False
+890    False
+Name: Age, Length: 891, dtype: bool
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>We can also use the <code class="docutils literal notranslate"><span class="pre">isin()</span></code> method to create a boolean mask, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding ‘Pclass’ value is present in the specified list ‘[2, 3]’.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Pclass&#39; column values are either 2 or 3.</span>
+
+<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
 </pre></div>
 </div>
 </div>
@@ -821,21 +1230,6 @@ This provides a quick overview of the dataset, showing the column names and the 
       <td>S</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-      <td>female</td>
-      <td>38.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>PC 17599</td>
-      <td>71.2833</td>
-      <td>C85</td>
-      <td>C</td>
-    </tr>
-    <tr>
       <th>2</th>
       <td>3</td>
       <td>1</td>
@@ -848,21 +1242,6 @@ This provides a quick overview of the dataset, showing the column names and the 
       <td>STON/O2. 3101282</td>
       <td>7.9250</td>
       <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
-      <td>female</td>
-      <td>35.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>113803</td>
-      <td>53.1000</td>
-      <td>C123</td>
       <td>S</td>
     </tr>
     <tr>
@@ -880,61 +1259,96 @@ This provides a quick overview of the dataset, showing the column names and the 
       <td>NaN</td>
       <td>S</td>
     </tr>
-  </tbody>
-</table>
-</div></div></div>
-</details>
-</div>
-</section>
-<section id="tail">
-<h3><code class="docutils literal notranslate"><span class="pre">tail()</span></code><a class="headerlink" href="#tail" title="Link to this heading">#</a></h3>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">tail()</span></code> method and specifying 3 as argument will display the last three rows of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This allows us to inspect the end of the dataset, showing the last rows of data.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Moran, Mr. James</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>330877</td>
+      <td>8.4583</td>
+      <td>NaN</td>
+      <td>Q</td>
     </tr>
-  </thead>
-  <tbody>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Palsson, Master. Gosta Leonard</td>
+      <td>male</td>
+      <td>2.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>349909</td>
+      <td>21.0750</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>884</th>
+      <td>885</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Sutehall, Mr. Henry Jr</td>
+      <td>male</td>
+      <td>25.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SOTON/OQ 392076</td>
+      <td>7.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>886</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Rice, Mrs. William (Margaret Norton)</td>
+      <td>female</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>382652</td>
+      <td>29.1250</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>887</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Montvila, Rev. Juozas</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>211536</td>
+      <td>13.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
     <tr>
       <th>888</th>
       <td>889</td>
@@ -946,24 +1360,9 @@ This allows us to inspect the end of the dataset, showing the last rows of data.
       <td>1</td>
       <td>2</td>
       <td>W./C. 6607</td>
-      <td>23.45</td>
+      <td>23.4500</td>
       <td>NaN</td>
       <td>S</td>
-    </tr>
-    <tr>
-      <th>889</th>
-      <td>890</td>
-      <td>1</td>
-      <td>1</td>
-      <td>Behr, Mr. Karl Howell</td>
-      <td>male</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>111369</td>
-      <td>30.00</td>
-      <td>C148</td>
-      <td>C</td>
     </tr>
     <tr>
       <th>890</th>
@@ -976,116 +1375,28 @@ This allows us to inspect the end of the dataset, showing the last rows of data.
       <td>0</td>
       <td>0</td>
       <td>370376</td>
-      <td>7.75</td>
+      <td>7.7500</td>
       <td>NaN</td>
       <td>Q</td>
     </tr>
   </tbody>
 </table>
+<p>675 rows × 12 columns</p>
 </div></div></div>
 </details>
 </div>
-<div class="tip dropdown admonition">
-<p class="admonition-title">A note on head() and tail()</p>
-<p>By default, Pandas limits the display of rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 60 rows.</p>
-<p>Calling a number higher than 60 will display the first five rows followed by an ellipsis (<code class="docutils literal notranslate"><span class="pre">...</span></code>), indicating that rows are being skipped, and then display the last five rows of the selection.</p>
-<p>To display all rows without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_rows</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_rows&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above is equivalent to filtering by rows for which the class is either 2 or 3 and combining the two statements with an <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR) operator.</p>
+<p>When combining multiple conditional statements, each condition must be surrounded by parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.<br />
+Moreover, you can not use <code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">and</span></code> but need to use the OR operator <code class="docutils literal notranslate"><span class="pre">|</span></code> and the AND operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
 </div>
-<p>Likewise, Pandas limits the display of columns in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to a maximum of 20 columns.<br />
-To display all columns without truncation, you can set the <code class="docutils literal notranslate"><span class="pre">max_columns</span></code> option to <code class="docutils literal notranslate"><span class="pre">None</span></code> using <code class="docutils literal notranslate"><span class="pre">pd.set_option()</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="dtypes">
-<h3><code class="docutils literal notranslate"><span class="pre">dtypes</span></code><a class="headerlink" href="#dtypes" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute can be used to view the data types of each column in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This command provides information about the data type of each column, such as integer, float, or object (string).</p>
+<p>The following code uses boolean indexing with logical OR (<code class="docutils literal notranslate"><span class="pre">|</span></code>) to create a mask, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding ‘Pclass’ value is either 2 or 3.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">dtypes</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId      int64
-Survived         int64
-Pclass           int64
-Name            object
-Sex             object
-Age            float64
-SibSp            int64
-Parch            int64
-Ticket          object
-Fare           float64
-Cabin           object
-Embarked        object
-dtype: object
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-</section>
-<section id="info">
-<h3><code class="docutils literal notranslate"><span class="pre">info()</span></code><a class="headerlink" href="#info" title="Link to this heading">#</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">info()</span></code> method is used to display a concise summary of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This command provides essential information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, including the number of non-null values in each column, the data type of each column, and memory usage.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 891 entries, 0 to 890
-Data columns (total 12 columns):
- #   Column       Non-Null Count  Dtype  
----  ------       --------------  -----  
- 0   PassengerId  891 non-null    int64  
- 1   Survived     891 non-null    int64  
- 2   Pclass       891 non-null    int64  
- 3   Name         891 non-null    object 
- 4   Sex          891 non-null    object 
- 5   Age          714 non-null    float64
- 6   SibSp        891 non-null    int64  
- 7   Parch        891 non-null    int64  
- 8   Ticket       891 non-null    object 
- 9   Fare         891 non-null    float64
- 10  Cabin        204 non-null    object 
- 11  Embarked     889 non-null    object 
-dtypes: float64(2), int64(5), object(5)
-memory usage: 83.7+ KB
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="notna-and-isna">
-<h2><code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code><a class="headerlink" href="#notna-and-isna" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values <em><strong>are not</strong></em> a null value (i.e., not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> method to create a boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> indicating whether each element in ‘titanic’ is not null.<br />
-This command returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of the same shape as ‘titanic’, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates a non-null value, and <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates a null value.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Pclass&#39; column values are either 2 or 3.</span>
+
+<span class="n">titanic</span><span class="p">[(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -1130,561 +1441,182 @@ This command returns a <code class="docutils literal notranslate"><span class="p
   <tbody>
     <tr>
       <th>0</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>886</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>887</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>888</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>889</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-    </tr>
-    <tr>
-      <th>890</th>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>True</td>
-      <td>False</td>
-      <td>True</td>
-    </tr>
-  </tbody>
-</table>
-<p>891 rows × 12 columns</p>
-</div></div></div>
-</details>
-</div>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> method followed by <code class="docutils literal notranslate"><span class="pre">sum()</span></code> to count the non-null values in each column of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
-<p>This command calculates the sum of <code class="docutils literal notranslate"><span class="pre">True</span></code> values (non-null) along each column axis, providing a count of non-null values for each column.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">notna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId    891
-Survived       891
-Pclass         891
-Name           891
-Sex            891
-Age            714
-SibSp          891
-Parch          891
-Ticket         891
-Fare           891
-Cabin          204
-Embarked       889
-dtype: int64
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">isna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values <em><strong>are</strong></em> a null value (i.e., <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">isna()</span></code> method to create a boolean <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> indicating whether each element in ‘titanic’ is null.<br />
-This command returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> of the same shape as ‘titanic’, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates a null value, and <code class="docutils literal notranslate"><span class="pre">False</span></code> indicates a non-null value.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>886</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>887</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>888</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>889</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-    </tr>
-    <tr>
-      <th>890</th>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>False</td>
-      <td>True</td>
-      <td>False</td>
-    </tr>
-  </tbody>
-</table>
-<p>891 rows × 12 columns</p>
-</div></div></div>
-</details>
-</div>
-<p>Use the <code class="docutils literal notranslate"><span class="pre">isna()</span></code> method followed by <code class="docutils literal notranslate"><span class="pre">sum()</span></code> to count the null values in each column of the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This command calculates the sum of <code class="docutils literal notranslate"><span class="pre">True</span></code> values (null) along each column axis, providing a count of null values for each column.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PassengerId      0
-Survived         0
-Pclass           0
-Name             0
-Sex              0
-Age            177
-SibSp            0
-Parch            0
-Ticket           0
-Fare             0
-Cabin          687
-Embarked         2
-dtype: int64
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-</section>
-<hr class="docutils" />
-<section id="filtering-on-column-value">
-<h2>Filtering on column value<a class="headerlink" href="#filtering-on-column-value" title="Link to this heading">#</a></h2>
-<p>We can filter a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to select rows where a specific column contains a specific value.</p>
-<p>This command returns a subset of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing only the rows where the ‘PassengerId’ column has the value of 666:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;PassengerId&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">666</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>665</th>
-      <td>666</td>
+      <td>1</td>
       <td>0</td>
-      <td>2</td>
-      <td>Hickman, Mr. Lewis</td>
+      <td>3</td>
+      <td>Braund, Mr. Owen Harris</td>
       <td>male</td>
-      <td>32.0</td>
-      <td>2</td>
+      <td>22.0</td>
+      <td>1</td>
       <td>0</td>
-      <td>S.O.C. 14879</td>
-      <td>73.5</td>
+      <td>A/5 21171</td>
+      <td>7.2500</td>
       <td>NaN</td>
       <td>S</td>
     </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+      <td>3</td>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>female</td>
+      <td>26.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>STON/O2. 3101282</td>
+      <td>7.9250</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Allen, Mr. William Henry</td>
+      <td>male</td>
+      <td>35.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>373450</td>
+      <td>8.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Moran, Mr. James</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>330877</td>
+      <td>8.4583</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Palsson, Master. Gosta Leonard</td>
+      <td>male</td>
+      <td>2.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>349909</td>
+      <td>21.0750</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>884</th>
+      <td>885</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Sutehall, Mr. Henry Jr</td>
+      <td>male</td>
+      <td>25.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>SOTON/OQ 392076</td>
+      <td>7.0500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>886</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Rice, Mrs. William (Margaret Norton)</td>
+      <td>female</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>5</td>
+      <td>382652</td>
+      <td>29.1250</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
+    <tr>
+      <th>886</th>
+      <td>887</td>
+      <td>0</td>
+      <td>2</td>
+      <td>Montvila, Rev. Juozas</td>
+      <td>male</td>
+      <td>27.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>211536</td>
+      <td>13.0000</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>888</th>
+      <td>889</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>2</td>
+      <td>W./C. 6607</td>
+      <td>23.4500</td>
+      <td>NaN</td>
+      <td>S</td>
+    </tr>
+    <tr>
+      <th>890</th>
+      <td>891</td>
+      <td>0</td>
+      <td>3</td>
+      <td>Dooley, Mr. Patrick</td>
+      <td>male</td>
+      <td>32.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370376</td>
+      <td>7.7500</td>
+      <td>NaN</td>
+      <td>Q</td>
+    </tr>
   </tbody>
 </table>
+<p>675 rows × 12 columns</p>
 </div></div></div>
 </details>
 </div>
-</section>
-<hr class="docutils" />
-<section id="exercise">
-<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
-<p>Extract the two passengers whose point of departure (‘Embarked’) is unknown (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic[titanic[&#39;Embarked&#39;].isna()]
-</pre></div>
-</div>
-<p>This solution uses boolean indexing to filter the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’, extracting only the rows where the ‘Embarked’ column contains missing values (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
-This approach allows us to identify the passengers whose point of departure is unknown.</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="reading-and-writing-excel-files">
-<h2>Reading and writing Excel files<a class="headerlink" href="#reading-and-writing-excel-files" title="Link to this heading">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">to_excel()</span></code> method is used to save the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to an Excel file.</p>
-<p>The parameter <code class="docutils literal notranslate"><span class="pre">index=False</span></code> specifies that we do not want to include the row index in the Excel file.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Write the DataFrame &#39;titanic&#39; to an Excel file named &#39;titanic.xlsx&#39;.</span>
-
-<span class="n">titanic</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can read data from an Excel file into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using the <code class="docutils literal notranslate"><span class="pre">read_excel()</span></code> function.</p>
+<p>Remember that the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a ‘null’ value (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
+As such, this can be combined with the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> to filter the data table.</p>
+<p>Filter rows in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> where ‘Embarked’ values are not null (not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
+<code class="docutils literal notranslate"><span class="pre">notna()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> for non-null values, allowing us to select rows with valid embarkation data.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
@@ -1894,24 +1826,178 @@ This approach allows us to identify the passengers whose point of departure is u
     </tr>
   </tbody>
 </table>
-<p>891 rows × 12 columns</p>
+<p>889 rows × 12 columns</p>
 </div></div></div>
 </details>
 </div>
-<p>Note, that we are only reading the data, not storing it in a variable.<br />
-To do so, we could write:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_df = pd.read_excel(&#39;titanic.xlsx&#39;)
+<p>We can compare the number of extracted rows with the number from the original <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 891 entries, 0 to 890
+Data columns (total 12 columns):
+ #   Column       Non-Null Count  Dtype  
+---  ------       --------------  -----  
+ 0   PassengerId  891 non-null    int64  
+ 1   Survived     891 non-null    int64  
+ 2   Pclass       891 non-null    int64  
+ 3   Name         891 non-null    object 
+ 4   Sex          891 non-null    object 
+ 5   Age          714 non-null    float64
+ 6   SibSp        891 non-null    int64  
+ 7   Parch        891 non-null    int64  
+ 8   Ticket       891 non-null    object 
+ 9   Fare         891 non-null    float64
+ 10  Cabin        204 non-null    object 
+ 11  Embarked     889 non-null    object 
+dtypes: float64(2), int64(5), object(5)
+memory usage: 83.7+ KB
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Comparing the two number of rows (889 and 891) tells us, that two rows are missing embarkation data.</p>
+</section>
+<hr class="docutils" />
+<section id="selecting-rows-and-columns">
+<h2>Selecting rows and columns<a class="headerlink" href="#selecting-rows-and-columns" title="Link to this heading">#</a></h2>
+<p><img alt="Selecting specific rows and columns from a DataFrame" src="../../_images/03_subset_columns_rows.svg" /></p>
+<p>The following code uses boolean indexing to first filter rows where the age is greater than 35, and then selects specific columns ‘Name’ and ‘Pclass’ using double square brackets.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the age is greater than 35,</span>
+<span class="c1"># then select only the &#39;Name&#39; and &#39;Pclass&#39; columns for these filtered rows.</span>
+
+<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">][[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Pclass</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>McCarthy, Mr. Timothy J</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Bonnell, Miss. Elizabeth</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Andersson, Mr. Anders Johan</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>865</th>
+      <td>Bystrom, Mrs. (Karolina)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>871</th>
+      <td>Beckwith, Mrs. Richard Leonard (Sallie Monypeny)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>873</th>
+      <td>Vander Cruyssen, Mr. Victor</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>879</th>
+      <td>Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>Rice, Mrs. William (Margaret Norton)</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<p>217 rows × 2 columns</p>
+</div></div></div>
+</details>
+</div>
+<div class="admonition-a-note-on-square-bracket-indexing admonition">
+<p class="admonition-title">A note on square bracket indexing []</p>
+<p>Square bracket indexing (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) is a versatile method for accessing data in Pandas DataFrames, but there are certain tasks that it cannot perform as efficiently or directly compared to <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. Here are a few limitations of square bracket indexing in comparison to <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>:</p>
+<ol class="arabic simple">
+<li><p><strong>Positional Selection</strong>: When the selection is purely positional (selecting the first five rows, or columns 2 to 4), <code class="docutils literal notranslate"><span class="pre">iloc</span></code> is the most straightforward tool for the job.</p></li>
+<li><p><strong>Inclusive Slicing:</strong> Square bracket slicing excludes the end point, requiring adjustment of slice endpoints. Conversely, <code class="docutils literal notranslate"><span class="pre">loc</span></code> allows for inclusive label-based slicing, simplifying the specification of row and column ranges.</p></li>
+<li><p><strong>Dealing with Non-Integer Labels:</strong> Square brackets may falter with non-integer labels or custom indices due to potential ambiguities, particularly when index labels might be confused with column names. <code class="docutils literal notranslate"><span class="pre">loc</span></code> ensures robust label-based selection, irrespective of label data type.</p></li>
+<li><p><strong>Efficiency in Complex Selections:</strong> For large datasets or intricate selection tasks, <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> may provide enhanced performance due to their optimizations for label and integer indexing, respectively. They offer a more specialized approach for accessing and manipulating <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> data, particularly in complex scenarios.</p></li>
+</ol>
+<p>We have attached a separate notebook that introduces <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, two properties of pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects that provide methods for indexing.</p>
 </div>
 </section>
 <hr class="docutils" />
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Getting data in to pandas from many different file formats or data sources is supported by <code class="docutils literal notranslate"><span class="pre">read_*</span></code> functions.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">head()</span></code>, <code class="docutils literal notranslate"><span class="pre">tail()</span></code>, and <code class="docutils literal notranslate"><span class="pre">info()</span></code> methods are convenient for a first check.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code> methods are useful for finding and isolating missing data.</p></li>
-<li><p>Exporting data out of pandas is provided by different <code class="docutils literal notranslate"><span class="pre">to_*</span></code> methods.</p></li>
+<li><p>When selecting subsets of data, square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> are used.</p></li>
+<li><p>Inside these square brackets, you can use</p>
+<ul>
+<li><p>a single column/row label</p></li>
+<li><p>a list of column/row labels</p></li>
+<li><p>a slice of labels</p></li>
+<li><p>a conditional expression</p></li>
+</ul>
+</li>
 </ul>
 </section>
 </section>
@@ -1946,24 +2032,6 @@ To do so, we could write:</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="01_pandas_dataframe.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="03_pandas_subsets.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Subsets</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -1980,22 +2048,12 @@ To do so, we could write:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-titanic-data">Download the Titanic data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-on-the-dataframe">Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dtypes"><code class="docutils literal notranslate"><span class="pre">dtypes</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#info"><code class="docutils literal notranslate"><span class="pre">info()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notna-and-isna"><code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-excel-files">Reading and writing Excel files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>

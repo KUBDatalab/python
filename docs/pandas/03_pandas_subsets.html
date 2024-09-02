@@ -423,8 +423,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-loc-and-iloc">Introducing <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-specific-rows-with-loc">Filtering specific rows with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-iloc-for-positional-indexing">Using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for positional indexing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusive-vs-exclusive-slicing">Inclusive vs. Exclusive Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for complex conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
@@ -908,18 +919,48 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </section>
 <hr class="docutils" />
+<section id="introducing-loc-and-iloc">
+<h2>Introducing <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code><a class="headerlink" href="#introducing-loc-and-iloc" title="Link to this heading">#</a></h2>
+<p>Now that you’ve learned how to select specific columns from a DataFrame, it’s time to explore more advanced and flexible ways to access and manipulate your data. As you start filtering rows based on conditions or need to select both rows and columns simultaneously, using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> will give you greater control and clarity in your code.</p>
+<p>These powerful tools allow you to:</p>
+<ul class="simple">
+<li><p>Safely and explicitly select rows and columns by labels with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>.</p></li>
+<li><p>Access rows and columns by their integer positions using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>.</p></li>
+<li><p>Avoid potential issues that can arise with more complex operations, ensuring your data manipulations are clear, consistent, and reliable.</p></li>
+</ul>
+<p>With these methods, you’ll be better equipped to handle more complex data tasks efficiently.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">What exactly are loc and iloc?</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> in Pandas are technically properties that return a specialized indexer object. These indexer objects allow for label-based (<code class="docutils literal notranslate"><span class="pre">loc</span></code>) and integer-based (<code class="docutils literal notranslate"><span class="pre">iloc</span></code>) indexing. Although they behave similarly to methods in that you use them to perform actions (i.e., selecting or slicing data), they are properties because they return an indexing object rather than directly executing a function.</p>
+<p>When you access <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, what you are getting is not a simple value but an object that has its own methods and behaviors, specifically designed to handle indexing operations. This design allows for the concise and powerful data selection syntax that Pandas is known for.</p>
+</div>
+<div class="warning dropdown admonition">
+<p class="admonition-title">Avoid ambiguous operations</p>
+<p>Some of the operations we’ll be covering can technically be performed without using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> or <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>. For instance, you might see data selections or modifications done with simple square brackets like <code class="docutils literal notranslate"><span class="pre">df[df['column']</span> <span class="pre">&gt;</span> <span class="pre">value]</span></code>. While this can work for basic tasks, it can lead to issues in more complex scenarios, such as unexpected behavior, ambiguity, or performance inefficiencies.</p>
+<p><strong>Why is this a bad idea?</strong></p>
+<ul class="simple">
+<li><p><strong>Ambiguity</strong>: It’s not always clear if you’re modifying a copy of your data or the original DataFrame, which can lead to unintended side effects.</p></li>
+<li><p><strong>Potential Errors</strong>: Using square brackets for complex selections might trigger warnings like <code class="docutils literal notranslate"><span class="pre">SettingWithCopyWarning</span></code>, indicating that your code might not be doing what you think it is.</p></li>
+<li><p><strong>Lack of Flexibility</strong>: As your data operations become more complex, relying on square brackets can limit your ability to write clear and maintainable code.</p></li>
+</ul>
+<p>For these reasons, we recommend using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> as they provide a more reliable and explicit way to handle data selection and modification in Pandas.</p>
+<p>If you’re interested in learning more about the potential pitfalls of using square brackets and the benefits of <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, you can read more in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">Pandas documentation on indexing and selecting data</a>.</p>
+</div>
+<hr class="docutils" />
 <section id="filtering-rows-based-on-conditional-expressions">
-<h2>Filtering rows based on conditional expressions<a class="headerlink" href="#filtering-rows-based-on-conditional-expressions" title="Link to this heading">#</a></h2>
+<h3>Filtering rows based on conditional expressions<a class="headerlink" href="#filtering-rows-based-on-conditional-expressions" title="Link to this heading">#</a></h3>
 <p><img alt="Filtering specific rows from a DataFrame" src="../../_images/03_subset_rows.svg" /></p>
-<p>We can use filtering to extract subsets of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
-<p>To select rows based on a conditional expression, use a condition inside the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code>.<br />
-The condition inside the selection brackets checks for rows where the specified column’s values exceed a certain threshold.</p>
-<p>The code below returns a subset of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> containing only the rows where the ‘Age’ column has a value greater than 35.</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, you have more control and flexibility when filtering rows and selecting columns in a DataFrame.</p>
+<p>Let’s start by exploring how you can use these tools to filter rows based on conditions.</p>
+<section id="filtering-specific-rows-with-loc">
+<h4>Filtering specific rows with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code><a class="headerlink" href="#filtering-specific-rows-with-loc" title="Link to this heading">#</a></h4>
+<p>To filter rows based on a condition, you can place the condition inside the <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> selector.</p>
+<p>Here’s how you can filter rows where the <code class="docutils literal notranslate"><span class="pre">Age</span></code> column is greater than 35:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Age&#39; column is greater than 35.</span>
 
-<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1133,13 +1174,13 @@ The condition inside the selection brackets checks for rows where the specified 
 </div></div></div>
 </details>
 </div>
-<p>What happens inside the square brackets is that Pandas evaluates the condition ‘titanic[‘Age’] &gt; 35’ element-wise, resulting in a boolean <code class="docutils literal notranslate"><span class="pre">Series</span></code> where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding passenger’s age is greater than 35.</p>
-<p>This is called a boolean mask.</p>
+<p>This command filters the rows where the condition <code class="docutils literal notranslate"><span class="pre">titanic['Age']</span> <span class="pre">&gt;</span> <span class="pre">35</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, and returns the entire DataFrame for those rows.</p>
+<p>If you only want to select specific columns (e.g., <code class="docutils literal notranslate"><span class="pre">Name</span></code> and <code class="docutils literal notranslate"><span class="pre">Pclass</span></code>) for those filtered rows, you can add the column names after the comma:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a boolean mask to filter rows where the age of passengers is greater than 35.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Age&#39; is greater than 35 and select only the &#39;Name&#39; and &#39;Pclass&#39; columns.</span>
 
-<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1149,29 +1190,105 @@ The condition inside the selection brackets checks for rows where the specified 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      False
-1       True
-2      False
-3      False
-4      False
-       ...  
-886    False
-887    False
-888    False
-889    False
-890    False
-Name: Age, Length: 891, dtype: bool
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Pclass</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>McCarthy, Mr. Timothy J</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Bonnell, Miss. Elizabeth</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Andersson, Mr. Anders Johan</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>865</th>
+      <td>Bystrom, Mrs. (Karolina)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>871</th>
+      <td>Beckwith, Mrs. Richard Leonard (Sallie Monypeny)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>873</th>
+      <td>Vander Cruyssen, Mr. Victor</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>879</th>
+      <td>Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>885</th>
+      <td>Rice, Mrs. William (Margaret Norton)</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<p>217 rows × 2 columns</p>
+</div></div></div>
 </details>
 </div>
-<p>We can also use the <code class="docutils literal notranslate"><span class="pre">isin()</span></code> method to create a boolean mask, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding ‘Pclass’ value is present in the specified list ‘[2, 3]’.</p>
+<div class="tip admonition">
+<p class="admonition-title">When using loc/iloc</p>
+<p>The part <em>before the comma</em> is the <em>rows</em> you want</p>
+<p>The part <em>after the comma</em> is the <em>columns</em> you want to select</p>
+</div>
+</section>
+<section id="using-iloc-for-positional-indexing">
+<h4>Using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for positional indexing<a class="headerlink" href="#using-iloc-for-positional-indexing" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> method works similarly to <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>, but it selects rows and columns based on their integer positions rather than labels.</p>
+<p>For example, to select the first 5 rows and the first 2 columns, you can use:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Pclass&#39; column values are either 2 or 3.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the first 5 rows and the first 2 columns using .iloc[].</span>
 
-<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1180,6 +1297,198 @@ Name: Age, Length: 891, dtype: bool
 <span class="collapsed">Show code cell output</span>
 <span class="expanded">Hide code cell output</span>
 </summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+</section>
+</section>
+<section id="inclusive-vs-exclusive-slicing">
+<h3>Inclusive vs. Exclusive Slicing<a class="headerlink" href="#inclusive-vs-exclusive-slicing" title="Link to this heading">#</a></h3>
+<p>When slicing with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>, the slicing is <strong>inclusive</strong> of the start and end labels. For example:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select rows 0 through 3 (inclusive) and columns &#39;Name&#39; and &#39;Pclass&#39;.</span>
+
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Pclass</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Braund, Mr. Owen Harris</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Heikkinen, Miss. Laina</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>This command returns rows 0, 1, 2, and 3, including both the start and end indices.</p>
+<p>When slicing with <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, the slicing is <strong>exclusive</strong> of the end position:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select rows 0 through 2 (exclusive of 3) and the first two columns using .iloc[].</span>
+
+<span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+</section>
+<section id="using-loc-for-complex-conditions">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for complex conditions<a class="headerlink" href="#using-loc-for-complex-conditions" title="Link to this heading">#</a></h3>
+<p>You can also use <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> to filter rows based on more complex conditions, combining multiple criteria with logical operators. For instance, to filter rows where <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> is either 2 or 3:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Pclass&#39; is either 2 or 3 using .loc[].</span>
+
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1383,28 +1692,16 @@ Name: Age, Length: 891, dtype: bool
 </table>
 <p>675 rows × 12 columns</p>
 </div></div></div>
-</details>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The above is equivalent to filtering by rows for which the class is either 2 or 3 and combining the two statements with an <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR) operator.</p>
-<p>When combining multiple conditional statements, each condition must be surrounded by parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.<br />
-Moreover, you can not use <code class="docutils literal notranslate"><span class="pre">or</span></code>/<code class="docutils literal notranslate"><span class="pre">and</span></code> but need to use the OR operator <code class="docutils literal notranslate"><span class="pre">|</span></code> and the AND operator <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>.</p>
-</div>
-<p>The following code uses boolean indexing with logical OR (<code class="docutils literal notranslate"><span class="pre">|</span></code>) to create a mask, where <code class="docutils literal notranslate"><span class="pre">True</span></code> indicates that the corresponding ‘Pclass’ value is either 2 or 3.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the &#39;Pclass&#39; column values are either 2 or 3.</span>
+<p>You can combine multiple conditions using logical operators like <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (AND) and <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Pclass&#39; is 2 or 3 and &#39;Age&#39; is greater than 35, and select &#39;Name&#39; and &#39;Pclass&#39;.</span>
 
-<span class="n">titanic</span><span class="p">[(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)]</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1424,207 +1721,83 @@ Moreover, you can not use <code class="docutils literal notranslate"><span class
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>PassengerId</th>
-      <th>Survived</th>
-      <th>Pclass</th>
       <th>Name</th>
-      <th>Sex</th>
-      <th>Age</th>
-      <th>SibSp</th>
-      <th>Parch</th>
-      <th>Ticket</th>
-      <th>Fare</th>
-      <th>Cabin</th>
-      <th>Embarked</th>
+      <th>Pclass</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Braund, Mr. Owen Harris</td>
-      <td>male</td>
-      <td>22.0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>A/5 21171</td>
-      <td>7.2500</td>
-      <td>NaN</td>
-      <td>S</td>
+      <th>9</th>
+      <td>Nasser, Mrs. Nicholas (Adele Achem)</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>13</th>
+      <td>Andersson, Mr. Anders Johan</td>
       <td>3</td>
-      <td>1</td>
-      <td>3</td>
-      <td>Heikkinen, Miss. Laina</td>
-      <td>female</td>
-      <td>26.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>STON/O2. 3101282</td>
-      <td>7.9250</td>
-      <td>NaN</td>
-      <td>S</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Allen, Mr. William Henry</td>
-      <td>male</td>
-      <td>35.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>373450</td>
-      <td>8.0500</td>
-      <td>NaN</td>
-      <td>S</td>
+      <th>15</th>
+      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Moran, Mr. James</td>
-      <td>male</td>
-      <td>NaN</td>
-      <td>0</td>
-      <td>0</td>
-      <td>330877</td>
-      <td>8.4583</td>
-      <td>NaN</td>
-      <td>Q</td>
+      <th>17</th>
+      <td>Williams, Mr. Charles Eugene</td>
+      <td>2</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Palsson, Master. Gosta Leonard</td>
-      <td>male</td>
-      <td>2.0</td>
-      <td>3</td>
-      <td>1</td>
-      <td>349909</td>
-      <td>21.0750</td>
-      <td>NaN</td>
-      <td>S</td>
+      <th>20</th>
+      <td>Fynney, Mr. Joseph J</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>884</th>
-      <td>885</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Sutehall, Mr. Henry Jr</td>
-      <td>male</td>
-      <td>25.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>SOTON/OQ 392076</td>
-      <td>7.0500</td>
-      <td>NaN</td>
-      <td>S</td>
+      <th>874</th>
+      <td>Abelson, Mrs. Samuel (Hannah Wizosky)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>880</th>
+      <td>Shelley, Mrs. William (Imanita Parrish Hall)</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>883</th>
+      <td>Banfield, Mr. Frederick James</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>885</th>
-      <td>886</td>
-      <td>0</td>
-      <td>3</td>
       <td>Rice, Mrs. William (Margaret Norton)</td>
-      <td>female</td>
-      <td>39.0</td>
-      <td>0</td>
-      <td>5</td>
-      <td>382652</td>
-      <td>29.1250</td>
-      <td>NaN</td>
-      <td>Q</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>886</th>
-      <td>887</td>
-      <td>0</td>
-      <td>2</td>
       <td>Montvila, Rev. Juozas</td>
-      <td>male</td>
-      <td>27.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>211536</td>
-      <td>13.0000</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>888</th>
-      <td>889</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Johnston, Miss. Catherine Helen "Carrie"</td>
-      <td>female</td>
-      <td>NaN</td>
-      <td>1</td>
       <td>2</td>
-      <td>W./C. 6607</td>
-      <td>23.4500</td>
-      <td>NaN</td>
-      <td>S</td>
-    </tr>
-    <tr>
-      <th>890</th>
-      <td>891</td>
-      <td>0</td>
-      <td>3</td>
-      <td>Dooley, Mr. Patrick</td>
-      <td>male</td>
-      <td>32.0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>370376</td>
-      <td>7.7500</td>
-      <td>NaN</td>
-      <td>Q</td>
     </tr>
   </tbody>
 </table>
-<p>675 rows × 12 columns</p>
+<p>247 rows × 2 columns</p>
 </div></div></div>
-</details>
 </div>
-<p>Remember that the <code class="docutils literal notranslate"><span class="pre">notna()</span></code> conditional function returns a <code class="docutils literal notranslate"><span class="pre">True</span></code> for each row where the values are not a ‘null’ value (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
-As such, this can be combined with the selection brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> to filter the data table.</p>
-<p>Filter rows in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> where ‘Embarked’ values are not null (not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
-<code class="docutils literal notranslate"><span class="pre">notna()</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> for non-null values, allowing us to select rows with valid embarkation data.</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+</section>
+<section id="handling-missing-values-with-loc">
+<h3>Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code><a class="headerlink" href="#handling-missing-values-with-loc" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> method also allows you to filter rows based on the presence or absence of missing values. For example, to filter rows where the <code class="docutils literal notranslate"><span class="pre">Embarked</span></code> column is not null:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Embarked&#39; is not null using .loc[].</span>
+
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1828,20 +2001,16 @@ As such, this can be combined with the selection brackets <code class="docutils 
 </table>
 <p>889 rows × 12 columns</p>
 </div></div></div>
-</details>
 </div>
-<p>We can compare the number of extracted rows with the number from the original <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<p>You can then compare the number of extracted rows with the original DataFrame to identify how many rows have missing data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display information about the DataFrame to compare row counts.</span>
+
+<span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 891 entries, 0 to 890
@@ -1865,21 +2034,18 @@ memory usage: 83.7+ KB
 </pre></div>
 </div>
 </div>
-</details>
 </div>
-<p>Comparing the two number of rows (889 and 891) tells us, that two rows are missing embarkation data.</p>
 </section>
 <hr class="docutils" />
 <section id="selecting-rows-and-columns">
-<h2>Selecting rows and columns<a class="headerlink" href="#selecting-rows-and-columns" title="Link to this heading">#</a></h2>
+<h3>Selecting rows and columns<a class="headerlink" href="#selecting-rows-and-columns" title="Link to this heading">#</a></h3>
 <p><img alt="Selecting specific rows and columns from a DataFrame" src="../../_images/03_subset_columns_rows.svg" /></p>
-<p>The following code uses boolean indexing to first filter rows where the age is greater than 35, and then selects specific columns ‘Name’ and ‘Pclass’ using double square brackets.</p>
+<p>The true power of <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> becomes evident when you want to filter rows and simultaneously select specific columns. For example:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows in the &#39;titanic&#39; DataFrame where the age is greater than 35,</span>
-<span class="c1"># then select only the &#39;Name&#39; and &#39;Pclass&#39; columns for these filtered rows.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Age&#39; is greater than 35 and select only the &#39;Name&#39; and &#39;Pclass&#39; columns.</span>
 
-<span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">][[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -1973,29 +2139,34 @@ memory usage: 83.7+ KB
 </div></div></div>
 </details>
 </div>
-<div class="admonition-a-note-on-square-bracket-indexing admonition">
-<p class="admonition-title">A note on square bracket indexing []</p>
-<p>Square bracket indexing (<code class="docutils literal notranslate"><span class="pre">[]</span></code>) is a versatile method for accessing data in Pandas DataFrames, but there are certain tasks that it cannot perform as efficiently or directly compared to <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>. Here are a few limitations of square bracket indexing in comparison to <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>:</p>
-<ol class="arabic simple">
-<li><p><strong>Positional Selection</strong>: When the selection is purely positional (selecting the first five rows, or columns 2 to 4), <code class="docutils literal notranslate"><span class="pre">iloc</span></code> is the most straightforward tool for the job.</p></li>
-<li><p><strong>Inclusive Slicing:</strong> Square bracket slicing excludes the end point, requiring adjustment of slice endpoints. Conversely, <code class="docutils literal notranslate"><span class="pre">loc</span></code> allows for inclusive label-based slicing, simplifying the specification of row and column ranges.</p></li>
-<li><p><strong>Dealing with Non-Integer Labels:</strong> Square brackets may falter with non-integer labels or custom indices due to potential ambiguities, particularly when index labels might be confused with column names. <code class="docutils literal notranslate"><span class="pre">loc</span></code> ensures robust label-based selection, irrespective of label data type.</p></li>
-<li><p><strong>Efficiency in Complex Selections:</strong> For large datasets or intricate selection tasks, <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> may provide enhanced performance due to their optimizations for label and integer indexing, respectively. They offer a more specialized approach for accessing and manipulating <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> data, particularly in complex scenarios.</p></li>
-</ol>
-<p>We have attached a separate notebook that introduces <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code>, two properties of pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and <code class="docutils literal notranslate"><span class="pre">Series</span></code> objects that provide methods for indexing.</p>
-</div>
+</section>
+<section id="summary">
+<h3>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> allows you to write clearer, more precise code for selecting and manipulating data in Pandas. Whether you are filtering rows based on complex conditions or selecting specific rows and columns simultaneously, these tools offer the flexibility and reliability you need for more advanced data manipulation tasks.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>When selecting subsets of data, square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> are used.</p></li>
-<li><p>Inside these square brackets, you can use</p>
+<li><p><strong>Selecting columns</strong>:</p>
 <ul>
-<li><p>a single column/row label</p></li>
-<li><p>a list of column/row labels</p></li>
-<li><p>a slice of labels</p></li>
-<li><p>a conditional expression</p></li>
+<li><p>Access a single column or multiple columns from a DataFrame using square bracket notation (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
+</ul>
+</li>
+<li><p><strong>Selecting subsets of data</strong>:</p>
+<ul>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for label-based indexing and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for position-based indexing to select specific rows and columns.</p></li>
+</ul>
+</li>
+<li><p><strong>Slicing</strong>:</p>
+<ul>
+<li><p>Slicing with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> is inclusive, while slicing with <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> is exclusive.</p></li>
+</ul>
+</li>
+<li><p><strong>Filtering data</strong>:</p>
+<ul>
+<li><p>Filter rows based on conditions using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>, and apply additional conditions or select specific columns within the same operation.</p></li>
 </ul>
 </li>
 </ul>
@@ -2070,8 +2241,19 @@ memory usage: 83.7+ KB
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-loc-and-iloc">Introducing <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-specific-rows-with-loc">Filtering specific rows with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-iloc-for-positional-indexing">Using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for positional indexing</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusive-vs-exclusive-slicing">Inclusive vs. Exclusive Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for complex conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>

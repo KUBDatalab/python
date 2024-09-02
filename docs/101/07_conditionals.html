@@ -826,7 +826,7 @@ likes must be greater than 500 <em>and</em> shares must be greater than 50.</p>
 <section id="the-while-syntax">
 <h3>The <code class="docutils literal notranslate"><span class="pre">while</span></code> syntax<a class="headerlink" href="#the-while-syntax" title="Link to this heading">#</a></h3>
 <p>The basic structure of a while loop in Python is as follows:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
     <span class="c1"># Code to be executed as long as the condition is true</span>
 </pre></div>
 </div>
@@ -867,7 +867,7 @@ The count variable is incremented in each iteration until it becomes greater tha
 <p>If you accidentally create an infinite loop, you can stop it by pressing the “stop” button (“Interrupt the kernel”) at the top of Jupyter Lab (and similar).
 If you don’t have a stop button, use CTRL-C to stop the script.</p>
 <p>Take a look at the code below. What is wrong with it?</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -875,7 +875,7 @@ If you don’t have a stop button, use CTRL-C to stop the script.</p>
 </div>
 <p>The problem is that the while condition never turns <code class="docutils literal notranslate"><span class="pre">False</span></code>. Thus, the loop will carry on infinitely.
 A way to stop the loop could be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
