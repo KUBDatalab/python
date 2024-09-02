@@ -421,19 +421,23 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-loc-and-iloc">Introducing <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-specific-rows-with-loc">Filtering specific rows with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-iloc-for-positional-indexing">Using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for positional indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusive-vs-exclusive-slicing">Inclusive vs. Exclusive Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-and-iloc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for complex conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc-and-iloc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusive-vs-exclusive-slicing">Inclusive vs. Exclusive Slicing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-and-iloc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for complex conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc-and-iloc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
@@ -767,10 +771,9 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </details>
 </div>
-</section>
 <hr class="docutils" />
 <section id="calling-multiple-series">
-<h2>Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#calling-multiple-series" title="Link to this heading">#</a></h2>
+<h3>Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code><a class="headerlink" href="#calling-multiple-series" title="Link to this heading">#</a></h3>
 <p>Select columns ‘Age’ and ‘Sex’ from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using double square brackets:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -916,6 +919,7 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </details>
 </div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="introducing-loc-and-iloc">
@@ -1352,9 +1356,8 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </details>
 </div>
 </section>
-</section>
 <section id="inclusive-vs-exclusive-slicing">
-<h2>Inclusive vs. Exclusive Slicing<a class="headerlink" href="#inclusive-vs-exclusive-slicing" title="Link to this heading">#</a></h2>
+<h3>Inclusive vs. Exclusive Slicing<a class="headerlink" href="#inclusive-vs-exclusive-slicing" title="Link to this heading">#</a></h3>
 <p>When slicing with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>, the slicing is <strong>inclusive</strong> of the start and end labels. For example:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -1479,7 +1482,7 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </section>
 <section id="using-loc-and-iloc-for-complex-conditions">
-<h2>Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for complex conditions<a class="headerlink" href="#using-loc-and-iloc-for-complex-conditions" title="Link to this heading">#</a></h2>
+<h3>Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for complex conditions<a class="headerlink" href="#using-loc-and-iloc-for-complex-conditions" title="Link to this heading">#</a></h3>
 <p>You can use both <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> to filter rows based on more complex conditions, combining multiple criteria with logical operators.</p>
 <p>For instance, to filter rows where <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> is either 2 or 3 using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
@@ -1803,7 +1806,7 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </div>
 </section>
 <section id="handling-missing-values-with-loc-and-iloc">
-<h2>Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code><a class="headerlink" href="#handling-missing-values-with-loc-and-iloc" title="Link to this heading">#</a></h2>
+<h3>Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code><a class="headerlink" href="#handling-missing-values-with-loc-and-iloc" title="Link to this heading">#</a></h3>
 <p>Both <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> allow you to filter rows based on the presence or absence of missing values.<br />
 (However, <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> is generally more convenient when working with labeled data, while <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> requires knowing the exact positions.)</p>
 <p>For example, to filter rows where the <code class="docutils literal notranslate"><span class="pre">Embarked</span></code> column is not null using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>:</p>
@@ -2065,7 +2068,7 @@ memory usage: 83.7+ KB
 </details>
 </div>
 <p>Comparing the two number of rows (889 and 891) tells us, that two rows are missing embarkation data.</p>
-<p>As we saw in the exercise on the previous page on <a class="reference internal" href="02_pandas_tabular_data.html"><span class="doc std std-doc">reading and writing tabular data</span></a>, the two rows missing embarkation data can be found like this:&gt;`.</p>
+<p>As we saw in the exercise on the previous page on <a class="reference internal" href="02_pandas_tabular_data.html"><span class="doc std std-doc">reading and writing tabular data</span></a>, the two rows missing embarkation data can be found like this:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span>
@@ -2146,6 +2149,7 @@ memory usage: 83.7+ KB
 </div></div></div>
 </details>
 </div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="selecting-rows-and-columns">
@@ -2250,9 +2254,8 @@ memory usage: 83.7+ KB
 </div></div></div>
 </details>
 </div>
-</section>
 <section id="combining-loc-and-iloc">
-<h2>Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#combining-loc-and-iloc" title="Link to this heading">#</a></h2>
+<h3>Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#combining-loc-and-iloc" title="Link to this heading">#</a></h3>
 <p>We can use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select:</p>
 <ul class="simple">
 <li><p>Rows from index position 9 to 25 (exclusive).</p></li>
@@ -2325,6 +2328,7 @@ memory usage: 83.7+ KB
 </div></div></div>
 </details>
 </div>
+</section>
 </section>
 <section id="summary">
 <h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
@@ -2424,19 +2428,23 @@ memory usage: 83.7+ KB
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-loc-and-iloc">Introducing <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-rows-based-on-conditional-expressions">Filtering rows based on conditional expressions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-specific-rows-with-loc">Filtering specific rows with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-iloc-for-positional-indexing">Using <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for positional indexing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusive-vs-exclusive-slicing">Inclusive vs. Exclusive Slicing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-and-iloc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for complex conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc-and-iloc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inclusive-vs-exclusive-slicing">Inclusive vs. Exclusive Slicing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-and-iloc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for complex conditions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc-and-iloc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
