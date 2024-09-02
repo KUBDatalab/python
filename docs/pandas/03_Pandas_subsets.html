@@ -431,6 +431,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for complex conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 </li>
@@ -1479,14 +1480,19 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 <section id="using-loc-for-complex-conditions">
 <h3>Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for complex conditions<a class="headerlink" href="#using-loc-for-complex-conditions" title="Link to this heading">#</a></h3>
 <p>You can also use <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> to filter rows based on more complex conditions, combining multiple criteria with logical operators. For instance, to filter rows where <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> is either 2 or 3:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Pclass&#39; is either 2 or 3 using .loc[].</span>
 
 <span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1690,16 +1696,22 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </table>
 <p>675 rows × 12 columns</p>
 </div></div></div>
+</details>
 </div>
 <p>You can combine multiple conditions using logical operators like <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> (AND) and <code class="docutils literal notranslate"><span class="pre">|</span></code> (OR):</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Pclass&#39; is 2 or 3 and &#39;Age&#39; is greater than 35, and select &#39;Name&#39; and &#39;Pclass&#39;.</span>
 
 <span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1783,19 +1795,25 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </table>
 <p>247 rows × 2 columns</p>
 </div></div></div>
+</details>
 </div>
 </section>
 <section id="handling-missing-values-with-loc">
 <h3>Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code><a class="headerlink" href="#handling-missing-values-with-loc" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> method also allows you to filter rows based on the presence or absence of missing values. For example, to filter rows where the <code class="docutils literal notranslate"><span class="pre">Embarked</span></code> column is not null:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter rows where &#39;Embarked&#39; is not null using .loc[].</span>
 
 <span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -1999,16 +2017,22 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 </table>
 <p>889 rows × 12 columns</p>
 </div></div></div>
+</details>
 </div>
 <p>You can then compare the number of extracted rows with the original DataFrame to identify how many rows have missing data:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display information about the DataFrame to compare row counts.</span>
 
 <span class="n">titanic</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 891 entries, 0 to 890
@@ -2032,6 +2056,7 @@ memory usage: 83.7+ KB
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
@@ -2134,6 +2159,81 @@ memory usage: 83.7+ KB
   </tbody>
 </table>
 <p>217 rows × 2 columns</p>
+</div></div></div>
+</details>
+</div>
+</section>
+<section id="combining-loc-and-iloc">
+<h3>Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#combining-loc-and-iloc" title="Link to this heading">#</a></h3>
+<p>We can use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select:</p>
+<ul class="simple">
+<li><p>Rows from index position 9 to 25 (exclusive).</p></li>
+<li><p>Columns from index position 2 to 6 (exclusive).</p></li>
+</ul>
+<p>Then further filter these rows using <code class="docutils literal notranslate"><span class="pre">loc</span></code> based on the condition where:</p>
+<ul class="simple">
+<li><p>‘Age’ is greater than 35.</p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pclass</th>
+      <th>Name</th>
+      <th>Sex</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>Bonnell, Miss. Elizabeth</td>
+      <td>female</td>
+      <td>58.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3</td>
+      <td>Andersson, Mr. Anders Johan</td>
+      <td>male</td>
+      <td>39.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2</td>
+      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
+      <td>female</td>
+      <td>55.0</td>
+    </tr>
+  </tbody>
+</table>
 </div></div></div>
 </details>
 </div>
@@ -2249,6 +2349,7 @@ memory usage: 83.7+ KB
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-for-complex-conditions">Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for complex conditions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#handling-missing-values-with-loc">Handling missing values with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns">Selecting rows and columns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
 </li>
