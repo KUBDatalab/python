@@ -685,7 +685,8 @@ document.write(`
 <section id="aggregating-statistics">
 <h2>Aggregating statistics<a class="headerlink" href="#aggregating-statistics" title="Link to this heading">#</a></h2>
 <p><img alt="Aggregating statistics from a single coloumn in a DataFrame" src="../../_images/05_aggregate.svg" /></p>
-<p>What is the average age of the Titanic passengers?</p>
+<p>Pandas offers built-in methods that allow you to quickly generate summary statistics for your data. These methods make it easy to analyse and summarise data with just a few lines of code.</p>
+<p>For example, we can use <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> to find the average age of the Titanic passengers:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -727,8 +728,8 @@ dtype: float64
 </div>
 </details>
 </div>
-<p>The statistic applied to multiple columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (the selection of two columns returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, see the <a class="reference internal" href="03_pandas_subsets.html"><span class="doc std std-doc">subset data tutorial</span></a>) is calculated for each numeric column.</p>
-<p>The aggregating statistic can be calculated for multiple columns at the same time. For this we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
+<p>The statistic applied to multiple columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (the selection of two columns returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, see the <a class="reference internal" href="03_pandas_subsets.html"><span class="doc std std-doc">Subsets tutorial</span></a>) is calculated for each numeric column.</p>
+<p>Multiple aggregating statistics can easily be calculated for one or more columns at the same time. For this we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Fare&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1051,7 +1052,14 @@ Name: Age, dtype: float64
 <p><img alt="The split-apply-combine pattern" src="../../_images/05_groupby_select_detail.svg" /></p>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">Categorical data</p>
-<p>The Pclass column contains numerical data but actually represents 3 categories (or factors) with respectively the labels ‘1’, ‘2’ and ‘3’. Calculating statistics on these does not make much sense. Therefore, pandas provides a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data type to handle this type of data. More information is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/categorical.html">Categorical data</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column in the Titanic dataset contains numerical values, but these numbers actually represent three distinct categories: 1st class, 2nd class, and 3rd class. Since these numbers correspond to categories rather than actual quantities, calculating statistics like the mean or sum on them doesn’t make much sense. For instance, averaging these numbers would yield a meaningless result because class rankings are ordinal and not inherently numerical.</p>
+<p>Pandas provides a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data type specifically designed to handle such categorical data. This is useful because it enables more efficient storage and manipulation of categorical variables. It also allows you to apply specific operations that make sense for categories, such as ordering or grouping, without misinterpreting the data as continuous numerical values.</p>
+<p>To convert the <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column from numerical to categorical data in Pandas, you can use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will treat <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> as a categorical variable, allowing Pandas to handle it appropriately for analysis. For example, you can easily perform operations like counting the number of passengers in each class or plotting the distribution of passenger classes, with results that correctly reflect the categorical nature of the data.</p>
+<p>More information is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/categorical.html">Categorical data</a>.</p>
 </div>
 <p>What is the mean ticket fare price for each of the sex and cabin class combinations?</p>
 <div class="cell tag_hide-output docutils container">
@@ -1144,7 +1152,7 @@ Name: Pclass, dtype: int64
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Aggregation statistics can be calculated on entire columns or rows.</p></li>
-<li><p>`groupby()* provides the power of the <strong>split-apply-combine</strong> pattern.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> provides the power of the <strong>split-apply-combine</strong> pattern.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> is a convenient shortcut to count the number of entries in each category of a variable.</p></li>
 </ul>
 </section>
