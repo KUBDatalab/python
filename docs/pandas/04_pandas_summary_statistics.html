@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>loc and iloc &#8212; KUB Datalab - Python</title>
+    <title>Summary Statistics &#8212; KUB Datalab - Python</title>
   
   
   
@@ -57,11 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/04_pandas_loc_iloc';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/04_pandas_summary_statistics';</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Summary Statistics" href="05_pandas_summary_statistics.html" />
+    <link rel="next" title="Basic Plotting in Pandas" href="05_pandas_plot.html" />
     <link rel="prev" title="Subsets" href="03_pandas_subsets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -220,8 +220,11 @@
 <li class="toctree-l2"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_summary_statistics.html">Summary Statistics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
 </ul>
 </details></li>
 </ul>
@@ -295,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/04_pandas_loc_iloc.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/04_pandas_summary_statistics.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +328,7 @@
       
       
       
-      <li><a href="../../_sources/docs/pandas/04_pandas_loc_iloc.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/pandas/04_pandas_summary_statistics.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>loc and iloc</h1>
+    <h1>Summary Statistics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -421,9 +424,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns-using-loc-and-iloc">Selecting  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information-about-loc-and-iloc">More information about <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics">Aggregating statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics-grouped-by-category">Aggregating statistics grouped by category</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-number-of-records-by-category">Count number of records by category</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
         </div>
@@ -435,21 +439,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="loc-and-iloc">
-<h1><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#loc-and-iloc" title="Link to this heading">#</a></h1>
-<p><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> in Pandas are technically properties that return a specialized indexer object. These indexer objects allow for label-based (<code class="docutils literal notranslate"><span class="pre">loc</span></code>) and integer-based (<code class="docutils literal notranslate"><span class="pre">iloc</span></code>) indexing. Although they behave similarly to methods in that you use them to perform actions (i.e., selecting or slicing data), they are properties because they return an indexing object rather than directly executing a function.</p>
-<p>When you access <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, what you are getting is not a simple value but an object that has its own methods and behaviors, specifically designed to handle indexing operations. This design allows for the concise and powerful data selection syntax that Pandas is known for.</p>
-<hr class="docutils" />
-<div class="admonition-when-to-use-loc-or-iloc admonition">
-<p class="admonition-title">When to use loc or iloc</p>
-<ol class="arabic simple">
-<li><p><strong>Positional Selection</strong>: When the selection is purely positional (selecting the first five rows, or columns 2 to 4), <code class="docutils literal notranslate"><span class="pre">iloc</span></code> is the most straightforward tool for the job.</p></li>
-<li><p><strong>Inclusive Slicing:</strong> <code class="docutils literal notranslate"><span class="pre">loc</span></code> allows for inclusive label-based slicing, simplifying the specification of row and column ranges.</p></li>
-<li><p><strong>Label-based Complex Indexing</strong>: For complex indexing scenarios where you need to select rows and columns based on their labels, <code class="docutils literal notranslate"><span class="pre">loc</span></code> is indispensable. It allows for intuitive and concise syntax that boolean masks cannot provide alone.</p></li>
-<li><p><strong>Efficiency and Readability</strong>: In cases where using a boolean mask leads to verbose or inefficient code, <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> might offer a more elegant and performant solution.</p></li>
-</ol>
-<p>In summary, while boolean masks are powerful for filtering rows based on conditions, <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> are essential for a wide range of other data selection tasks, particularly those involving specific column selection, positional indexing, and complex indexing scenarios that go beyond what boolean masks can achieve on their own.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="summary-statistics">
+<h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading">#</a></h1>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -695,18 +686,14 @@ document.write(`
 </div>
 </section>
 <hr class="docutils" />
-<section id="selecting-rows-and-columns-using-loc-and-iloc">
-<h2>Selecting  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#selecting-rows-and-columns-using-loc-and-iloc" title="Link to this heading">#</a></h2>
-<p><img alt="How to select specific rows and columns from a DataFrame" src="../../_images/03_subset_columns_rows.svg" /></p>
-<p>We have seen how we can filter rows in the titanic <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
-<p>The code below uses boolean indexing to first filter rows where the age is greater than 35, and then selects specific columns ‘Name’ and ‘Pclass’ using double square brackets.</p>
-<ul class="simple">
-<li><p>Filter rows in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> where the age is greater than 35.</p></li>
-<li><p>Then select only the ‘Name’ and ‘Pclass’ columns for these filtered rows.</p></li>
-</ul>
+<section id="aggregating-statistics">
+<h2>Aggregating statistics<a class="headerlink" href="#aggregating-statistics" title="Link to this heading">#</a></h2>
+<p><img alt="Aggregating statistics from a single coloumn in a DataFrame" src="../../_images/04_aggregate.svg" /></p>
+<p>Pandas offers built-in methods that allow you to quickly generate summary statistics for your data. These methods make it easy to analyse and summarise data with just a few lines of code.</p>
+<p>For example, we can use <code class="docutils literal notranslate"><span class="pre">.mean()</span></code> to find the average age of the Titanic passengers:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">][[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -716,99 +703,18 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Name</th>
-      <th>Pclass</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>McCarthy, Mr. Timothy J</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Bonnell, Miss. Elizabeth</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Andersson, Mr. Anders Johan</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>865</th>
-      <td>Bystrom, Mrs. (Karolina)</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>871</th>
-      <td>Beckwith, Mrs. Richard Leonard (Sallie Monypeny)</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>873</th>
-      <td>Vander Cruyssen, Mr. Victor</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>879</th>
-      <td>Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>885</th>
-      <td>Rice, Mrs. William (Margaret Norton)</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-<p>217 rows × 2 columns</p>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(29.69911764705882)
+</pre></div>
+</div>
+</div>
 </details>
 </div>
-<p>We can perform the same filtering using label-based indexing: <code class="docutils literal notranslate"><span class="pre">loc</span></code>.</p>
-<p>The following code provides a more explicit way of selecting rows and columns based on labels, where:</p>
-<ul class="simple">
-<li><p>The first argument specifies the row selection condition (‘Age’ &gt; 35).</p></li>
-<li><p>The second argument specifies the column selection (‘Name’ and ‘Pclass’).</p></li>
-</ul>
+<p>Different statistics are available and can be applied to columns with numerical data. Operations in general exclude missing data and operate across rows by default.</p>
+<p><img alt="Aggregating statistics from a multiple coloumns in a DataFrame" src="../../_images/04_reduction.svg" /></p>
+<p>What is the median age and ticket fare price of the Titanic passengers?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Pclass&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Fare&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -818,104 +724,19 @@ document.write(`
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Name</th>
-      <th>Pclass</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>McCarthy, Mr. Timothy J</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Bonnell, Miss. Elizabeth</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Andersson, Mr. Anders Johan</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>865</th>
-      <td>Bystrom, Mrs. (Karolina)</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>871</th>
-      <td>Beckwith, Mrs. Richard Leonard (Sallie Monypeny)</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>873</th>
-      <td>Vander Cruyssen, Mr. Victor</td>
-      <td>3</td>
-    </tr>
-    <tr>
-      <th>879</th>
-      <td>Potter, Mrs. Thomas Jr (Lily Alexenia Wilson)</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>885</th>
-      <td>Rice, Mrs. William (Margaret Norton)</td>
-      <td>3</td>
-    </tr>
-  </tbody>
-</table>
-<p>217 rows × 2 columns</p>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age     28.0000
+Fare    14.4542
+dtype: float64
+</pre></div>
+</div>
+</div>
 </details>
 </div>
-<div class="tip admonition">
-<p class="admonition-title">When using loc/iloc</p>
-<p>The part <em>before the comma</em> is the <em>rows</em> you want</p>
-<p>The part <em>after the comma</em> is the <em>columns</em> you want to select</p>
-</div>
-<p>We can also filter using integer position-based location: <code class="docutils literal notranslate"><span class="pre">iloc</span></code>.</p>
-<p>The code below selects a subset of rows and columns from the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using integer positions.<br />
-Index positions start from 0 and the end position is exclusive, so the selected rows correspond to the 10th to the 25th row in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, and the selected columns correspond to the 3rd to the 6th column.</p>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select rows from index position 9 to 25 (exclusive) and columns from index position 2 to 6 (exclusive).</p></li>
-</ul>
+<p>The statistic applied to multiple columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (the selection of two columns returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, see the <a class="reference internal" href="03_pandas_subsets.html"><span class="doc std std-doc">Subsets tutorial</span></a>) is calculated for each numeric column.</p>
+<p>Multiple aggregating statistics can easily be calculated for one or more columns at the same time. For this we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Fare&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -943,139 +764,65 @@ Index positions start from 0 and the end position is exclusive, so the selected 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
       <th>Age</th>
+      <th>Fare</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>9</th>
-      <td>2</td>
-      <td>Nasser, Mrs. Nicholas (Adele Achem)</td>
-      <td>female</td>
-      <td>14.0</td>
+      <th>count</th>
+      <td>714.000000</td>
+      <td>891.000000</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>3</td>
-      <td>Sandstrom, Miss. Marguerite Rut</td>
-      <td>female</td>
-      <td>4.0</td>
+      <th>mean</th>
+      <td>29.699118</td>
+      <td>32.204208</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>1</td>
-      <td>Bonnell, Miss. Elizabeth</td>
-      <td>female</td>
-      <td>58.0</td>
+      <th>std</th>
+      <td>14.526497</td>
+      <td>49.693429</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>3</td>
-      <td>Saundercock, Mr. William Henry</td>
-      <td>male</td>
-      <td>20.0</td>
+      <th>min</th>
+      <td>0.420000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>3</td>
-      <td>Andersson, Mr. Anders Johan</td>
-      <td>male</td>
-      <td>39.0</td>
+      <th>25%</th>
+      <td>20.125000</td>
+      <td>7.910400</td>
     </tr>
     <tr>
-      <th>14</th>
-      <td>3</td>
-      <td>Vestrom, Miss. Hulda Amanda Adolfina</td>
-      <td>female</td>
-      <td>14.0</td>
+      <th>50%</th>
+      <td>28.000000</td>
+      <td>14.454200</td>
     </tr>
     <tr>
-      <th>15</th>
-      <td>2</td>
-      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
-      <td>female</td>
-      <td>55.0</td>
+      <th>75%</th>
+      <td>38.000000</td>
+      <td>31.000000</td>
     </tr>
     <tr>
-      <th>16</th>
-      <td>3</td>
-      <td>Rice, Master. Eugene</td>
-      <td>male</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2</td>
-      <td>Williams, Mr. Charles Eugene</td>
-      <td>male</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>3</td>
-      <td>Vander Planke, Mrs. Julius (Emelia Maria Vande...</td>
-      <td>female</td>
-      <td>31.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>3</td>
-      <td>Masselmani, Mrs. Fatima</td>
-      <td>female</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>2</td>
-      <td>Fynney, Mr. Joseph J</td>
-      <td>male</td>
-      <td>35.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>2</td>
-      <td>Beesley, Mr. Lawrence</td>
-      <td>male</td>
-      <td>34.0</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>3</td>
-      <td>McGowan, Miss. Anna "Annie"</td>
-      <td>female</td>
-      <td>15.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>1</td>
-      <td>Sloper, Mr. William Thompson</td>
-      <td>male</td>
-      <td>28.0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>3</td>
-      <td>Palsson, Miss. Torborg Danira</td>
-      <td>female</td>
-      <td>8.0</td>
+      <th>max</th>
+      <td>80.000000</td>
+      <td>512.329200</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </details>
 </div>
-<p>We can rewrite the statement above using <code class="docutils literal notranslate"><span class="pre">loc</span></code> instead.</p>
-<p><strong>Note that with <code class="docutils literal notranslate"><span class="pre">loc</span></code> the slicing is inclusive on both ends!</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">9:24</span></code> specifies the rows from index label 9 to 24 (inclusive).</p></li>
-<li><p>[‘Pclass’, ‘Name’, ‘Sex’, ‘Age’] explicitly lists the column names corresponding to the integer positions 2 to 5 (inclusive).</p></li>
-</ul>
+<p>Instead of the predefined statistics, specific combinations of aggregating statistics for given columns can be defined using the <code class="docutils literal notranslate"><span class="pre">DataFrame.agg()</span></code> method:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">,</span> <span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Sex&#39;</span><span class="p">,</span> <span class="s1">&#39;Age&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;skew&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;Fare&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">],</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1103,146 +850,54 @@ Index positions start from 0 and the end position is exclusive, so the selected 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
       <th>Age</th>
+      <th>Fare</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>9</th>
-      <td>2</td>
-      <td>Nasser, Mrs. Nicholas (Adele Achem)</td>
-      <td>female</td>
-      <td>14.0</td>
+      <th>min</th>
+      <td>0.420000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>3</td>
-      <td>Sandstrom, Miss. Marguerite Rut</td>
-      <td>female</td>
-      <td>4.0</td>
+      <th>max</th>
+      <td>80.000000</td>
+      <td>512.329200</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>1</td>
-      <td>Bonnell, Miss. Elizabeth</td>
-      <td>female</td>
-      <td>58.0</td>
+      <th>median</th>
+      <td>28.000000</td>
+      <td>14.454200</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>3</td>
-      <td>Saundercock, Mr. William Henry</td>
-      <td>male</td>
-      <td>20.0</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>3</td>
-      <td>Andersson, Mr. Anders Johan</td>
-      <td>male</td>
-      <td>39.0</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>3</td>
-      <td>Vestrom, Miss. Hulda Amanda Adolfina</td>
-      <td>female</td>
-      <td>14.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2</td>
-      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
-      <td>female</td>
-      <td>55.0</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>3</td>
-      <td>Rice, Master. Eugene</td>
-      <td>male</td>
-      <td>2.0</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>2</td>
-      <td>Williams, Mr. Charles Eugene</td>
-      <td>male</td>
+      <th>skew</th>
+      <td>0.389108</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>18</th>
-      <td>3</td>
-      <td>Vander Planke, Mrs. Julius (Emelia Maria Vande...</td>
-      <td>female</td>
-      <td>31.0</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>3</td>
-      <td>Masselmani, Mrs. Fatima</td>
-      <td>female</td>
+      <th>mean</th>
       <td>NaN</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>2</td>
-      <td>Fynney, Mr. Joseph J</td>
-      <td>male</td>
-      <td>35.0</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>2</td>
-      <td>Beesley, Mr. Lawrence</td>
-      <td>male</td>
-      <td>34.0</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>3</td>
-      <td>McGowan, Miss. Anna "Annie"</td>
-      <td>female</td>
-      <td>15.0</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>1</td>
-      <td>Sloper, Mr. William Thompson</td>
-      <td>male</td>
-      <td>28.0</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>3</td>
-      <td>Palsson, Miss. Torborg Danira</td>
-      <td>female</td>
-      <td>8.0</td>
+      <td>32.204208</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </details>
+</div>
+<div class="seealso dropdown admonition">
+<p class="admonition-title">Descriptive statistics</p>
+<p>Details about descriptive statistics can be found in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/basics.html#basics-stats">Descriptive statistics</a>.</p>
 </div>
 </section>
 <hr class="docutils" />
-<section id="combining-loc-and-iloc">
-<h2>Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#combining-loc-and-iloc" title="Link to this heading">#</a></h2>
-<p>We can use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to select:</p>
-<ul class="simple">
-<li><p>Rows from index position 9 to 25 (exclusive).</p></li>
-<li><p>Columns from index position 2 to 6 (exclusive).</p></li>
-</ul>
-<p>Then further filter these rows using <code class="docutils literal notranslate"><span class="pre">loc</span></code> based on the condition where:</p>
-<ul class="simple">
-<li><p>‘Age’ is greater than 35.</p></li>
-</ul>
+<section id="aggregating-statistics-grouped-by-category">
+<h2>Aggregating statistics grouped by category<a class="headerlink" href="#aggregating-statistics-grouped-by-category" title="Link to this heading">#</a></h2>
+<p><img alt="Aggregating statistics grouped by category" src="../../_images/04_groupby.svg" /></p>
+<p>What is the average age for male versus female Titanic passengers?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">9</span><span class="p">:</span><span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1270,48 +925,239 @@ Index positions start from 0 and the end position is exclusive, so the selected 
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Pclass</th>
-      <th>Name</th>
-      <th>Sex</th>
       <th>Age</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>11</th>
-      <td>1</td>
-      <td>Bonnell, Miss. Elizabeth</td>
-      <td>female</td>
-      <td>58.0</td>
+      <th>female</th>
+      <td>27.915709</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>3</td>
-      <td>Andersson, Mr. Anders Johan</td>
-      <td>male</td>
-      <td>39.0</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>2</td>
-      <td>Hewlett, Mrs. (Mary D Kingcome)</td>
-      <td>female</td>
-      <td>55.0</td>
+      <th>male</th>
+      <td>30.726645</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </details>
 </div>
-</section>
-<hr class="docutils" />
-<section id="more-information-about-loc-and-iloc">
-<h2>More information about <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code><a class="headerlink" href="#more-information-about-loc-and-iloc" title="Link to this heading">#</a></h2>
+<p>As our interest is the average age for each gender, a subselection on these two columns is made first: <code class="docutils literal notranslate"><span class="pre">titanic[[&quot;Sex&quot;,</span> <span class="pre">&quot;Age&quot;]]</span></code>.<br />
+Next, the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method is applied on the ‘Sex’ column to make a group per category. The average age for each gender is calculated and returned.</p>
+<p>Calculating a given statistic (e.g. <code class="docutils literal notranslate"><span class="pre">mean()</span></code> age) <em>for each category in a column</em> (e.g. male/female in the ‘Sex’ column) is a common pattern. The <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method is used to support this type of operations. This fits in the more general <strong>split-apply-combine</strong> pattern:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/watch?v=naRQyRZrXCE">A short video (you can turn up the speed)</a></p></li>
-<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.loc.html">Official documentation loc</a></p></li>
-<li><p><a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.iloc.html">Offical documentation iloc</a></p></li>
-<li><p><a class="reference external" href="https://www.geeksforgeeks.org/difference-between-loc-and-iloc-in-pandas-dataframe/">Difference between <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> described</a></p></li>
+<li><p><strong>Split</strong> the data into groups.</p></li>
+<li><p><strong>Apply</strong> a function to each group independently.</p></li>
+<li><p><strong>Combine</strong> the results into a data structure.</p></li>
+</ul>
+<p>The apply and combine steps are typically done together in Pandas.</p>
+<p>In the previous example, we explicitly selected the 2 columns first. If not, the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method is applied to each column containing numerical columns by passing <code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code>:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>PassengerId</th>
+      <th>Survived</th>
+      <th>Pclass</th>
+      <th>Age</th>
+      <th>SibSp</th>
+      <th>Parch</th>
+      <th>Fare</th>
+    </tr>
+    <tr>
+      <th>Sex</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>female</th>
+      <td>431.028662</td>
+      <td>0.742038</td>
+      <td>2.159236</td>
+      <td>27.915709</td>
+      <td>0.694268</td>
+      <td>0.649682</td>
+      <td>44.479818</td>
+    </tr>
+    <tr>
+      <th>male</th>
+      <td>454.147314</td>
+      <td>0.188908</td>
+      <td>2.389948</td>
+      <td>30.726645</td>
+      <td>0.429809</td>
+      <td>0.235702</td>
+      <td>25.523893</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</details>
+</div>
+<p>It does not make much sense to get the average value of the ‘Pclass’. If we are only interested in the average age for each gender, the selection of columns (rectangular brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> as usual) is supported on the grouped data as well:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex
+female    27.915709
+male      30.726645
+Name: Age, dtype: float64
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><img alt="The split-apply-combine pattern" src="../../_images/04_groupby_select_detail.svg" /></p>
+<div class="seealso dropdown admonition">
+<p class="admonition-title">Categorical data</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column in the Titanic dataset contains numerical values, but these numbers actually represent three distinct categories: 1st class, 2nd class, and 3rd class. Since these numbers correspond to categories rather than actual quantities, calculating statistics like the mean or sum on them doesn’t make much sense. For instance, averaging these numbers would yield a meaningless result because class rankings are ordinal and not inherently numerical.</p>
+<p>Pandas provides a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data type specifically designed to handle such categorical data. This is useful because it enables more efficient storage and manipulation of categorical variables. It also allows you to apply specific operations that make sense for categories, such as ordering or grouping, without misinterpreting the data as continuous numerical values.</p>
+<p>To convert the <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column from numerical to categorical data in Pandas, you can use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will treat <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> as a categorical variable, allowing Pandas to handle it appropriately for analysis. For example, you can easily perform operations like counting the number of passengers in each class or plotting the distribution of passenger classes, with results that correctly reflect the categorical nature of the data.</p>
+<p>More information is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/categorical.html">Categorical data</a>.</p>
+</div>
+<p>What is the mean ticket fare price for each of the sex and cabin class combinations?</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Pclass&quot;</span><span class="p">])[</span><span class="s2">&quot;Fare&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex     Pclass
+female  1         106.125798
+        2          21.970121
+        3          16.118810
+male    1          67.226127
+        2          19.741782
+        3          12.661633
+Name: Fare, dtype: float64
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Grouping can be done by multiple columns at the same time. Provide the column names as a list to the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method.</p>
+<div class="seealso dropdown admonition">
+<p class="admonition-title">Groupby operations</p>
+<p>A full description on the split-apply-combine approach is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/groupby.html">Groupby operations</a>.</p>
+</div>
+</section>
+<section id="count-number-of-records-by-category">
+<h2>Count number of records by category<a class="headerlink" href="#count-number-of-records-by-category" title="Link to this heading">#</a></h2>
+<p><img alt="Counting number of records by category" src="../../_images/04_valuecounts.svg" /></p>
+<p>What is the number of passengers in each of the cabin classes?</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s2">&quot;Pclass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass
+3    491
+1    216
+2    184
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method counts the number of records for each category in a column.</p>
+<p>The function is a shortcut, as it is actually a groupby operation in combination with counting of the number of records within each group:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Pclass&quot;</span><span class="p">)[</span><span class="s2">&quot;Pclass&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pclass
+1    216
+2    184
+3    491
+Name: Pclass, dtype: int64
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">size()</span></code> and <code class="docutils literal notranslate"><span class="pre">count()</span></code> can be used in combination with <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>. Whereas <code class="docutils literal notranslate"><span class="pre">size</span></code> includes <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values and just provides the number of rows (size of the table), <code class="docutils literal notranslate"><span class="pre">count()</span></code> excludes the missing values. In the <code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> method, use the <code class="docutils literal notranslate"><span class="pre">dropna()</span></code> argument to include or exclude the <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values.</p>
+</div>
+</section>
+<section id="key-points">
+<h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Aggregation statistics can be calculated on entire columns or rows.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> provides the power of the <strong>split-apply-combine</strong> pattern.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> is a convenient shortcut to count the number of entries in each category of a variable.</p></li>
 </ul>
 </section>
 </section>
@@ -1356,11 +1202,11 @@ Index positions start from 0 and the end position is exclusive, so the selected 
       </div>
     </a>
     <a class="right-next"
-       href="05_pandas_summary_statistics.html"
+       href="05_pandas_plot.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Summary Statistics</p>
+        <p class="prev-next-title">Basic Plotting in Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1382,9 +1228,10 @@ Index positions start from 0 and the end position is exclusive, so the selected 
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-rows-and-columns-using-loc-and-iloc">Selecting  rows and columns using <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-information-about-loc-and-iloc">More information about <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics">Aggregating statistics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics-grouped-by-category">Aggregating statistics grouped by category</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-number-of-records-by-category">Count number of records by category</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>
 

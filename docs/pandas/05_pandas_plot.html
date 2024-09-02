@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Getting Started with Pandas &#8212; KUB Datalab - Python</title>
+    <title>Basic Plotting in Pandas &#8212; KUB Datalab - Python</title>
   
   
   
@@ -57,12 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/00_pandas_start';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/05_pandas_plot';</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Pandas DataFrame" href="01_pandas_dataframe.html" />
-    <link rel="prev" title="Getting Started with Data Analysis" href="getting_started.html" />
+    <link rel="next" title="Out: loc and iloc" href="xx_pandas_loc_iloc.html" />
+    <link rel="prev" title="Summary Statistics" href="04_pandas_summary_statistics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -216,12 +216,12 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="getting_started.html">Getting Started with Data Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Getting Started with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="00_pandas_start.html">Getting Started with Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic Plotting in Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
@@ -298,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/00_pandas_start.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/05_pandas_plot.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@
       
       
       
-      <li><a href="../../_sources/docs/pandas/00_pandas_start.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/pandas/05_pandas_plot.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Getting Started with Pandas</h1>
+    <h1>Basic Plotting in Pandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -422,8 +422,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-or-upgrading-pandas-from-pypi">Installing (or upgrading) Pandas from PyPI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas">Importing Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-syntax">General syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customising-plots">Customising plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
             </nav>
         </div>
@@ -435,82 +441,125 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-pandas">
-<h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Link to this heading">#</a></h1>
-<p>Before we get started, you may need to install Pandas - depending on how/where you are running Python.
-This guide is intented for people running a local installation of Python and using Jupyter Notebook or Jupyter Lab.</p>
-<p>There are many ways to install Pandas. Ours is just one. <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html">You can read more here.</a></p>
-<hr class="docutils" />
-<section id="installing-or-upgrading-pandas-from-pypi">
-<h2>Installing (or upgrading) Pandas from PyPI<a class="headerlink" href="#installing-or-upgrading-pandas-from-pypi" title="Link to this heading">#</a></h2>
-<p>Pandas can be installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code> from <a class="reference external" href="https://pypi.org/project/pandas">PyPi</a>.</p>
-<p>This command installs the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer.<br />
-If you have not installed Pandas before, this will download and install the latest version of Pandas along with its dependencies.</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>  <span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
-</pre></div>
+  <section class="tex2jax_ignore mathjax_ignore" id="basic-plotting-in-pandas">
+<h1>Basic Plotting in Pandas<a class="headerlink" href="#basic-plotting-in-pandas" title="Link to this heading">#</a></h1>
+<p><img alt="Plotting in Pandas" src="../../_images/05_plot_overview.png" /></p>
+<div class="note dropdown admonition">
+<p class="admonition-title">A note on plotting</p>
+<p>Plotting with Pandas is often done using the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library, which provides extensive tools for creating a wide variety of visualisations. However, Pandas also offers a simpler interface for basic plotting through the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method. This guide will focus on using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method to create quick and easy visualisations directly from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code>, without diving into the more complex features of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.<br />
+If you want to dive further into the world of plotting, you can read more about <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> <a class="reference external" href="https://matplotlib.org/stable/users/index">here</a>.</p>
 </div>
-</div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> commands are most often run through a shell such as the <strong>Terminal</strong> on macOS or the <strong>Command Prompt</strong> on Windows.<br />
-However, you can run shell commands directly from Jupyter notebooks by adding an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> in front of the command:</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas
-</pre></div>
-</div>
-</div>
-</div>
-<p>Adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag not only installs pandas if it is not already installed but also ensures that if Pandas is already installed, it is updated to the latest version. This is useful to make sure you have the newest features and bug fixes.</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Again, we can run this shell command directly in Jupyter notebooks:</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pandas
-</pre></div>
-</div>
-</div>
-</div>
-<div class="attention dropdown admonition">
-<p class="admonition-title">ModuleNotFoundError</p>
-<p>When using Pandas, you may encounter the error message <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>. This is caused by so-called Pandas dependencies.</p>
-<p>When you install the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for Python, it requires other libraries to function correctly. These required libraries are called dependencies.
-Dependencies are external libraries that provide additional functionality or capabilities that the main library (in this case, Pandas) relies on to operate.</p>
-<p>When you install Pandas using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer, it automatically installs any required dependencies. However, optional dependencies are not installed by default and must be installed separately if needed.</p>
-<p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#optional-dependencies">You can read more about Pandas dependencies here.</a></p>
-<p>In our case, we will be working with Excel files. All Excel-related dependencies can be installed in one go with this command:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;pandas[excel]&quot;</span>
-</pre></div>
-</div>
-<p>Or - if run in a Jupyter notebook:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install &quot;pandas[excel]&quot;
-</pre></div>
-</div>
-</div>
+<section id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in Pandas is a simple and convenient way to create visualisations from your data. You can call this method directly on a <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, and it will generate a plot based on the data it contains.</p>
+<p>One of the key features of the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method is its flexibility in creating different types of plots. By using the <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter, you can specify the type of plot you want to generate, such as a line plot, bar plot, histogram, or scatter plot, among others. Additionally, the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method provides several other parameters that allow you to customise the appearance of the plot, such as setting labels for the axes, choosing specific columns to plot, and adjusting the layout.</p>
 </section>
-<hr class="docutils" />
-<section id="importing-pandas">
-<h2>Importing Pandas<a class="headerlink" href="#importing-pandas" title="Link to this heading">#</a></h2>
-<p>Even though we have now installed Pandas, we still need to import Pandas when we want to use it in our code.<br />
-This is conventionally done at the top of the script (together with any other imports) to make it easier for future readers (including ourselves!) to see, which packages are used.</p>
-<p>Aliasing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
-After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
-<div class="cell tag_remove-output tag_hide-output docutils container">
+<section id="general-syntax">
+<h2>General syntax<a class="headerlink" href="#general-syntax" title="Link to this heading">#</a></h2>
+<p>The general syntax for using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method is as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;plot_type&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x_column&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y_column&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="key-parameters">
+<h3>Key parameters<a class="headerlink" href="#key-parameters" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>kind</strong>: Specifies the type of plot to generate. The available options include:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">'line'</span></code>: Line plot (default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'bar'</span></code>: Vertical bar plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'barh'</span></code>: Horizontal bar plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hist'</span></code>: Histogram</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'box'</span></code>: Boxplot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'kde'</span></code>/<code class="docutils literal notranslate"><span class="pre">'density'</span></code>: Kernel Density Estimation plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'area'</span></code>: Area plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'pie'</span></code>: Pie plot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'scatter'</span></code>: Scatter plot (DataFrame only)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hexbin'</span></code>: Hexbin plot (DataFrame only)</p></li>
+</ul>
+</li>
+<li><p><strong>x</strong>: <em>(Optional)</em> Specifies the column to use for the x-axis.</p></li>
+<li><p><strong>y</strong>: <em>(Optional)</em> Specifies the column to use for the y-axis.</p></li>
+<li><p><strong>kwargs</strong>: Represents additional keyword arguments for customisation, such as labels, titles, and colors.</p></li>
+</ul>
+<p>We will not cover all the additional keyword arguments here, as this is just a quick introduction. However, you can find more information on the  the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">official Pandas documentation</a>.</p>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example DataFrame</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Line plot</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/c72faad0e554248db11c0e139fde8c48a14c64f93115a822fa424bf23e52b91e.png" src="../../_images/c72faad0e554248db11c0e139fde8c48a14c64f93115a822fa424bf23e52b91e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bar plot</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+</pre></div>
+</div>
+<img alt="../../_images/5bac074a570000f371b9e14e2963bca3d9b00b919449e87cde1d53367df4498e.png" src="../../_images/5bac074a570000f371b9e14e2963bca3d9b00b919449e87cde1d53367df4498e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot (requires x and y columns)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;A&#39;, ylabel=&#39;B&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/5b3afb703c82896fec8f25db214c4ddb4f4523e492463aae587ca86992d14506.png" src="../../_images/5b3afb703c82896fec8f25db214c4ddb4f4523e492463aae587ca86992d14506.png" />
+</div>
+</div>
+</section>
+<section id="customising-plots">
+<h2>Customising plots<a class="headerlink" href="#customising-plots" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method is highly customisable, giving you the flexibility to adjust various aspects of your visualisations, such as the plot type, axis labels, titles, colours, and overall figure aesthetics. Whether you need a simple line chart, a detailed scatter plot, or a complex histogram, you can create a wide range of plots with just a few lines of code.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>While plotting with Pandas is often done using the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library, Pandas’ <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method is a versatile tool for quickly generating a wide range of plots directly from your data. Whether you’re creating simple line plots, bar charts, or more complex visualisations like scatter plots and histograms, <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> provides an efficient interface for data visualisation. This method simplifies the process of plotting while offering a good level of customisation, making it suitable for both quick exploratory analysis and more polished, presentation-ready graphics.</p>
 </section>
 </section>
 
@@ -545,20 +594,20 @@ After this statement, you can use <code class="docutils literal notranslate"><sp
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="getting_started.html"
+       href="04_pandas_summary_statistics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Getting Started with Data Analysis</p>
+        <p class="prev-next-title">Summary Statistics</p>
       </div>
     </a>
     <a class="right-next"
-       href="01_pandas_dataframe.html"
+       href="xx_pandas_loc_iloc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></p>
+        <p class="prev-next-title">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -578,8 +627,14 @@ After this statement, you can use <code class="docutils literal notranslate"><sp
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-or-upgrading-pandas-from-pypi">Installing (or upgrading) Pandas from PyPI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-pandas">Importing Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-syntax">General syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customising-plots">Customising plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
   </nav></div>
 

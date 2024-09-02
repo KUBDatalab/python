@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Variables &#8212; KUB Datalab - Python</title>
+    <title>Out: Variables &#8212; KUB Datalab - Python</title>
   
   
   
@@ -57,10 +57,11 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/04-Variables';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/xx_variables';</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Out: Subsets" href="xx_03_pandas_subsets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +123,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -214,14 +213,17 @@
 </details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="getting_started.html">Getting Started with Data Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="00_pandas_start.html">Getting Started with Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_pandas_loc_iloc.html"><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_summary_statistics.html">Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Out: Variables</a></li>
 </ul>
 </details></li>
 </ul>
@@ -295,7 +297,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/04-Variables.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/xx_variables.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +327,7 @@
       
       
       
-      <li><a href="../../_sources/docs/pandas/04-Variables.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/pandas/xx_variables.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +411,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Variables</h1>
+    <h1>Out: Variables</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -441,8 +443,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="variables">
-<h1>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="out-variables">
+<h1>Out: Variables<a class="headerlink" href="#out-variables" title="Link to this heading">#</a></h1>
 <p><em>Note: You can explore the <a class="reference external" href="https://mybinder.org/v2/gh/melaniewalsh/Intro-Cultural-Analytics/master?urlpath=lab/tree/book/02-Python/Workbooks/05.5-Data-Types-Variables-WORKBOOK.ipynb">associated workbook</a> for this chapter in the cloud.</em></p>
 <p>Variables are one of the fundamental building blocks of Python. A variable is like a tiny container where you store values and data, such as filenames, words, numbers, collections of words and numbers, and more.</p>
 <p><img alt="" src="https://cdn.pixabay.com/photo/2016/09/14/20/48/birthday-1670415_960_720.png" /></p>
@@ -564,9 +566,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2398/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
-/tmp/ipykernel_2398/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/1664984018.py:10: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -979,9 +981,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2398/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   sw = re.split(&quot;\W+&quot;, lt)
-/tmp/ipykernel_2398/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/3249180260.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   sw = re.split(&quot;\W+&quot;, lt)
 </pre></div>
 </div>
@@ -1031,9 +1033,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2398/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
-/tmp/ipykernel_2398/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/1868761352.py:3: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -1145,9 +1147,9 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2398/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
-/tmp/ipykernel_2398/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/3981446915.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -1262,7 +1264,7 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
 &lt;&gt;:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
-/tmp/ipykernel_2398/387211622.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
+/tmp/ipykernel_2517/387211622.py:6: SyntaxWarning: invalid escape sequence &#39;\W&#39;
   split_words = re.split(&quot;\W+&quot;, lowercase_text)
 </pre></div>
 </div>
@@ -1309,6 +1311,15 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="xx_03_pandas_subsets.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Out: Subsets</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
