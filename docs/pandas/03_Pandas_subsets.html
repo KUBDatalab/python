@@ -219,10 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Introduction to Pandas <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -439,7 +436,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
@@ -454,6 +450,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="subsets">
 <h1>Subsets<a class="headerlink" href="#subsets" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>How can we select and filter specific columns and rows in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>?</p></li>
+</ul>
+<p>Objectives:</p>
+<ul class="simple">
+<li><p>Select specific columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using square bracket notation.</p></li>
+<li><p>Use the loc property for label-based indexing in a DataFrame.</p></li>
+<li><p>Use the iloc property for position-based indexing in a DataFrame.</p></li>
+<li><p>Filter rows based on the presence or absence of missing values.</p></li>
+<li><p>Understand the differences and complementary uses of loc and iloc.</p></li>
+</ul>
+</div>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -2331,34 +2342,14 @@ memory usage: 83.7+ KB
 </div>
 </section>
 </section>
-<section id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
-<p>Using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> allows you to write clearer, more precise code for selecting and manipulating data in Pandas. Whether you are filtering rows based on complex conditions or selecting specific rows and columns simultaneously, these tools offer the flexibility and reliability you need for more advanced data manipulation tasks.</p>
-</section>
 <hr class="docutils" />
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><strong>Selecting columns</strong>:</p>
-<ul>
-<li><p>Access a single column or multiple columns from a DataFrame using square bracket notation (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
-</ul>
-</li>
-<li><p><strong>Selecting subsets of data</strong>:</p>
-<ul>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> for label-based indexing and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> for position-based indexing to select specific rows and columns.</p></li>
-</ul>
-</li>
-<li><p><strong>Slicing</strong>:</p>
-<ul>
+<li><p>Access a single column or multiple columns from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> using square bracket notation (<code class="docutils literal notranslate"><span class="pre">[]</span></code>).</p></li>
+<li><p>Use label-based indexing (<code class="docutils literal notranslate"><span class="pre">.loc[]</span></code>) and position-based indexing (<code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>) to select specific rows and columns.</p></li>
 <li><p>Slicing with <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> is inclusive, while slicing with <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> is exclusive.</p></li>
-</ul>
-</li>
-<li><p><strong>Filtering data</strong>:</p>
-<ul>
-<li><p>Filter rows based on conditions using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, and apply additional conditions or select specific columns within the same operation.</p></li>
-</ul>
-</li>
+<li><p>Filter rows based on conditions and apply additional conditions or select specific columns within the same operation.</p></li>
 </ul>
 </section>
 </section>
@@ -2446,7 +2437,6 @@ memory usage: 83.7+ KB
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>

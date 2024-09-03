@@ -221,10 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -422,6 +419,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-titanic-data">Download the Titanic data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
 </ul>
             </nav>
@@ -440,6 +438,13 @@ document.write(`
 }
 </style><section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-data-analysis">
 <h1>Getting Started with Data Analysis<a class="headerlink" href="#getting-started-with-data-analysis" title="Link to this heading">#</a></h1>
+<p>Pandas is a library for Python, which is tailored to enable coders to handle tabular data (and is used widely in conjunction with other Python libraries including the machine-learning package, SciKitLearn, and the mathematics-oriented Numpy). Pandas’ tabular data take the form of DataFrames: Python’s version of an Excel spreadsheet. This object and the various methods associated with it will be the central focus.</p>
+<p>Building on the knowledge you have accumulated in the introductory courses, Getting Started with Data Analysis will teach you how to import, analyse, and visualise data in Pandas. For those that are interested and have some experience coding in Python, check out our Python for Absolute Beginners <a class="reference internal" href="../101/part1.html"><span class="doc std std-doc">Part 1</span></a> and <a class="reference internal" href="../101/part2.html"><span class="doc std std-doc">Part 2</span></a> materials. If these seem manageable, please feel free to hop right into this class.</p>
+<section id="download-the-titanic-data">
+<h2>Download the Titanic data<a class="headerlink" href="#download-the-titanic-data" title="Link to this heading">#</a></h2>
+<p>For much of this course, we will be working with the Titanic dataset. The full dataset can be found on <a class="reference external" href="https://www.kaggle.com/c/titanic/data">Kaggle</a>, but we will only be using the training data, which we have made available <a class="reference download internal" download="" href="../../_downloads/5c974b1590223ac1e1608a8361b2efc2/titanic.csv"><span class="xref download myst">here</span></a>.</p>
+<p>To follow the exercises and use the code exactly as written below, you will need to download the data and place it in a folder called ‘data’ in the same directory as your Jupyter notebook. In other words, the folder where your notebook is located should contain a subfolder named ‘data’, which holds the file ‘titanic.csv’.</p>
+</section>
 <hr class="docutils" />
 <section id="content">
 <h2>Content<a class="headerlink" href="#content" title="Link to this heading">#</a></h2>
@@ -450,10 +455,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </div>
 </section>
@@ -523,6 +525,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-the-titanic-data">Download the Titanic data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content">Content</a></li>
 </ul>
   </nav></div>

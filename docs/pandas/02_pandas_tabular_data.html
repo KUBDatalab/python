@@ -221,10 +221,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -452,6 +449,21 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="read-and-write-tabular-data">
 <h1>Read and Write Tabular Data<a class="headerlink" href="#read-and-write-tabular-data" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>How can we read, inspect, and export tabular data using Pandas?</p></li>
+</ul>
+<p>Objectives:</p>
+<ul class="simple">
+<li><p>Load tabular data from a spreadsheet into a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+<li><p>Inspect the structure and contents of your dataset.</p></li>
+<li><p>Identify missing data within your dataset.</p></li>
+<li><p>Apply filters to extract specific subsets of data based on conditions.</p></li>
+<li><p>Save and export your dataset to various file formats.</p></li>
+</ul>
+</div>
 <p><img alt="How to read and write tabular data" src="../../_images/02_io_readwrite.svg" /></p>
 <section id="download-the-titanic-data">
 <h2>Download the Titanic data<a class="headerlink" href="#download-the-titanic-data" title="Link to this heading">#</a></h2>
@@ -1915,7 +1927,7 @@ To do so, we could write:</p>
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Getting data in to pandas from many different file formats or data sources is supported by <code class="docutils literal notranslate"><span class="pre">read_*</span></code> functions.</p></li>
+<li><p>Reading data into Pandas from many different file formats or data sources is supported by <code class="docutils literal notranslate"><span class="pre">read_*</span></code> functions.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">head()</span></code>, <code class="docutils literal notranslate"><span class="pre">tail()</span></code>, and <code class="docutils literal notranslate"><span class="pre">info()</span></code> methods are convenient for a first check.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code> methods are useful for finding and isolating missing data.</p></li>
 <li><p>Exporting data out of pandas is provided by different <code class="docutils literal notranslate"><span class="pre">to_*</span></code> methods.</p></li>

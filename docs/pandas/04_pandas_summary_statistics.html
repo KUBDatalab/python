@@ -61,7 +61,7 @@
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Basic Plotting in Pandas" href="05_pandas_plot.html" />
+    <link rel="next" title="Basic Visualisations in Pandas" href="05_pandas_plot.html" />
     <link rel="prev" title="Subsets" href="03_pandas_subsets.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -221,10 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Summary Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
-<li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -441,6 +438,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="summary-statistics">
 <h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>How can we calculate and analyse summary statistics using Pandas?</p></li>
+</ul>
+<p>Objectives:</p>
+<ul class="simple">
+<li><p>Use built-in methods for descriptive statistics.</p></li>
+<li><p>Use the split-apply-combind pattern to perform descriptive statistics on groupings of data.</p></li>
+<li><p>Use different count methods on groupings of data.</p></li>
+</ul>
+</div>
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
@@ -733,7 +743,7 @@ dtype: float64
 </details>
 </div>
 <p>The statistic applied to multiple columns of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> (the selection of two columns returns a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, see the <a class="reference internal" href="03_pandas_subsets.html"><span class="doc std std-doc">Subsets tutorial</span></a>) is calculated for each numeric column.</p>
-<p>Multiple aggregating statistics can easily be calculated for one or more columns at the same time. For this we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> function.</p>
+<p>Multiple descriptive statistics can easily be calculated for one or more columns at the same time. For this we can use the <code class="docutils literal notranslate"><span class="pre">describe()</span></code> method.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Fare&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1206,7 +1216,7 @@ Name: Pclass, dtype: int64
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Basic Plotting in Pandas</p>
+        <p class="prev-next-title">Basic Visualisations in Pandas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
