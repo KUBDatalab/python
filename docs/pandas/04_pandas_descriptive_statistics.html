@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Summary Statistics &#8212; KUB Datalab - Python</title>
+    <title>Descriptive Statistics &#8212; KUB Datalab - Python</title>
   
   
   
@@ -57,7 +57,7 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/04_pandas_summary_statistics';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/pandas/04_pandas_descriptive_statistics';</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -220,7 +220,7 @@
 <li class="toctree-l2"><a class="reference internal" href="01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Summary Statistics</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Descriptive Statistics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
@@ -295,7 +295,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/04_pandas_summary_statistics.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/pandas/04_pandas_descriptive_statistics.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -325,7 +325,7 @@
       
       
       
-      <li><a href="../../_sources/docs/pandas/04_pandas_summary_statistics.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/pandas/04_pandas_descriptive_statistics.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -409,7 +409,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Summary Statistics</h1>
+    <h1>Descriptive Statistics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -436,18 +436,18 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="summary-statistics">
-<h1>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="descriptive-statistics">
+<h1>Descriptive Statistics<a class="headerlink" href="#descriptive-statistics" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions:</p>
 <ul class="simple">
-<li><p>How can we calculate and analyse summary statistics using Pandas?</p></li>
+<li><p>How can we calculate and analyse descriptive statistics using Pandas?</p></li>
 </ul>
 <p>Objectives:</p>
 <ul class="simple">
 <li><p>Use built-in methods for descriptive statistics.</p></li>
-<li><p>Use the split-apply-combind pattern to perform descriptive statistics on groupings of data.</p></li>
+<li><p>Use the split-apply-combine pattern to perform descriptive statistics on groupings of data.</p></li>
 <li><p>Use different count methods on groupings of data.</p></li>
 </ul>
 </div>
@@ -1165,7 +1165,7 @@ Name: Pclass, dtype: int64
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>Aggregation statistics can be calculated on entire columns or rows.</p></li>
+<li><p>Descriptive statistics can be calculated on entire columns or rows.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">groupby()</span></code> provides the power of the <strong>split-apply-combine</strong> pattern.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">value_counts()</span></code> is a convenient shortcut to count the number of entries in each category of a variable.</p></li>
 </ul>
