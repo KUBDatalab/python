@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -219,7 +219,7 @@
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_summary_statistics.html">Summary Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Introduction to Pandas <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Plotting in Pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="xx_pandas_loc_iloc.html">Out: <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="xx_03_pandas_subsets.html">Out: Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="xx_variables.html">Out: Variables</a></li>
@@ -1901,8 +1901,12 @@ This approach allows us to identify the passengers whose point of departure is u
 </div>
 <p>Note, that we are only reading the data, not storing it in a variable.<br />
 To do so, we could write:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>new_df = pd.read_excel(&#39;titanic.xlsx&#39;)
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;titanic.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
 </div>
 </section>
 <hr class="docutils" />

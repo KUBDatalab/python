@@ -429,8 +429,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie chart</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customising-plots">Customising plots</a></li>
@@ -532,26 +532,6 @@ It shows the proportion of male and female passengers in the dataset.</p>
 </div>
 </div>
 </section>
-<section id="bar-plot">
-<h3>Bar plot<a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h3>
-<p>This bar plot shows the distribution of passengers across the different classes (<code class="docutils literal notranslate"><span class="pre">Pclass</span></code>), sorted by class.<br />
-The height of each bar indicates the number of passengers in each class.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bar plot sorted by class</span>
-
-<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Passenger Class Distribution (Sorted)&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Passenger Class Distribution (Sorted)&#39;}, xlabel=&#39;Pclass&#39;&gt;
-</pre></div>
-</div>
-<img alt="../../_images/56429bc388dd35b7cb6f9fe1a056f3205f6e5afb5fe1ea5db702642470373ad5.png" src="../../_images/56429bc388dd35b7cb6f9fe1a056f3205f6e5afb5fe1ea5db702642470373ad5.png" />
-</div>
-</div>
-</section>
 <section id="scatter-plot">
 <h3>Scatter plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h3>
 <p>This scatter plot illustrates the relationship between passengers’ age and fare.<br />
@@ -569,6 +549,26 @@ Each dot represents a passenger, with their age on the x-axis and the fare they 
 </pre></div>
 </div>
 <img alt="../../_images/27ed8bfdc3f5f4c547420723112c09cc7a24e66340f1fd69504df08c33e80aee.png" src="../../_images/27ed8bfdc3f5f4c547420723112c09cc7a24e66340f1fd69504df08c33e80aee.png" />
+</div>
+</div>
+</section>
+<section id="bar-plot">
+<h3>Bar plot<a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h3>
+<p>This bar plot shows the distribution of passengers across the different classes (<code class="docutils literal notranslate"><span class="pre">Pclass</span></code>), sorted by class.<br />
+The height of each bar indicates the number of passengers in each class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bar plot sorted by class</span>
+
+<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Passenger Class Distribution (Sorted)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Passenger Class Distribution (Sorted)&#39;}, xlabel=&#39;Pclass&#39;&gt;
+</pre></div>
+</div>
+<img alt="../../_images/56429bc388dd35b7cb6f9fe1a056f3205f6e5afb5fe1ea5db702642470373ad5.png" src="../../_images/56429bc388dd35b7cb6f9fe1a056f3205f6e5afb5fe1ea5db702642470373ad5.png" />
 </div>
 </div>
 </section>
@@ -654,8 +654,8 @@ Each dot represents a passenger, with their age on the x-axis and the fare they 
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie chart</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customising-plots">Customising plots</a></li>

@@ -946,8 +946,8 @@ dtype: float64
 </div></div></div>
 </details>
 </div>
-<p>As our interest is the average age for each gender, a subselection on these two columns is made first: <code class="docutils literal notranslate"><span class="pre">titanic[[&quot;Sex&quot;,</span> <span class="pre">&quot;Age&quot;]]</span></code>.<br />
-Next, the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method is applied on the ‘Sex’ column to make a group per category. The average age for each gender is calculated and returned.</p>
+<p>As our interest is the average age for each sex, a subselection on these two columns is made first: <code class="docutils literal notranslate"><span class="pre">titanic[[&quot;Sex&quot;,</span> <span class="pre">&quot;Age&quot;]]</span></code>.<br />
+Next, the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method is applied on the ‘Sex’ column to make a group per category. The average age for each sex is calculated and returned.</p>
 <p>Calculating a given statistic (e.g. <code class="docutils literal notranslate"><span class="pre">mean()</span></code> age) <em>for each category in a column</em> (e.g. male/female in the ‘Sex’ column) is a common pattern. The <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method is used to support this type of operations. This fits in the more general <strong>split-apply-combine</strong> pattern:</p>
 <ul class="simple">
 <li><p><strong>Split</strong> the data into groups.</p></li>
@@ -1031,7 +1031,7 @@ Next, the <code class="docutils literal notranslate"><span class="pre">groupby()
 </div></div></div>
 </details>
 </div>
-<p>It does not make much sense to get the average value of the ‘Pclass’. If we are only interested in the average age for each gender, the selection of columns (rectangular brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> as usual) is supported on the grouped data as well:</p>
+<p>It does not make much sense to get the average value of the ‘Pclass’. If we are only interested in the average age for each sex, the selection of columns (rectangular brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> as usual) is supported on the grouped data as well:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
