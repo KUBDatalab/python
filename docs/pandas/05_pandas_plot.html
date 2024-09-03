@@ -423,11 +423,16 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-syntax">General syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-plot-syntax">The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> syntax</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter plot</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customising-plots">Customising plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
@@ -454,10 +459,11 @@ If you want to dive further into the world of plotting, you can read more about 
 <p>The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in Pandas is a simple and convenient way to create visualisations from your data. You can call this method directly on a <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, and it will generate a plot based on the data it contains.</p>
 <p>One of the key features of the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method is its flexibility in creating different types of plots. By using the <code class="docutils literal notranslate"><span class="pre">kind</span></code> parameter, you can specify the type of plot you want to generate, such as a line plot, bar plot, histogram, or scatter plot, among others. Additionally, the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method provides several other parameters that allow you to customise the appearance of the plot, such as setting labels for the axes, choosing specific columns to plot, and adjusting the layout.</p>
 </section>
-<section id="general-syntax">
-<h2>General syntax<a class="headerlink" href="#general-syntax" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="the-plot-syntax">
+<h2>The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> syntax<a class="headerlink" href="#the-plot-syntax" title="Link to this heading">#</a></h2>
 <p>The general syntax for using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method is as follows:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;plot_type&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x_column&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y_column&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DataFrame</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;plot_type&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;x_column&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y_column&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Plot Title&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <section id="key-parameters">
@@ -477,13 +483,15 @@ If you want to dive further into the world of plotting, you can read more about 
 <li><p><code class="docutils literal notranslate"><span class="pre">'hexbin'</span></code>: Hexbin plot (DataFrame only)</p></li>
 </ul>
 </li>
-<li><p><strong>x</strong>: <em>(Optional)</em> Specifies the column to use for the x-axis.</p></li>
-<li><p><strong>y</strong>: <em>(Optional)</em> Specifies the column to use for the y-axis.</p></li>
-<li><p><strong>kwargs</strong>: Represents additional keyword arguments for customisation, such as labels, titles, and colors.</p></li>
+<li><p><strong>x</strong>: <em>(Optional)</em> Specifies the column to use for the x-axis</p></li>
+<li><p><strong>y</strong>: <em>(Optional)</em> Specifies the column to use for the y-axis</p></li>
+<li><p><strong>title</strong>: (<em>Optional</em>) Specifies the title of the plot</p></li>
+<li><p><strong>kwargs</strong>: (<em>Optional</em>) Represents additional keyword arguments for customisation, such as labels, titles, and colors</p></li>
 </ul>
-<p>We will not cover all the additional keyword arguments here, as this is just a quick introduction. However, you can find more information on the  the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">official Pandas documentation</a>.</p>
+<p>We will not cover additional keyword arguments here, as this is just a quick introduction. However, you can find more information on the  the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in the <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.plot.html">official Pandas documentation</a>.</p>
 </section>
 </section>
+<hr class="docutils" />
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
@@ -497,61 +505,73 @@ If you want to dive further into the world of plotting, you can read more about 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example DataFrame</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
 
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
-    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="p">})</span>
+<span class="n">titanic</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/titanic.csv&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<section id="pie-chart">
+<h3>Pie chart<a class="headerlink" href="#pie-chart" title="Link to this heading">#</a></h3>
+<p>This pie chart visualises the distribution of passengers by sex (<code class="docutils literal notranslate"><span class="pre">Sex</span></code>).<br />
+It shows the proportion of male and female passengers in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Line plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Basic pie chart of passenger distribution by sex</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Sex&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Passenger Distribution by Sex&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Passenger Distribution by Sex&#39;}, ylabel=&#39;count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/c72faad0e554248db11c0e139fde8c48a14c64f93115a822fa424bf23e52b91e.png" src="../../_images/c72faad0e554248db11c0e139fde8c48a14c64f93115a822fa424bf23e52b91e.png" />
+<img alt="../../_images/2c3a4c791f14ffbbe69d275ef5fa72bb692c442547622e57b616ca81770a3b97.png" src="../../_images/2c3a4c791f14ffbbe69d275ef5fa72bb692c442547622e57b616ca81770a3b97.png" />
 </div>
 </div>
+</section>
+<section id="bar-plot">
+<h3>Bar plot<a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h3>
+<p>This bar plot shows the distribution of passengers across the different classes (<code class="docutils literal notranslate"><span class="pre">Pclass</span></code>), sorted by class.<br />
+The height of each bar indicates the number of passengers in each class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bar plot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bar plot sorted by class</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Passenger Class Distribution (Sorted)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Passenger Class Distribution (Sorted)&#39;}, xlabel=&#39;Pclass&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/5bac074a570000f371b9e14e2963bca3d9b00b919449e87cde1d53367df4498e.png" src="../../_images/5bac074a570000f371b9e14e2963bca3d9b00b919449e87cde1d53367df4498e.png" />
+<img alt="../../_images/56429bc388dd35b7cb6f9fe1a056f3205f6e5afb5fe1ea5db702642470373ad5.png" src="../../_images/56429bc388dd35b7cb6f9fe1a056f3205f6e5afb5fe1ea5db702642470373ad5.png" />
 </div>
 </div>
+</section>
+<section id="scatter-plot">
+<h3>Scatter plot<a class="headerlink" href="#scatter-plot" title="Link to this heading">#</a></h3>
+<p>This scatter plot illustrates the relationship between passengers’ age and fare.<br />
+Each dot represents a passenger, with their age on the x-axis and the fare they paid on the y-axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scatter plot (requires x and y columns)</span>
 
-<span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">)</span>
+<span class="n">titanic</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;scatter&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Fare&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Age vs Fare&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;A&#39;, ylabel=&#39;B&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: title={&#39;center&#39;: &#39;Age vs Fare&#39;}, xlabel=&#39;Age&#39;, ylabel=&#39;Fare&#39;&gt;
 </pre></div>
 </div>
-<img alt="../../_images/5b3afb703c82896fec8f25db214c4ddb4f4523e492463aae587ca86992d14506.png" src="../../_images/5b3afb703c82896fec8f25db214c4ddb4f4523e492463aae587ca86992d14506.png" />
+<img alt="../../_images/27ed8bfdc3f5f4c547420723112c09cc7a24e66340f1fd69504df08c33e80aee.png" src="../../_images/27ed8bfdc3f5f4c547420723112c09cc7a24e66340f1fd69504df08c33e80aee.png" />
 </div>
 </div>
+</section>
 </section>
 <section id="customising-plots">
 <h2>Customising plots<a class="headerlink" href="#customising-plots" title="Link to this heading">#</a></h2>
@@ -628,11 +648,16 @@ If you want to dive further into the world of plotting, you can read more about 
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-syntax">General syntax</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-plot-syntax">The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> syntax</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie chart</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar plot</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter-plot">Scatter plot</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customising-plots">Customising plots</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
