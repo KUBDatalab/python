@@ -420,16 +420,24 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-macos-users"><i aria-hidden="true" class="fab fa-apple"></i> For macOS users</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-jupyterlab">Step 1: Open JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-jupyterlab">Step 1: Open JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">Using the Terminal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyterlab">Starting JupyterLab:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-the-file-directory-system">Step 2: Navigate the File/Directory System</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-windows-users"><i aria-hidden="true" class="fab fa-windows"></i> For Windows users</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1: Open JupyterLab</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Step 2: Navigate the File/Directory System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1: Open JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-command-prompt">Using Command Prompt:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Starting JupyterLab:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-tips-for-both-macos-and-windows-users"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> Common tips for both macOS and Windows users</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Step 2: Navigate the File/Directory System</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-tips-opening-renaming-and-closing-notebooks"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> Common tips: Opening, renaming, and closing notebooks</a></li>
 </ul>
             </nav>
         </div>
@@ -450,84 +458,60 @@ document.write(`
 <h2><i class="fab fa-apple" aria-hidden="true"></i> For macOS users<a class="headerlink" href="#for-macos-users" title="Link to this heading">#</a></h2>
 <section id="step-1-open-jupyterlab">
 <h3>Step 1: Open JupyterLab<a class="headerlink" href="#step-1-open-jupyterlab" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p><strong>Using Terminal</strong>:</p>
-<ul>
-<li><p><strong>Open Terminal</strong>:</p>
+<section id="using-the-terminal">
+<h4>Using the Terminal<a class="headerlink" href="#using-the-terminal" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>You can find Terminal by using Spotlight Search (press <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Space</span></code> and type “Terminal”) or by navigating to <strong>Applications → Utilities → Terminal</strong>.</p></li>
+<li><p><strong>Open Terminal</strong>
+You can find Terminal by using Spotlight Search (press <code class="docutils literal notranslate"><span class="pre">Cmd</span> <span class="pre">+</span> <span class="pre">Space</span></code> and type “Terminal”) or by navigating to <strong>Applications → Utilities → Terminal</strong>.</p></li>
+<li><p>If you want to start JupyterLab in a specific directory, use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to navigate there. For example:</p></li>
 </ul>
-</li>
-<li><p><strong>Navigate to your project directory</strong> (Optional):</p>
-<ul>
-<li><p>If you want to start JupyterLab in a specific directory, use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to navigate there. For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>path/to/your/project
 </pre></div>
 </div>
-</li>
-<li><p>If you are unsure of the path, you can drag the folder directly into the Terminal window, and it will automatically input the correct path.</p></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Using Finder</strong> (Alternative Method):</p>
+<p>If you are unsure of the path, you can drag the folder directly into the Terminal window, and it will automatically input the correct path.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Using Finder(Alternative Method)</p>
+<p>Navigate to the folder where you want to start JupyterLab.</p>
+<p>Open Terminal from Finder:</p>
 <ul class="simple">
-<li><p><strong>Open the desired folder in Finder</strong>:</p>
-<ul>
-<li><p>Navigate to the folder where you want to start JupyterLab.</p></li>
-</ul>
-</li>
-<li><p><strong>Open Terminal from Finder</strong>:</p>
-<ul>
 <li><p>Right-click on the folder while holding the <code class="docutils literal notranslate"><span class="pre">Control</span></code> key (or use a two-finger tap on a trackpad) and select “New Terminal at Folder”.</p></li>
-<li><p>If you do not see this option, you might need to enable the “New Terminal at Folder” service. To do this:</p>
-<ul>
+</ul>
+<p>If you do not see this option, you might need to enable the “New Terminal at Folder” service. To do this:</p>
+<ul class="simple">
 <li><p>Go to <strong><i class="fab fa-apple" aria-hidden="true"></i> → System Settings… → Keyboard → Keyboard Shortcuts… → Services</strong>.</p></li>
 <li><p>Check the box next to “New Terminal at Folder” under the “Files and Folders” section.</p></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Starting JupyterLab</strong>:</p>
-<ul>
-<li><p>In Terminal, type the following command and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>:</p>
+</div>
+</section>
+<section id="starting-jupyterlab">
+<h4>Starting JupyterLab:<a class="headerlink" href="#starting-jupyterlab" title="Link to this heading">#</a></h4>
+<p>In Terminal, type the following command and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
 </pre></div>
 </div>
-</li>
-<li><p>JupyterLab will open in your default web browser. If it does not, copy the URL provided in the Terminal and paste it into your browser.</p></li>
-</ul>
-</li>
-</ol>
+<p>JupyterLab will open in your default web browser. If it does not, copy the URL provided in the Terminal and paste it into your browser.</p>
+</section>
 </section>
 <section id="step-2-navigate-the-file-directory-system">
 <h3>Step 2: Navigate the File/Directory System<a class="headerlink" href="#step-2-navigate-the-file-directory-system" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>File Browser</strong>:</p>
+<p><strong>File Browser</strong>:</p>
 <ul class="simple">
 <li><p>On the left sidebar of JupyterLab, you will see the <strong>File Browser</strong>. This shows the directory contents of the folder where JupyterLab was started.</p></li>
 <li><p>You can open folders by clicking on them. Files (e.g., notebooks, Python scripts) can be opened by clicking on them.</p></li>
 </ul>
-</li>
-<li><p><strong>Create new files and folders</strong>:</p>
+<p><strong>Create new files and folders</strong>:</p>
 <ul class="simple">
 <li><p>To create a new file or folder, right-click anywhere in the File Browser and select “New Folder” or “New File”. You can also click the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon at the top of the File Browser.</p></li>
 </ul>
-</li>
-<li><p><strong>Upload files</strong>:</p>
+<p><strong>Upload files</strong>:</p>
 <ul class="simple">
 <li><p>You can drag and drop files from your Finder directly into the File Browser in JupyterLab.</p></li>
 </ul>
-</li>
-<li><p><strong>Navigate between folders</strong>:</p>
+<p><strong>Navigate between folders</strong>:</p>
 <ul class="simple">
 <li><p>Use the arrows next to folders to expand and collapse them.</p></li>
 <li><p>You can also use the breadcrumbs at the top of the File Browser to navigate back to parent directories.</p></li>
 </ul>
-</li>
-</ol>
 </section>
 </section>
 <hr class="docutils" />
@@ -535,83 +519,61 @@ document.write(`
 <h2><i class="fab fa-windows" aria-hidden="true"></i> For Windows users<a class="headerlink" href="#for-windows-users" title="Link to this heading">#</a></h2>
 <section id="id1">
 <h3>Step 1: Open JupyterLab<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<ol class="arabic">
-<li><p><strong>Using Command Prompt</strong>:</p>
-<ul>
-<li><p><strong>Open Command Prompt</strong>:</p>
+<section id="using-command-prompt">
+<h4>Using Command Prompt:<a class="headerlink" href="#using-command-prompt" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>You can find it by searching “cmd” in the Start menu.</p></li>
+<li><p><strong>Open Command Prompt</strong>
+You can find it by searching “cmd” in the Start menu.</p></li>
+<li><p><strong>Navigate to your project directory</strong> (Optional)
+Use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to navigate to your desired directory. For example:</p></li>
 </ul>
-</li>
-<li><p><strong>Navigate to your project directory</strong> (Optional):</p>
-<ul>
-<li><p>Use the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command to navigate to your desired directory. For example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\p</span>ath<span class="se">\t</span>o<span class="se">\y</span>our<span class="se">\p</span>roject
 </pre></div>
 </div>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Using File Explorer</strong> (Alternative Method):</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Using File Explorer(Alternative Method)</p>
+<p>Navigate to the folder where you want to start JupyterLab.
+Open Command Prompt from File Explorer:</p>
 <ul class="simple">
-<li><p><strong>Open the desired folder in File Explorer</strong>:</p>
-<ul>
-<li><p>Navigate to the folder where you want to start JupyterLab.</p></li>
-</ul>
-</li>
-<li><p><strong>Open Command Prompt from File Explorer</strong>:</p>
-<ul>
 <li><p>Right-click on the folder while holding the <code class="docutils literal notranslate"><span class="pre">Shift</span></code> key and select “Open command window here” or “Open PowerShell window here”. This depends on your Windows version.</p></li>
 <li><p>On newer versions of Windows 10 and 11, this option might be replaced with “Open in Terminal”.</p></li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Starting JupyterLab</strong>:</p>
-<ul>
-<li><p>In the Command Prompt, PowerShell, or Terminal window that opens, type the following command and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab
-</pre></div>
 </div>
-</li>
-<li><p>JupyterLab will open in your default web browser. If it does not, copy the URL provided in the command prompt and paste it into your browser.</p></li>
-</ul>
-</li>
-</ol>
 </section>
 <section id="id2">
-<h3>Step 2: Navigate the File/Directory System<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>File Browser</strong>:</p>
+<h4>Starting JupyterLab:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<p>In the Command Prompt, PowerShell, or Terminal window that opens, type the following command and press <code class="docutils literal notranslate"><span class="pre">Enter</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>jupyter<span class="w"> </span>lab
+</pre></div>
+</div>
+<p>JupyterLab will open in your default web browser. If it does not, copy the URL provided in the command prompt and paste it into your browser.</p>
+</section>
+</section>
+<section id="id3">
+<h3>Step 2: Navigate the File/Directory System<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>File Browser</strong>:</p>
 <ul class="simple">
 <li><p>On the left sidebar of JupyterLab, you will see the <strong>File Browser</strong>. This displays the contents of the directory where JupyterLab was started.</p></li>
 <li><p>Click on folders to open them and view their contents. Click on files (e.g., notebooks, Python scripts) to open them in JupyterLab.</p></li>
 </ul>
-</li>
-<li><p><strong>Create new files and folders</strong>:</p>
+<p><strong>Create new files and folders</strong>:</p>
 <ul class="simple">
 <li><p>Right-click in the File Browser to create a new file or folder. Alternatively, click the <code class="docutils literal notranslate"><span class="pre">+</span></code> icon at the top of the File Browser.</p></li>
 </ul>
-</li>
-<li><p><strong>Upload files</strong>:</p>
+<p><strong>Upload files</strong>:</p>
 <ul class="simple">
 <li><p>Drag and drop files from File Explorer directly into the JupyterLab File Browser.</p></li>
 </ul>
-</li>
-<li><p><strong>Navigate between folders</strong>:</p>
+<p><strong>Navigate between folders</strong>:</p>
 <ul class="simple">
 <li><p>Use the arrows next to folders to expand and collapse them.</p></li>
 <li><p>The breadcrumbs at the top of the File Browser allow you to navigate back to parent directories.</p></li>
 </ul>
-</li>
-</ol>
 </section>
 </section>
 <hr class="docutils" />
-<section id="common-tips-for-both-macos-and-windows-users">
-<h2><i class="fab fa-apple" aria-hidden="true"></i> <i class="fab fa-windows" aria-hidden="true"></i> Common tips for both macOS and Windows users<a class="headerlink" href="#common-tips-for-both-macos-and-windows-users" title="Link to this heading">#</a></h2>
+<section id="common-tips-opening-renaming-and-closing-notebooks">
+<h2><i class="fab fa-apple" aria-hidden="true"></i> <i class="fab fa-windows" aria-hidden="true"></i> Common tips: Opening, renaming, and closing notebooks<a class="headerlink" href="#common-tips-opening-renaming-and-closing-notebooks" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Opening files</strong>: Double-click on any file in the File Browser to open it. Jupyter Notebooks will open in a new tab, and text files, Python scripts, and other file types will open in their respective editors.</p></li>
 <li><p><strong>Renaming files and folders</strong>: Right-click on a file or folder in the File Browser and select “Rename” to change its name.</p></li>
@@ -695,16 +657,24 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-macos-users"><i aria-hidden="true" class="fab fa-apple"></i> For macOS users</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-jupyterlab">Step 1: Open JupyterLab</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-open-jupyterlab">Step 1: Open JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-terminal">Using the Terminal</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#starting-jupyterlab">Starting JupyterLab:</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-the-file-directory-system">Step 2: Navigate the File/Directory System</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-windows-users"><i aria-hidden="true" class="fab fa-windows"></i> For Windows users</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1: Open JupyterLab</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Step 2: Navigate the File/Directory System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Step 1: Open JupyterLab</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#using-command-prompt">Using Command Prompt:</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Starting JupyterLab:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-tips-for-both-macos-and-windows-users"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> Common tips for both macOS and Windows users</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Step 2: Navigate the File/Directory System</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-tips-opening-renaming-and-closing-notebooks"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> Common tips: Opening, renaming, and closing notebooks</a></li>
 </ul>
   </nav></div>
 

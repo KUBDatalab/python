@@ -28,11 +28,11 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -746,6 +746,7 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 <hr class="docutils" />
 <section id="getting-information-on-the-dataframe">
 <h2>Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#getting-information-on-the-dataframe" title="Link to this heading">#</a></h2>
+<p>Besides displaying the the first and last rows of your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>there are a few other attributes which can be useful for getting to know your data.</p>
 <section id="shape">
 <h3><code class="docutils literal notranslate"><span class="pre">shape</span></code><a class="headerlink" href="#shape" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute can be used to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’.<br />
@@ -1016,7 +1017,7 @@ To display all columns without truncation, you can set the <code class="docutils
 <section id="dtypes">
 <h3><code class="docutils literal notranslate"><span class="pre">dtypes</span></code><a class="headerlink" href="#dtypes" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute can be used to view the data types of each column in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This command provides information about the data type of each column, such as integer, float, or object (string).</p>
+This command provides information about the data type of each column, such as integer, float, or object (string). The data type in each colum is useful to know especially if you are working with data that you did not create yourself. Moreover, this is important for performing statistics and calculations later on, as this can only be done on integers and floats.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">dtypes</span>

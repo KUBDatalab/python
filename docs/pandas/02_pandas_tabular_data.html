@@ -423,7 +423,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-on-the-dataframe">Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-about-the-dataframe">Getting information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
@@ -746,8 +746,9 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 </div>
 </section>
 <hr class="docutils" />
-<section id="getting-information-on-the-dataframe">
-<h2>Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#getting-information-on-the-dataframe" title="Link to this heading">#</a></h2>
+<section id="getting-information-about-the-dataframe">
+<h2>Getting information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#getting-information-about-the-dataframe" title="Link to this heading">#</a></h2>
+<p>Besides displaying the the first and last rows of your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>there are a few other attributes which can be useful for getting to know your data.</p>
 <section id="shape">
 <h3><code class="docutils literal notranslate"><span class="pre">shape</span></code><a class="headerlink" href="#shape" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code> attribute can be used to determine the dimensions of the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’.<br />
@@ -1018,7 +1019,7 @@ To display all columns without truncation, you can set the <code class="docutils
 <section id="dtypes">
 <h3><code class="docutils literal notranslate"><span class="pre">dtypes</span></code><a class="headerlink" href="#dtypes" title="Link to this heading">#</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attribute can be used to view the data types of each column in the ‘titanic’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
-This command provides information about the data type of each column, such as integer, float, or object (string).</p>
+This command provides information about the data type of each column, such as integer, float, or object (string). The data type in each colum is useful to know especially if you are working with data that you did not create yourself. Moreover, this is important for performing statistics and calculations later on, as this can only be done on integers and floats.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">dtypes</span>
@@ -2003,7 +2004,7 @@ To do so, we could write:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-on-the-dataframe">Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-about-the-dataframe">Getting information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
