@@ -28,7 +28,7 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=384b581d" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -421,7 +421,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-on-the-dataframe">Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-about-the-dataframe">Getting information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
@@ -472,13 +472,157 @@ document.write(`
 <section id="import-pandas">
 <h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.1.1 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main
+  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/traitlets/config/application.py&quot;, line 1077, in launch_instance
+    app.start()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;, line 205, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py&quot;, line 607, in run_forever
+    self._run_once()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py&quot;, line 1922, in _run_once
+    handle._run()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3075, in run_cell
+    result = self._run_cell(
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3130, in _run_cell
+    result = runner(coro)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/var/folders/y9/g15wbk0j1wd01kznfcf__8f00000gn/T/ipykernel_5376/3746612402.py&quot;, line 3, in &lt;module&gt;
+    import pandas as pd
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/__init__.py&quot;, line 26, in &lt;module&gt;
+    from pandas.compat import (
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/compat/__init__.py&quot;, line 27, in &lt;module&gt;
+    from pandas.compat.pyarrow import (
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/compat/pyarrow.py&quot;, line 8, in &lt;module&gt;
+    import pyarrow as pa
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyarrow/__init__.py&quot;, line 65, in &lt;module&gt;
+    import pyarrow.lib as _lib
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.1.1 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with &#39;pybind11&gt;=2.12&#39;.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to &#39;numpy&lt;2&#39; or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File &quot;&lt;frozen runpy&gt;&quot;, line 198, in _run_module_as_main
+  File &quot;&lt;frozen runpy&gt;&quot;, line 88, in _run_code
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel_launcher.py&quot;, line 18, in &lt;module&gt;
+    app.launch_new_instance()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/traitlets/config/application.py&quot;, line 1077, in launch_instance
+    app.start()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelapp.py&quot;, line 739, in start
+    self.io_loop.start()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/tornado/platform/asyncio.py&quot;, line 205, in start
+    self.asyncio_loop.run_forever()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py&quot;, line 607, in run_forever
+    self._run_once()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py&quot;, line 1922, in _run_once
+    handle._run()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py&quot;, line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 545, in dispatch_queue
+    await self.process_one()
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 534, in process_one
+    await dispatch(*args)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 437, in dispatch_shell
+    await result
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 362, in execute_request
+    await super().execute_request(stream, ident, parent)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/kernelbase.py&quot;, line 778, in execute_request
+    reply_content = await reply_content
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/ipkernel.py&quot;, line 449, in do_execute
+    res = shell.run_cell(
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/ipykernel/zmqshell.py&quot;, line 549, in run_cell
+    return super().run_cell(*args, **kwargs)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3075, in run_cell
+    result = self._run_cell(
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3130, in _run_cell
+    result = runner(coro)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/async_helpers.py&quot;, line 129, in _pseudo_sync_runner
+    coro.send(None)
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3334, in run_cell_async
+    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3517, in run_ast_nodes
+    if await self.run_code(code, result, async_=asy):
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/IPython/core/interactiveshell.py&quot;, line 3577, in run_code
+    exec(code_obj, self.user_global_ns, self.user_ns)
+  File &quot;/var/folders/y9/g15wbk0j1wd01kznfcf__8f00000gn/T/ipykernel_5376/3746612402.py&quot;, line 3, in &lt;module&gt;
+    import pandas as pd
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/__init__.py&quot;, line 49, in &lt;module&gt;
+    from pandas.core.api import (
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/api.py&quot;, line 9, in &lt;module&gt;
+    from pandas.core.dtypes.dtypes import (
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pandas/core/dtypes/dtypes.py&quot;, line 24, in &lt;module&gt;
+    from pandas._libs import (
+  File &quot;/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/pyarrow/__init__.py&quot;, line 65, in &lt;module&gt;
+    import pyarrow.lib as _lib
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="ne">AttributeError</span>: _ARRAY_API not found
+</pre></div>
+</div>
+</div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
@@ -744,8 +888,8 @@ I.e., in the folder where your notebook is located, you should have a folder nam
 </div>
 </section>
 <hr class="docutils" />
-<section id="getting-information-on-the-dataframe">
-<h2>Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#getting-information-on-the-dataframe" title="Link to this heading">#</a></h2>
+<section id="getting-information-about-the-dataframe">
+<h2>Getting information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#getting-information-about-the-dataframe" title="Link to this heading">#</a></h2>
 <p>Besides displaying the the first and last rows of your <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>there are a few other attributes which can be useful for getting to know your data.</p>
 <section id="shape">
 <h3><code class="docutils literal notranslate"><span class="pre">shape</span></code><a class="headerlink" href="#shape" title="Link to this heading">#</a></h3>
@@ -2002,7 +2146,7 @@ To do so, we could write:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#current-working-directory">Current working directory</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-on-the-dataframe">Getting information on the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-information-about-the-dataframe">Getting information about the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shape"><code class="docutils literal notranslate"><span class="pre">shape</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#head"><code class="docutils literal notranslate"><span class="pre">head()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tail"><code class="docutils literal notranslate"><span class="pre">tail()</span></code></a></li>
