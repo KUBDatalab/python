@@ -225,6 +225,10 @@
 </ul>
 </details></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../docs/tutorials/tutorials.html">List of Tutorials</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -436,7 +440,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="admonition-boxes">
+  <section id="admonition-boxes">
 <h1>Admonition Boxes<a class="headerlink" href="#admonition-boxes" title="Link to this heading">#</a></h1>
 <p>Jeg har lavet denne side, så man kan se, hvordan forskellige bokse vises i Jupyter Book.</p>
 <section id="common-classes-for-admonitions-in-jupyter-book">
@@ -596,10 +600,9 @@ An example of an admonition with a title and a warning style.
 <span class="p">:::</span>
 </pre></div>
 </div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p>For a list of syntax extensions in MyST, see <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html">the MyST documentation</a>.</p>
-</div>
+<p>:::{seealso}
+For a list of syntax extensions in MyST, see <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html">the MyST documentation</a>.
+:::</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>```{admonition} My title
 :class: seealso
 My content
