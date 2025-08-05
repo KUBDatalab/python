@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -66,7 +63,6 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -82,8 +78,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -91,6 +98,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -98,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,8 +125,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -148,17 +155,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="KUB Datalab - Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -371,16 +382,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -462,8 +481,8 @@
 help you get started with Matplotlib.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -486,7 +505,7 @@ the figure:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b2cb26347a37c79cfeb9e72c7b792639a66aca8f2b3f8fee17cd6bea99f571fb.png" src="../../_images/b2cb26347a37c79cfeb9e72c7b792639a66aca8f2b3f8fee17cd6bea99f571fb.png" />
+<img alt="../../_images/030ef5a96056954cbf17731046d4c8921839b3efc6708b35ff0a1585e4fa5746.png" src="../../_images/030ef5a96056954cbf17731046d4c8921839b3efc6708b35ff0a1585e4fa5746.png" />
 </div>
 </div>
 <p>Depending on the environment you are working in, <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> can be left
@@ -588,7 +607,7 @@ strings corresponding to the <em>x</em> and <em>y</em> variables.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;entry b&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/b04fa0d48d76efe91c5d56474ec98dcd39301f6a0b3c4f6b6e1097e96a662c45.png" src="../../_images/b04fa0d48d76efe91c5d56474ec98dcd39301f6a0b3c4f6b6e1097e96a662c45.png" />
+<img alt="../../_images/747ac13bdd569d80b4607fd2077de620503bc4b177eb453e7a7dca7e294bf785.png" src="../../_images/747ac13bdd569d80b4607fd2077de620503bc4b177eb453e7a7dca7e294bf785.png" />
 </div>
 </div>
 </section>
@@ -623,10 +642,10 @@ implicit and explicit interfaces.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbd7c6df770&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faeac4b1130&gt;
 </pre></div>
 </div>
-<img alt="../../_images/0c07f46c5ff4ea51580a533fea760a8e81058a7563a3be4b0f25ffbe8262a209.png" src="../../_images/0c07f46c5ff4ea51580a533fea760a8e81058a7563a3be4b0f25ffbe8262a209.png" />
+<img alt="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" src="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" />
 </div>
 </div>
 <p>or the pyplot-style:</p>
@@ -646,10 +665,10 @@ implicit and explicit interfaces.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbd683b1c70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faeae829f70&gt;
 </pre></div>
 </div>
-<img alt="../../_images/0c07f46c5ff4ea51580a533fea760a8e81058a7563a3be4b0f25ffbe8262a209.png" src="../../_images/0c07f46c5ff4ea51580a533fea760a8e81058a7563a3be4b0f25ffbe8262a209.png" />
+<img alt="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" src="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" />
 </div>
 </div>
 <p>(In addition, there is a third approach, for the case when embedding
@@ -674,7 +693,7 @@ sets, or want to easily wrap Matplotlib methods, use the recommended
 signature function below.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  A helper function to make a graph.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
@@ -695,10 +714,10 @@ signature function below.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbd682a4aa0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7faeac409bb0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/0fd125d36b66139ec6a6ca9484cf4cd29809ae9af42724f35d447d527b2e22ab.png" src="../../_images/0fd125d36b66139ec6a6ca9484cf4cd29809ae9af42724f35d447d527b2e22ab.png" />
+<img alt="../../_images/be4b8c194bd74be420b45b4766c2bd2684124e5955e30308b1a60c6d70642526.png" src="../../_images/be4b8c194bd74be420b45b4766c2bd2684124e5955e30308b1a60c6d70642526.png" />
 </div>
 </div>
 <p>Note that if you want to install these as a python package, or any other
@@ -724,7 +743,7 @@ after the fact with <code class="docutils literal notranslate"><span class="pre"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/650edd3113e33b3a8e14a1aca9c3ce21d7a570ecbe00f818e4293b107deb060f.png" src="../../_images/650edd3113e33b3a8e14a1aca9c3ce21d7a570ecbe00f818e4293b107deb060f.png" />
+<img alt="../../_images/f4fc8da3e975b44ed857db873fe9d71f8f8074e9eefe1667ba385dfc5e5e282b.png" src="../../_images/f4fc8da3e975b44ed857db873fe9d71f8f8074e9eefe1667ba385dfc5e5e282b.png" />
 </div>
 </div>
 <section id="colors">
@@ -742,10 +761,10 @@ from the interior:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbd683b0dd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7faeac2ca510&gt;
 </pre></div>
 </div>
-<img alt="../../_images/ec8656266dc2654451bcf855bca8c17587d6b50717c876122b9086f387f2d418.png" src="../../_images/ec8656266dc2654451bcf855bca8c17587d6b50717c876122b9086f387f2d418.png" />
+<img alt="../../_images/67108aa388b3ef345c342273e2d62593fad03232eeb46126dccf88e13dec7ca9.png" src="../../_images/67108aa388b3ef345c342273e2d62593fad03232eeb46126dccf88e13dec7ca9.png" />
 </div>
 </div>
 </section>
@@ -772,10 +791,10 @@ users can define their own <code class="docutils literal notranslate"><span clas
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbd6813a510&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faeac3baea0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/e61f3d9f27a678ff2f45fb841de32fc0df06bb1255b0e40552e096c1b09213dd.png" src="../../_images/e61f3d9f27a678ff2f45fb841de32fc0df06bb1255b0e40552e096c1b09213dd.png" />
+<img alt="../../_images/30f81b0ffd312efc74103619e61c19e9543a242ae31f4da134797bd1fe7ca5b0.png" src="../../_images/30f81b0ffd312efc74103619e61c19e9543a242ae31f4da134797bd1fe7ca5b0.png" />
 </div>
 </div>
 </section>
@@ -806,7 +825,7 @@ for more discussion). Text can also be directly added to plots using
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d670371d0c95c110b9e4aad3193d96dfad8adfb76f810c08cbb453320bd43cd7.png" src="../../_images/d670371d0c95c110b9e4aad3193d96dfad8adfb76f810c08cbb453320bd43cd7.png" />
+<img alt="../../_images/8bc3709d91671a2f26e4813c91eb06a6490cb5abe6d6c861189edf5b992ba83e.png" src="../../_images/8bc3709d91671a2f26e4813c91eb06a6490cb5abe6d6c861189edf5b992ba83e.png" />
 </div>
 </div>
 <p>All of the <code class="docutils literal notranslate"><span class="pre">text</span></code> functions return a <code class="docutils literal notranslate"><span class="pre">matplotlib.text.Text</span></code>
@@ -857,7 +876,7 @@ to <em>xy</em>, to a piece of text at <em>xytext</em>:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.0, 2.0)
 </pre></div>
 </div>
-<img alt="../../_images/9cf5c2e132351cf5395c3535d193d130a313becc031baecdadc2d678f474f49d.png" src="../../_images/9cf5c2e132351cf5395c3535d193d130a313becc031baecdadc2d678f474f49d.png" />
+<img alt="../../_images/9628888b367342c92ff3db7e311e6b6147d2188412eb6bcbbff75ae545ccd0c3.png" src="../../_images/9628888b367342c92ff3db7e311e6b6147d2188412eb6bcbbff75ae545ccd0c3.png" />
 </div>
 </div>
 <p>In this basic example, both <em>xy</em> and <em>xytext</em> are in data coordinates.
@@ -879,10 +898,10 @@ details. More examples also can be found in <a class="reference external" href="
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7fbd5e336210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7faeac12dc10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/bd7a37564f0b6a2fa8fc33042c06929f19f380ae234a0c2d382ec2c2b5472157.png" src="../../_images/bd7a37564f0b6a2fa8fc33042c06929f19f380ae234a0c2d382ec2c2b5472157.png" />
+<img alt="../../_images/e09ad3a7555c7fe744c15dd77c0217a5385b2ac7385278207b148323375e709c.png" src="../../_images/e09ad3a7555c7fe744c15dd77c0217a5385b2ac7385278207b148323375e709c.png" />
 </div>
 </div>
 <p>Legends in Matplotlib are quite flexible in layout, placement, and what
@@ -917,10 +936,10 @@ manually:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7fbd5cd000b0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7faeac02da30&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/7abbe40371426730061ed05cdb64e85d8f62dc455e87660171228c5f5f5796f2.png" src="../../_images/7abbe40371426730061ed05cdb64e85d8f62dc455e87660171228c5f5f5796f2.png" />
+<img alt="../../_images/9b867617227a1c1ff48ff943888393786e48420237e271ae4220f24a2e3bac85.png" src="../../_images/9b867617227a1c1ff48ff943888393786e48420237e271ae4220f24a2e3bac85.png" />
 </div>
 </div>
 <p>The scale sets the mapping from data values to spacing along the Axis. This
@@ -950,7 +969,7 @@ Axis objects to put tick marks. A simple interface to this is
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Manual ticks&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/18c6ab9485e2df1480e654c1ac0651565150a28c73b781b758dbdc821f9b9979.png" src="../../_images/18c6ab9485e2df1480e654c1ac0651565150a28c73b781b758dbdc821f9b9979.png" />
+<img alt="../../_images/59fe1ed674310f04b42298b79743e2f24c9959563df621fc79ffd1c36f0a746b.png" src="../../_images/59fe1ed674310f04b42298b79743e2f24c9959563df621fc79ffd1c36f0a746b.png" />
 </div>
 </div>
 <p>Different scales can have different locators and formatters; for instance
@@ -966,7 +985,7 @@ well as floating point numbers. These get special locators and formatters
 as appropriate. For dates:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.dates</span> <span class="kn">import</span> <span class="n">ConciseDateFormatter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConciseDateFormatter</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2021-11-15&#39;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2021-12-25&#39;</span><span class="p">),</span>
@@ -978,7 +997,7 @@ as appropriate. For dates:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9de1f74714381b221cb9936c97ce1d1574312aaaa0249e4888b2dba60ed8711a.png" src="../../_images/9de1f74714381b221cb9936c97ce1d1574312aaaa0249e4888b2dba60ed8711a.png" />
+<img alt="../../_images/7b0b53574e4df6676d73f60b0be5351837b3cecb6a5c867cdaee0944173dd008.png" src="../../_images/7b0b53574e4df6676d73f60b0be5351837b3cecb6a5c867cdaee0944173dd008.png" />
 </div>
 </div>
 <p>For more information see the date examples
@@ -998,7 +1017,7 @@ as appropriate. For dates:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 4 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/574dd9cde9d2d1d01109fb0436c359e6408b08127d3c289ba6f13d195ddd8363.png" src="../../_images/574dd9cde9d2d1d01109fb0436c359e6408b08127d3c289ba6f13d195ddd8363.png" />
+<img alt="../../_images/acf4a979d166e0e1d0c896d0787b4b2d2f0a57aa27a5d01c59365ef4842bf7e7.png" src="../../_images/acf4a979d166e0e1d0c896d0787b4b2d2f0a57aa27a5d01c59365ef4842bf7e7.png" />
 </div>
 </div>
 <p>One caveat about categorical plotting is that some methods of parsing
@@ -1037,7 +1056,7 @@ examples.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Angle [°]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/51bf42cc422abcce282d12eea20dfc8eb9ff55b6a7a76f6a256bbecdeb9e668a.png" src="../../_images/51bf42cc422abcce282d12eea20dfc8eb9ff55b6a7a76f6a256bbecdeb9e668a.png" />
+<img alt="../../_images/5992365f2e41e01c2bc8dfc70a60b69aff70a220343626c2608445d9626602c7.png" src="../../_images/5992365f2e41e01c2bc8dfc70a60b69aff70a220343626c2608445d9626602c7.png" />
 </div>
 </div>
 </section>
@@ -1048,7 +1067,7 @@ examples.</p>
 a colormap. Matplotlib has a number of plot types that do this:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
 <span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">X</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -1076,7 +1095,7 @@ a colormap. Matplotlib has a number of plot types that do this:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;scatter()&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/d43a2f096c47aef3c6088d05b7568a98103e31f02e0c7bbbab7e9fe9a90302a9.png" src="../../_images/d43a2f096c47aef3c6088d05b7568a98103e31f02e0c7bbbab7e9fe9a90302a9.png" />
+<img alt="../../_images/4fac31bbfea397001b88252bd6ae0d812c0778918568e09bed94658d1f363c1b.png" src="../../_images/4fac31bbfea397001b88252bd6ae0d812c0778918568e09bed94658d1f363c1b.png" />
 </div>
 </div>
 <section id="colormaps">
@@ -1132,7 +1151,7 @@ with Axes objects spanning columns or rows, using <code class="docutils literal 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;right&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/06ac97c619fab309d717aeceb70a6a20d428510ddd34fbae8f15456bffdd3519.png" src="../../_images/06ac97c619fab309d717aeceb70a6a20d428510ddd34fbae8f15456bffdd3519.png" />
+<img alt="../../_images/9de35f8528e2aba09a97433f481e125bdbb8e4af2215884d905a33f8c271a9c7.png" src="../../_images/9de35f8528e2aba09a97433f481e125bdbb8e4af2215884d905a33f8c271a9c7.png" />
 </div>
 </div>
 <p>Matplotlib has quite sophisticated tools for arranging Axes: See
@@ -1183,8 +1202,7 @@ with Axes objects spanning columns or rows, using <code class="docutils literal 
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1278,8 +1296,8 @@ By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
