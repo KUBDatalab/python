@@ -444,6 +444,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
@@ -2306,6 +2307,40 @@ memory usage: 83.7+ KB
 </div>
 </section>
 </section>
+<section id="exercise">
+<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>What is the number of matching records from:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>What is the number of matching records from:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">35</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Reflect on and explain why the two statements return a different number of rows?</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>(We can use the <code class="docutils literal notranslate"><span class="pre">len()</span></code> function to solve question 1 and 2.)</p>
+<ol class="arabic simple">
+<li><p>17 rows</p></li>
+<li><p>100 rows</p></li>
+<li><p>The two expressions differ in the <strong>order</strong> of filtering and slicing, which affects the final result:</p></li>
+</ol>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">titanic.iloc[:100].loc[titanic['Age']</span> <span class="pre">&gt;</span> <span class="pre">35]</span></code><br />
+→ First selects the <strong>first 100 rows</strong>, then filters for rows where <code class="docutils literal notranslate"><span class="pre">Age</span> <span class="pre">&gt;</span> <span class="pre">35</span></code> <strong>within those 100</strong>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">titanic.loc[titanic['Age']</span> <span class="pre">&gt;</span> <span class="pre">35].iloc[:100]</span></code><br />
+→ First filters for <strong>all rows</strong> where <code class="docutils literal notranslate"><span class="pre">Age</span> <span class="pre">&gt;</span> <span class="pre">35</span></code>, then selects the <strong>first 100 rows</strong> from that filtered set.</p></li>
+</ul>
+<p>Thus, the main difference lies in <strong>whether you slice first or filter first</strong>, which can lead to <strong>very different subsets of data</strong>.</p>
+</div>
+</section>
 <hr class="docutils" />
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
@@ -2403,6 +2438,7 @@ memory usage: 83.7+ KB
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-loc-and-iloc">Combining <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>
