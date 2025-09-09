@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>List Comprehensions (Listeforståelser) &#8212; KUB Datalab - Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/06_list_comprehensions';</script>
+    <script src="../../_static/custom.js?v=e8afc0c0"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to...</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../howto/sign_up.html">Sign Up for a Course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/setup.html">Install &amp; Run Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../howto/jupyterlab.html">Get Started with JupyterLab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../howto/jupyterlab_1.html">Open and Navigate JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto/jupyterlab_2.html">Code in JupyterLab</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/interact.html">Interact With This Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../howto/dictionaries.html">Learn All the New Words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../howto/dictionary_101.html">Dictionary for Absolute Beginners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto/dictionary_pandas.html">Dictionary for Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_variables_and_assignment.html">Variables and Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_type_conversion.html">Data Types and Type Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_built-in_functions.html">Built-in Functions and Help</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="part2.html">Part 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_for_loops.html">For Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">List of Tutorials</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/101/06_list_comprehensions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/101/06_list_comprehensions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>List Comprehensions (Listeforståelser)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laeringsmal">Læringsmål</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-bruge-list-comprehensions">Hvorfor bruge list comprehensions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlaeggende-syntaks">Grundlæggende syntaks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-kvadrater-09">Eksempel: kvadrater 0–9</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrering-med-if">Filtrering med <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-lige-tal-fra-020">Eksempel: lige tal fra 0–20</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kombination-transformer-og-filtrer">Kombination: transformér <strong>og</strong> filtrér</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betinget-udtryk-i-udtryksdelen">Betinget udtryk i <em>udtryksdelen</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-even-odd-labels">Eksempel: “even”/”odd” labels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raekkefolge-for-for-if-filter-vs-if-else-i-udtrykket">Rækkefølge: <code class="docutils literal notranslate"><span class="pre">for</span></code> før <code class="docutils literal notranslate"><span class="pre">if</span></code> (filter) vs. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> i udtrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indlejrede-nested-comprehensions">Indlejrede (nested) comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samspil-med-funktioner">Samspil med funktioner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-kort">Performance (kort)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faldgruber-og-bedste-praksis">Faldgruber og bedste praksis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelser">Øvelser</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-1-kvadrater-af-lige-tal">Øvelse 1 — Kvadrater af lige tal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-2-rens-og-filtrer-navne">Øvelse 2 — Rens og filtrér navne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-3-label-tal">Øvelse 3 — Label tal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-4-flad-2d-liste">Øvelse 4 — Flad 2D-liste</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-5-pythagorastripler-mini">Øvelse 5 — Pythagorastripler (mini)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-6-ordfrekvens-basalt">Øvelse 6 — Ordfrekvens (basalt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaterede-emner">Relaterede emner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opsummering">Opsummering</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="list-comprehensions-listeforstaelser">
+<h1>List Comprehensions (Listeforståelser)<a class="headerlink" href="#list-comprehensions-listeforstaelser" title="Link to this heading">#</a></h1>
+<p>I Python er en <em>list comprehension</em> en kompakt måde at oprette lister på ved at kombinere en løkke og (valgfrit) en betingelse i ét udtryk. Det gør din kode kortere og ofte nemmere at læse end en tilsvarende <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke.</p>
+<section id="laeringsmal">
+<h2>Læringsmål<a class="headerlink" href="#laeringsmal" title="Link to this heading">#</a></h2>
+<p>Efter dette afsnit kan du:</p>
+<ul class="simple">
+<li><p>forklare den grundlæggende syntaks for list comprehensions</p></li>
+<li><p>omskrive en simpel <code class="docutils literal notranslate"><span class="pre">for</span></code>-løkke til en comprehension</p></li>
+<li><p>bruge <strong>filter</strong> (<code class="docutils literal notranslate"><span class="pre">if</span></code>-del) og <strong>betinget udtryk</strong> (<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">if</span> <span class="pre">cond</span> <span class="pre">else</span> <span class="pre">B</span></code>)</p></li>
+<li><p>forstå rækkefølgen af <code class="docutils literal notranslate"><span class="pre">for</span></code> og <code class="docutils literal notranslate"><span class="pre">if</span></code> i syntaksen</p></li>
+<li><p>anvende <em>nested</em> (indlejrede) comprehensions med omtanke</p></li>
+<li><p>vurdere fordele/ulemper og læsbarhed</p></li>
+</ul>
+</section>
+<section id="hvorfor-bruge-list-comprehensions">
+<h2>Hvorfor bruge list comprehensions?<a class="headerlink" href="#hvorfor-bruge-list-comprehensions" title="Link to this heading">#</a></h2>
+<p>Når du opretter nye lister baseret på elementer fra en iterabel (fx <code class="docutils literal notranslate"><span class="pre">range</span></code>, en liste eller en streng), kan en comprehension erstatte både løkke og <code class="docutils literal notranslate"><span class="pre">append</span></code>-kald i én linje – ofte mere <strong>koncist</strong> og nogle gange også <strong>hurtigere</strong>.</p>
+</section>
+<section id="grundlaeggende-syntaks">
+<h2>Grundlæggende syntaks<a class="headerlink" href="#grundlaeggende-syntaks" title="Link to this heading">#</a></h2>
+<p><strong>Mønster:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">&lt;</span><span class="n">udtryk</span><span class="o">&gt;</span> <span class="k">for</span> <span class="o">&lt;</span><span class="n">variabel</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterabel</span><span class="o">&gt;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<section id="eksempel-kvadrater-09">
+<h3>Eksempel: kvadrater 0–9<a class="headerlink" href="#eksempel-kvadrater-09" title="Link to this heading">#</a></h3>
+<p>Først med almindelig løkke:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">squares</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">squares</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>Samme med en comprehension:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">squares</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="filtrering-med-if">
+<h2>Filtrering med <code class="docutils literal notranslate"><span class="pre">if</span></code><a class="headerlink" href="#filtrering-med-if" title="Link to this heading">#</a></h2>
+<p>Du kan tilføje et <strong>filter</strong> til sidst for kun at medtage elementer, der opfylder en betingelse.</p>
+<p><strong>Mønster:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">&lt;</span><span class="n">udtryk</span><span class="o">&gt;</span> <span class="k">for</span> <span class="o">&lt;</span><span class="n">variabel</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterabel</span><span class="o">&gt;</span> <span class="k">if</span> <span class="o">&lt;</span><span class="n">betingelse</span><span class="o">&gt;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<section id="eksempel-lige-tal-fra-020">
+<h3>Eksempel: lige tal fra 0–20<a class="headerlink" href="#eksempel-lige-tal-fra-020" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">evens</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">evens</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="kombination-transformer-og-filtrer">
+<h3>Kombination: transformér <strong>og</strong> filtrér<a class="headerlink" href="#kombination-transformer-og-filtrer" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Kvadrer kun de ulige tal</span>
+<span class="n">odd_squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">odd_squares</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 9, 25, 49, 81]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="betinget-udtryk-i-udtryksdelen">
+<h2>Betinget udtryk i <em>udtryksdelen</em><a class="headerlink" href="#betinget-udtryk-i-udtryksdelen" title="Link to this heading">#</a></h2>
+<p>Nogle gange vil du vælge mellem to værdier pr. element. Brug da et <strong>betinget udtryk</strong> i <em>udtryksdelen</em>:</p>
+<p><strong>Mønster:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="k">if</span> <span class="o">&lt;</span><span class="n">cond</span><span class="o">&gt;</span> <span class="k">else</span> <span class="o">&lt;</span><span class="n">B</span><span class="o">&gt;</span> <span class="k">for</span> <span class="o">&lt;</span><span class="n">variabel</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">iterabel</span><span class="o">&gt;</span> <span class="p">]</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>Bemærk rækkefølgen: <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span> <span class="pre">...</span></code> står <strong>inde</strong> i udtrykket, ikke til sidst.</p>
+</div></blockquote>
+<section id="eksempel-even-odd-labels">
+<h3>Eksempel: “even”/”odd” labels<a class="headerlink" href="#eksempel-even-odd-labels" title="Link to this heading">#</a></h3>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;even&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;odd&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">)]</span>
+<span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;even&#39;, &#39;odd&#39;, &#39;even&#39;, &#39;odd&#39;, &#39;even&#39;, &#39;odd&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<section id="raekkefolge-for-for-if-filter-vs-if-else-i-udtrykket">
+<h2>Rækkefølge: <code class="docutils literal notranslate"><span class="pre">for</span></code> før <code class="docutils literal notranslate"><span class="pre">if</span></code> (filter) vs. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> i udtrykket<a class="headerlink" href="#raekkefolge-for-for-if-filter-vs-if-else-i-udtrykket" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Filter</strong>: placeres til <strong>sidst</strong> – lader dig <em>skrælle</em> elementer fra.</p></li>
+<li><p><strong>Betinget udtryk</strong>: placeres i <strong>udtryksdelen</strong> – lader dig vælge værdi for <em>hvert</em> element.</p></li>
+</ul>
+<p>Eksempel på filter vs. betinget udtryk:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter: medtag kun navne med &#39;a&#39;</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Ada&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Carla&quot;</span><span class="p">,</span> <span class="s2">&quot;Egon&quot;</span><span class="p">]</span>
+<span class="n">with_a</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span>
+<span class="n">with_a</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Ada&#39;, &#39;Carla&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Betinget udtryk: label alle navne</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;contains a&quot;</span> <span class="k">if</span> <span class="s2">&quot;a&quot;</span> <span class="ow">in</span> <span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">else</span> <span class="s2">&quot;no a&quot;</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">]</span>
+<span class="n">labels</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;contains a&#39;, &#39;no a&#39;, &#39;contains a&#39;, &#39;no a&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="indlejrede-nested-comprehensions">
+<h2>Indlejrede (nested) comprehensions<a class="headerlink" href="#indlejrede-nested-comprehensions" title="Link to this heading">#</a></h2>
+<p>Du kan have flere <code class="docutils literal notranslate"><span class="pre">for</span></code>-dele. Sørg for, at det stadig er læsbart.</p>
+<p><strong>Eksempel: flad en 2D-liste</strong></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+          <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
+
+<span class="n">flat</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">matrix</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+<span class="n">flat</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, 4, 5, 6, 7, 8, 9]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p><strong>Eksempel: alle (i, j)-par med betingelse</strong></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">if</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">j</span><span class="p">]</span>
+<span class="n">pairs</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1)]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="samspil-med-funktioner">
+<h2>Samspil med funktioner<a class="headerlink" href="#samspil-med-funktioner" title="Link to this heading">#</a></h2>
+<p>Comprehensions spiller godt sammen med funktioner og metoder.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Brug af metodekald</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;  apple&quot;</span><span class="p">,</span> <span class="s2">&quot;BANANA  &quot;</span><span class="p">,</span> <span class="s2">&quot; Cherry &quot;</span><span class="p">]</span>
+<span class="n">clean</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="n">clean</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Brug en hjælpefunktion i udtrykket</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">casefold</span><span class="p">()</span>
+
+<span class="p">[</span><span class="n">normalize</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;]
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="performance-kort">
+<h2>Performance (kort)<a class="headerlink" href="#performance-kort" title="Link to this heading">#</a></h2>
+<p>Comprehensions er ofte lidt hurtigere end en eksplicit løkke med <code class="docutils literal notranslate"><span class="pre">append</span></code>, fordi de er implementeret i C og undgår gentagne attributopslag. Men <strong>læsbarhed kommer først</strong> – vælg det, der gør koden klar.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simpel, uformel sammenligning (din maskine kan give andre tal)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">timeit</span>
+
+<span class="n">lc_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;[x*x for x in range(1000)]&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">loop_time</span> <span class="o">=</span> <span class="n">timeit</span><span class="o">.</span><span class="n">timeit</span><span class="p">(</span><span class="s1">&#39;out=[]</span><span class="se">\n</span><span class="s1">for x in range(1000):</span><span class="se">\n</span><span class="s1">    out.append(x*x)&#39;</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="n">lc_time</span><span class="p">,</span> <span class="n">loop_time</span><span class="p">,</span> <span class="n">loop_time</span><span class="o">/</span><span class="n">lc_time</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.38390543699995305, 0.4456824360000837, 1.1609172286875902)
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="faldgruber-og-bedste-praksis">
+<h2>Faldgruber og bedste praksis<a class="headerlink" href="#faldgruber-og-bedste-praksis" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Læsbart først</strong>: Hvis udtrykket bliver langt eller indlejret, så brug en almindelig løkke.</p></li>
+<li><p><strong>Undgå sideeffekter</strong>: En comprehension bør primært <em>skabe</em> en liste, ikke udføre print/logik på siden.</p></li>
+<li><p><strong>Navnekonflikter</strong>: Variabelnavne inde i comprehension må gerne være korte (<code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">n</span></code>) men vælg meningsfuldt, hvis det hjælper.</p></li>
+<li><p><strong>Husk rækkefølgen</strong>: Filter (<code class="docutils literal notranslate"><span class="pre">if</span></code>) til sidst; betinget udtryk i <em>udtryksdelen</em>.</p></li>
+</ul>
+</section>
+<section id="ovelser">
+<h2>Øvelser<a class="headerlink" href="#ovelser" title="Link to this heading">#</a></h2>
+<section id="ovelse-1-kvadrater-af-lige-tal">
+<h3>Øvelse 1 — Kvadrater af lige tal<a class="headerlink" href="#ovelse-1-kvadrater-af-lige-tal" title="Link to this heading">#</a></h3>
+<p>Lav en liste med kvadraterne af de <strong>lige</strong> tal fra 0 til og med 20.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares_even</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">squares_even</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">squares_even</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>((0, 4, 16, 36, 64), 11)
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ovelse-2-rens-og-filtrer-navne">
+<h3>Øvelse 2 — Rens og filtrér navne<a class="headerlink" href="#ovelse-2-rens-og-filtrer-navne" title="Link to this heading">#</a></h3>
+<p>Givet <code class="docutils literal notranslate"><span class="pre">names</span> <span class="pre">=</span> <span class="pre">[&quot;</span>&#160; <span class="pre">Anne&quot;,</span> <span class="pre">&quot;bob</span>&#160; <span class="pre">&quot;,</span> <span class="pre">&quot;CARLA&quot;,</span> <span class="pre">&quot;di&quot;]</span></code>, lav en liste med <strong>rensede</strong> (trim + lowercase) navne <strong>længere end 2 tegn</strong>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;  Anne&quot;</span><span class="p">,</span> <span class="s2">&quot;bob  &quot;</span><span class="p">,</span> <span class="s2">&quot;CARLA&quot;</span><span class="p">,</span> <span class="s2">&quot;di&quot;</span><span class="p">]</span>
+<span class="n">clean_long</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">clean_long</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&#39;anne&#39;, &#39;bob&#39;, &#39;carla&#39;]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ovelse-3-label-tal">
+<h3>Øvelse 3 — Label tal<a class="headerlink" href="#ovelse-3-label-tal" title="Link to this heading">#</a></h3>
+<p>Lav en liste med strenge <code class="docutils literal notranslate"><span class="pre">&quot;even&quot;</span></code> eller <code class="docutils literal notranslate"><span class="pre">&quot;odd&quot;</span></code> for tallene 0–9.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;even&quot;</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">&quot;odd&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
+<span class="n">labels</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[&#39;even&#39;, &#39;odd&#39;, &#39;even&#39;, &#39;odd&#39;, &#39;even&#39;, &#39;odd&#39;]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ovelse-4-flad-2d-liste">
+<h3>Øvelse 4 — Flad 2D-liste<a class="headerlink" href="#ovelse-4-flad-2d-liste" title="Link to this heading">#</a></h3>
+<p>Givet <code class="docutils literal notranslate"><span class="pre">grid</span> <span class="pre">=</span> <span class="pre">[[0,1],[2,3,4],[5]]</span></code>, flad listen til én liste.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],[</span><span class="mi">5</span><span class="p">]]</span>
+<span class="n">flat</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="p">]</span>
+<span class="n">flat</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4, 5]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ovelse-5-pythagorastripler-mini">
+<h3>Øvelse 5 — Pythagorastripler (mini)<a class="headerlink" href="#ovelse-5-pythagorastripler-mini" title="Link to this heading">#</a></h3>
+<p>Find alle tripler <code class="docutils literal notranslate"><span class="pre">(a,</span> <span class="pre">b,</span> <span class="pre">c)</span></code> for <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">≤</span> <span class="pre">a</span> <span class="pre">≤</span> <span class="pre">b</span> <span class="pre">≤</span> <span class="pre">20</span></code>, hvor <code class="docutils literal notranslate"><span class="pre">a**2</span> <span class="pre">+</span> <span class="pre">b**2</span> <span class="pre">==</span> <span class="pre">c**2</span></code> og <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">≤</span> <span class="pre">20</span></code>.
+<em>Hint</em>: To <code class="docutils literal notranslate"><span class="pre">for</span></code>-dele og et filter.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">triples</span> <span class="o">=</span> <span class="p">[(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+           <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+           <span class="k">if</span> <span class="n">a</span><span class="o">*</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">==</span> <span class="n">c</span><span class="o">*</span><span class="n">c</span><span class="p">]</span>
+<span class="n">triples</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[(3, 4, 5), (5, 12, 13), (6, 8, 10), (8, 15, 17), (9, 12, 15)]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="ovelse-6-ordfrekvens-basalt">
+<h3>Øvelse 6 — Ordfrekvens (basalt)<a class="headerlink" href="#ovelse-6-ordfrekvens-basalt" title="Link to this heading">#</a></h3>
+<p>Givet <code class="docutils literal notranslate"><span class="pre">text</span> <span class="pre">=</span> <span class="pre">&quot;to</span> <span class="pre">be</span> <span class="pre">or</span> <span class="pre">not</span> <span class="pre">to</span> <span class="pre">be&quot;</span></code>. Lav en liste af <code class="docutils literal notranslate"><span class="pre">(ord,</span> <span class="pre">antal)</span></code> for hvert unikt ord i teksten (brug <code class="docutils literal notranslate"><span class="pre">split()</span></code> og <code class="docutils literal notranslate"><span class="pre">set()</span></code>), sortér resultatet alfabetisk.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Løsning</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;to be or not to be&quot;</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">pairs</span> <span class="o">=</span> <span class="p">[(</span><span class="n">w</span><span class="p">,</span> <span class="n">words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">w</span><span class="p">))</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">words</span><span class="p">))]</span>
+<span class="n">pairs</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[(&#39;be&#39;, 2), (&#39;not&#39;, 1), (&#39;or&#39;, 1), (&#39;to&#39;, 2)]
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="relaterede-emner">
+<h2>Relaterede emner<a class="headerlink" href="#relaterede-emner" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Set/Dict comprehensions</strong> (<code class="docutils literal notranslate"><span class="pre">{expr</span> <span class="pre">for</span> <span class="pre">...}</span></code>, <code class="docutils literal notranslate"><span class="pre">{k:</span> <span class="pre">v</span> <span class="pre">for</span> <span class="pre">...}</span></code>)</p></li>
+<li><p><strong>Generator expressions</strong> (<code class="docutils literal notranslate"><span class="pre">(expr</span> <span class="pre">for</span> <span class="pre">...)</span></code>) – som comprehension, men laver en <em>generator</em> i stedet for en liste.</p></li>
+</ul>
+</section>
+<section id="opsummering">
+<h2>Opsummering<a class="headerlink" href="#opsummering" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Brug comprehensions til <em>transformering</em> og <em>filtrering</em> i én kompakt syntaks.</p></li>
+<li><p>Placer <strong>filteret</strong> til sidst; brug <strong>betinget udtryk</strong> i <em>udtryksdelen</em>.</p></li>
+<li><p>Vælg <strong>læsbarhed</strong> over “én linje for enhver pris”.</p></li>
+</ul>
+<hr class="docutils" />
+<p><em>Dette afsnit er originalt undervisningsmateriale, skrevet til din kursusmappe og inspireret af almindeligt kendte introduktioner til list comprehensions.</em></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/101"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#laeringsmal">Læringsmål</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hvorfor-bruge-list-comprehensions">Hvorfor bruge list comprehensions?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grundlaeggende-syntaks">Grundlæggende syntaks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-kvadrater-09">Eksempel: kvadrater 0–9</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtrering-med-if">Filtrering med <code class="docutils literal notranslate"><span class="pre">if</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-lige-tal-fra-020">Eksempel: lige tal fra 0–20</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kombination-transformer-og-filtrer">Kombination: transformér <strong>og</strong> filtrér</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betinget-udtryk-i-udtryksdelen">Betinget udtryk i <em>udtryksdelen</em></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-even-odd-labels">Eksempel: “even”/”odd” labels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#raekkefolge-for-for-if-filter-vs-if-else-i-udtrykket">Rækkefølge: <code class="docutils literal notranslate"><span class="pre">for</span></code> før <code class="docutils literal notranslate"><span class="pre">if</span></code> (filter) vs. <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">...</span> <span class="pre">else</span></code> i udtrykket</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#indlejrede-nested-comprehensions">Indlejrede (nested) comprehensions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#samspil-med-funktioner">Samspil med funktioner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-kort">Performance (kort)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#faldgruber-og-bedste-praksis">Faldgruber og bedste praksis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelser">Øvelser</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-1-kvadrater-af-lige-tal">Øvelse 1 — Kvadrater af lige tal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-2-rens-og-filtrer-navne">Øvelse 2 — Rens og filtrér navne</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-3-label-tal">Øvelse 3 — Label tal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-4-flad-2d-liste">Øvelse 4 — Flad 2D-liste</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-5-pythagorastripler-mini">Øvelse 5 — Pythagorastripler (mini)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ovelse-6-ordfrekvens-basalt">Øvelse 6 — Ordfrekvens (basalt)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaterede-emner">Relaterede emner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opsummering">Opsummering</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> <img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

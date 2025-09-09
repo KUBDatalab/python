@@ -539,6 +539,45 @@ after
 </div>
 </details>
 </div>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Printing Variables</p>
+<p>Often you want to print both text and the value of a variable. In Python there are several ways to do this.</p>
+<p><strong>1) Using a comma inside <code class="docutils literal notranslate"><span class="pre">print()</span></code></strong><br />
+You can separate text and variables with a comma. Python will add a space between them automatically.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;Age:&quot;</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="c1"># Output: Name: Alice Age: 25</span>
+</pre></div>
+</div>
+<p>This is simple and easy to read.</p>
+<p><strong>2) Using string concatenation</strong><br />
+You can join strings together with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.<br />
+If the variable is not already a string (like a number), you need to convert it with <code class="docutils literal notranslate"><span class="pre">str()</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Name: &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot; Age: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">))</span>
+<span class="c1"># Output: Name: Alice Age: 25</span>
+</pre></div>
+</div>
+<p><strong>3) Using f-strings (recommended)</strong><br />
+In modern Python (3.6+), you can use <strong>f-strings</strong>.<br />
+They let you write variables directly inside curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> in your string.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Alice&quot;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Name: </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> Age: </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Output: Name: Alice Age: 25</span>
+</pre></div>
+</div>
+<p>This is usually the <strong>cleanest and most readable way</strong>. You don’t need to convert numbers to strings, Python does it for you.</p>
+<hr class="docutils" />
+<p><strong>Summary:</strong></p>
+<ul class="simple">
+<li><p>Use commas for quick prints.</p></li>
+<li><p>Use concatenation if you need to join strings manually.</p></li>
+<li><p>Use f-strings for clean and modern code.</p></li>
+</ul>
+</div>
 <section id="max-min-and-round">
 <h3><code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code><a class="headerlink" href="#max-min-and-round" title="Link to this heading">#</a></h3>
 <p>Commonly-used built-in functions include <code class="docutils literal notranslate"><span class="pre">max()</span></code>, <code class="docutils literal notranslate"><span class="pre">min()</span></code>, and <code class="docutils literal notranslate"><span class="pre">round()</span></code>.</p>

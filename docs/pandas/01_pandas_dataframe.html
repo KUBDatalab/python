@@ -439,12 +439,16 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><i class="fa-solid fa-pencil"></i> Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-to-append-a-row">Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-append-row"><i class="fa-solid fa-pencil"></i> Exercise 1: Append row</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
@@ -912,12 +916,17 @@ Name: Fare, dtype: object
 </div>
 </details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fare</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fare
 &lt;class &#39;str&#39;&gt;    3
@@ -925,6 +934,7 @@ Name: count, dtype: int64
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -949,12 +959,17 @@ Name: count, dtype: int64
 <p>Although our data looks fine at first glance, each cell is actually stored as a string.
 While we can read the numbers without issue, this will cause problems if we want to use them for calculations.</p>
 <p>To solve this, Pandas provides a built-in function called <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>, which converts a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to either an integer or a float, depending on the values.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">fare</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
@@ -988,6 +1003,7 @@ While we can read the numbers without issue, this will cause problems if we want
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>However, as seen above, this produces a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> due to the “Unknown” value at position 2.</p>
 <p>To solve this, we need to use the <code class="docutils literal notranslate"><span class="pre">errors</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>.</p>
@@ -1016,7 +1032,7 @@ Any values that cannot be converted — such as strings like “Unknown” — w
 <p>We can add a <code class="docutils literal notranslate"><span class="pre">Series</span></code> as a new column to a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, extending it horizontally.<br />
 Here, the name of the ‘fare’ <code class="docutils literal notranslate"><span class="pre">Series</span></code> (‘Fare’) becomes the column name in the updated <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the Series&#39; cells to numeric values</span>
 
 <span class="n">fare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">fare</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
@@ -1024,17 +1040,8 @@ Here, the name of the ‘fare’ <code class="docutils literal notranslate"><spa
 <span class="c1"># Concatenate the &#39;fare&#39; Series to the &#39;df&#39; DataFrame along the columns (axis=1).</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">fare</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">pandas.concat()</span></code> determines whether you are combining data along rows or columns:</p>
-<p><code class="docutils literal notranslate"><span class="pre">axis=0</span></code> (Default): Concatenation along Rows<br />
-<code class="docutils literal notranslate"><span class="pre">axis=1</span></code>: Concatenation along Columns</p>
-<p>(When concatenating along <code class="docutils literal notranslate"><span class="pre">axis=1</span></code>, Pandas aligns on the index by default. If indices do not match, you may see <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values where data is missing.)</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Display the updated DataFrame &#39;df&#39;.</span>
+
+<span class="c1"># Display the updated DataFrame &#39;df&#39;.</span>
 
 <span class="n">df</span>
 </pre></div>
@@ -1097,23 +1104,36 @@ Here, the name of the ‘fare’ <code class="docutils literal notranslate"><spa
 </div></div></div>
 </details>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">pandas.concat()</span></code> controls whether you combine data <strong>row-wise</strong> or <strong>column-wise</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=0</span></code> <strong>(default)</strong>: Concatenates along rows (adds more rows beneath each other).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=1</span></code>: Concatenates along columns (adds new columns side by side).</p></li>
+</ul>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>While concatenating a <code class="docutils literal notranslate"><span class="pre">Series</span></code> along <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> works smoothly (it becomes a new column), concatenating along <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> is less straightforward. A <code class="docutils literal notranslate"><span class="pre">Series</span></code> is one-dimensional, so Pandas does not automatically treat it as a full row in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+To make it work, you first need to reshape the <code class="docutils literal notranslate"><span class="pre">Series</span></code> into a one-row <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+This is typically done with <code class="docutils literal notranslate"><span class="pre">.to_frame().T</span></code>, which is just a compact way of writing <code class="docutils literal notranslate"><span class="pre">.to_frame()</span></code> followed by <code class="docutils literal notranslate"><span class="pre">.transpose()</span></code>.</p>
+<p>An easier and more intuitive solution is often to convert the <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a list and use <code class="docutils literal notranslate"><span class="pre">df.loc[len(df)]</span> <span class="pre">=</span> <span class="pre">...</span></code> to append it as a new row.</p>
+</div>
+<section id="using-loc-to-append-a-row">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row<a class="headerlink" href="#using-loc-to-append-a-row" title="Link to this heading">#</a></h3>
+<p>Instead of reshaping the <code class="docutils literal notranslate"><span class="pre">Series</span></code>, you can append it directly to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with <code class="docutils literal notranslate"><span class="pre">.loc</span></code>. The idea is to place the new row at the next available index position, which is simply <code class="docutils literal notranslate"><span class="pre">len(df)</span></code>.</p>
+<p>If you already have the values as a list, you can write:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra_row</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here Pandas inserts the values in the order of the existing columns.</p>
+<p>If your <code class="docutils literal notranslate"><span class="pre">Series</span></code> has labels that match the column names, you can assign it directly:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra_row</span>
+</pre></div>
+</div>
+<p>In this case, Pandas aligns the labels with the column names, which is safer if the column order changes.</p>
 </section>
-<section id="id1">
-<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>Given the <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extra_row</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Futrelle&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;Female&#39;</span><span class="p">,</span> <span class="mf">53.1000</span><span class="p">])</span>
-</pre></div>
-</div>
-<p>Append this <code class="docutils literal notranslate"><span class="pre">Series</span></code> to ‘df’ but as a row (not a column!).</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df = pd.concat([df, extra_row], axis=0)
-</pre></div>
-</div>
-<p>This solution concatenates the ‘extra_row’ <code class="docutils literal notranslate"><span class="pre">Series</span></code> to the ‘df’ <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> along the rows (axis=0).</p>
-</div>
+</section>
+<hr class="docutils" />
 <section id="creating-a-new-column-based-on-existing-data">
-<h3>Creating a new column based on existing data<a class="headerlink" href="#creating-a-new-column-based-on-existing-data" title="Link to this heading">#</a></h3>
+<h2>Creating a new column based on existing data<a class="headerlink" href="#creating-a-new-column-based-on-existing-data" title="Link to this heading">#</a></h2>
 <p>We can also create a new column based on the data in an existing column.</p>
 <p>Here, we create a new column ‘Age_in_3_years’ in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘df’.<br />
 This column is calculated by adding 3 to each value in the ‘Ages’ column.</p>
@@ -1194,10 +1214,30 @@ This column is calculated by adding 3 to each value in the ‘Ages’ column.</p
 </details>
 </div>
 </section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-append-row">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Append row<a class="headerlink" href="#exercise-1-append-row" title="Link to this heading">#</a></h3>
+<p>Given the <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Futrelle&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="mf">53.1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Append this <code class="docutils literal notranslate"><span class="pre">Series</span></code> to ‘df’ but as a row (not a column!).</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[len(df)] = new_data.tolist()
+</pre></div>
+</div>
+</div>
 </section>
 <hr class="docutils" />
-<section id="id2">
-<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<section id="exercise-2-create-a-new-column">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column<a class="headerlink" href="#exercise-2-create-a-new-column" title="Link to this heading">#</a></h3>
 <p>Create a new column called ‘Fare_in_DKK’ based on the column ‘Fare’.</p>
 <p>We assume the old fare prices to be in GBP and the exchange rate to be £1 = 8.7 DKK</p>
 <div class="dropdown admonition">
@@ -1209,6 +1249,7 @@ This column is calculated by adding 3 to each value in the ‘Ages’ column.</p
 Each fare value in GBP is multiplied by the exchange rate to obtain the corresponding fare value in DKK.</p>
 </div>
 </section>
+</section>
 <hr class="docutils" />
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
@@ -1217,7 +1258,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 <li><p>A table of data is stored as a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">shape</span></code>and <code class="docutils literal notranslate"><span class="pre">dtypes</span></code> attributes are convenient for a first check.</p></li>
 <li><p>Each column in a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
-<li><p>We can append <code class="docutils literal notranslate"><span class="pre">Series</span></code> as columns to an existing <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
+<li><p>We can append <code class="docutils literal notranslate"><span class="pre">Series</span></code> to an existing <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
 </ul>
 </section>
 </section>
@@ -1302,12 +1343,16 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><i class="fa-solid fa-pencil"></i> Exercise</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-to-append-a-row">Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-append-row"><i class="fa-solid fa-pencil"></i> Exercise 1: Append row</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>

@@ -479,7 +479,7 @@ document.write(`
 <h1>Quick start guide<a class="headerlink" href="#quick-start-guide" title="Link to this heading">#</a></h1>
 <p>This tutorial covers some basic usage patterns and best practices to
 help you get started with Matplotlib.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -496,17 +496,23 @@ in a polar plot, x-y-z in a 3D plot, etc.). The simplest way of
 creating a Figure with an Axes is using <code class="docutils literal notranslate"><span class="pre">pyplot.subplots</span></code> We can then use
 <code class="docutils literal notranslate"><span class="pre">Axes.plot</span></code> to draw some data on the Axes, and <code class="docutils literal notranslate"><span class="pre">show</span></code> to display
 the figure:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>       <span class="c1"># Create a figure containing a single Axes.</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="c1"># Plot some data on the Axes.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>              <span class="c1"># Show the figure.</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/030ef5a96056954cbf17731046d4c8921839b3efc6708b35ff0a1585e4fa5746.png" src="../../_images/030ef5a96056954cbf17731046d4c8921839b3efc6708b35ff0a1585e4fa5746.png" />
+<img alt="../../_images/cc8fdf9051704f22af74e61d2558a96228b41bb429fabe29a8efae5270d0b7c4.png" src="../../_images/cc8fdf9051704f22af74e61d2558a96228b41bb429fabe29a8efae5270d0b7c4.png" />
 </div>
+</details>
 </div>
 <p>Depending on the environment you are working in, <code class="docutils literal notranslate"><span class="pre">plt.show()</span></code> can be left
 out. This is for example the case with Jupyter notebooks, which
@@ -587,8 +593,8 @@ For example, to convert a <code class="docutils literal notranslate"><span class
 <a class="reference external" href="https://numpy.org/doc/stable/user/basics.rec.html#structured-arrays#noqa:E501">structured numpy array</a>, or a <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code> Matplotlib allows you
 to provide the <code class="docutils literal notranslate"><span class="pre">data</span></code> keyword argument and generate plots passing the
 strings corresponding to the <em>x</em> and <em>y</em> variables.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">19680801</span><span class="p">)</span> <span class="c1"># seed the random number generator.</span>
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
     <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
@@ -603,12 +609,18 @@ strings corresponding to the <em>x</em> and <em>y</em> variables.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;entry b&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/747ac13bdd569d80b4607fd2077de620503bc4b177eb453e7a7dca7e294bf785.png" src="../../_images/747ac13bdd569d80b4607fd2077de620503bc4b177eb453e7a7dca7e294bf785.png" />
+<img alt="../../_images/5f29aa5bfa02d77c33201b18ad93a9e413872403899b733dfa311b92ac9fa1cb.png" src="../../_images/5f29aa5bfa02d77c33201b18ad93a9e413872403899b733dfa311b92ac9fa1cb.png" />
 </div>
+</details>
 </div>
 </section>
 <section id="coding-styles">
@@ -625,8 +637,8 @@ use pyplot functions for plotting.</p></li>
 <p>See <a class="reference external" href="https://matplotlib.org/stable/users/explain/figure/api_interfaces.html#api-interfaces">Matplotlib Application Interfaces (APIs)</a> for an explanation of the tradeoffs between the
 implicit and explicit interfaces.</p>
 <p>So one can use the OO-style</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># Sample data.</span>
 
 <span class="c1"># Note that even in the OO-style, we use `.pyplot.figure` to create the Figure.</span>
@@ -641,16 +653,22 @@ implicit and explicit interfaces.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f69b3e66d20&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff7b0b10ec0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" src="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" />
+<img alt="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" src="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" />
 </div>
+</details>
 </div>
 <p>or the pyplot-style:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># Sample data.</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
@@ -664,12 +682,18 @@ implicit and explicit interfaces.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f69b3f23c80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff7b2de5c10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" src="../../_images/92f2340808d1a3d864541dcd2b5dba860466e6885085bd91e396de315b698b88.png" />
+<img alt="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" src="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" />
 </div>
+</details>
 </div>
 <p>(In addition, there is a third approach, for the case when embedding
 Matplotlib in a GUI application, which completely drops pyplot, even for
@@ -691,7 +715,7 @@ via <code class="docutils literal notranslate"><span class="pre">from</span> <sp
 <p>If you need to make the same plots over and over again with different data
 sets, or want to easily wrap Matplotlib methods, use the recommended
 signature function below.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
@@ -704,8 +728,8 @@ signature function below.</p>
 </div>
 </div>
 <p>which you would then use twice to populate two subplots:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">data3</span><span class="p">,</span> <span class="n">data4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># make 4 random data sets</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">))</span>
 <span class="n">my_plotter</span><span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span><span class="p">})</span>
@@ -713,12 +737,18 @@ signature function below.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f69b1db5be0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff7b0a17590&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/be4b8c194bd74be420b45b4766c2bd2684124e5955e30308b1a60c6d70642526.png" src="../../_images/be4b8c194bd74be420b45b4766c2bd2684124e5955e30308b1a60c6d70642526.png" />
+<img alt="../../_images/b797362ac6cb9e5d299337e468723e28e91f6545fae723881834e137066f289b.png" src="../../_images/b797362ac6cb9e5d299337e468723e28e91f6545fae723881834e137066f289b.png" />
 </div>
+</details>
 </div>
 <p>Note that if you want to install these as a python package, or any other
 customizations you could use one of the many templates on the web;
@@ -732,8 +762,8 @@ when a plotting method is called, or from a “setter” on the Artist. In the
 plot below we manually set the <em>color</em>, <em>linewidth</em>, and <em>linestyle</em> of the
 Artists created by <code class="docutils literal notranslate"><span class="pre">plot</span></code>, and we set the linestyle of the second line
 after the fact with <code class="docutils literal notranslate"><span class="pre">Line2D.set_linestyle</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">))</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">data1</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
@@ -742,9 +772,15 @@ after the fact with <code class="docutils literal notranslate"><span class="pre"
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/f4fc8da3e975b44ed857db873fe9d71f8f8074e9eefe1667ba385dfc5e5e282b.png" src="../../_images/f4fc8da3e975b44ed857db873fe9d71f8f8074e9eefe1667ba385dfc5e5e282b.png" />
+<img alt="../../_images/1f6f8478a4bcdd8e42940a2b019dc3b30df5667a7afe9b8c8d8926227417c79f.png" src="../../_images/1f6f8478a4bcdd8e42940a2b019dc3b30df5667a7afe9b8c8d8926227417c79f.png" />
 </div>
+</details>
 </div>
 <section id="colors">
 <h3>Colors<a class="headerlink" href="#colors" title="Link to this heading">#</a></h3>
@@ -753,19 +789,25 @@ Artists; see <a class="reference external" href="https://matplotlib.org/stable/u
 list of specifications. Some Artists will take multiple colors. i.e. for
 a <code class="docutils literal notranslate"><span class="pre">scatter</span></code> plot, the edge of the markers can be different colors
 from the interior:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f69b1c59b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7ff7b0b86e40&gt;
 </pre></div>
 </div>
-<img alt="../../_images/67108aa388b3ef345c342273e2d62593fad03232eeb46126dccf88e13dec7ca9.png" src="../../_images/67108aa388b3ef345c342273e2d62593fad03232eeb46126dccf88e13dec7ca9.png" />
+<img alt="../../_images/98138832e10c18430d824c18769b9eb44a71b921483f5db53bd84490add171a7.png" src="../../_images/98138832e10c18430d824c18769b9eb44a71b921483f5db53bd84490add171a7.png" />
 </div>
+</details>
 </div>
 </section>
 <section id="linewidths-linestyles-and-markersizes">
@@ -779,8 +821,8 @@ marker. <code class="docutils literal notranslate"><span class="pre">scatter</sp
 proportional to the visual area of the marker. There is an array of
 markerstyles available as string codes (see <a class="reference external" href="https://matplotlib.org/stable/api/markers_api.html#module-matplotlib.markers"><code class="docutils literal notranslate"><span class="pre">markers</span></code></a>), or
 users can define their own <code class="docutils literal notranslate"><span class="pre">MarkerStyle</span></code> (see <a class="reference external" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/marker_reference.html">Marker reference</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data1&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data2</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data2&#39;</span><span class="p">)</span>
@@ -790,12 +832,18 @@ users can define their own <code class="docutils literal notranslate"><span clas
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f69b1c727b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff7b09b5c10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/30f81b0ffd312efc74103619e61c19e9543a242ae31f4da134797bd1fe7ca5b0.png" src="../../_images/30f81b0ffd312efc74103619e61c19e9543a242ae31f4da134797bd1fe7ca5b0.png" />
+<img alt="../../_images/c3c8a66ee958926537549b9562654a884517d921962e09f8a4ce914da18875a9.png" src="../../_images/c3c8a66ee958926537549b9562654a884517d921962e09f8a4ce914da18875a9.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -807,8 +855,8 @@ users can define their own <code class="docutils literal notranslate"><span clas
 add text in the indicated locations (see <a class="reference external" href="https://matplotlib.org/stable/users/explain/text/text_intro.html#text-intro">Text in Matplotlib</a>
 for more discussion). Text can also be directly added to plots using
 <code class="docutils literal notranslate"><span class="pre">text</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">15</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">+</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
@@ -824,9 +872,15 @@ for more discussion). Text can also be directly added to plots using
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/8bc3709d91671a2f26e4813c91eb06a6490cb5abe6d6c861189edf5b992ba83e.png" src="../../_images/8bc3709d91671a2f26e4813c91eb06a6490cb5abe6d6c861189edf5b992ba83e.png" />
+<img alt="../../_images/bb22081063ecc2972494e345229e811b1a280fba9a16afd3441594468274321b.png" src="../../_images/bb22081063ecc2972494e345229e811b1a280fba9a16afd3441594468274321b.png" />
 </div>
+</details>
 </div>
 <p>All of the <code class="docutils literal notranslate"><span class="pre">text</span></code> functions return a <code class="docutils literal notranslate"><span class="pre">matplotlib.text.Text</span></code>
 instance. Just as with lines above, you can customize the properties by
@@ -857,8 +911,8 @@ saved postscript – see <a class="reference external" href="https://matplotlib.
 <h3>Annotations<a class="headerlink" href="#annotations" title="Link to this heading">#</a></h3>
 <p>We can also annotate points on a plot, often by connecting an arrow pointing
 to <em>xy</em>, to a piece of text at <em>xytext</em>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">))</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
@@ -872,12 +926,18 @@ to <em>xy</em>, to a piece of text at <em>xytext</em>:</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.0, 2.0)
 </pre></div>
 </div>
-<img alt="../../_images/9628888b367342c92ff3db7e311e6b6147d2188412eb6bcbbff75ae545ccd0c3.png" src="../../_images/9628888b367342c92ff3db7e311e6b6147d2188412eb6bcbbff75ae545ccd0c3.png" />
+<img alt="../../_images/ab96a7d06629114e606b47c36c6418b1e48b5cb4016bf308f2071a5e6b357a2a.png" src="../../_images/ab96a7d06629114e606b47c36c6418b1e48b5cb4016bf308f2071a5e6b357a2a.png" />
 </div>
+</details>
 </div>
 <p>In this basic example, both <em>xy</em> and <em>xytext</em> are in data coordinates.
 There are a variety of other coordinate systems one can choose – see
@@ -887,8 +947,8 @@ details. More examples also can be found in <a class="reference external" href="
 <section id="legends">
 <h3>Legends<a class="headerlink" href="#legends" title="Link to this heading">#</a></h3>
 <p>Often we want to identify lines or markers with a <code class="docutils literal notranslate"><span class="pre">Axes.legend</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">)),</span> <span class="n">data1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data1&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data2</span><span class="p">)),</span> <span class="n">data2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;data2&#39;</span><span class="p">)</span>
@@ -897,12 +957,18 @@ details. More examples also can be found in <a class="reference external" href="
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f69b1c72de0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7ff7b0745c10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/e09ad3a7555c7fe744c15dd77c0217a5385b2ac7385278207b148323375e709c.png" src="../../_images/e09ad3a7555c7fe744c15dd77c0217a5385b2ac7385278207b148323375e709c.png" />
+<img alt="../../_images/1f125a273e97749c0fb593f15108a3379b8ad803da8a34ff1366fd81cc140957.png" src="../../_images/1f125a273e97749c0fb593f15108a3379b8ad803da8a34ff1366fd81cc140957.png" />
 </div>
+</details>
 </div>
 <p>Legends in Matplotlib are quite flexible in layout, placement, and what
 Artists they can represent. They are discussed in detail in
@@ -923,8 +989,8 @@ direct methods like <code class="docutils literal notranslate"><span class="pre"
 <code class="docutils literal notranslate"><span class="pre">semilogy</span></code> There are a number of scales (see
 <a class="reference external" href="https://matplotlib.org/stable/gallery/scales/scales.html">Scales</a> for other examples). Here we set the scale
 manually:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">xdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">))</span> <span class="c1"># make an ordinal for this</span>
 <span class="n">data</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">data1</span>
@@ -935,12 +1001,18 @@ manually:</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f69b19c9a60&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7ff7b06330b0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/9b867617227a1c1ff48ff943888393786e48420237e271ae4220f24a2e3bac85.png" src="../../_images/9b867617227a1c1ff48ff943888393786e48420237e271ae4220f24a2e3bac85.png" />
+<img alt="../../_images/fc3c51623e85770dc5060bcfcb30ff034cfcb26ed2926bfb79d6975fd4262c5f.png" src="../../_images/fc3c51623e85770dc5060bcfcb30ff034cfcb26ed2926bfb79d6975fd4262c5f.png" />
 </div>
+</details>
 </div>
 <p>The scale sets the mapping from data values to spacing along the Axis. This
 happens in both directions, and gets combined into a <em>transform</em>, which
@@ -952,8 +1024,8 @@ screen coordinates. See <a class="reference external" href="https://matplotlib.o
 <p>Each Axis has a tick <em>locator</em> and <em>formatter</em> that choose where along the
 Axis objects to put tick marks. A simple interface to this is
 <code class="docutils literal notranslate"><span class="pre">set_xticks</span></code>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xdata</span><span class="p">,</span> <span class="n">data1</span><span class="p">)</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Automatic ticks&#39;</span><span class="p">)</span>
@@ -965,12 +1037,18 @@ Axis objects to put tick marks. A simple interface to this is
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Manual ticks&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/59fe1ed674310f04b42298b79743e2f24c9959563df621fc79ffd1c36f0a746b.png" src="../../_images/59fe1ed674310f04b42298b79743e2f24c9959563df621fc79ffd1c36f0a746b.png" />
+<img alt="../../_images/a2197398cd9764eca8a4a616e9972006e7c0b26349409ec3fd7d83410985fd77.png" src="../../_images/a2197398cd9764eca8a4a616e9972006e7c0b26349409ec3fd7d83410985fd77.png" />
 </div>
+</details>
 </div>
 <p>Different scales can have different locators and formatters; for instance
 the log-scale above uses <code class="docutils literal notranslate"><span class="pre">LogLocator</span></code> and <code class="docutils literal notranslate"><span class="pre">LogFormatter</span></code> See
@@ -983,8 +1061,8 @@ locators and information for writing your own.</p>
 <p>Matplotlib can handle plotting arrays of dates and arrays of strings, as
 well as floating point numbers. These get special locators and formatters
 as appropriate. For dates:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConciseDateFormatter</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
@@ -996,16 +1074,22 @@ as appropriate. For dates:</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/7b0b53574e4df6676d73f60b0be5351837b3cecb6a5c867cdaee0944173dd008.png" src="../../_images/7b0b53574e4df6676d73f60b0be5351837b3cecb6a5c867cdaee0944173dd008.png" />
+<img alt="../../_images/81c454ea5905e2572e619a307b33b6b68fd5c1371c39762bb947209316ef62ec.png" src="../../_images/81c454ea5905e2572e619a307b33b6b68fd5c1371c39762bb947209316ef62ec.png" />
 </div>
+</details>
 </div>
 <p>For more information see the date examples
 (e.g. <a class="reference external" href="https://matplotlib.org/stable/gallery/text_labels_and_annotations/date.html">Date tick labels</a>)</p>
 <p>For strings, we get categorical plotting (see:
 <a class="reference external" href="https://matplotlib.org/stable/gallery/lines_bars_and_markers/categorical_variables.html">Plotting categorical variables</a>).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;turnips&#39;</span><span class="p">,</span> <span class="s1">&#39;rutabaga&#39;</span><span class="p">,</span> <span class="s1">&#39;cucumber&#39;</span><span class="p">,</span> <span class="s1">&#39;pumpkins&#39;</span><span class="p">]</span>
 
@@ -1013,12 +1097,18 @@ as appropriate. For dates:</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 4 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/acf4a979d166e0e1d0c896d0787b4b2d2f0a57aa27a5d01c59365ef4842bf7e7.png" src="../../_images/acf4a979d166e0e1d0c896d0787b4b2d2f0a57aa27a5d01c59365ef4842bf7e7.png" />
+<img alt="../../_images/4cd6ce7258b2afca751121bf7633661e6fe2c6884464a043b743b24357b01161.png" src="../../_images/4cd6ce7258b2afca751121bf7633661e6fe2c6884464a043b743b24357b01161.png" />
 </div>
+</details>
 </div>
 <p>One caveat about categorical plotting is that some methods of parsing
 text files return a list of strings, even if the strings all represent
@@ -1037,8 +1127,8 @@ positioned at the right (analogously for <code class="docutils literal notransla
 represent the data in different scales or units. See
 <a class="reference external" href="https://matplotlib.org/stable/gallery/subplots_axes_and_figures/secondary_axis.html">Secondary Axis</a> for further
 examples.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">l1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
@@ -1052,12 +1142,18 @@ examples.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Angle [°]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/5992365f2e41e01c2bc8dfc70a60b69aff70a220343626c2608445d9626602c7.png" src="../../_images/5992365f2e41e01c2bc8dfc70a60b69aff70a220343626c2608445d9626602c7.png" />
+<img alt="../../_images/7498c42288100ba5e563208f7ddf7457d57e0358927c954ebda7075eb938e1f2.png" src="../../_images/7498c42288100ba5e563208f7ddf7457d57e0358927c954ebda7075eb938e1f2.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -1065,8 +1161,8 @@ examples.</p>
 <h2>Color mapped data<a class="headerlink" href="#color-mapped-data" title="Link to this heading">#</a></h2>
 <p>Often we want to have a third dimension in a plot represented by colors in
 a colormap. Matplotlib has a number of plot types that do this:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
@@ -1091,12 +1187,18 @@ a colormap. Matplotlib has a number of plot types that do this:</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;scatter()&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4fac31bbfea397001b88252bd6ae0d812c0778918568e09bed94658d1f363c1b.png" src="../../_images/4fac31bbfea397001b88252bd6ae0d812c0778918568e09bed94658d1f363c1b.png" />
+<img alt="../../_images/f56596f2e6d6c8c4d8fc9b41a86e9f772f6163ae35b6caabb2e9f709ad297a3b.png" src="../../_images/f56596f2e6d6c8c4d8fc9b41a86e9f772f6163ae35b6caabb2e9f709ad297a3b.png" />
 </div>
+</details>
 </div>
 <section id="colormaps">
 <h3>Colormaps<a class="headerlink" href="#colormaps" title="Link to this heading">#</a></h3>
@@ -1137,8 +1239,8 @@ object references you can add Artists to either Figure.</p>
 <p>Multiple Axes can be added a number of ways, but the most basic is
 <code class="docutils literal notranslate"><span class="pre">plt.subplots()</span></code> as used above. One can achieve more complex layouts,
 with Axes objects spanning columns or rows, using <code class="docutils literal notranslate"><span class="pre">subplot_mosaic</span></code></p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axd</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot_mosaic</span><span class="p">([[</span><span class="s1">&#39;upleft&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">],</span>
                                <span class="p">[</span><span class="s1">&#39;lowleft&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">]],</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">axd</span><span class="p">[</span><span class="s1">&#39;upleft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;upleft&#39;</span><span class="p">)</span>
@@ -1147,12 +1249,18 @@ with Axes objects spanning columns or rows, using <code class="docutils literal 
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;right&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/9de35f8528e2aba09a97433f481e125bdbb8e4af2215884d905a33f8c271a9c7.png" src="../../_images/9de35f8528e2aba09a97433f481e125bdbb8e4af2215884d905a33f8c271a9c7.png" />
+<img alt="../../_images/cafe1cda9effec095e4aa0123d4873d4d9bda53e86f84cc46b590a6d9f3de7d3.png" src="../../_images/cafe1cda9effec095e4aa0123d4873d4d9bda53e86f84cc46b590a6d9f3de7d3.png" />
 </div>
+</details>
 </div>
 <p>Matplotlib has quite sophisticated tools for arranging Axes: See
 <a class="reference external" href="https://matplotlib.org/stable/users/explain/axes/arranging_axes.html#arranging-axes">Arranging multiple Axes in a Figure</a> and <a class="reference external" href="https://matplotlib.org/stable/users/explain/axes/mosaic.html#mosaic">Complex and semantic figure composition (subplot_mosaic)</a>.</p>

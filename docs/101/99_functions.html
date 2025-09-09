@@ -1,0 +1,1012 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Writing Functions &#8212; KUB Datalab - Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/99_functions';</script>
+    <script src="../../_static/custom.js?v=e8afc0c0"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">How to...</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../howto/sign_up.html">Sign Up for a Course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/setup.html">Install &amp; Run Python</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../howto/jupyterlab.html">Get Started with JupyterLab</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../howto/jupyterlab_1.html">Open and Navigate JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto/jupyterlab_2.html">Code in JupyterLab</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/interact.html">Interact With This Book</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../howto/dictionaries.html">Learn All the New Words</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../howto/dictionary_101.html">Dictionary for Absolute Beginners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../howto/dictionary_pandas.html">Dictionary for Pandas</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_variables_and_assignment.html">Variables and Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_type_conversion.html">Data Types and Type Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_built-in_functions.html">Built-in Functions and Help</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="part2.html">Part 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="05_lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="06_for_loops.html">For Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">List of Tutorials</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/101/99_functions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/docs/101/99_functions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Writing Functions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">What are functions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-functions-to-make-your-code-easier-to-understand">Use functions to make your code easier to understand</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function">Defining a function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-does-not-run-it">Defining a function does not run it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-arguments-and-parameters">Matching arguments and parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-return-to-pass-values-back-from-a-function">Use <code class="docutils literal notranslate"><span class="pre">return</span></code> to pass values back from a function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-docstrings-to-provide-online-help">Use docstrings to provide online help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-function"><i class="fa-solid fa-pencil"></i> Exercise 1: Create a function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-conditional-statements-within-functions"><i class="fa-solid fa-pencil"></i> Exercise 2: Conditional statements within functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-local-and-global-variables"><i class="fa-solid fa-pencil"></i> Exercise 3: Local and global variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="writing-functions">
+<h1>Writing Functions<a class="headerlink" href="#writing-functions" title="Link to this heading">#</a></h1>
+<div class="admonition-learning-objectives admonition">
+<p class="admonition-title">Learning Objectives</p>
+<p>Questions:</p>
+<ul class="simple">
+<li><p>How can I create my own functions?</p></li>
+<li><p>How do variables inside and outside of functions work?</p></li>
+<li><p>How can I make my functions easier to understand?</p></li>
+</ul>
+<p>Objectives:</p>
+<ul class="simple">
+<li><p>Explain and identify the difference between function definition and function call.</p></li>
+<li><p>Write a function that takes a small, fixed number of arguments and produces a single result.</p></li>
+<li><p>Identify local and global variables.</p></li>
+</ul>
+</div>
+<hr class="docutils" />
+<section id="what-are-functions">
+<h2>What are functions?<a class="headerlink" href="#what-are-functions" title="Link to this heading">#</a></h2>
+<p>In Python, a <strong>function</strong> is like a little machine in your code: you give it a name, tell it what steps to perform, and then you can use it whenever you need that task done. Instead of copying and pasting the same code over and over, you can just “call” the function and let it do the work for you. This makes your programs shorter, easier to read, and much simpler to update.</p>
+<p>You have already met some of Python’s built-in functions — things like <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">type()</span></code>, and <code class="docutils literal notranslate"><span class="pre">len()</span></code>. They are always there, ready to help, and you can spot them whenever you see a name followed by parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<p>Built-in functions are great, but sometimes you might want something that is made just for your program. That is where <strong>user-defined functions</strong> come in — you can create your own!</p>
+<p>Here are a few key things to know about functions:</p>
+<ul class="simple">
+<li><p>A function is a block of code that only runs when you call it.</p></li>
+<li><p>Once defined, you can reuse it as many times as you like without rewriting the code.</p></li>
+<li><p>You can send information into a function — these are called <em>parameters</em>.</p></li>
+<li><p>A function can give something back — this is called its <em>return value</em>.</p></li>
+</ul>
+<section id="use-functions-to-make-your-code-easier-to-understand">
+<h3>Use functions to make your code easier to understand<a class="headerlink" href="#use-functions-to-make-your-code-easier-to-understand" title="Link to this heading">#</a></h3>
+<p>Human beings can only keep a few items in working memory at a time. But we can work with larger and more complicated ideas by breaking content down into pieces. Functions serve a similar purpose in Python. We can create our own functions to encapsulate complexity and treat specific actions or ideas as a single “thing”. Functions also enable us to re-use code so we can write code one time, but use it many times.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="defining-a-function">
+<h2>Defining a function<a class="headerlink" href="#defining-a-function" title="Link to this heading">#</a></h2>
+<p>You define a function using <code class="docutils literal notranslate"><span class="pre">def</span></code> with a name, parameters, and a block of code.</p>
+<p>Begin each definition of a new function with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> (for “define”), followed by the name of the function. Function names follow the same rules as variable names. Next, add your parameters in parentheses. You should still use empty parentheses if the function does not take any inputs. Finally, like in conditionals and loops, you will add a colon and an indented block of code that will contain the body of your function.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_greeting</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="defining-a-function-does-not-run-it">
+<h3>Defining a function does not run it<a class="headerlink" href="#defining-a-function-does-not-run-it" title="Link to this heading">#</a></h3>
+<p>Note that we do not have any output when we run code to define a function. This is similar to assigning a value to a variable. The function definition is sort of like a recipe in a cookbook - the recipe does not create a meal until we use it. So we need to “call” a function to execute the code it contains. This means that Python will not show you errors in your function until you call it. So when a definition of a function runs without error it does not mean that there will not be errors when it executes later.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_greeting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello!
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="matching-arguments-and-parameters">
+<h2>Matching arguments and parameters<a class="headerlink" href="#matching-arguments-and-parameters" title="Link to this heading">#</a></h2>
+<p>Functions are most powerful when they can take in data.</p>
+<ul class="simple">
+<li><p><strong>Parameters</strong> are names you list in the function definition. They act like placeholders.</p></li>
+<li><p><strong>Arguments</strong> are the actual values you pass in when calling the function.</p></li>
+</ul>
+<p>Python matches arguments to parameters by <strong>position (or by name)</strong>.<br />
+This means:</p>
+<ul class="simple">
+<li><p>If a function defines a parameter, you must provide a matching argument when you call it (unless the parameter has a default value).</p></li>
+<li><p>If you pass an argument that has no corresponding parameter, Python will raise an error.</p></li>
+<li><p>Likewise, if a parameter is required but you do not provide an argument, you will also get an error.</p></li>
+</ul>
+<p>In other words, <strong>parameters and arguments must match</strong>: you can only use data inside a function if there is a parameter defined for it, and you must give an argument for every parameter that requires one.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_named_greeting</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+
+<span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>To expand on the recipe metaphor above, the arguments you add to the <code class="docutils literal notranslate"><span class="pre">()</span></code> contain the ingredients for the function, while the body contains the recipe.</p>
+<p>Functions with defined parameters will result in an error if they are called without passing an argument:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_named_greeting</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">print_named_greeting</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: print_named_greeting() missing 1 required positional argument: &#39;name&#39;
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="use-return-to-pass-values-back-from-a-function">
+<h2>Use <code class="docutils literal notranslate"><span class="pre">return</span></code> to pass values back from a function<a class="headerlink" href="#use-return-to-pass-values-back-from-a-function" title="Link to this heading">#</a></h2>
+<p>In the date example above, we printed the results of the function code to output, but there are better way to handle data and objects created within a function. We can use the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> to send a value back to the “global” environment. (We will learn about local and global variables below). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="mf">0.25</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="mf">0.75</span>
+    <span class="k">return</span> <span class="n">fine</span>
+
+<span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $9.0
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="seealso dropdown admonition">
+<p class="admonition-title">Specify the number of float decimals to display</p>
+<p>In the example above, the fine value is displayed as <code class="docutils literal notranslate"><span class="pre">9.0</span></code>, though ideally it would print as <code class="docutils literal notranslate"><span class="pre">$9.00</span></code>. We can use the <strong>f-string format specifier</strong> of <code class="docutils literal notranslate"><span class="pre">.2f</span></code> to display two decimal points: <code class="docutils literal notranslate"><span class="pre">{fine:.2f}</span></code>. If you wanted to display a float with three decimal points you would change the format specifier to <code class="docutils literal notranslate"><span class="pre">{fine:.3f}</span></code>.<br />
+Here is a <a class="reference external" href="https://fstring.help/cheat/">cheat sheet of other f-string number formats</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Fine owed: $9.00&#39;
+</pre></div>
+</div>
+</div>
+<p>A function that does not explicitly <code class="docutils literal notranslate"><span class="pre">return</span></code> a value will automatically return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;result of call is: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+result of call is: None
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="variable-scope">
+<h2>Variable scope<a class="headerlink" href="#variable-scope" title="Link to this heading">#</a></h2>
+<p>When we define a variable inside of a function in Python, it is known as a <code class="docutils literal notranslate"><span class="pre">local</span></code> variable, which means that it is not visible to – or known by – the rest of the program. Variables that we define outside of functions are <code class="docutils literal notranslate"><span class="pre">global</span></code> and are therefore visible throughout the program, <em>including</em> from within other functions. The part of a program in which a variable is visible is called its <em>scope</em>.</p>
+<p>This is helpful for people using or writing functions, because they do not need to worry about repeating variable names that have been created elsewhere in the program.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial_fine</span> <span class="o">=</span> <span class="mf">0.25</span>
+<span class="n">late_fine</span> <span class="o">=</span> <span class="mf">0.50</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">days_overdue</span> <span class="o">=</span>  <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">initial_fine</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">days_overdue</span> <span class="o">=</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">initial_fine</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">late_fine</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">days_overdue</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">initial_fine</span></code> and <code class="docutils literal notranslate"><span class="pre">late_fine</span></code> are <em>global variables</em>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">days_overdue</span></code> is a <em>local variable</em> in <code class="docutils literal notranslate"><span class="pre">calc_fine</span></code>. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.</p></li>
+</ul>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine rates: $</span><span class="si">{</span><span class="n">initial_fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, $</span><span class="si">{</span><span class="n">late_fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $9.00
+Fine rates: $0.25, $0.50
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Days overdue: </span><span class="si">{</span><span class="n">days_overdue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Days overdue: </span><span class="si">{</span><span class="n">days_overdue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;days_overdue&#39; is not defined
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="use-docstrings-to-provide-online-help">
+<h2>Use docstrings to provide online help<a class="headerlink" href="#use-docstrings-to-provide-online-help" title="Link to this heading">#</a></h2>
+<p>If the first thing in a function is a string that is not assigned to a variable, that string is attached to the function as its documentation. This kind of documentation at the beginning of a function is called a <code class="docutils literal notranslate"><span class="pre">docstring</span></code>.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+    <span class="s2">&quot;Input a fahrenheit temperature and return the value in celsius&quot;</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is helpful because we can now ask Python’s built-in help system to show us the documentation for the function:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">fahr_to_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function fahr_to_celsius in module __main__:
+
+fahr_to_celsius(temp)
+    Input a fahrenheit temperature and return the value in celsius
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<p>We do not need to use triple quotes when we write a docstring, but if we do, we can break the string across multiple lines:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert fahrenheit values to celsius</span>
+<span class="sd">    Input a value in fahrenheit</span>
+<span class="sd">    Output a value in celsius&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">fahr_to_celsius</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function fahr_to_celsius in module __main__:
+
+fahr_to_celsius(temp)
+    Convert fahrenheit values to celsius
+    Input a value in fahrenheit
+    Output a value in celsius
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
+<section id="exercise-1-create-a-function">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Create a function<a class="headerlink" href="#exercise-1-create-a-function" title="Link to this heading">#</a></h3>
+<p>Write a function called <code class="docutils literal notranslate"><span class="pre">addition</span></code> that takes two parameters and returns their sum. After defining the function, call it with several arguments and print out the results.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+
+<span class="n">addition</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>9
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-conditional-statements-within-functions">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Conditional statements within functions<a class="headerlink" href="#exercise-2-conditional-statements-within-functions" title="Link to this heading">#</a></h3>
+<p>Create a function called <code class="docutils literal notranslate"><span class="pre">grade_converter</span></code> that takes a numerical score (0 - 100) as its parameter and returns a letter grade based on the score:</p>
+<ul class="simple">
+<li><p>90 and above returns ‘A’</p></li>
+<li><p>80 to 89 returns ‘B’</p></li>
+<li><p>70 to 79 returns ‘C’</p></li>
+<li><p>60 to 69 returns ‘D’</p></li>
+<li><p>Below 60 returns ‘F’</p></li>
+</ul>
+<p>After defining the function, test it with a variety of scores to test it out.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grade_converter</span><span class="p">(</span><span class="n">score</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;Invalid score&#39;</span>
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;A&#39;</span>
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;B&#39;</span>
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;C&#39;</span>
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;D&#39;</span>
+    <span class="k">elif</span> <span class="n">score</span> <span class="o">&lt;=</span> <span class="mi">59</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s1">&#39;F&#39;</span>
+
+<span class="n">grade_converter</span><span class="p">(</span><span class="mi">88</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;B&#39;
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-3-local-and-global-variables">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 3: Local and global variables<a class="headerlink" href="#exercise-3-local-and-global-variables" title="Link to this heading">#</a></h3>
+<p>List all of the global variables and all of the local variables in the following code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fine_rate</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">fine</span> <span class="o">=</span>  <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="p">(</span><span class="n">fine_rate</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fine</span>
+    
+<span class="n">total_fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">total_fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Fine owed: $15.00&#39;
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>Global variables:</p>
+<ul class="simple">
+<li><p>fine_rate</p></li>
+<li><p>total_fine</p></li>
+</ul>
+<p>Local variables:</p>
+<ul class="simple">
+<li><p>days_overdue</p></li>
+<li><p>fine</p></li>
+</ul>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="key-points">
+<h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Break programs down into functions to make them easier to understand.</p></li>
+<li><p>Define a function using <code class="docutils literal notranslate"><span class="pre">def</span></code> with a name, parameters, and a block of code.</p></li>
+<li><p>Defining a function does not run it.</p></li>
+<li><p>Arguments in call are matched to parameters in definition.</p></li>
+<li><p>Functions may return a result to their caller using <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./docs/101"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-functions">What are functions?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-functions-to-make-your-code-easier-to-understand">Use functions to make your code easier to understand</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function">Defining a function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-does-not-run-it">Defining a function does not run it</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-arguments-and-parameters">Matching arguments and parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-return-to-pass-values-back-from-a-function">Use <code class="docutils literal notranslate"><span class="pre">return</span></code> to pass values back from a function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable scope</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-docstrings-to-provide-online-help">Use docstrings to provide online help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-function"><i class="fa-solid fa-pencil"></i> Exercise 1: Create a function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-conditional-statements-within-functions"><i class="fa-solid fa-pencil"></i> Exercise 2: Conditional statements within functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-local-and-global-variables"><i class="fa-solid fa-pencil"></i> Exercise 3: Local and global variables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> <img class="license" alt="Creative Commons License" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a> Licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">Creative Commons BY-NC-SA 4.0 License</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
