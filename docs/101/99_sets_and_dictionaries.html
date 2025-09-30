@@ -61,6 +61,8 @@
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Writing Functions" href="99_functions.html" />
+    <link rel="prev" title="Reading from and Writing to Files" href="99_reading_writing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -198,7 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_variables_and_assignment.html">Variables and Assignment</a></li>
@@ -212,12 +212,20 @@
 <li class="toctree-l2"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="part3.html">Bonus Material</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="99_try_except.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_list_comprehensions.html">List Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_reading_writing.html">Reading from and Writing to Files</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sets, (Tuples), and Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_functions.html">Writing Functions</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
@@ -487,7 +495,7 @@ document.write(`
 </section>
 <section id="removing-duplicates-from-a-list">
 <h3>Removing duplicates from a list<a class="headerlink" href="#removing-duplicates-from-a-list" title="Link to this heading">#</a></h3>
-<p>Below, we have a list of book titles that contains duplicates. By converting the list to a set, we remove duplicates automatically — because sets only allow unique items. We then convert it back to a list to keep working with it in list form.</p>
+<p>Below, we have a list of book titles that contains duplicates. By converting the list to a set, we remove duplicates automatically - because sets only allow unique items. We then convert it back to a list to keep working with it in list form.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">books</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="s2">&quot;Brave New World&quot;</span><span class="p">,</span> <span class="s2">&quot;1984&quot;</span><span class="p">,</span> <span class="s2">&quot;Fahrenheit 451&quot;</span><span class="p">]</span>
@@ -502,7 +510,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;, &#39;1984&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1984&#39;, &#39;Brave New World&#39;, &#39;Fahrenheit 451&#39;]
 </pre></div>
 </div>
 </div>
@@ -540,7 +548,10 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>Example:</p>
+<a class="no-caption-number reference internal image-reference" href="../../_images/set_operations.png"><img alt="Visualisation of set operations in Python" class="no-caption-number align-center" src="../../_images/set_operations.png" style="width: 80%;" />
+</a>
+<p><em><strong>Visualisation of set operations in Python:</strong> union (|), intersection (&amp;), difference (-), and symmetric difference (^).</em></p>
+<p><strong>Example:</strong></p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;cherry&quot;</span><span class="p">}</span>
@@ -564,10 +575,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;cherry&#39;, &#39;date&#39;, &#39;apple&#39;}
-{&#39;banana&#39;, &#39;cherry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;date&#39;, &#39;apple&#39;, &#39;banana&#39;}
+{&#39;cherry&#39;, &#39;banana&#39;}
 {&#39;apple&#39;}
-{&#39;apple&#39;, &#39;date&#39;}
+{&#39;date&#39;, &#39;apple&#39;}
 </pre></div>
 </div>
 </div>
@@ -581,7 +592,7 @@ For example, you can use them to find shared elements between two lists, or to d
 <h2>(Tuples)<a class="headerlink" href="#tuples" title="Link to this heading">#</a></h2>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">What are tuples?</p>
-<p>A <strong>tuple</strong> is another type of collection in Python. It is similar to a list, but unlike lists, tuples are <strong>immutable</strong> — once you create a tuple, you cannot change its contents.</p>
+<p>A <strong>tuple</strong> is another type of collection in Python. It is similar to a list, but unlike lists, tuples are <strong>immutable</strong> - once you create a tuple, you cannot change its contents.</p>
 <h3 class="rubric" id="why-use-tuples">Why use tuples?</h3>
 <ul class="simple">
 <li><p>When you want to store a fixed collection of items.</p></li>
@@ -603,7 +614,7 @@ For example, you can use them to find shared elements between two lists, or to d
 <p>A dictionary consists of <strong>key-value pairs</strong>, where:</p>
 <ul class="simple">
 <li><p><strong>Keys</strong> must be unique and immutable (e.g., strings, numbers, or tuples).</p></li>
-<li><p><strong>Values</strong> can be of any type — such as strings, integers, booleans, lists, or even other dictionaries. This flexibility allows you to store complex, nested data structures.</p></li>
+<li><p><strong>Values</strong> can be of any type - such as strings, integers, booleans, lists, or even other dictionaries. This flexibility allows you to store complex, nested data structures.</p></li>
 </ul>
 </section>
 <section id="why-use-dictionaries">
@@ -616,8 +627,9 @@ For example, you can use them to find shared elements between two lists, or to d
 </section>
 <section id="creating-and-accessing-a-dictionary">
 <h3>Creating and accessing a dictionary<a class="headerlink" href="#creating-and-accessing-a-dictionary" title="Link to this heading">#</a></h3>
-<p>When creating a dictionary, you use curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> and define one or more key-value pairs. Each pair consists of a key, followed by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>, and then the value.<br />
-Multiple pairs are separated by commas.</p>
+<p>When creating a dictionary, you use curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> and define one or more key-value pairs.<br />
+Each pair consists of a key, followed by a colon <code class="docutils literal notranslate"><span class="pre">:</span></code>, and then the value.<br />
+Multiple pairs are separated by commas <code class="docutils literal notranslate"><span class="pre">,</span></code>.</p>
 <p>The syntax looks like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>dictionary_name = {
     &quot;key1&quot;: value1,
@@ -627,7 +639,7 @@ Multiple pairs are separated by commas.</p>
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>Keys must be unique and immutable — most often strings or numbers.</p></li>
+<li><p>Keys must be unique and immutable - most often strings or numbers.</p></li>
 <li><p>Values can be of any data type: strings, numbers, lists, other dictionaries, etc.</p></li>
 </ul>
 <p>In the example below:</p>
@@ -930,6 +942,24 @@ print(book)
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="99_reading_writing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Reading from and Writing to Files</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="99_functions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Writing Functions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

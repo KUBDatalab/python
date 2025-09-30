@@ -61,6 +61,8 @@
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Getting Started with Data Analysis" href="../pandas/getting_started.html" />
+    <link rel="prev" title="Sets, (Tuples), and Dictionaries" href="99_sets_and_dictionaries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -198,7 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_variables_and_assignment.html">Variables and Assignment</a></li>
@@ -212,12 +212,20 @@
 <li class="toctree-l2"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="part3.html">Bonus Material</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="99_try_except.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_list_comprehensions.html">List Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_reading_writing.html">Reading from and Writing to Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_sets_and_dictionaries.html">Sets, (Tuples), and Dictionaries</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Writing Functions</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
@@ -460,8 +468,6 @@ document.write(`
 <p>Questions:</p>
 <ul class="simple">
 <li><p>How can I create my own functions?</p></li>
-<li><p>How do variables inside and outside of functions work?</p></li>
-<li><p>How can I make my functions easier to understand?</p></li>
 </ul>
 <p>Objectives:</p>
 <ul class="simple">
@@ -473,15 +479,15 @@ document.write(`
 <hr class="docutils" />
 <section id="what-are-functions">
 <h2>What are functions?<a class="headerlink" href="#what-are-functions" title="Link to this heading">#</a></h2>
-<p>In Python, a <strong>function</strong> is like a little machine in your code: you give it a name, tell it what steps to perform, and then you can use it whenever you need that task done. Instead of copying and pasting the same code over and over, you can just “call” the function and let it do the work for you. This makes your programs shorter, easier to read, and much simpler to update.</p>
-<p>You have already met some of Python’s built-in functions — things like <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">type()</span></code>, and <code class="docutils literal notranslate"><span class="pre">len()</span></code>. They are always there, ready to help, and you can spot them whenever you see a name followed by parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
-<p>Built-in functions are great, but sometimes you might want something that is made just for your program. That is where <strong>user-defined functions</strong> come in — you can create your own!</p>
+<p>In Python, a <em>function</em> is like a little machine in your code: you give it a name, tell it what steps to perform, and then you can use it whenever you need that task done. Instead of copying and pasting the same code over and over, you can just “call” the function and let it do the work for you. This makes your programs shorter, easier to read, and much simpler to update.</p>
+<p>You have already met some of Python’s built-in functions - things like <code class="docutils literal notranslate"><span class="pre">print()</span></code>, <code class="docutils literal notranslate"><span class="pre">type()</span></code>, and <code class="docutils literal notranslate"><span class="pre">len()</span></code>. Both functions and methods are recognized by their name followed by parentheses <code class="docutils literal notranslate"><span class="pre">()</span></code>, which is how you call them to perform an action.</p>
+<p>Built-in functions are great, but sometimes you might want something that is made just for your program. That is where <strong>user-defined functions</strong> come in - you can create your own!</p>
 <p>Here are a few key things to know about functions:</p>
 <ul class="simple">
 <li><p>A function is a block of code that only runs when you call it.</p></li>
 <li><p>Once defined, you can reuse it as many times as you like without rewriting the code.</p></li>
-<li><p>You can send information into a function — these are called <em>parameters</em>.</p></li>
-<li><p>A function can give something back — this is called its <em>return value</em>.</p></li>
+<li><p>You can send information into a function - these are called <strong>parameters</strong>.</p></li>
+<li><p>A function can give something back - this is called its <strong>return value</strong>.</p></li>
 </ul>
 <section id="use-functions-to-make-your-code-easier-to-understand">
 <h3>Use functions to make your code easier to understand<a class="headerlink" href="#use-functions-to-make-your-code-easier-to-understand" title="Link to this heading">#</a></h3>
@@ -492,7 +498,9 @@ document.write(`
 <section id="defining-a-function">
 <h2>Defining a function<a class="headerlink" href="#defining-a-function" title="Link to this heading">#</a></h2>
 <p>You define a function using <code class="docutils literal notranslate"><span class="pre">def</span></code> with a name, parameters, and a block of code.</p>
-<p>Begin each definition of a new function with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> (for “define”), followed by the name of the function. Function names follow the same rules as variable names. Next, add your parameters in parentheses. You should still use empty parentheses if the function does not take any inputs. Finally, like in conditionals and loops, you will add a colon and an indented block of code that will contain the body of your function.</p>
+<p>Begin each definition of a new function with the keyword <code class="docutils literal notranslate"><span class="pre">def</span></code> (for “define”), followed by the name of the function. Function names follow the same rules as variable names.<br />
+Next, add your parameters in parentheses. You should still use empty parentheses if the function does not take any inputs.<br />
+Finally, like in conditionals and loops, you will add a colon and an indented block of code that will contain the body of your function.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_greeting</span><span class="p">():</span>
@@ -597,7 +605,7 @@ This means:</p>
     <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
         <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="mf">0.25</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="mf">0.75</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">days_overdue</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.75</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">fine</span>
 
 <span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
@@ -611,7 +619,7 @@ This means:</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $9.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $4.0
 </pre></div>
 </div>
 </div>
@@ -619,13 +627,13 @@ This means:</p>
 </div>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">Specify the number of float decimals to display</p>
-<p>In the example above, the fine value is displayed as <code class="docutils literal notranslate"><span class="pre">9.0</span></code>, though ideally it would print as <code class="docutils literal notranslate"><span class="pre">$9.00</span></code>. We can use the <strong>f-string format specifier</strong> of <code class="docutils literal notranslate"><span class="pre">.2f</span></code> to display two decimal points: <code class="docutils literal notranslate"><span class="pre">{fine:.2f}</span></code>. If you wanted to display a float with three decimal points you would change the format specifier to <code class="docutils literal notranslate"><span class="pre">{fine:.3f}</span></code>.<br />
+<p>In the example above, the fine value is displayed as <code class="docutils literal notranslate"><span class="pre">4.0</span></code>, though ideally it would print as <code class="docutils literal notranslate"><span class="pre">$4.00</span></code>. We can use the <strong>f-string format specifier</strong> of <code class="docutils literal notranslate"><span class="pre">.2f</span></code> to display two decimal points: <code class="docutils literal notranslate"><span class="pre">{fine:.2f}</span></code>. If you wanted to display a float with three decimal points you would change the format specifier to <code class="docutils literal notranslate"><span class="pre">{fine:.3f}</span></code>.<br />
 Here is a <a class="reference external" href="https://fstring.help/cheat/">cheat sheet of other f-string number formats</a>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Fine owed: $9.00&#39;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Fine owed: $4.00&#39;
 </pre></div>
 </div>
 </div>
@@ -659,14 +667,14 @@ result of call is: None
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial_fine</span> <span class="o">=</span> <span class="mf">0.25</span>
-<span class="n">late_fine</span> <span class="o">=</span> <span class="mf">0.50</span>
+<span class="n">late_fine</span> <span class="o">=</span> <span class="mf">0.75</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">calc_fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="n">days_overdue</span> <span class="o">=</span>  <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">initial_fine</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">initial_fine</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">days_overdue</span> <span class="o">=</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">initial_fine</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">late_fine</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">days_overdue</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">initial_fine</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">days_overdue</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">late_fine</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">fine</span>
 </pre></div>
 </div>
 </div>
@@ -674,6 +682,7 @@ result of call is: None
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">initial_fine</span></code> and <code class="docutils literal notranslate"><span class="pre">late_fine</span></code> are <em>global variables</em>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">days_overdue</span></code> is a <em>local variable</em> in <code class="docutils literal notranslate"><span class="pre">calc_fine</span></code>. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fine</span></code> is also a <em>local variable</em>, created inside the function to hold the calculated result.</p></li>
 </ul>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -689,8 +698,8 @@ result of call is: None
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $9.00
-Fine rates: $0.25, $0.50
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $4.00
+Fine rates: $0.25, $0.75
 </pre></div>
 </div>
 </div>
@@ -802,10 +811,14 @@ fahr_to_celsius(temp)
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">addition</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-<span class="n">addition</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addition</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addition</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">addition</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>9
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>6
+9
+12
 </pre></div>
 </div>
 </div>
@@ -821,7 +834,7 @@ fahr_to_celsius(temp)
 <li><p>60 to 69 returns ‘D’</p></li>
 <li><p>Below 60 returns ‘F’</p></li>
 </ul>
-<p>After defining the function, test it with a variety of scores to test it out.</p>
+<p>After defining the function, test it using different scores.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grade_converter</span><span class="p">(</span><span class="n">score</span><span class="p">):</span>
@@ -838,10 +851,14 @@ fahr_to_celsius(temp)
     <span class="k">elif</span> <span class="n">score</span> <span class="o">&lt;=</span> <span class="mi">59</span><span class="p">:</span>
         <span class="k">return</span> <span class="s1">&#39;F&#39;</span>
 
-<span class="n">grade_converter</span><span class="p">(</span><span class="mi">88</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grade_converter</span><span class="p">(</span><span class="mi">91</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grade_converter</span><span class="p">(</span><span class="mi">75</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grade_converter</span><span class="p">(</span><span class="mi">59</span><span class="p">))</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;B&#39;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A
+C
+F
 </pre></div>
 </div>
 </div>
@@ -856,7 +873,7 @@ fahr_to_celsius(temp)
     <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
         <span class="n">fine</span> <span class="o">=</span>  <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="p">(</span><span class="n">fine_rate</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
+        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">days_overdue</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">fine_rate</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">fine</span>
     
 <span class="n">total_fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -924,6 +941,24 @@ fahr_to_celsius(temp)
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="99_sets_and_dictionaries.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sets, (Tuples), and Dictionaries</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../pandas/getting_started.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting Started with Data Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Reading from and writing to files &#8212; KUB Datalab - Python</title>
+    <title>Reading from and Writing to Files &#8212; KUB Datalab - Python</title>
   
   
   
@@ -61,6 +61,8 @@
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sets, (Tuples), and Dictionaries" href="99_sets_and_dictionaries.html" />
+    <link rel="prev" title="List Comprehensions" href="99_list_comprehensions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -198,7 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_variables_and_assignment.html">Variables and Assignment</a></li>
@@ -212,12 +212,20 @@
 <li class="toctree-l2"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="part3.html">Bonus Material</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="99_try_except.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_list_comprehensions.html">List Comprehensions</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Reading from and Writing to Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_sets_and_dictionaries.html">Sets, (Tuples), and Dictionaries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_functions.html">Writing Functions</a></li>
+</ul>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
@@ -413,7 +421,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Reading from and writing to files</h1>
+    <h1>Reading from and Writing to Files</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -467,19 +475,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="reading-from-and-writing-to-files">
-<h1>Reading from and writing to files<a class="headerlink" href="#reading-from-and-writing-to-files" title="Link to this heading">#</a></h1>
+<h1>Reading from and Writing to Files<a class="headerlink" href="#reading-from-and-writing-to-files" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions:</p>
 <ul class="simple">
 <li><p>How can you read a file: all at once, line by line, or into a list?</p></li>
-<li><p>What is the difference between <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open()</span></code>?</p></li>
-<li><p>What is the purpose of the file cursor, and how can you move it with <code class="docutils literal notranslate"><span class="pre">seek()</span></code>?</p></li>
+<li><p>How can you write data to a file: overwrite, append, or write multiple lines?</p></li>
 </ul>
 <p>Objectives:</p>
 <ul class="simple">
 <li><p>Open, read, and write text files in Python.</p></li>
-<li><p>Explain why <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open()</span></code> is best practice compared to <code class="docutils literal notranslate"><span class="pre">open()</span></code>/<code class="docutils literal notranslate"><span class="pre">close()</span></code>.</p></li>
+<li><p>Understand why <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open()</span></code> is often preferable compared to <code class="docutils literal notranslate"><span class="pre">open()</span></code>/<code class="docutils literal notranslate"><span class="pre">close()</span></code>.</p></li>
 <li><p>Use the correct file mode (<code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;a+&quot;</span></code>) for a given task.</p></li>
 <li><p>Read file content in different ways and control the cursor position with <code class="docutils literal notranslate"><span class="pre">seek()</span></code>.</p></li>
 </ul>
@@ -549,7 +556,7 @@ Each line ends with a newline character.
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> means read mode.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">.read()</span></code> reads the file content as one string.</p></li>
-<li><p><strong>Important:</strong> When you use <code class="docutils literal notranslate"><span class="pre">open()</span></code> like this, you must remember to call <code class="docutils literal notranslate"><span class="pre">.close()</span></code>. If you forget, the file stays open in the background — and when writing, some data may remain in the buffer and never be saved properly, which can  leave the file incomplete or corrupted.</p></li>
+<li><p><strong>Important:</strong> When you use <code class="docutils literal notranslate"><span class="pre">open()</span></code> like this, you must remember to call <code class="docutils literal notranslate"><span class="pre">.close()</span></code>. If you forget, the file stays open in the background - and when writing, some data may remain in the buffer and never be saved properly, which can  leave the file incomplete or corrupted.</p></li>
 </ul>
 <section id="using-with-open-recommended">
 <h3>Using with open (recommended)<a class="headerlink" href="#using-with-open-recommended" title="Link to this heading">#</a></h3>
@@ -581,7 +588,7 @@ Each line ends with a newline character.
 <p>When working with text files, it is good practice to always specify the file encoding.<br />
 By default, Python will use your operating system’s preferred encoding, which may differ across platforms (for example, UTF-8 on most Unix systems but CP-1252 on some Windows setups).</p>
 <p>If you do not specify the encoding, text containing special characters (such as æ, ø, å) may not be read correctly, or you might get a <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code>.</p>
-<p>The safest choice is to always write your file operations with an explicit encoding, most commonly UTF-8. UTF-8 is the standard text encoding on the web and on most modern systems, and it can represent all characters in the Unicode standard. By explicitly setting <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code>, you make sure that your code behaves consistently across different computers and operating systems — even if their defaults are different.</p>
+<p>The safest choice is to always write your file operations with an explicit encoding, most commonly UTF-8. UTF-8 is the standard text encoding on the web and on most modern systems, and it can represent all characters in the Unicode standard. By explicitly setting <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code>, you make sure that your code behaves consistently across different computers and operating systems - even if their defaults are different.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -596,7 +603,7 @@ By default, Python will use your operating system’s preferred encoding, which 
 <li><p>Code working on your computer but failing with <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code> on someone else’s machine.</p></li>
 <li><p>Subtle errors where characters are silently replaced or corrupted because the wrong encoding was assumed.</p></li>
 </ul>
-<p>Using <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> is therefore considered best practice in modern Python programming.</p>
+<p><i class="fa-solid fa-triangle-exclamation"></i> Using <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code> is therefore considered best practice in modern Python programming.</p>
 <section id="file-modes-in-open">
 <h3>File modes in <code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#file-modes-in-open" title="Link to this heading">#</a></h3>
 <p>When you use <code class="docutils literal notranslate"><span class="pre">open()</span></code>, the <code class="docutils literal notranslate"><span class="pre">mode</span></code> parameter tells Python how you want to use the file - for reading, writing, appending, or a combination. The table below shows the most common modes.</p>
@@ -760,6 +767,9 @@ The end
 </div>
 </div>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">strip()</span></code> method removes any leading or trailing whitespace, such as the newline character <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of each line.</p>
+<p>Removing the newline is useful because otherwise <code class="docutils literal notranslate"><span class="pre">print()</span></code> will add its own line break, resulting in unwanted blank lines in the output.<br />
+This ensures the text looks clean and properly formatted when printed.</p>
 </section>
 <section id="read-into-a-list">
 <h3>Read into a list<a class="headerlink" href="#read-into-a-list" title="Link to this heading">#</a></h3>
@@ -785,7 +795,7 @@ The end
 <h2>Writing examples<a class="headerlink" href="#writing-examples" title="Link to this heading">#</a></h2>
 <section id="write-overwrite">
 <h3>Write (overwrite)<a class="headerlink" href="#write-overwrite" title="Link to this heading">#</a></h3>
-<p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> mode, which creates a new file or clears the old one. Any existing content is lost.</p>
+<p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> mode, which creates a new file or truncates (clears) the old one. Any existing content is lost.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -869,17 +879,18 @@ Each line ends with a newline character.
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)
 content = f.read()
 f.close()
-print(content)  # prints the exact file content once
+print(content)  # prints the entire file content
 </pre></div>
 </div>
 <p><strong>Read using <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open</span></code> (recommended):</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     content = f.read()
-print(content)  # prints the exact file content once
+print(content)  # prints the entire file content
 </pre></div>
 </div>
 </div>
 </section>
+<hr class="docutils" />
 <section id="exercise-2-count-lines">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 2: Count lines<a class="headerlink" href="#exercise-2-count-lines" title="Link to this heading">#</a></h3>
 <p>Count how many lines are in <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code> and print the result.</p>
@@ -906,6 +917,7 @@ If the line is empty (after stripping), it evaluates to <code class="docutils li
 This way you can skip blank lines and only count lines with actual content.</p>
 </div>
 </section>
+<hr class="docutils" />
 <section id="exercise-3-find-a-word">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 3: Find a word<a class="headerlink" href="#exercise-3-find-a-word" title="Link to this heading">#</a></h3>
 <p>Ask the user for a word and print which line numbers in <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code> contain that word.</p>
@@ -940,6 +952,7 @@ if not found_any:
 </ul>
 </div>
 </section>
+<hr class="docutils" />
 <section id="exercise-4-write-a-shopping-list">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 4: Write a shopping list<a class="headerlink" href="#exercise-4-write-a-shopping-list" title="Link to this heading">#</a></h3>
 <p>Ask the user for three shopping items and write them to <code class="docutils literal notranslate"><span class="pre">shopping.txt</span></code>.</p>
@@ -972,6 +985,7 @@ with open(&quot;shopping.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) a
 </ul>
 </div>
 </section>
+<hr class="docutils" />
 <section id="exercise-5-append-to-note">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 5: Append to note<a class="headerlink" href="#exercise-5-append-to-note" title="Link to this heading">#</a></h3>
 <p>Ask the user for a short note and append it to <code class="docutils literal notranslate"><span class="pre">notes.txt</span></code>.</p>
@@ -1041,6 +1055,24 @@ with open(&quot;notes.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="99_list_comprehensions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">List Comprehensions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="99_sets_and_dictionaries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sets, (Tuples), and Dictionaries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
