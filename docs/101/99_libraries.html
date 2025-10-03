@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Title &#8212; KUB Datalab - Python</title>
+    <title>Libraries in Python &#8212; KUB Datalab - Python</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/skabelon';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/99_libraries';</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="List Comprehensions" href="99_list_comprehensions.html" />
+    <link rel="prev" title="Error Handling" href="99_try_except.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -122,8 +124,6 @@
     <div class="bd-container__inner bd-page-width">
       
       
-      
-        
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -198,7 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="part1.html">Part 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_data_types.html">Data Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_variables_and_assignment.html">Variables and Assignment</a></li>
@@ -212,9 +212,9 @@
 <li class="toctree-l2"><a class="reference internal" href="07_conditionals.html">Conditionals</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="part3.html">Bonus Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="part3.html">Bonus Material</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="99_try_except.html">Error Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="99_libraries.html">Libraries in Python</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Libraries in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_list_comprehensions.html">List Comprehensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_reading_writing.html">Reading from and Writing to Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_sets_and_dictionaries.html">Sets, (Tuples), and Dictionaries</a></li>
@@ -308,7 +308,7 @@
       
       
       
-      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/101/skabelon.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/KUBDatalab/python/issues/new?title=Issue%20on%20page%20%2Fdocs/101/99_libraries.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +338,7 @@
       
       
       
-      <li><a href="../../_sources/docs/101/skabelon.ipynb" target="_blank"
+      <li><a href="../../_sources/docs/101/99_libraries.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Title</h1>
+    <h1>Libraries in Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,14 +432,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanatory-introduction">Explanatory introduction?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1"><i class="fa-solid fa-pencil"></i> Exercise 1: …</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2"><i class="fa-solid fa-pencil"></i> Exercise 2: …</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-n"><i class="fa-solid fa-pencil"></i> Exercise n: …</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vs-importing">Installing vs importing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-libraries">Installing libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-aliases">Using aliases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-makes-libraries-and-are-they-safe">Who makes libraries, and are they safe?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-libraries-and-documentation">Where to find libraries and documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-install-and-import-pandas"><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-upgrade-pandas"><i class="fa-solid fa-pencil"></i> Exercise 2: Upgrade Pandas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
         </div>
@@ -451,68 +459,182 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="title">
-<h1>Title<a class="headerlink" href="#title" title="Link to this heading">#</a></h1>
+  <section id="libraries-in-python">
+<h1>Libraries in Python<a class="headerlink" href="#libraries-in-python" title="Link to this heading">#</a></h1>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions:</p>
 <ul class="simple">
-<li><p>Q1?</p></li>
-<li><p>Q2?</p></li>
-<li><p>Qn?</p></li>
+<li><p>What is the difference between Core Python and external libraries?</p></li>
+<li><p>How do I install a Python library?</p></li>
+<li><p>How do I use a Python library in my code?</p></li>
 </ul>
 <p>Objectives:</p>
 <ul class="simple">
-<li><p>O1.</p></li>
-<li><p>O2.</p></li>
-<li><p>On.</p></li>
+<li><p>Understand what libraries are and why they are useful.</p></li>
+<li><p>Use external libraries in your Python code with confidence.</p></li>
+<li><p>Know where to look for reliable libraries and their documentation.</p></li>
 </ul>
 </div>
 <hr class="docutils" />
-<section id="explanatory-introduction">
-<h2>Explanatory introduction?<a class="headerlink" href="#explanatory-introduction" title="Link to this heading">#</a></h2>
-<p>…</p>
-<div class="seealso dropdown admonition">
-<p class="admonition-title">See-also dropdown box</p>
-<p>See-also is used for external links.
-Use dropdown if it’s nice-to-know and not must-know.</p>
+<section id="motivation">
+<h2>Motivation<a class="headerlink" href="#motivation" title="Link to this heading">#</a></h2>
+<p>Writing every piece of code yourself can be time-consuming and difficult. Many tasks, such as working with data, creating plots, or connecting to the internet, have already been solved by others.</p>
+<p>By using external libraries, you can save time, avoid mistakes, and focus on the problem you actually want to solve.<br />
+Libraries allow you to extend Core Python with tools that are reliable, widely used, and often easier than building everything from scratch.</p>
+</section>
+<hr class="docutils" />
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>So far, we have mainly worked with <strong>Core Python</strong>. Core Python is everything that comes with Python when you install it - the built-in functions, data types, and modules that are always available.</p>
+<p>However, Python really shines because of its external libraries. A library is a collection of code that someone else has written, which you can use to make your own work easier.<br />
+Instead of writing everything from scratch, you can rely on libraries that already solve common problems.</p>
+</section>
+<hr class="docutils" />
+<section id="installing-vs-importing">
+<h2>Installing vs importing<a class="headerlink" href="#installing-vs-importing" title="Link to this heading">#</a></h2>
+<p>Understanding the difference between installing and importing a library is essential when working with Python. Although these steps are closely related, they serve different purposes - and the distinction is often unclear to beginners.</p>
+<section id="installing-libraries">
+<h3>Installing libraries<a class="headerlink" href="#installing-libraries" title="Link to this heading">#</a></h3>
+<p>When you install Python, it comes with Core Python - the built-in parts of the language. To do more advanced things, you often need to install external libraries.</p>
+<p>Libraries can be installed from the <a class="reference external" href="https://pypi.org"><strong>Python Package Index (PyPI)</strong></a> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer.</p>
+<p>This command installs the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library using pip:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install requests
+</pre></div>
 </div>
+<p>If you have not installed <code class="docutils literal notranslate"><span class="pre">requests</span></code> before, this will download and install the latest version of the library along with its dependencies.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pip</span></code> commands are most often run through a shell such as the Terminal on macOS or the Command Prompt on Windows.<br />
+However, you can also run shell commands directly from Jupyter notebooks by adding an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> in front of the command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
+</pre></div>
+</div>
+<p>Sometimes you want to make sure you have the newest version of a library. You can do this by adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install --upgrade requests
+</pre></div>
+</div>
+<p>Adding <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> not only installs the library if it is not already installed but also updates it to the latest version if you already have it.<br />
+This is useful for making sure you have the newest features and bug fixes.</p>
+<p>Again, in Jupyter notebooks you can run this with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">requests</span>
+</pre></div>
+</div>
+</section>
+<section id="importing-libraries">
+<h3>Importing libraries<a class="headerlink" href="#importing-libraries" title="Link to this heading">#</a></h3>
+<p>Installing or upgrading makes a library available on your computer. To actually use it in your code, you need to import it. Importing happens <em>inside your Python program</em>.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+</pre></div>
+</div>
+<p>You only need to install a library once before you can use it - and you may occasionally upgrade it to get the latest version.<br />
+In contrast, you must import the library at the beginning of every Python script or notebook where you intend to use it.</p>
+</section>
+<section id="using-aliases">
+<h3>Using aliases<a class="headerlink" href="#using-aliases" title="Link to this heading">#</a></h3>
+<p>Sometimes libraries have long names, and programmers like to shorten them when importing. This is called using an <strong>alias</strong>.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library is almost always imported like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+<p>This tells Python: “Import the library called <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, but in my code I will refer to it as <code class="docutils literal notranslate"><span class="pre">pd</span></code>.”</p>
+<p>Now you can use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Other standard conventions include:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+<p>These conventions save typing, and because so many people use them, they make your code easier to read and share.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="who-makes-libraries-and-are-they-safe">
+<h2>Who makes libraries, and are they safe?<a class="headerlink" href="#who-makes-libraries-and-are-they-safe" title="Link to this heading">#</a></h2>
+<p>Libraries are written by individuals, research groups, companies, and communities of developers. Some of the most widely used libraries - such as <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> - are maintained by large teams and used by millions of people.</p>
+<p>In general, libraries that are widely used and actively maintained are considered safe. However, because libraries are just code that someone else has written, it is possible for poorly maintained or unknown libraries to contain errors or even malicious code.</p>
+<p><strong>Tips for safety:</strong></p>
+<ul class="simple">
+<li><p>Prefer well-known libraries with good documentation</p></li>
+<li><p>Look at how often the library is updated</p></li>
+<li><p>When in doubt, ask or research before installing an unfamiliar library</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="where-to-find-libraries-and-documentation">
+<h2>Where to find libraries and documentation<a class="headerlink" href="#where-to-find-libraries-and-documentation" title="Link to this heading">#</a></h2>
+<p>Most Python libraries are listed on the <strong>Python Package Index (PyPI)</strong>:</p>
+<ul class="simple">
+<li><p>Website: <a class="reference external" href="https://pypi.org">https://pypi.org</a></p></li>
+<li><p>This is where <code class="docutils literal notranslate"><span class="pre">pip</span></code> downloads from when you install a library.</p></li>
+</ul>
+<p>Well-known libraries usually have their own documentation websites. A few examples:</p>
+<ul class="simple">
+<li><p>pandas: <a class="reference external" href="https://pandas.pydata.org/docs">https://pandas.pydata.org/docs</a></p></li>
+<li><p>numpy: <a class="reference external" href="https://numpy.org/doc">https://numpy.org/doc</a></p></li>
+<li><p>matplotlib: <a class="reference external" href="https://matplotlib.org/stable/contents.html">https://matplotlib.org/stable/contents.html</a></p></li>
+</ul>
+<p>Documentation tells you what functions the library provides, how to use them, and often includes tutorials and examples. Learning how to read documentation is an important skill as you progress.</p>
 </section>
 <hr class="docutils" />
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<section id="exercise-1">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 1: …<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
-<p>Description</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Solution</p>
+<section id="exercise-1-install-and-import-pandas">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import Pandas<a class="headerlink" href="#exercise-1-install-and-import-pandas" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Check whether you have <code class="docutils literal notranslate"><span class="pre">pandas</span></code> installed. If not, install it:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install pandas
+</pre></div>
 </div>
+<ol class="arabic simple" start="2">
+<li><p>Open a Python session and import pandas with the alias <code class="docutils literal notranslate"><span class="pre">pd</span></code>:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Print the version of pandas you have installed:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This prints the version of pandas installed on your system, for example <code class="docutils literal notranslate"><span class="pre">2.3.3</span></code>.</p>
 </section>
-<section id="exercise-2">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 2: …<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
-<p>Description</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Solution</p>
+<section id="exercise-2-upgrade-pandas">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Upgrade Pandas<a class="headerlink" href="#exercise-2-upgrade-pandas" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Make sure your pandas library is up to date by running:</p></li>
+</ol>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pip install --upgrade pandas
+</pre></div>
 </div>
-</section>
-<section id="exercise-n">
-<h3><i class="fa-solid fa-pencil"></i> Exercise n: …<a class="headerlink" href="#exercise-n" title="Link to this heading">#</a></h3>
-<p>Description</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Solution</p>
+<ol class="arabic simple" start="2">
+<li><p>If you are working in Jupyter, remember that you can also run this command with an exclamation mark:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span>
+</pre></div>
 </div>
+<ol class="arabic simple" start="3">
+<li><p>After upgrading, check the version again:</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This will upgrade pandas to the newest available version and then print the version number to confirm the update.</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="key-points">
-<h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
+<h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p>K1.</p></li>
-<li><p>K2.</p></li>
-<li><p>Kn.</p></li>
+<li><p>Core Python is what comes built-in when you install Python.</p></li>
+<li><p>External libraries extend Python’s capabilities.</p></li>
+<li><p><strong>Installing</strong> puts the library on your computer; <strong>importing</strong> brings it into your program.</p></li>
+<li><p>You can find libraries on <a class="reference external" href="https://pypi.org">PyPI</a> and read more about them in their official documentation.</p></li>
 </ul>
 </section>
 </section>
@@ -547,6 +669,24 @@ Use dropdown if it’s nice-to-know and not must-know.</p>
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="99_try_except.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Error Handling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="99_list_comprehensions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">List Comprehensions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -563,14 +703,22 @@ Use dropdown if it’s nice-to-know and not must-know.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explanatory-introduction">Explanatory introduction?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1"><i class="fa-solid fa-pencil"></i> Exercise 1: …</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2"><i class="fa-solid fa-pencil"></i> Exercise 2: …</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-n"><i class="fa-solid fa-pencil"></i> Exercise n: …</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivation">Motivation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vs-importing">Installing vs importing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-libraries">Installing libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries">Importing libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-aliases">Using aliases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-makes-libraries-and-are-they-safe">Who makes libraries, and are they safe?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-libraries-and-documentation">Where to find libraries and documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-install-and-import-pandas"><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-upgrade-pandas"><i class="fa-solid fa-pencil"></i> Exercise 2: Upgrade Pandas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>
 

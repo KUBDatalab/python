@@ -214,6 +214,7 @@
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="part3.html">Bonus Material</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="99_try_except.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_libraries.html">Libraries in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_list_comprehensions.html">List Comprehensions</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Reading from and Writing to Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_sets_and_dictionaries.html">Sets, (Tuples), and Dictionaries</a></li>
@@ -499,7 +500,7 @@ The code below will create these files for you.</p>
 <p>At this stage, you do <strong>not</strong> need to understand how the code works - just run it once to generate the files.<br />
 Afterward, try opening the files and take a quick look at their content.</p>
 <p>By the end of this lesson, you will be able to come back to this code and fully understand what it does.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write to data.txt</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -536,8 +537,8 @@ Afterward, try opening the files and take a quick look at their content.</p>
 <section id="opening-files">
 <h2>Opening files<a class="headerlink" href="#opening-files" title="Link to this heading">#</a></h2>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">open()</span></code> is used to open a file.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
@@ -545,6 +546,11 @@ Afterward, try opening the files and take a quick look at their content.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a small text file.
 It has a few lines of content.
@@ -552,6 +558,7 @@ Each line ends with a newline character.
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code> means read mode.</p></li>
@@ -561,14 +568,19 @@ Each line ends with a newline character.
 <section id="using-with-open-recommended">
 <h3>Using with open (recommended)<a class="headerlink" href="#using-with-open-recommended" title="Link to this heading">#</a></h3>
 <p>The safer way is to use a context manager. Python will then automatically close the file when you are done.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a small text file.
 It has a few lines of content.
@@ -576,6 +588,7 @@ Each line ends with a newline character.
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open(...)</span> <span class="pre">as</span> <span class="pre">f:</span></code> is the best practice in Python.</p></li>
@@ -589,7 +602,7 @@ Each line ends with a newline character.
 By default, Python will use your operating system’s preferred encoding, which may differ across platforms (for example, UTF-8 on most Unix systems but CP-1252 on some Windows setups).</p>
 <p>If you do not specify the encoding, text containing special characters (such as æ, ø, å) may not be read correctly, or you might get a <code class="docutils literal notranslate"><span class="pre">UnicodeDecodeError</span></code>.</p>
 <p>The safest choice is to always write your file operations with an explicit encoding, most commonly UTF-8. UTF-8 is the standard text encoding on the web and on most modern systems, and it can represent all characters in the Unicode standard. By explicitly setting <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code>, you make sure that your code behaves consistently across different computers and operating systems - even if their defaults are different.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -647,14 +660,19 @@ By default, Python will use your operating system’s preferred encoding, which 
 <h3><code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code> vs. <code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code> explained<a class="headerlink" href="#r-vs-w-explained" title="Link to this heading">#</a></h3>
 <p>This is often confusing - here’s the difference.</p>
 <p>Let us first look at the <code class="docutils literal notranslate"><span class="pre">example.txt</span></code> file:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abcdefg
 hijklmn
@@ -663,9 +681,10 @@ vwxyz
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>If we use <code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code>:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># r+ → requires file to exist, does not truncate</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -675,14 +694,19 @@ vwxyz
 </div>
 </div>
 <p>Only the first characters are overwritten; the rest remains:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLOfg
 hijklmn
@@ -691,9 +715,10 @@ vwxyz
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>If we instead use <code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code>:</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># w+ → creates or truncates the file</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -703,19 +728,25 @@ vwxyz
 </div>
 </div>
 <p>Any previous content is gone:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -725,14 +756,19 @@ vwxyz
 <section id="read-entire-file">
 <h3>Read entire file<a class="headerlink" href="#read-entire-file" title="Link to this heading">#</a></h3>
 <p>Reads the whole file into one string. Useful for small files, but not memory-efficient for very large ones.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Roses are red
 Violets are blue
@@ -743,19 +779,25 @@ The end
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="read-line-by-line">
 <h3>Read line by line<a class="headerlink" href="#read-line-by-line" title="Link to this heading">#</a></h3>
 <p>Iterates through the file line by line. This is memory-friendly and often the best way when working with larger files.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Roses are red
 Violets are blue
@@ -766,6 +808,7 @@ The end
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">strip()</span></code> method removes any leading or trailing whitespace, such as the newline character <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of each line.</p>
 <p>Removing the newline is useful because otherwise <code class="docutils literal notranslate"><span class="pre">print()</span></code> will add its own line break, resulting in unwanted blank lines in the output.<br />
@@ -774,19 +817,25 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <section id="read-into-a-list">
 <h3>Read into a list<a class="headerlink" href="#read-into-a-list" title="Link to this heading">#</a></h3>
 <p>Stores all lines in a list, where each element is one line (including <code class="docutils literal notranslate"><span class="pre">\n</span></code>). Convenient if you need random access to specific lines.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Roses are red\n&#39;, &#39;Violets are blue\n&#39;, &#39;Sugar is sweet\n&#39;, &#39;And so are you\n&#39;, &#39;\n&#39;, &#39;The end&#39;]
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>
@@ -796,7 +845,7 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <section id="write-overwrite">
 <h3>Write (overwrite)<a class="headerlink" href="#write-overwrite" title="Link to this heading">#</a></h3>
 <p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> mode, which creates a new file or truncates (clears) the old one. Any existing content is lost.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;First line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -809,7 +858,7 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <section id="append">
 <h3>Append<a class="headerlink" href="#append" title="Link to this heading">#</a></h3>
 <p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> mode, which keeps the old content and adds new lines at the end of the file.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;This is added at the end.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -827,8 +876,8 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <li><p>After <code class="docutils literal notranslate"><span class="pre">f.read()</span></code>, the cursor is at the end → a new <code class="docutils literal notranslate"><span class="pre">f.read()</span></code> returns an empty string.</p></li>
 <li><p>Reset the cursor with <code class="docutils literal notranslate"><span class="pre">f.seek(0)</span></code>.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads all</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -836,6 +885,11 @@ This ensures the text looks clean and properly formatted when printed.</p>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a small text file.
 It has a few lines of content.
@@ -847,16 +901,22 @@ Each line ends with a newline character.
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Changing the index value in <code class="docutils literal notranslate"><span class="pre">seek()</span></code> will change the starting position:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads from index 1</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>his is a small text file.
 It has a few lines of content.
@@ -864,6 +924,7 @@ Each line ends with a newline character.
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <hr class="docutils" />
