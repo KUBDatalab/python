@@ -448,6 +448,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-handling-numbers"><i class="fa-solid fa-pencil"></i> Exercise 1: Handling numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-indexerror-with-a-fruit-list"><i class="fa-solid fa-pencil"></i> Exercise 2: <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> with a fruit list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-fixing-the-number-guessing-game"><i class="fa-solid fa-pencil"></i> Exercise 3: Fixing The number guessing game</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
@@ -759,6 +760,66 @@ You could place that code inside the <code class="docutils literal notranslate">
 </div>
 </div>
 </section>
+<hr class="docutils" />
+<section id="exercise-3-fixing-the-number-guessing-game">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 3: Fixing The number guessing game<a class="headerlink" href="#exercise-3-fixing-the-number-guessing-game" title="Link to this heading">#</a></h3>
+<p>In this exercise, you will update <a class="reference internal" href="07_conditionals.html#number-guessing-game"><span class="std std-ref">The number guessing game</span></a> so that it can handle invalid input.<br />
+At the moment, if the user types something that is not a whole number (integer), the program will crash.<br />
+Your task is to place the code that asks for a guess inside a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block. If the input is not an integer, the program should print a helpful message and allow the user to try again.</p>
+<p><strong>Requirements</strong></p>
+<ul class="simple">
+<li><p>Use a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block around the line where the program converts input to an integer.</p></li>
+<li><p>If the user does not type a valid number, print an error message such as:
+<code class="docutils literal notranslate"><span class="pre">&quot;Invalid</span> <span class="pre">input.</span> <span class="pre">Please</span> <span class="pre">enter</span> <span class="pre">a</span> <span class="pre">number.&quot;</span></code></p></li>
+<li><p>Make sure the game continues running until the secret number is guessed.</p></li>
+</ul>
+<hr class="docutils" />
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+
+<span class="c1"># Generate a random secret number between 1 and 20</span>
+<span class="n">secret_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Keep track of the number of attempts</span>
+<span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Initialise the variable to store the user&#39;s guess</span>
+<span class="n">user_guess</span> <span class="o">=</span> <span class="kc">None</span>  
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the Number Guessing Game!&quot;</span><span class="p">)</span>
+
+<span class="c1"># Continue looping until the correct number is guessed</span>
+<span class="k">while</span> <span class="n">user_guess</span> <span class="o">!=</span> <span class="n">secret_number</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Ask the user to guess the secret number</span>
+        <span class="n">user_guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Guess the secret number (1-20): &quot;</span><span class="p">))</span>
+        
+        <span class="c1"># Increase the attempts counter</span>
+        <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="c1"># Compare the guess with the secret number</span>
+        <span class="k">if</span> <span class="n">user_guess</span> <span class="o">==</span> <span class="n">secret_number</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations! You guessed the correct number in&quot;</span><span class="p">,</span> <span class="n">attempts</span><span class="p">,</span> <span class="s2">&quot;attempts.&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">user_guess</span> <span class="o">&lt;</span> <span class="n">secret_number</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too low. Try again.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too high. Try again.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># Handle invalid input</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input. Please enter a number.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Explanation:</strong></p>
+<ul class="simple">
+<li><p>The line <code class="docutils literal notranslate"><span class="pre">user_guess</span> <span class="pre">=</span> <span class="pre">int(input(...))</span></code> can raise an exception if the user types something that is not a number.</p></li>
+<li><p>By placing this line inside a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block, we can catch the error and respond gracefully.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span> <span class="pre">as</span> <span class="pre">e</span></code> block prints a helpful message and the program continues without crashing.</p></li>
+</ul>
+<p>This way, the game only accepts valid integers, but still lets the user try again if they make a mistake.</p>
+</div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="key-points">
@@ -852,6 +913,7 @@ You could place that code inside the <code class="docutils literal notranslate">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-handling-numbers"><i class="fa-solid fa-pencil"></i> Exercise 1: Handling numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-indexerror-with-a-fruit-list"><i class="fa-solid fa-pencil"></i> Exercise 2: <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> with a fruit list</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-fixing-the-number-guessing-game"><i class="fa-solid fa-pencil"></i> Exercise 3: Fixing The number guessing game</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
