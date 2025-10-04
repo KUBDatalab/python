@@ -841,11 +841,11 @@ You could place that code inside the <code class="docutils literal notranslate">
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input. Please enter a number.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><strong>Explanation:</strong></p>
+<p><strong>Explanation</strong></p>
 <ul class="simple">
-<li><p>The line <code class="docutils literal notranslate"><span class="pre">user_guess</span> <span class="pre">=</span> <span class="pre">int(input(...))</span></code> can raise an exception if the user types something that is not a number.</p></li>
+<li><p>The line <code class="docutils literal notranslate"><span class="pre">user_guess</span> <span class="pre">=</span> <span class="pre">int(input(...))</span></code> can raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> if the user types something that is not a number.</p></li>
 <li><p>By placing this line inside a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block, we can catch the error and respond gracefully.</p></li>
-<li><p>The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span> <span class="pre">as</span> <span class="pre">e</span></code> block prints a helpful message and the program continues without crashing.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ValueError</span></code> block prints a helpful message and the program continues without crashing.</p></li>
 </ul>
 <p>This way, the game only accepts valid integers, but still lets the user try again if they make a mistake.</p>
 <p>An even cleaner solution would be to use a <code class="docutils literal notranslate"><span class="pre">try/except/else</span></code> structure.<br />
