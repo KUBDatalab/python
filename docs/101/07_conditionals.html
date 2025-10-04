@@ -969,7 +969,7 @@ A way to stop the loop could be:</p>
 What does the function <code class="docutils literal notranslate"><span class="pre">input()</span></code> do?</p>
 <div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="k">while</span> <span class="n">user_input</span> <span class="o">!=</span> <span class="s2">&quot;quit&quot;</span><span class="p">:</span>
   <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter &#39;quit&#39; to exit: &quot;</span><span class="p">)</span>
 </pre></div>
@@ -978,8 +978,10 @@ What does the function <code class="docutils literal notranslate"><span class="p
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>This loop continuously asks the user for input until they type “quit.”
-It checks the value of user_input in each iteration.</p>
+<p>Before the loop starts, <code class="docutils literal notranslate"><span class="pre">user_input</span></code> is set to <code class="docutils literal notranslate"><span class="pre">None</span></code> to indicate that it has no value yet.<br />
+(<code class="docutils literal notranslate"><span class="pre">None</span></code> is a special value in Python that represents “no value” or “nothing.”)<br />
+This loop continuously asks the user for input until they type “quit.”<br />
+It checks the value of <code class="docutils literal notranslate"><span class="pre">user_input</span></code> in each iteration.</p>
 </div>
 <div class="attention admonition">
 <p class="admonition-title">A note on the input() function</p>
@@ -1013,13 +1015,14 @@ To convert the return value to an integer, you can use the <code class="docutils
 <ul class="simple">
 <li><p>Use a <code class="docutils literal notranslate"><span class="pre">while</span></code> loop to repeatedly ask the user for their guess until they guess correctly.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>, and <code class="docutils literal notranslate"><span class="pre">else</span></code> statements to provide appropriate hints based on the user’s guess.</p></li>
-<li><p>You can assume that the user will only enter whole numbers (integers); other input does not need to be considered.</p></li>
 </ul>
-<div class="dropdown admonition hint">
-<p class="admonition-title">Hint</p>
-<p>You will need to use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function introduced in the exercise above.
-We expect the users to only type in integers.
-You can use the <code class="docutils literal notranslate"><span class="pre">random</span></code> module to generate the secret number. Here’s an example of how to import and use it:</p>
+<div class="hint admonition">
+<p class="admonition-title">Input &amp; random generator</p>
+<ul class="simple">
+<li><p>You will need to use the <code class="docutils literal notranslate"><span class="pre">input()</span></code> function introduced in the exercise above.</p></li>
+<li><p>We expect the users to only type in integers.</p></li>
+<li><p>You can use the <code class="docutils literal notranslate"><span class="pre">random</span></code> module to generate the secret number. Here’s an example of how to import and use it:</p></li>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="c1"># Generate a random secret number between 1 and 20</span>
 <span class="n">secret_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -1042,7 +1045,7 @@ Congratulations! You guessed the correct number in 3 attempts.
 </div>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>This problem can be solved in more than one way - however this is how we would recommend it done to provide clarity and to use the skills you have learned so far.</p>
+<p>This problem can be solved in more than one way. However, this is how we would recommend it done to provide clarity and to use the skills you have learned so far.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 
 <span class="c1"># Generate a random secret number between 1 and 20</span>
@@ -1073,6 +1076,8 @@ Congratulations! You guessed the correct number in 3 attempts.
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too high. Try again.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p><strong>Note:</strong> At this stage, the game will crash if the user types something that is not an integer.<br />
+If you want to learn how to handle such cases gracefully, take a look at the chapter on <a class="reference internal" href="99_try_except.html"><span class="doc std std-doc">Error Handling</span></a>.</p>
 </div>
 </section>
 </section>
