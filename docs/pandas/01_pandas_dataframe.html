@@ -448,10 +448,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-to-append-a-row">Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-append-row"><i class="fa-solid fa-pencil"></i> Exercise 1: Append row</a></li>
@@ -1105,9 +1102,9 @@ To make it work, you first need to reshape the <code class="docutils literal not
 This is typically done with <code class="docutils literal notranslate"><span class="pre">.to_frame().T</span></code>, which is just a compact way of writing <code class="docutils literal notranslate"><span class="pre">.to_frame()</span></code> followed by <code class="docutils literal notranslate"><span class="pre">.transpose()</span></code>.</p>
 <p>An easier and more intuitive solution is often to convert the <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a list and use <code class="docutils literal notranslate"><span class="pre">df.loc[len(df)]</span> <span class="pre">=</span> <span class="pre">...</span></code> to append it as a new row. This method is described below.</p>
 </div>
-<section id="using-loc-to-append-a-row">
-<h3>Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row<a class="headerlink" href="#using-loc-to-append-a-row" title="Link to this heading">#</a></h3>
-<p>Instead of reshaping the <code class="docutils literal notranslate"><span class="pre">Series</span></code>, you can append it directly to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with <code class="docutils literal notranslate"><span class="pre">.loc</span></code>. The idea is to place the new row at the next available index position, which is simply <code class="docutils literal notranslate"><span class="pre">len(df)</span></code>.</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Using .loc to append a row</p>
+<p>Instead of reshaping the <code class="docutils literal notranslate"><span class="pre">Series</span></code>, you can append it directly to the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with <code class="docutils literal notranslate"><span class="pre">.loc</span></code> (which you will learn about in <a class="reference internal" href="03_pandas_subsets.html"><span class="doc std std-doc">a later lesson</span></a>). The idea is to place the new row at the next available index position, which is simply <code class="docutils literal notranslate"><span class="pre">len(df)</span></code>.</p>
 <p>If you already have the values as a list, you can write:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra_row</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 </pre></div>
@@ -1118,7 +1115,7 @@ This is typically done with <code class="docutils literal notranslate"><span cla
 </pre></div>
 </div>
 <p>In this case, pandas aligns the labels with the column names, which is safer if the column order changes.</p>
-</section>
+</div>
 </section>
 <hr class="docutils" />
 <section id="creating-a-new-column-based-on-existing-data">
@@ -1332,10 +1329,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-loc-to-append-a-row">Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-append-row"><i class="fa-solid fa-pencil"></i> Exercise 1: Append row</a></li>
