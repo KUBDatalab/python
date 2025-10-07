@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Basic Visualisations in Pandas &#8212; KUB Datalab - Python</title>
+    <title>Extra: Basic Visualisations in Pandas &#8212; KUB Datalab - Python</title>
   
   
   
@@ -230,7 +230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic Visualisations in Pandas</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Extra: Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -422,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Basic Visualisations in Pandas</h1>
+    <h1>Extra: Basic Visualisations in Pandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,6 +432,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-matplotlib">Installing Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-plot-syntax">The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> syntax</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>
@@ -456,8 +457,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="basic-visualisations-in-pandas">
-<h1>Basic Visualisations in Pandas<a class="headerlink" href="#basic-visualisations-in-pandas" title="Link to this heading">#</a></h1>
+  <section id="extra-basic-visualisations-in-pandas">
+<h1>Extra: Basic Visualisations in Pandas<a class="headerlink" href="#extra-basic-visualisations-in-pandas" title="Link to this heading">#</a></h1>
 <p><img alt="Plotting in pandas" src="../../_images/05_plot_overview.png" /></p>
 <div class="admonition-learning-objectives admonition">
 <p class="admonition-title">Learning Objectives</p>
@@ -473,9 +474,18 @@ document.write(`
 </div>
 <div class="note dropdown admonition">
 <p class="admonition-title">A note on plotting</p>
-<p>Plotting with pandas is often done using the <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> library, which provides extensive tools for creating a wide variety of visualisations. However, pandas also offers a simpler interface for basic plotting through the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method. This guide will focus on using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method to create quick and easy visualisations directly from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code>, without diving into the more complex features of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.<br />
-If you want to dive further into the world of plotting, you can read more about <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> <a class="reference external" href="https://matplotlib.org/stable/users/index">here</a>.</p>
+<p>Plotting with pandas is often done using the <strong>Matplotlib</strong> library, which provides extensive tools for creating a wide variety of visualisations. However, pandas also offers a simpler interface for basic plotting through the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method. This guide will focus on using the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method to create quick and easy visualisations directly from a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code>, without diving into the more complex features of Matplotlib.<br />
+If you want to dive further into the world of plotting, you can read more about Matplotlib <a class="reference external" href="https://matplotlib.org/stable/users/index">here</a>.</p>
 </div>
+<section id="installing-matplotlib">
+<h2>Installing Matplotlib<a class="headerlink" href="#installing-matplotlib" title="Link to this heading">#</a></h2>
+<p>Before you can use the <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in pandas, you need to install <strong>Matplotlib</strong>, which pandas uses as its default plotting library.<br />
+You can install it directly from your notebook with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>Once installed, you can create plots simply by calling <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> or <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p>
+</section>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> method in pandas is a simple and convenient way to create visualisations from your data. You can call this method directly on a <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> object, and it will generate a plot based on the data it contains.</p>
@@ -693,6 +703,7 @@ The height of each bar indicates the number of passengers in each class.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-matplotlib">Installing Matplotlib</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-plot-syntax">The <code class="docutils literal notranslate"><span class="pre">.plot()</span></code> syntax</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-parameters">Key parameters</a></li>

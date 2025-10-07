@@ -230,7 +230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_pandas_plot.html">Extra: Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -464,10 +464,10 @@ If you have not installed pandas before, this will download and install the late
 </div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span></code> commands are most often run through a shell such as the <strong>Terminal</strong> on macOS or the <strong>Command Prompt</strong> on Windows.<br />
-However, you can run shell commands directly from Jupyter notebooks by adding an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> in front of the command:</p>
+However, you can install packages directly from Jupyter notebooks by using the <code class="docutils literal notranslate"><span class="pre">%pip</span></code> magic command at the start of the line:</p>
 <div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install pandas
 </pre></div>
 </div>
 </div>
@@ -483,7 +483,7 @@ However, you can run shell commands directly from Jupyter notebooks by adding an
 <p>Again, we can run this shell command directly in Jupyter notebooks:</p>
 <div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>pandas
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install --upgrade pandas
 </pre></div>
 </div>
 </div>
@@ -500,7 +500,7 @@ Dependencies are external libraries that provide additional functionality or cap
 </pre></div>
 </div>
 <p>Or - if run in a Jupyter notebook:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>! pip install &quot;pandas[excel]&quot;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;pandas[excel]&quot;</span>
 </pre></div>
 </div>
 </div>
