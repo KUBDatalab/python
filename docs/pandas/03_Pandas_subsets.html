@@ -1498,7 +1498,7 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 <h2><i class="fa-solid fa-pencil"></i> Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">loc</span></code> to find the passenger named “Dooley, Mr. Patrick”</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to find the ~~alien~~ 8. passenger</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to find the <del>alien</del> 8. passenger</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">iloc</span></code> to find the value in row 100, column 4</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">str.contains()</span></code> to find all Reverends (“Rev.”)</p></li>
 </ol>
@@ -1510,6 +1510,9 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 <li><p>titanic.iloc[99, 3]</p></li>
 <li><p>titanic.loc[titanic[‘Name’].str.contains(“Rev.”, case=False)]</p></li>
 </ol>
+<p><strong>Solution 4</strong> selects all rows from <code class="docutils literal notranslate"><span class="pre">titanic</span></code> where the <strong>Name</strong> column contains “Rev.”.<br />
+The argument <code class="docutils literal notranslate"><span class="pre">case=False</span></code> makes the search case-insensitive (it ignores uppercase/lowercase differences).<br />
+You have not learned about <code class="docutils literal notranslate"><span class="pre">case=False</span></code> yet, and it is not strictly necessary considering the wording of the exercise.</p>
 </div>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Using .loc[] and .iloc[] for complex conditions</p>
