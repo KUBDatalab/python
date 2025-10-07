@@ -432,7 +432,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-data-table-representation">Pandas data table representation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-and-dictionaries"><code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> and <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></a></li>
@@ -476,7 +476,7 @@ document.write(`
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions:</p>
 <ul class="simple">
-<li><p>What is a Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>?</p></li>
+<li><p>What is a pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>?</p></li>
 <li><p>How is a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> used to manage and manipulate data?</p></li>
 </ul>
 <p>Objectives:</p>
@@ -484,12 +484,12 @@ document.write(`
 <li><p>Understand the structure and purpose of a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.</p></li>
 <li><p>Create a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from lists.</p></li>
 <li><p>Perform basic <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> manipulations, such as renaming columns and transposing data.</p></li>
-<li><p>Understand the structure and purpose of a Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
+<li><p>Understand the structure and purpose of a pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code>.</p></li>
 <li><p>Append <code class="docutils literal notranslate"><span class="pre">Series</span></code> as columns to an existing <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> and create new columns based on existing data.</p></li>
 </ul>
 </div>
 <section id="import-pandas">
-<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<h2>Import pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
@@ -508,8 +508,8 @@ After this statement, you can use <code class="docutils literal notranslate"><sp
 <hr class="docutils" />
 <section id="pandas-data-table-representation">
 <h2>Pandas data table representation<a class="headerlink" href="#pandas-data-table-representation" title="Link to this heading">#</a></h2>
-<p><img alt="Representation of a Pandas DataFrame" src="../../_images/01_table_dataframe.svg" /></p>
-<p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a two-dimensional data structure in the Pandas library, designed to hold and manage data efficiently. It organizes data into labeled columns and rows, allowing you to store various types of data, such as numbers, text, and categorical values, all within the same structure.</p>
+<p><img alt="Representation of a pandas DataFrame" src="../../_images/01_table_dataframe.svg" /></p>
+<p>A <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> is a two-dimensional data structure in the pandas library, designed to hold and manage data efficiently. It organizes data into labeled columns and rows, allowing you to store various types of data, such as numbers, text, and categorical values, all within the same structure.</p>
 <section id="creating-our-first-dataframe">
 <h3>Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code><a class="headerlink" href="#creating-our-first-dataframe" title="Link to this heading">#</a></h3>
 <p>We start by creating three lists of equal length (i.e., containing the same amount of elements).<br />
@@ -927,26 +927,6 @@ Name: Fare, dtype: object
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fare</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fare
-&lt;class &#39;str&#39;&gt;    3
-Name: count, dtype: int64
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the data type of &#39;fare&#39; using the &#39;type()&#39; function.</span>
 
 <span class="nb">type</span><span class="p">(</span><span class="n">fare</span><span class="p">)</span>
@@ -967,7 +947,7 @@ Name: count, dtype: int64
 </div>
 <p>Although our data looks fine at first glance, each cell is actually stored as a string.
 While we can read the numbers without issue, this will cause problems if we want to use them for calculations.</p>
-<p>To solve this, Pandas provides a built-in function called <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>, which converts a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to either an integer or a float, depending on the values.</p>
+<p>To solve this, pandas provides a built-in function called <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>, which converts a <code class="docutils literal notranslate"><span class="pre">Series</span></code> to either an integer or a float, depending on the values.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">fare</span><span class="p">)</span>
@@ -989,7 +969,7 @@ While we can read the numbers without issue, this will cause problems if we want
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">19</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">fare</span><span class="p">)</span>
 
 <span class="nn">File /opt/hostedtoolcache/Python/3.12.11/x64/lib/python3.12/site-packages/pandas/core/tools/numeric.py:235,</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast, dtype_backend)</span>
@@ -1120,10 +1100,10 @@ Here, the name of the ‘fare’ <code class="docutils literal notranslate"><spa
 </ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>While concatenating a <code class="docutils literal notranslate"><span class="pre">Series</span></code> along <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> works smoothly (it becomes a new column), concatenating along <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> is less straightforward. A <code class="docutils literal notranslate"><span class="pre">Series</span></code> is one-dimensional, so Pandas does not automatically treat it as a full row in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
+<p>While concatenating a <code class="docutils literal notranslate"><span class="pre">Series</span></code> along <code class="docutils literal notranslate"><span class="pre">axis=1</span></code> works smoothly (it becomes a new column), concatenating along <code class="docutils literal notranslate"><span class="pre">axis=0</span></code> is less straightforward. A <code class="docutils literal notranslate"><span class="pre">Series</span></code> is one-dimensional, so pandas does not automatically treat it as a full row in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 To make it work, you first need to reshape the <code class="docutils literal notranslate"><span class="pre">Series</span></code> into a one-row <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>.<br />
 This is typically done with <code class="docutils literal notranslate"><span class="pre">.to_frame().T</span></code>, which is just a compact way of writing <code class="docutils literal notranslate"><span class="pre">.to_frame()</span></code> followed by <code class="docutils literal notranslate"><span class="pre">.transpose()</span></code>.</p>
-<p>An easier and more intuitive solution is often to convert the <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a list and use <code class="docutils literal notranslate"><span class="pre">df.loc[len(df)]</span> <span class="pre">=</span> <span class="pre">...</span></code> to append it as a new row.</p>
+<p>An easier and more intuitive solution is often to convert the <code class="docutils literal notranslate"><span class="pre">Series</span></code> to a list and use <code class="docutils literal notranslate"><span class="pre">df.loc[len(df)]</span> <span class="pre">=</span> <span class="pre">...</span></code> to append it as a new row. This method is described below.</p>
 </div>
 <section id="using-loc-to-append-a-row">
 <h3>Using <code class="docutils literal notranslate"><span class="pre">.loc</span></code> to append a row<a class="headerlink" href="#using-loc-to-append-a-row" title="Link to this heading">#</a></h3>
@@ -1132,12 +1112,12 @@ This is typically done with <code class="docutils literal notranslate"><span cla
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra_row</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Here Pandas inserts the values in the order of the existing columns.</p>
-<p>If your <code class="docutils literal notranslate"><span class="pre">Series</span></code> has labels that match the column names, you can assign it directly:</p>
+<p>Here pandas inserts the values in the order of the existing columns.</p>
+<p>If your <code class="docutils literal notranslate"><span class="pre">Series</span></code> has index labels that match the column names, you can assign it directly:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)]</span> <span class="o">=</span> <span class="n">extra_row</span>
 </pre></div>
 </div>
-<p>In this case, Pandas aligns the labels with the column names, which is safer if the column order changes.</p>
+<p>In this case, pandas aligns the labels with the column names, which is safer if the column order changes.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -1336,7 +1316,7 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas-data-table-representation">Pandas data table representation</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-first-dataframe">Creating our first <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataframes-and-dictionaries"><code class="docutils literal notranslate"><span class="pre">DataFrames</span></code> and <code class="docutils literal notranslate"><span class="pre">dictionaries</span></code></a></li>

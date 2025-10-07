@@ -432,7 +432,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics">Aggregating statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics-grouped-by-category">Aggregating statistics grouped by category</a></li>
@@ -455,7 +455,7 @@ document.write(`
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions:</p>
 <ul class="simple">
-<li><p>How can we calculate and analyse descriptive statistics using Pandas?</p></li>
+<li><p>How can we calculate and analyse descriptive statistics using pandas?</p></li>
 </ul>
 <p>Objectives:</p>
 <ul class="simple">
@@ -465,7 +465,7 @@ document.write(`
 </ul>
 </div>
 <section id="import-pandas">
-<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<h2>Import pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
@@ -910,7 +910,7 @@ dtype: float64
 </div>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">Descriptive statistics</p>
-<p>Details about descriptive statistics can be found in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/basics.html#basics-stats">Descriptive statistics</a>.</p>
+<p>Details about descriptive statistics can be found in the official pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/basics.html#basics-stats">Descriptive statistics</a>.</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -978,7 +978,7 @@ Next, the <code class="docutils literal notranslate"><span class="pre">groupby()
 <li><p><strong>Apply</strong> a function to each group independently.</p></li>
 <li><p><strong>Combine</strong> the results into a data structure.</p></li>
 </ul>
-<p>The apply and combine steps are typically done together in Pandas.</p>
+<p>The apply and combine steps are typically done together in pandas.</p>
 <p>In the previous example, we explicitly selected the 2 columns first. If not, the <code class="docutils literal notranslate"><span class="pre">mean()</span></code> method is applied to each column containing numerical columns by passing <code class="docutils literal notranslate"><span class="pre">numeric_only=True</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -1082,12 +1082,12 @@ Name: Age, dtype: float64
 <p class="admonition-title">Categorical data</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column in the Titanic dataset contains numerical values, but these numbers actually represent three distinct categories: 1st class, 2nd class, and 3rd class. Since these numbers correspond to categories rather than actual quantities, calculating statistics like the mean or sum on them doesn’t make much sense. For instance, averaging these numbers would yield a meaningless result because class rankings are ordinal and not inherently numerical.</p>
 <p>Pandas provides a <code class="docutils literal notranslate"><span class="pre">Categorical</span></code> data type specifically designed to handle such categorical data. This is useful because it enables more efficient storage and manipulation of categorical variables. It also allows you to apply specific operations that make sense for categories, such as ordering or grouping, without misinterpreting the data as continuous numerical values.</p>
-<p>To convert the <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column from numerical to categorical data in Pandas, you can use the following code:</p>
+<p>To convert the <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> column from numerical to categorical data in pandas, you can use the following code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">titanic</span><span class="p">[</span><span class="s1">&#39;Pclass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This will treat <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> as a categorical variable, allowing Pandas to handle it appropriately for analysis. For example, you can easily perform operations like counting the number of passengers in each class or plotting the distribution of passenger classes, with results that correctly reflect the categorical nature of the data.</p>
-<p>More information is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/categorical.html">Categorical data</a>.</p>
+<p>This will treat <code class="docutils literal notranslate"><span class="pre">Pclass</span></code> as a categorical variable, allowing pandas to handle it appropriately for analysis. For example, you can easily perform operations like counting the number of passengers in each class or plotting the distribution of passenger classes, with results that correctly reflect the categorical nature of the data.</p>
+<p>More information is provided in the official pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/categorical.html">Categorical data</a>.</p>
 </div>
 <p>What is the mean ticket fare price for each of the sex and cabin class combinations?</p>
 <div class="cell tag_hide-output docutils container">
@@ -1118,7 +1118,7 @@ Name: Fare, dtype: float64
 <p>Grouping can be done by multiple columns at the same time. Provide the column names as a list to the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code> method.</p>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">Groupby operations</p>
-<p>A full description on the split-apply-combine approach is provided in the official Pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/groupby.html">Groupby operations</a>.</p>
+<p>A full description on the split-apply-combine approach is provided in the official pandas documentation on <a class="reference external" href="https://pandas.pydata.org/docs/user_guide/groupby.html">Groupby operations</a>.</p>
 </div>
 </section>
 <section id="count-number-of-records-by-category">
@@ -1250,7 +1250,7 @@ Name: Pclass, dtype: int64
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics">Aggregating statistics</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aggregating-statistics-grouped-by-category">Aggregating statistics grouped by category</a></li>

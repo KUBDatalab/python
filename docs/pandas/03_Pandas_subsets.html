@@ -413,7 +413,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
@@ -465,7 +465,7 @@
 </ul>
 </div>
 <section id="import-pandas">
-<h2>Import Pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
+<h2>Import pandas<a class="headerlink" href="#import-pandas" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This line imports the pandas library and aliases it as &#39;pd&#39;.</span>
@@ -946,8 +946,8 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 <p>With these methods, you’ll be better equipped to handle more complex data tasks efficiently.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">What exactly are loc and iloc?</p>
-<p><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> in Pandas are technically properties that return a specialized indexer object. These indexer objects allow for label-based (<code class="docutils literal notranslate"><span class="pre">loc</span></code>) and integer-based (<code class="docutils literal notranslate"><span class="pre">iloc</span></code>) indexing. Although they behave similarly to methods in that you use them to perform actions (i.e., selecting or slicing data), they are properties because they return an indexing object rather than directly executing a function.</p>
-<p>When you access <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, what you are getting is not a simple value but an object that has its own methods and behaviors, specifically designed to handle indexing operations. This design allows for the concise and powerful data selection syntax that Pandas is known for.</p>
+<p><code class="docutils literal notranslate"><span class="pre">loc</span></code> and <code class="docutils literal notranslate"><span class="pre">iloc</span></code> in pandas are technically properties that return a specialized indexer object. These indexer objects allow for label-based (<code class="docutils literal notranslate"><span class="pre">loc</span></code>) and integer-based (<code class="docutils literal notranslate"><span class="pre">iloc</span></code>) indexing. Although they behave similarly to methods in that you use them to perform actions (i.e., selecting or slicing data), they are properties because they return an indexing object rather than directly executing a function.</p>
+<p>When you access <code class="docutils literal notranslate"><span class="pre">loc</span></code> or <code class="docutils literal notranslate"><span class="pre">iloc</span></code> on a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, what you are getting is not a simple value but an object that has its own methods and behaviors, specifically designed to handle indexing operations. This design allows for the concise and powerful data selection syntax that pandas is known for.</p>
 </div>
 <div class="warning dropdown admonition">
 <p class="admonition-title">Avoid ambiguous operations</p>
@@ -958,8 +958,8 @@ It returns a tuple representing the number of rows and columns (rows, columns).<
 <li><p><strong>Potential errors</strong>: Using square brackets for complex selections might trigger warnings like <code class="docutils literal notranslate"><span class="pre">SettingWithCopyWarning</span></code>, indicating that your code might not be doing what you think it is.</p></li>
 <li><p><strong>Lack of flexibility</strong>: As your data operations become more complex, relying on square brackets can limit your ability to write clear and maintainable code.</p></li>
 </ul>
-<p>For these reasons, we recommend using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> as they provide a more reliable and explicit way to handle data selection and modification in Pandas.</p>
-<p>If you’re interested in learning more about the potential pitfalls of using square brackets and the benefits of <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, you can read more in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">Pandas documentation on indexing and selecting data</a>.</p>
+<p>For these reasons, we recommend using <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code> as they provide a more reliable and explicit way to handle data selection and modification in pandas.</p>
+<p>If you’re interested in learning more about the potential pitfalls of using square brackets and the benefits of <code class="docutils literal notranslate"><span class="pre">.loc[]</span></code> and <code class="docutils literal notranslate"><span class="pre">.iloc[]</span></code>, you can read more in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html">pandas documentation on indexing and selecting data</a>.</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -2408,7 +2408,7 @@ memory usage: 83.7+ KB
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-pandas">Import pandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-dataframe-from-a-csv-file">Creating a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> from a CSV file</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-specific-columns">Selecting specific columns</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calling-multiple-series">Calling multiple <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
