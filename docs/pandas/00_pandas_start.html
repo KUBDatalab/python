@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Getting Started with Pandas &#8212; KUB Datalab - Python</title>
+    <title>Getting Started with pandas &#8212; KUB Datalab - Python</title>
   
   
   
@@ -221,10 +221,10 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and Pandas</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and pandas 🐼</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="getting_started.html">Getting Started with Data Analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Getting Started with Pandas</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Getting Started with pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_pandas_dataframe.html">Pandas DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_pandas_subsets.html">Subsets</a></li>
@@ -422,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Getting Started with Pandas</h1>
+    <h1>Getting Started with pandas</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -446,16 +446,16 @@ document.write(`
                 <article class="bd-article">
                   
   <section id="getting-started-with-pandas">
-<h1>Getting Started with Pandas<a class="headerlink" href="#getting-started-with-pandas" title="Link to this heading">#</a></h1>
-<p>Before we get started, you may need to install pandas - depending on how/where you are running Python.
+<h1>Getting Started with pandas<a class="headerlink" href="#getting-started-with-pandas" title="Link to this heading">#</a></h1>
+<p>Before we get started, you may need to install <code class="docutils literal notranslate"><span class="pre">pandas</span></code> - depending on how/where you are running Python.
 This guide is intented for people running a local installation of Python and using Jupyter Notebook or Jupyter Lab.</p>
-<p>There are many ways to install pandas. Ours is just one. <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html">You can read more here.</a></p>
+<p>There are many ways to install <code class="docutils literal notranslate"><span class="pre">pandas</span></code>. Ours is just one. <a class="reference external" href="https://pandas.pydata.org/docs/getting_started/install.html">You can read more here.</a></p>
 <hr class="docutils" />
 <section id="installing-or-upgrading-pandas-from-pypi">
 <h2>Installing (or upgrading) pandas from PyPI<a class="headerlink" href="#installing-or-upgrading-pandas-from-pypi" title="Link to this heading">#</a></h2>
-<p>Pandas can be installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code> from <a class="reference external" href="https://pypi.org/project/pandas">PyPi</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> can be installed via <code class="docutils literal notranslate"><span class="pre">pip</span></code> from <a class="reference external" href="https://pypi.org/project/pandas">PyPi</a>.</p>
 <p>This command installs the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer.<br />
-If you have not installed pandas before, this will download and install the latest version of pandas along with its dependencies.</p>
+If you have not installed <code class="docutils literal notranslate"><span class="pre">pandas</span></code> before, this will download and install the latest version of <code class="docutils literal notranslate"><span class="pre">pandas</span></code> along with its dependencies.</p>
 <div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>  <span class="n">pip</span> <span class="n">install</span> <span class="n">pandas</span>
@@ -472,7 +472,7 @@ However, you can install packages directly from Jupyter notebooks by using the <
 </div>
 </div>
 </div>
-<p>Adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag not only installs pandas if it is not already installed but also ensures that if pandas is already installed, it is updated to the latest version. This is useful to make sure you have the newest features and bug fixes.</p>
+<p>Adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag not only installs <code class="docutils literal notranslate"><span class="pre">pandas</span></code> if it is not already installed but also ensures that if <code class="docutils literal notranslate"><span class="pre">pandas</span></code> is already installed, it is updated to the latest version. This is useful to make sure you have the newest features and bug fixes.</p>
 <div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span>
@@ -490,10 +490,10 @@ However, you can install packages directly from Jupyter notebooks by using the <
 </div>
 <div class="attention dropdown admonition">
 <p class="admonition-title">ModuleNotFoundError</p>
-<p>When using pandas, you may encounter the error message <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>. This is caused by so-called pandas dependencies.</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, you may encounter the error message <code class="docutils literal notranslate"><span class="pre">ModuleNotFoundError</span></code>. This is caused by so-called pandas dependencies.</p>
 <p>When you install the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library for Python, it requires other libraries to function correctly. These required libraries are called dependencies.
-Dependencies are external libraries that provide additional functionality or capabilities that the main library (in this case, pandas) relies on to operate.</p>
-<p>When you install pandas using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer, it automatically installs any required dependencies. However, optional dependencies are not installed by default and must be installed separately if needed.</p>
+Dependencies are external libraries that provide additional functionality or capabilities that the main library (in this case, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>) relies on to operate.</p>
+<p>When you install <code class="docutils literal notranslate"><span class="pre">pandas</span></code> using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, Python’s package installer, it automatically installs any required dependencies. However, optional dependencies are not installed by default and must be installed separately if needed.</p>
 <p><a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/getting_started/install.html#optional-dependencies">You can read more about pandas dependencies here.</a></p>
 <p>In our case, we will be working with Excel files. All Excel-related dependencies can be installed in one go with this command:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;pandas[excel]&quot;</span>
@@ -508,7 +508,7 @@ Dependencies are external libraries that provide additional functionality or cap
 <hr class="docutils" />
 <section id="importing-pandas">
 <h2>Importing pandas<a class="headerlink" href="#importing-pandas" title="Link to this heading">#</a></h2>
-<p>Even though we have now installed pandas, we still need to import pandas when we want to use it in our code.<br />
+<p>Even though we have now installed <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, we still need to import <code class="docutils literal notranslate"><span class="pre">pandas</span></code> when we want to use it in our code.<br />
 This is conventionally done at the top of the script (together with any other imports) to make it easier for future readers (including ourselves!) to see, which packages are used.</p>
 <p>Aliasing <code class="docutils literal notranslate"><span class="pre">pandas</span></code> as <code class="docutils literal notranslate"><span class="pre">pd</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.<br />
 After this statement, you can use <code class="docutils literal notranslate"><span class="pre">pd</span></code> to access all the functionalities provided by the <code class="docutils literal notranslate"><span class="pre">pandas</span></code> library.</p>
