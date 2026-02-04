@@ -16,30 +16,33 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -63,6 +66,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -78,19 +82,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -98,7 +91,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -106,8 +98,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -125,7 +117,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,21 +148,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="KUB Datalab - Python - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -230,7 +219,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Extra: Basic Visualisations in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -391,24 +380,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -539,7 +520,7 @@ document.write(`
 <h3>Importing Vega-Altair<a class="headerlink" href="#importing-vega-altair" title="Link to this heading">#</a></h3>
 <p>Even though we have now installed Vega-Altair, we still need to import it when we want to use it in our code. This is conventionally done at the top of the script (together with any other imports) to make it easier for future readers (including ourselves!) to see which packages are used.
 Aliasing altair as <code class="docutils literal notranslate"><span class="pre">alt</span></code> is a widely adopted convention that simplifies the syntax for accessing its functionalities.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
 </pre></div>
 </div>
 </section>
@@ -565,8 +546,8 @@ Aliasing altair as <code class="docutils literal notranslate"><span class="pre">
 <p>Let’s create a very simple plot with the titanic data!</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Load the Titanic dataset from a CSV file into a DataFrame named &#39;titanic&#39;.</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;titanic.csv&#39;</span><span class="p">)</span>
@@ -581,31 +562,31 @@ Aliasing altair as <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-6134c090cd8a46599f048dc7842df6db.vega-embed {
+  #altair-viz-ffd1ad22459a4dafa2e2268e73b1d3c4.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-6134c090cd8a46599f048dc7842df6db.vega-embed details,
-  #altair-viz-6134c090cd8a46599f048dc7842df6db.vega-embed details summary {
+  #altair-viz-ffd1ad22459a4dafa2e2268e73b1d3c4.vega-embed details,
+  #altair-viz-ffd1ad22459a4dafa2e2268e73b1d3c4.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-6134c090cd8a46599f048dc7842df6db"></div>
+<div id="altair-viz-ffd1ad22459a4dafa2e2268e73b1d3c4"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-6134c090cd8a46599f048dc7842df6db") {
-      outputDiv = document.getElementById("altair-viz-6134c090cd8a46599f048dc7842df6db");
+    if (outputDiv.id !== "altair-viz-ffd1ad22459a4dafa2e2268e73b1d3c4") {
+      outputDiv = document.getElementById("altair-viz-ffd1ad22459a4dafa2e2268e73b1d3c4");
     }
 
     const paths = {
@@ -663,8 +644,8 @@ Aliasing altair as <code class="docutils literal notranslate"><span class="pre">
 <p>Change the code above so that it displays a line chart instead of a scatter plot.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">altair</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">alt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="c1"># Assuming &#39;data&#39; has been loaded and columns are appropriately renamed</span>
 <span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_line</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
@@ -690,31 +671,31 @@ Aliasing altair as <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-8301f36bf0e94534ba1f2100b23649fd.vega-embed {
+  #altair-viz-e5febb97e9c446b7ba7da801c650f149.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-8301f36bf0e94534ba1f2100b23649fd.vega-embed details,
-  #altair-viz-8301f36bf0e94534ba1f2100b23649fd.vega-embed details summary {
+  #altair-viz-e5febb97e9c446b7ba7da801c650f149.vega-embed details,
+  #altair-viz-e5febb97e9c446b7ba7da801c650f149.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-8301f36bf0e94534ba1f2100b23649fd"></div>
+<div id="altair-viz-e5febb97e9c446b7ba7da801c650f149"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8301f36bf0e94534ba1f2100b23649fd") {
-      outputDiv = document.getElementById("altair-viz-8301f36bf0e94534ba1f2100b23649fd");
+    if (outputDiv.id !== "altair-viz-e5febb97e9c446b7ba7da801c650f149") {
+      outputDiv = document.getElementById("altair-viz-e5febb97e9c446b7ba7da801c650f149");
     }
 
     const paths = {
@@ -776,31 +757,31 @@ Aliasing altair as <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-556c5ab320b0413d873dc31196b4ae1c.vega-embed {
+  #altair-viz-2107b8a3f7a74ceb85bfbd2dba4447c2.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-556c5ab320b0413d873dc31196b4ae1c.vega-embed details,
-  #altair-viz-556c5ab320b0413d873dc31196b4ae1c.vega-embed details summary {
+  #altair-viz-2107b8a3f7a74ceb85bfbd2dba4447c2.vega-embed details,
+  #altair-viz-2107b8a3f7a74ceb85bfbd2dba4447c2.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-556c5ab320b0413d873dc31196b4ae1c"></div>
+<div id="altair-viz-2107b8a3f7a74ceb85bfbd2dba4447c2"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-556c5ab320b0413d873dc31196b4ae1c") {
-      outputDiv = document.getElementById("altair-viz-556c5ab320b0413d873dc31196b4ae1c");
+    if (outputDiv.id !== "altair-viz-2107b8a3f7a74ceb85bfbd2dba4447c2") {
+      outputDiv = document.getElementById("altair-viz-2107b8a3f7a74ceb85bfbd2dba4447c2");
     }
 
     const paths = {
@@ -862,31 +843,31 @@ Aliasing altair as <code class="docutils literal notranslate"><span class="pre">
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-8fc9a287cc0141eaabcb07b9bf094445.vega-embed {
+  #altair-viz-d60451a2f18f47a1a7687fef1d7d7b1b.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-8fc9a287cc0141eaabcb07b9bf094445.vega-embed details,
-  #altair-viz-8fc9a287cc0141eaabcb07b9bf094445.vega-embed details summary {
+  #altair-viz-d60451a2f18f47a1a7687fef1d7d7b1b.vega-embed details,
+  #altair-viz-d60451a2f18f47a1a7687fef1d7d7b1b.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-8fc9a287cc0141eaabcb07b9bf094445"></div>
+<div id="altair-viz-d60451a2f18f47a1a7687fef1d7d7b1b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-8fc9a287cc0141eaabcb07b9bf094445") {
-      outputDiv = document.getElementById("altair-viz-8fc9a287cc0141eaabcb07b9bf094445");
+    if (outputDiv.id !== "altair-viz-d60451a2f18f47a1a7687fef1d7d7b1b") {
+      outputDiv = document.getElementById("altair-viz-d60451a2f18f47a1a7687fef1d7d7b1b");
     }
 
     const paths = {
@@ -946,31 +927,31 @@ If we want to display it as ordinal data instead, we must add the ordinal encodi
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-5f25db53aafa4b2998d30caf860bcc49.vega-embed {
+  #altair-viz-1ac17851d7374061ad2a91d193cad9aa.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-5f25db53aafa4b2998d30caf860bcc49.vega-embed details,
-  #altair-viz-5f25db53aafa4b2998d30caf860bcc49.vega-embed details summary {
+  #altair-viz-1ac17851d7374061ad2a91d193cad9aa.vega-embed details,
+  #altair-viz-1ac17851d7374061ad2a91d193cad9aa.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-5f25db53aafa4b2998d30caf860bcc49"></div>
+<div id="altair-viz-1ac17851d7374061ad2a91d193cad9aa"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5f25db53aafa4b2998d30caf860bcc49") {
-      outputDiv = document.getElementById("altair-viz-5f25db53aafa4b2998d30caf860bcc49");
+    if (outputDiv.id !== "altair-viz-1ac17851d7374061ad2a91d193cad9aa") {
+      outputDiv = document.getElementById("altair-viz-1ac17851d7374061ad2a91d193cad9aa");
     }
 
     const paths = {
@@ -1032,31 +1013,31 @@ If we want to display it as ordinal data instead, we must add the ordinal encodi
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-5fb03e23c9814ad8a6aadd4daab27d12.vega-embed {
+  #altair-viz-8c661ed8f65a4308a18e5544efd48e73.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-5fb03e23c9814ad8a6aadd4daab27d12.vega-embed details,
-  #altair-viz-5fb03e23c9814ad8a6aadd4daab27d12.vega-embed details summary {
+  #altair-viz-8c661ed8f65a4308a18e5544efd48e73.vega-embed details,
+  #altair-viz-8c661ed8f65a4308a18e5544efd48e73.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-5fb03e23c9814ad8a6aadd4daab27d12"></div>
+<div id="altair-viz-8c661ed8f65a4308a18e5544efd48e73"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-5fb03e23c9814ad8a6aadd4daab27d12") {
-      outputDiv = document.getElementById("altair-viz-5fb03e23c9814ad8a6aadd4daab27d12");
+    if (outputDiv.id !== "altair-viz-8c661ed8f65a4308a18e5544efd48e73") {
+      outputDiv = document.getElementById("altair-viz-8c661ed8f65a4308a18e5544efd48e73");
     }
 
     const paths = {
@@ -1125,31 +1106,31 @@ If we want to display it as ordinal data instead, we must add the ordinal encodi
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-d289e966b0e84d288de8290a79866a2a.vega-embed {
+  #altair-viz-563a03cd3a934efcb1da17418ab44258.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-d289e966b0e84d288de8290a79866a2a.vega-embed details,
-  #altair-viz-d289e966b0e84d288de8290a79866a2a.vega-embed details summary {
+  #altair-viz-563a03cd3a934efcb1da17418ab44258.vega-embed details,
+  #altair-viz-563a03cd3a934efcb1da17418ab44258.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-d289e966b0e84d288de8290a79866a2a"></div>
+<div id="altair-viz-563a03cd3a934efcb1da17418ab44258"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-d289e966b0e84d288de8290a79866a2a") {
-      outputDiv = document.getElementById("altair-viz-d289e966b0e84d288de8290a79866a2a");
+    if (outputDiv.id !== "altair-viz-563a03cd3a934efcb1da17418ab44258") {
+      outputDiv = document.getElementById("altair-viz-563a03cd3a934efcb1da17418ab44258");
     }
 
     const paths = {
@@ -1216,31 +1197,31 @@ If we want to display it as ordinal data instead, we must add the ordinal encodi
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-d53dde0ad9894fd0b983bc26b95f97c7.vega-embed {
+  #altair-viz-437896c976524d20a42eb682e019045c.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-d53dde0ad9894fd0b983bc26b95f97c7.vega-embed details,
-  #altair-viz-d53dde0ad9894fd0b983bc26b95f97c7.vega-embed details summary {
+  #altair-viz-437896c976524d20a42eb682e019045c.vega-embed details,
+  #altair-viz-437896c976524d20a42eb682e019045c.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-d53dde0ad9894fd0b983bc26b95f97c7"></div>
+<div id="altair-viz-437896c976524d20a42eb682e019045c"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-d53dde0ad9894fd0b983bc26b95f97c7") {
-      outputDiv = document.getElementById("altair-viz-d53dde0ad9894fd0b983bc26b95f97c7");
+    if (outputDiv.id !== "altair-viz-437896c976524d20a42eb682e019045c") {
+      outputDiv = document.getElementById("altair-viz-437896c976524d20a42eb682e019045c");
     }
 
     const paths = {
@@ -1356,31 +1337,31 @@ We will continue with the titanic dataset.</p>
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-827cc0a980b7459da4e7d7904f56cc8a.vega-embed {
+  #altair-viz-cef66ca674674bb698758fe3f0163a5b.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-827cc0a980b7459da4e7d7904f56cc8a.vega-embed details,
-  #altair-viz-827cc0a980b7459da4e7d7904f56cc8a.vega-embed details summary {
+  #altair-viz-cef66ca674674bb698758fe3f0163a5b.vega-embed details,
+  #altair-viz-cef66ca674674bb698758fe3f0163a5b.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-827cc0a980b7459da4e7d7904f56cc8a"></div>
+<div id="altair-viz-cef66ca674674bb698758fe3f0163a5b"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-827cc0a980b7459da4e7d7904f56cc8a") {
-      outputDiv = document.getElementById("altair-viz-827cc0a980b7459da4e7d7904f56cc8a");
+    if (outputDiv.id !== "altair-viz-cef66ca674674bb698758fe3f0163a5b") {
+      outputDiv = document.getElementById("altair-viz-cef66ca674674bb698758fe3f0163a5b");
     }
 
     const paths = {
@@ -1453,31 +1434,31 @@ We will continue with the titanic dataset.</p>
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-aa9e57e8a8014703bf037efad9e67804.vega-embed {
+  #altair-viz-31fa184ba8c24f4da9e3461fe4a74bf7.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-aa9e57e8a8014703bf037efad9e67804.vega-embed details,
-  #altair-viz-aa9e57e8a8014703bf037efad9e67804.vega-embed details summary {
+  #altair-viz-31fa184ba8c24f4da9e3461fe4a74bf7.vega-embed details,
+  #altair-viz-31fa184ba8c24f4da9e3461fe4a74bf7.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-aa9e57e8a8014703bf037efad9e67804"></div>
+<div id="altair-viz-31fa184ba8c24f4da9e3461fe4a74bf7"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-aa9e57e8a8014703bf037efad9e67804") {
-      outputDiv = document.getElementById("altair-viz-aa9e57e8a8014703bf037efad9e67804");
+    if (outputDiv.id !== "altair-viz-31fa184ba8c24f4da9e3461fe4a74bf7") {
+      outputDiv = document.getElementById("altair-viz-31fa184ba8c24f4da9e3461fe4a74bf7");
     }
 
     const paths = {
@@ -1542,31 +1523,31 @@ We will continue with the titanic dataset.</p>
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-f7ea423a04b34aeb8faf365986d397c2.vega-embed {
+  #altair-viz-9b40537990a4471fb656bf025feb1a70.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-f7ea423a04b34aeb8faf365986d397c2.vega-embed details,
-  #altair-viz-f7ea423a04b34aeb8faf365986d397c2.vega-embed details summary {
+  #altair-viz-9b40537990a4471fb656bf025feb1a70.vega-embed details,
+  #altair-viz-9b40537990a4471fb656bf025feb1a70.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-f7ea423a04b34aeb8faf365986d397c2"></div>
+<div id="altair-viz-9b40537990a4471fb656bf025feb1a70"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-f7ea423a04b34aeb8faf365986d397c2") {
-      outputDiv = document.getElementById("altair-viz-f7ea423a04b34aeb8faf365986d397c2");
+    if (outputDiv.id !== "altair-viz-9b40537990a4471fb656bf025feb1a70") {
+      outputDiv = document.getElementById("altair-viz-9b40537990a4471fb656bf025feb1a70");
     }
 
     const paths = {
@@ -1679,31 +1660,31 @@ We will continue with the titanic dataset.</p>
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-2f1c0a04fe3e4e3f8915719546ad2dc9.vega-embed {
+  #altair-viz-e716ed67f6de477ebf5694ad5bb47991.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-2f1c0a04fe3e4e3f8915719546ad2dc9.vega-embed details,
-  #altair-viz-2f1c0a04fe3e4e3f8915719546ad2dc9.vega-embed details summary {
+  #altair-viz-e716ed67f6de477ebf5694ad5bb47991.vega-embed details,
+  #altair-viz-e716ed67f6de477ebf5694ad5bb47991.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-2f1c0a04fe3e4e3f8915719546ad2dc9"></div>
+<div id="altair-viz-e716ed67f6de477ebf5694ad5bb47991"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-2f1c0a04fe3e4e3f8915719546ad2dc9") {
-      outputDiv = document.getElementById("altair-viz-2f1c0a04fe3e4e3f8915719546ad2dc9");
+    if (outputDiv.id !== "altair-viz-e716ed67f6de477ebf5694ad5bb47991") {
+      outputDiv = document.getElementById("altair-viz-e716ed67f6de477ebf5694ad5bb47991");
     }
 
     const paths = {
@@ -1769,31 +1750,31 @@ We will continue with the titanic dataset.</p>
 </pre></div>
 </div>
 </div>
-<details class="admonition hide below-input">
+<details class="hide below-input">
 <summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_html">
 <style>
-  #altair-viz-07fea1c1e6704791b69a94f6e42aae9f.vega-embed {
+  #altair-viz-08d6e6133c504ed899643575a99ffd12.vega-embed {
     width: 100%;
     display: flex;
   }
 
-  #altair-viz-07fea1c1e6704791b69a94f6e42aae9f.vega-embed details,
-  #altair-viz-07fea1c1e6704791b69a94f6e42aae9f.vega-embed details summary {
+  #altair-viz-08d6e6133c504ed899643575a99ffd12.vega-embed details,
+  #altair-viz-08d6e6133c504ed899643575a99ffd12.vega-embed details summary {
     position: relative;
   }
 </style>
-<div id="altair-viz-07fea1c1e6704791b69a94f6e42aae9f"></div>
+<div id="altair-viz-08d6e6133c504ed899643575a99ffd12"></div>
 <script type="text/javascript">
   var VEGA_DEBUG = (typeof VEGA_DEBUG == "undefined") ? {} : VEGA_DEBUG;
   (function(spec, embedOpt){
     let outputDiv = document.currentScript.previousElementSibling;
-    if (outputDiv.id !== "altair-viz-07fea1c1e6704791b69a94f6e42aae9f") {
-      outputDiv = document.getElementById("altair-viz-07fea1c1e6704791b69a94f6e42aae9f");
+    if (outputDiv.id !== "altair-viz-08d6e6133c504ed899643575a99ffd12") {
+      outputDiv = document.getElementById("altair-viz-08d6e6133c504ed899643575a99ffd12");
     }
 
     const paths = {
@@ -1923,7 +1904,8 @@ You can read more about the <code class="docutils literal notranslate"><span cla
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -2018,8 +2000,8 @@ By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
 
   <footer class="bd-footer">
   </footer>
