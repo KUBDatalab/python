@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -66,7 +63,6 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -82,8 +78,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -91,6 +98,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -98,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,8 +125,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -148,17 +155,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="KUB Datalab - Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -219,7 +230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Extra: Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -380,16 +391,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -441,8 +460,8 @@
 <h2>Read files<a class="headerlink" href="#read-files" title="Link to this heading">#</a></h2>
 <p>We get the book Frankenstein from Project Gutenberg and use it for the rest of the workshop. We download the Plain Text UTF-8 version.</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">urllib.request</span> 
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span> 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://gutenberg.org/cache/epub/84/pg84.txt&#39;</span>
 <span class="n">raw_text</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 <span class="n">text_start</span> <span class="o">=</span> <span class="n">raw_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;*** START OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN; OR, THE MODERN PROMETHEUS ***&#39;</span><span class="p">)</span>
@@ -452,6 +471,133 @@
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">SSLCertVerificationError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:1319,</span> in <span class="ni">AbstractHTTPHandler.do_open</span><span class="nt">(self, http_class, req, **http_conn_args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1319</span>     <span class="n">h</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">(),</span> <span class="n">req</span><span class="o">.</span><span class="n">selector</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span>               <span class="n">encode_chunked</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s1">&#39;Transfer-encoding&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span> <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span> <span class="c1"># timeout error</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py:1338,</span> in <span class="ni">HTTPConnection.request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1337</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Send a complete request to the server.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1338</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py:1384,</span> in <span class="ni">HTTPConnection._send_request</span><span class="nt">(self, method, url, body, headers, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1383</span>     <span class="n">body</span> <span class="o">=</span> <span class="n">_encode</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1384</span> <span class="bp">self</span><span class="o">.</span><span class="n">endheaders</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py:1333,</span> in <span class="ni">HTTPConnection.endheaders</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1332</span>     <span class="k">raise</span> <span class="n">CannotSendHeader</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">1333</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_output</span><span class="p">(</span><span class="n">message_body</span><span class="p">,</span> <span class="n">encode_chunked</span><span class="o">=</span><span class="n">encode_chunked</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py:1093,</span> in <span class="ni">HTTPConnection._send_output</span><span class="nt">(self, message_body, encode_chunked)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1092</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="p">[:]</span>
+<span class="ne">-&gt; </span><span class="mi">1093</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1095</span> <span class="k">if</span> <span class="n">message_body</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1097</span>     <span class="c1"># create a consistent interface to message_body</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py:1037,</span> in <span class="ni">HTTPConnection.send</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">auto_open</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1037</span>     <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span> <span class="k">else</span><span class="p">:</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/http/client.py:1479,</span> in <span class="ni">HTTPSConnection.connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1477</span>     <span class="n">server_hostname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span>
+<span class="ne">-&gt; </span><span class="mi">1479</span> <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sock</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1480</span>                                       <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py:455,</span> in <span class="ni">SSLContext.wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
+<span class="g g-Whitespace">    </span><span class="mi">449</span> <span class="k">def</span><span class="w"> </span><span class="nf">wrap_socket</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sock</span><span class="p">,</span> <span class="n">server_side</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">450</span>                 <span class="n">do_handshake_on_connect</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span>                 <span class="n">suppress_ragged_eofs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span>                 <span class="n">server_hostname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">453</span>     <span class="c1"># SSLSocket class handles server_hostname encoding before it calls</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span>     <span class="c1"># ctx._wrap_socket()</span>
+<span class="ne">--&gt; </span><span class="mi">455</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sslsocket_class</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">456</span>         <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">457</span>         <span class="n">server_side</span><span class="o">=</span><span class="n">server_side</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">458</span>         <span class="n">do_handshake_on_connect</span><span class="o">=</span><span class="n">do_handshake_on_connect</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span>         <span class="n">suppress_ragged_eofs</span><span class="o">=</span><span class="n">suppress_ragged_eofs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span>         <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">461</span>         <span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span>         <span class="n">session</span><span class="o">=</span><span class="n">session</span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span>     <span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py:1076,</span> in <span class="ni">SSLSocket._create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1075</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1076</span>             <span class="bp">self</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1077</span> <span class="k">except</span><span class="p">:</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/ssl.py:1372,</span> in <span class="ni">SSLSocket.do_handshake</span><span class="nt">(self, block)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1371</span>         <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1372</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span> <span class="k">finally</span><span class="p">:</span>
+
+<span class="nn">SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate</span> in <span class="ni">certificate chain </span><span class="nt">(_ssl.c:1028)</span>
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">URLError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">urllib.request</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://gutenberg.org/cache/epub/84/pg84.txt&#39;</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">raw_text</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">text_start</span> <span class="o">=</span> <span class="n">raw_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;*** START OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN; OR, THE MODERN PROMETHEUS ***&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">text_start</span> <span class="o">=</span> <span class="n">text_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="s1">&#39;*** START OF THE PROJECT GUTENBERG EBOOK FRANKENSTEIN; OR, THE MODERN PROMETHEUS ***&#39;</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:189,</span> in <span class="ni">urlopen</span><span class="nt">(url, data, timeout, context)</span>
+<span class="g g-Whitespace">    </span><span class="mi">187</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">188</span>     <span class="n">opener</span> <span class="o">=</span> <span class="n">_opener</span>
+<span class="ne">--&gt; </span><span class="mi">189</span> <span class="k">return</span> <span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:489,</span> in <span class="ni">OpenerDirector.open</span><span class="nt">(self, fullurl, data, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">486</span>     <span class="n">req</span> <span class="o">=</span> <span class="n">meth</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span> <span class="n">sys</span><span class="o">.</span><span class="n">audit</span><span class="p">(</span><span class="s1">&#39;urllib.Request&#39;</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">full_url</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">())</span>
+<span class="ne">--&gt; </span><span class="mi">489</span> <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_open</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">491</span> <span class="c1"># post-process response</span>
+<span class="g g-Whitespace">    </span><span class="mi">492</span> <span class="n">meth_name</span> <span class="o">=</span> <span class="n">protocol</span><span class="o">+</span><span class="s2">&quot;_response&quot;</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:506,</span> in <span class="ni">OpenerDirector._open</span><span class="nt">(self, req, data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="k">return</span> <span class="n">result</span>
+<span class="g g-Whitespace">    </span><span class="mi">505</span> <span class="n">protocol</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">type</span>
+<span class="ne">--&gt; </span><span class="mi">506</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_chain</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">handle_open</span><span class="p">,</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">protocol</span> <span class="o">+</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span>                           <span class="s1">&#39;_open&#39;</span><span class="p">,</span> <span class="n">req</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">508</span> <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">509</span>     <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:466,</span> in <span class="ni">OpenerDirector._call_chain</span><span class="nt">(self, chain, kind, meth_name, *args)</span>
+<span class="g g-Whitespace">    </span><span class="mi">464</span> <span class="k">for</span> <span class="n">handler</span> <span class="ow">in</span> <span class="n">handlers</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">465</span>     <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">handler</span><span class="p">,</span> <span class="n">meth_name</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">466</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">467</span>     <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">468</span>         <span class="k">return</span> <span class="n">result</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:1367,</span> in <span class="ni">HTTPSHandler.https_open</span><span class="nt">(self, req)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1366</span> <span class="k">def</span><span class="w"> </span><span class="nf">https_open</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">req</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1367</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_open</span><span class="p">(</span><span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">HTTPSConnection</span><span class="p">,</span> <span class="n">req</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1368</span>                         <span class="n">context</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_context</span><span class="p">)</span>
+
+<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/urllib/request.py:1322,</span> in <span class="ni">AbstractHTTPHandler.do_open</span><span class="nt">(self, http_class, req, **http_conn_args)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>         <span class="n">h</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">get_method</span><span class="p">(),</span> <span class="n">req</span><span class="o">.</span><span class="n">selector</span><span class="p">,</span> <span class="n">req</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span>                   <span class="n">encode_chunked</span><span class="o">=</span><span class="n">req</span><span class="o">.</span><span class="n">has_header</span><span class="p">(</span><span class="s1">&#39;Transfer-encoding&#39;</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span>     <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span> <span class="c1"># timeout error</span>
+<span class="ne">-&gt; </span><span class="mi">1322</span>         <span class="k">raise</span> <span class="n">URLError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1323</span>     <span class="n">r</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1324</span> <span class="k">except</span><span class="p">:</span>
+
+<span class="ne">URLError</span>: &lt;urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1028)&gt;
+</pre></div>
+</div>
+</div>
+</details>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
@@ -459,13 +605,18 @@
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Frankenstein;\r\n\r\nor, the Modern Prometheus\r\n\r\nby Mary Wollstonecraft (Godwin) Shelley\r\n\r\n\r\n CONTENTS&#39;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">]</span>
+
+<span class="ne">NameError</span>: name &#39;text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -498,9 +649,9 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 <p>Try both methods below and inspect the result.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
 
-<span class="k">def</span> <span class="nf">clean_text_1</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text_1</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Use \w+ regex pattern to extract words</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\b\S+\b&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
@@ -510,7 +661,7 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
     <span class="k">return</span> <span class="n">cleaned_text</span>
 
 
-<span class="k">def</span> <span class="nf">clean_text_2</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">clean_text_2</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="c1"># Use \w+ regex pattern to extract words</span>
     <span class="n">words</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
 
@@ -530,13 +681,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frankenstein or the Modern Prometheus by Mary Wollstonecraft Godwin Shelley CONTENTS Letter 1 Letter
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">clean_text_1</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">cleaned_text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -550,13 +707,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frankenstein or the Modern Prometheus by Mary Wollstonecraft Godwin Shelley CONTENTS Letter 1 Letter
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">cleaned_text</span> <span class="o">=</span> <span class="n">clean_text_2</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nb">print</span><span class="p">(</span><span class="n">cleaned_text</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -575,13 +738,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;yesterday&#39;, &#39;holiday&#39;, &#39;Monday&#39;, &#39;Yesterday&#39;, &#39;Sunday&#39;, &#39;Thursday&#39;, &#39;today&#39;, &#39;today&#39;, &#39;yesterday&#39;, &#39;yesterday&#39;, &#39;everyday&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ending</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\w+day\b&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">ending</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -607,13 +776,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as a delusion&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cleaned_text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -626,13 +801,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as an under&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as an infant&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as an inferior&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as an uncouth&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as an easier&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as an odious&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as an irresistible&#39;, &#39;as an historical&#39;, &#39;as an air&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as an excellent&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as an extreme&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as an insuperable&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as an agitation&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as an event&#39;, &#39;as a delusion&#39;, &#39;as an occurrence&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa\s\w+|as\san\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cleaned_text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -645,13 +826,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;as a steady&#39;, &#39;as a child&#39;, &#39;as an under&#39;, &#39;as a most&#39;, &#39;as a Turk&#39;, &#39;as a remarkably&#39;, &#39;as a human&#39;, &#39;as a little&#39;, &#39;as a brother&#39;, &#39;as a double&#39;, &#39;as a halo&#39;, &#39;as a merchant&#39;, &#39;as a considerable&#39;, &#39;as a sense&#39;, &#39;as a show&#39;, &#39;as a fair&#39;, &#39;as a restorative&#39;, &#39;as an infant&#39;, &#39;as a necessity&#39;, &#39;as a German&#39;, &#39;as a boy&#39;, &#39;as an inferior&#39;, &#39;as a promise&#39;, &#39;as a deformed&#39;, &#39;as a strong&#39;, &#39;as a narrow&#39;, &#39;as an uncouth&#39;, &#39;as a little&#39;, &#39;as a dream&#39;, &#39;as a certain&#39;, &#39;as an easier&#39;, &#39;as a bold&#39;, &#39;as a mystery&#39;, &#39;as a most&#39;, &#39;as a proof&#39;, &#39;as a tendency&#39;, &#39;as a divine&#39;, &#39;as an odious&#39;, &#39;as a widow&#39;, &#39;as a servant&#39;, &#39;as a great&#39;, &#39;as a judgement&#39;, &#39;as a Roman&#39;, &#39;as an irresistible&#39;, &#39;as an historical&#39;, &#39;as an air&#39;, &#39;as a miniature&#39;, &#39;as a new&#39;, &#39;as a strange&#39;, &#39;as a girl&#39;, &#39;as a proof&#39;, &#39;as a dire&#39;, &#39;as a murderer&#39;, &#39;as a wretch&#39;, &#39;as a creature&#39;, &#39;as a murderess&#39;, &#39;as a wreck&#39;, &#39;as a lullaby&#39;, &#39;as a poor&#39;, &#39;as a new&#39;, &#39;as a little&#39;, &#39;as a small&#39;, &#39;as a lovely&#39;, &#39;as a lady&#39;, &#39;as a guide&#39;, &#39;as a vagabond&#39;, &#39;as a Turkish&#39;, &#39;as a Christian&#39;, &#39;as a boarder&#39;, &#39;as a distant&#39;, &#39;as a listener&#39;, &#39;as a true&#39;, &#39;as an excellent&#39;, &#39;as a luxury&#39;, &#39;as a fool&#39;, &#39;as a recompense&#39;, &#39;as a portrait&#39;, &#39;as a right&#39;, &#39;as a being&#39;, &#39;as a scene&#39;, &#39;as a soul&#39;, &#39;as a being&#39;, &#39;as an extreme&#39;, &#39;as a new&#39;, &#39;as a place&#39;, &#39;as a monotonous&#39;, &#39;as an insuperable&#39;, &#39;as a reality&#39;, &#39;as a task&#39;, &#39;as a thing&#39;, &#39;as a place&#39;, &#39;as a very&#39;, &#39;as a hired&#39;, &#39;as a dream&#39;, &#39;as a new&#39;, &#39;as a presumption&#39;, &#39;as a momentary&#39;, &#39;as an agitation&#39;, &#39;as a criminal&#39;, &#39;as a torpor&#39;, &#39;as a shattered&#39;, &#39;as a mere&#39;, &#39;as an event&#39;, &#39;as a delusion&#39;, &#39;as an occurrence&#39;, &#39;as a mockery&#39;, &#39;as a great&#39;, &#39;as a magistrate&#39;, &#39;as a man&#39;, &#39;as a beast&#39;, &#39;as a frenzy&#39;, &#39;as a nurse&#39;, &#39;as a task&#39;, &#39;as a week&#39;, &#39;as a southern&#39;, &#39;as a rock&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">comparison</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;as\sa[n]?\s\w+&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span> <span class="p">(</span><span class="n">comparison</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cleaned_text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -671,23 +858,18 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;st be his story frightful the storm which embraced the gallant ve&#39;,
- &#39;t violent and terrible thunderstorm It advanced from behind the m&#39;,
- &#39; heavens I remained while the storm lasted watching its progress &#39;,
- &#39; of preservation to avert the storm that was even then hanging in&#39;,
- &#39;he most beautiful figures The storm appeared to approach rapidly &#39;,
- &#39; on although the darkness and storm increased every minute and th&#39;,
- &#39; from the preceding flash The storm as is often the case in Switz&#39;,
- &#39; the heavens The most violent storm hung exactly north of the tow&#39;,
- &#39; the village of Copêt Another storm enlightened Jura with faint f&#39;,
- &#39;y retreats What were rain and storm to me My mule was brought to &#39;,
- &#39;ning to rise Suddenly a heavy storm of rain descended I had been &#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;.</span><span class="si">{30}</span><span class="s1">storm.</span><span class="si">{30}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">cleaned_text</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;cleaned_text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -704,13 +886,19 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frankenstein&#39;, &#39;Modern&#39;, &#39;Prometheus&#39;, &#39;Mary&#39;, &#39;Wollstonecraft&#39;, &#39;Godwin&#39;, &#39;Shelley&#39;, &#39;CONTENTS&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Letter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Letter&#39;, &#39;To&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;St&#39;, &#39;Petersburgh&#39;, &#39;Dec&#39;, &#39;You&#39;, &#39;London&#39;, &#39;Petersburgh&#39;, &#39;Do&#39;, &#39;This&#39;, &#39;Inspirited&#39;, &#39;There&#39;, &#39;Margaret&#39;, &#39;There&#39;, &#39;Its&#39;, &#39;What&#39;, &#39;These&#39;, &#39;But&#39;, &#39;These&#39;, &#39;This&#39;, &#39;North&#39;, &#39;Pacific&#39;, &#39;Ocean&#39;, &#39;You&#39;, &#39;Uncle&#39;, &#39;Thomas&#39;, &#39;My&#39;, &#39;These&#39;, &#39;These&#39;, &#39;Homer&#39;, &#39;Shakespeare&#39;, &#39;You&#39;, &#39;But&#39;, &#39;Six&#39;, &#39;North&#39;, &#39;Sea&#39;, &#39;Twice&#39;, &#39;Greenland&#39;, &#39;And&#39;, &#39;Margaret&#39;, &#39;My&#39;, &#39;Oh&#39;, &#39;My&#39;, &#39;This&#39;, &#39;Russia&#39;, &#39;They&#39;, &#39;English&#39;, &#39;The&#39;, &#39;St&#39;, &#39;Petersburgh&#39;, &#39;Archangel&#39;, &#39;June&#39;, &#39;Ah&#39;, &#39;If&#39;, &#39;If&#39;, &#39;Farewell&#39;, &#39;Margaret&#39;, &#39;Heaven&#39;, &#39;Your&#39;, &#39;Walton&#39;, &#39;Letter&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">upper_case_word</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;[A-Z]\w+&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span> <span class="p">(</span><span class="n">upper_case_word</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
+
+<span class="ne">NameError</span>: name &#39;text&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -728,13 +916,21 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Frankenstein&#39;, &#39;Prometheus&#39;, &#39;Mary&#39;, &#39;Wollstonecraft&#39;, &#39;Godwin&#39;, &#39;Shelley&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Chapter&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;Petersburgh&#39;, &#39;London&#39;, &#39;Petersburgh&#39;, &#39;Margaret&#39;, &#39;Pacific&#39;, &#39;Thomas&#39;, &#39;Homer&#39;, &#39;Shakespeare&#39;, &#39;Greenland&#39;, &#39;Margaret&#39;, &#39;Russia&#39;, &#39;English&#39;, &#39;Petersburgh&#39;, &#39;June&#39;, &#39;Ah&#39;, &#39;Margaret&#39;, &#39;Walton&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;Margaret&#39;, &#39;Thomas&#39;, &#39;Englishman&#39;, &#39;Russian&#39;, &#39;Turk&#39;, &#39;Africa&#39;, &#39;America&#39;, &#39;Robert&#39;, &#39;Walton&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;July&#39;, &#39;England&#39;, &#39;England&#39;, &#39;Adieu&#39;, &#39;Margaret&#39;, &#39;Mrs&#39;, &#39;Saville&#39;, &#39;England&#39;, &#39;August&#39;, &#39;Monday&#39;, &#39;July&#39;, &#39;European&#39;, &#39;English&#39;, &#39;Margaret&#39;, &#39;Margaret&#39;, &#39;August&#39;, &#39;August&#39;, &#39;Walton&#39;, &#39;Chapter&#39;, &#39;Genevese&#39;, &#39;Beaufort&#39;, &#39;Lucerne&#39;, &#39;Beaufort&#39;, &#39;Beaufort&#39;, &#39;Reuss&#39;, &#39;Beaufort&#39;, &#39;Caroline&#39;, &#39;Beaufort&#39;, &#39;Beaufort&#39;, &#39;Geneva&#39;, &#39;Caroline&#39;, &#39;Italy&#39;, &#39;Italy&#39;, &#39;Germany&#39;, &#39;France&#39;]
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">true_upper_case</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">upper_case_word</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">if</span> <span class="n">word</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>         <span class="n">true_upper_case</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;upper_case_word&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -780,8 +976,7 @@ Another Regex pattern that is also used for cleaning is ‘\w+’.
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -840,8 +1035,8 @@ By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

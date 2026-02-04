@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
-  <!-- So that users can add custom icons -->
-  <script src="../../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -66,7 +63,6 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -82,8 +78,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -91,6 +98,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -98,8 +106,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -117,8 +125,7 @@
       
         
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -148,17 +155,21 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
-    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="KUB Datalab - Python - Home"/>
+    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -219,7 +230,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/04_pandas_descriptive_statistics.html">Descriptive Statistics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Basic Visualisations in Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/05_pandas_plot.html">Extra: Basic Visualisations in Pandas</a></li>
 </ul>
 </details></li>
 </ul>
@@ -380,16 +391,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -471,8 +490,8 @@
 help you get started with Matplotlib.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -494,13 +513,13 @@ the figure:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/b81386fd8801ac3c8cc379b7b2938ba3f6f2a715babe625fe458b1065f16ba6b.png" src="../../_images/b81386fd8801ac3c8cc379b7b2938ba3f6f2a715babe625fe458b1065f16ba6b.png" />
+<img alt="../../_images/cc8fdf9051704f22af74e61d2558a96228b41bb429fabe29a8efae5270d0b7c4.png" src="../../_images/cc8fdf9051704f22af74e61d2558a96228b41bb429fabe29a8efae5270d0b7c4.png" />
 </div>
 </details>
 </div>
@@ -599,16 +618,16 @@ strings corresponding to the <em>x</em> and <em>y</em> variables.</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;entry b&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/3226afff5a477c92a0a04fa9e4049754d25d0768fc0796f47c6ab1a76e908ba0.png" src="../../_images/3226afff5a477c92a0a04fa9e4049754d25d0768fc0796f47c6ab1a76e908ba0.png" />
+<img alt="../../_images/5f29aa5bfa02d77c33201b18ad93a9e413872403899b733dfa311b92ac9fa1cb.png" src="../../_images/5f29aa5bfa02d77c33201b18ad93a9e413872403899b733dfa311b92ac9fa1cb.png" />
 </div>
 </details>
 </div>
@@ -643,16 +662,16 @@ implicit and explicit interfaces.</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1179627b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10d590c20&gt;
 </pre></div>
 </div>
-<img alt="../../_images/47e5debc46d0df2e4de78bc06a024e1382a20f5261d21b158de17c58dcd1f239.png" src="../../_images/47e5debc46d0df2e4de78bc06a024e1382a20f5261d21b158de17c58dcd1f239.png" />
+<img alt="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" src="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" />
 </div>
 </details>
 </div>
@@ -672,16 +691,16 @@ implicit and explicit interfaces.</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x117953620&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10d958e10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/47e5debc46d0df2e4de78bc06a024e1382a20f5261d21b158de17c58dcd1f239.png" src="../../_images/47e5debc46d0df2e4de78bc06a024e1382a20f5261d21b158de17c58dcd1f239.png" />
+<img alt="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" src="../../_images/77b6ea216e225a5055093a77a9329892e7ac9a2e9432189889b634a7edb01c41.png" />
 </div>
 </details>
 </div>
@@ -707,7 +726,7 @@ sets, or want to easily wrap Matplotlib methods, use the recommended
 signature function below.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">my_plotter</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">param_dict</span><span class="p">):</span>
 <span class="w">  </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">  A helper function to make a graph.</span>
 <span class="sd">  &quot;&quot;&quot;</span>
@@ -727,16 +746,16 @@ signature function below.</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x117abbaa0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10d5065d0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/9de012f0d6b4aa08974b752b2e6fa689e247424bf4ceb560c104b79ab9c2d07e.png" src="../../_images/9de012f0d6b4aa08974b752b2e6fa689e247424bf4ceb560c104b79ab9c2d07e.png" />
+<img alt="../../_images/b797362ac6cb9e5d299337e468723e28e91f6545fae723881834e137066f289b.png" src="../../_images/b797362ac6cb9e5d299337e468723e28e91f6545fae723881834e137066f289b.png" />
 </div>
 </details>
 </div>
@@ -762,13 +781,13 @@ after the fact with <code class="docutils literal notranslate"><span class="pre"
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/3dcf60a201f965c710f6631b43d229136725267162610744b898292ee32aed21.png" src="../../_images/3dcf60a201f965c710f6631b43d229136725267162610744b898292ee32aed21.png" />
+<img alt="../../_images/1f6f8478a4bcdd8e42940a2b019dc3b30df5667a7afe9b8c8d8926227417c79f.png" src="../../_images/1f6f8478a4bcdd8e42940a2b019dc3b30df5667a7afe9b8c8d8926227417c79f.png" />
 </div>
 </details>
 </div>
@@ -786,16 +805,16 @@ from the interior:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x117b1c590&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x10da9f250&gt;
 </pre></div>
 </div>
-<img alt="../../_images/53adb33e7f7799486765c02e5d63eaad9d323dab28044f5ba6d9df91294ecf8c.png" src="../../_images/53adb33e7f7799486765c02e5d63eaad9d323dab28044f5ba6d9df91294ecf8c.png" />
+<img alt="../../_images/98138832e10c18430d824c18769b9eb44a71b921483f5db53bd84490add171a7.png" src="../../_images/98138832e10c18430d824c18769b9eb44a71b921483f5db53bd84490add171a7.png" />
 </div>
 </details>
 </div>
@@ -822,16 +841,16 @@ users can define their own <code class="docutils literal notranslate"><span clas
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x117960f80&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10db1ce10&gt;
 </pre></div>
 </div>
-<img alt="../../_images/6e25b09f8663f08e1e6cf8bbe01fad4945f9bc3ec236f3d8763e177bf07dfbe0.png" src="../../_images/6e25b09f8663f08e1e6cf8bbe01fad4945f9bc3ec236f3d8763e177bf07dfbe0.png" />
+<img alt="../../_images/c3c8a66ee958926537549b9562654a884517d921962e09f8a4ce914da18875a9.png" src="../../_images/c3c8a66ee958926537549b9562654a884517d921962e09f8a4ce914da18875a9.png" />
 </div>
 </details>
 </div>
@@ -862,13 +881,13 @@ for more discussion). Text can also be directly added to plots using
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/d145cc12c4e027ce4cb29c9e69d7615cfed3a7cd70ebc59cb95ca93125198329.png" src="../../_images/d145cc12c4e027ce4cb29c9e69d7615cfed3a7cd70ebc59cb95ca93125198329.png" />
+<img alt="../../_images/bb22081063ecc2972494e345229e811b1a280fba9a16afd3441594468274321b.png" src="../../_images/bb22081063ecc2972494e345229e811b1a280fba9a16afd3441594468274321b.png" />
 </div>
 </details>
 </div>
@@ -916,16 +935,16 @@ to <em>xy</em>, to a piece of text at <em>xytext</em>:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-2.0, 2.0)
 </pre></div>
 </div>
-<img alt="../../_images/1b688db80bf62c6b284077e4e1093e402c81a4e2eb2a7c972551afd28d019f14.png" src="../../_images/1b688db80bf62c6b284077e4e1093e402c81a4e2eb2a7c972551afd28d019f14.png" />
+<img alt="../../_images/ab96a7d06629114e606b47c36c6418b1e48b5cb4016bf308f2071a5e6b357a2a.png" src="../../_images/ab96a7d06629114e606b47c36c6418b1e48b5cb4016bf308f2071a5e6b357a2a.png" />
 </div>
 </details>
 </div>
@@ -947,16 +966,16 @@ details. More examples also can be found in <a class="reference external" href="
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x11e0b34d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x10ddaead0&gt;
 </pre></div>
 </div>
-<img alt="../../_images/4323771534bf07c6ed88f09d94b38281efd6013209cad6b0cdf3a602a858f345.png" src="../../_images/4323771534bf07c6ed88f09d94b38281efd6013209cad6b0cdf3a602a858f345.png" />
+<img alt="../../_images/1f125a273e97749c0fb593f15108a3379b8ad803da8a34ff1366fd81cc140957.png" src="../../_images/1f125a273e97749c0fb593f15108a3379b8ad803da8a34ff1366fd81cc140957.png" />
 </div>
 </details>
 </div>
@@ -991,16 +1010,16 @@ manually:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x11e08d280&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x10de4a0d0&gt;]
 </pre></div>
 </div>
-<img alt="../../_images/4420b463706fd56d2d5183d686ca8a0d6b0ad8de2ca8d5baee672e55f677aad5.png" src="../../_images/4420b463706fd56d2d5183d686ca8a0d6b0ad8de2ca8d5baee672e55f677aad5.png" />
+<img alt="../../_images/fc3c51623e85770dc5060bcfcb30ff034cfcb26ed2926bfb79d6975fd4262c5f.png" src="../../_images/fc3c51623e85770dc5060bcfcb30ff034cfcb26ed2926bfb79d6975fd4262c5f.png" />
 </div>
 </details>
 </div>
@@ -1027,16 +1046,16 @@ Axis objects to put tick marks. A simple interface to this is
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Manual ticks&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/ec946b29c18f9fbaea64cc554733a0124dff8f1f3db2dc187c01da8f4c833f36.png" src="../../_images/ec946b29c18f9fbaea64cc554733a0124dff8f1f3db2dc187c01da8f4c833f36.png" />
+<img alt="../../_images/a2197398cd9764eca8a4a616e9972006e7c0b26349409ec3fd7d83410985fd77.png" src="../../_images/a2197398cd9764eca8a4a616e9972006e7c0b26349409ec3fd7d83410985fd77.png" />
 </div>
 </details>
 </div>
@@ -1053,7 +1072,7 @@ well as floating point numbers. These get special locators and formatters
 as appropriate. For dates:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.dates</span> <span class="kn">import</span> <span class="n">ConciseDateFormatter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.dates</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConciseDateFormatter</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">),</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2021-11-15&#39;</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2021-12-25&#39;</span><span class="p">),</span>
@@ -1064,13 +1083,13 @@ as appropriate. For dates:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/f085f65d40649e3fed4153ae20641dfeade59d03d87550cea8edafbd68651dfe.png" src="../../_images/f085f65d40649e3fed4153ae20641dfeade59d03d87550cea8edafbd68651dfe.png" />
+<img alt="../../_images/81c454ea5905e2572e619a307b33b6b68fd5c1371c39762bb947209316ef62ec.png" src="../../_images/81c454ea5905e2572e619a307b33b6b68fd5c1371c39762bb947209316ef62ec.png" />
 </div>
 </details>
 </div>
@@ -1087,16 +1106,16 @@ as appropriate. For dates:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;BarContainer object of 4 artists&gt;
 </pre></div>
 </div>
-<img alt="../../_images/8b2e200c488b369da4e4273457bb65b508c78a58f206bf202711acc559dcab23.png" src="../../_images/8b2e200c488b369da4e4273457bb65b508c78a58f206bf202711acc559dcab23.png" />
+<img alt="../../_images/4cd6ce7258b2afca751121bf7633661e6fe2c6884464a043b743b24357b01161.png" src="../../_images/4cd6ce7258b2afca751121bf7633661e6fe2c6884464a043b743b24357b01161.png" />
 </div>
 </details>
 </div>
@@ -1132,16 +1151,16 @@ examples.</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Angle [°]&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/71e820dda1b4fab8792cb8cd23b40f5d91ce1f8c24b52af2f38cff66e247a968.png" src="../../_images/71e820dda1b4fab8792cb8cd23b40f5d91ce1f8c24b52af2f38cff66e247a968.png" />
+<img alt="../../_images/7498c42288100ba5e563208f7ddf7457d57e0358927c954ebda7075eb938e1f2.png" src="../../_images/7498c42288100ba5e563208f7ddf7457d57e0358927c954ebda7075eb938e1f2.png" />
 </div>
 </details>
 </div>
@@ -1153,7 +1172,7 @@ examples.</p>
 a colormap. Matplotlib has a number of plot types that do this:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LogNorm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">128</span><span class="p">))</span>
 <span class="n">Z</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">X</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">X</span><span class="o">**</span><span class="mi">5</span> <span class="o">+</span> <span class="n">Y</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">Y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -1177,16 +1196,16 @@ a colormap. Matplotlib has a number of plot types that do this:</p>
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;scatter()&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/285e7ff218bdb85b9a1c8c75cdd447a2751b76713c295fed20d582de0ab6afad.png" src="../../_images/285e7ff218bdb85b9a1c8c75cdd447a2751b76713c295fed20d582de0ab6afad.png" />
+<img alt="../../_images/f56596f2e6d6c8c4d8fc9b41a86e9f772f6163ae35b6caabb2e9f709ad297a3b.png" src="../../_images/f56596f2e6d6c8c4d8fc9b41a86e9f772f6163ae35b6caabb2e9f709ad297a3b.png" />
 </div>
 </details>
 </div>
@@ -1239,16 +1258,16 @@ with Axes objects spanning columns or rows, using <code class="docutils literal 
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
+<details class="admonition hide below-input">
 <summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;right&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/b95a7bbba38fe17eb916848905aa6548041d1b085db7a1edf2db62ee63eaaf72.png" src="../../_images/b95a7bbba38fe17eb916848905aa6548041d1b085db7a1edf2db62ee63eaaf72.png" />
+<img alt="../../_images/cafe1cda9effec095e4aa0123d4873d4d9bda53e86f84cc46b590a6d9f3de7d3.png" src="../../_images/cafe1cda9effec095e4aa0123d4873d4d9bda53e86f84cc46b590a6d9f3de7d3.png" />
 </div>
 </details>
 </div>
@@ -1300,8 +1319,7 @@ with Axes objects spanning columns or rows, using <code class="docutils literal 
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1395,8 +1413,8 @@ By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
