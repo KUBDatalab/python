@@ -224,7 +224,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python and pandas 🐼</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../pandas/getting_started.html">Getting Started with Data Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with Pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pandas/00_pandas_start.html">Getting Started with pandas</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/01_pandas_dataframe.html">Pandas DataFrame</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/02_pandas_tabular_data.html">Read and Write Tabular Data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pandas/03_pandas_subsets.html">Subsets</a></li>
@@ -839,6 +839,9 @@ You could place that code inside the <code class="docutils literal notranslate">
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
         <span class="c1"># Handle invalid input</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input. Please enter a number.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An unexpected error occurred:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Explanation</strong></p>
@@ -846,6 +849,7 @@ You could place that code inside the <code class="docutils literal notranslate">
 <li><p>The line <code class="docutils literal notranslate"><span class="pre">user_guess</span> <span class="pre">=</span> <span class="pre">int(input(...))</span></code> can raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> if the user types something that is not a number.</p></li>
 <li><p>By placing this line inside a <code class="docutils literal notranslate"><span class="pre">try/except</span></code> block, we can catch the error and respond gracefully.</p></li>
 <li><p>The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ValueError</span></code> block prints a helpful message and the program continues without crashing.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span> <span class="pre">as</span> <span class="pre">e</span></code> catches any unexpected error, stores it in <code class="docutils literal notranslate"><span class="pre">e</span></code>, and prints a message describing what went wrong.</p></li>
 </ul>
 <p>This way, the game only accepts valid integers, but still lets the user try again if they make a mistake.</p>
 <p>An even cleaner solution would be to use a <code class="docutils literal notranslate"><span class="pre">try/except/else</span></code> structure.<br />
@@ -873,6 +877,9 @@ This separation can make the code easier to read and maintain.</p>
     <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
         <span class="c1"># Handle invalid input</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid input. Please enter a number.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An unexpected error occurred:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
     
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Increase the attempts counter</span>
