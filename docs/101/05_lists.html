@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
   
@@ -195,7 +195,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../howto/dictionary_pandas.html">Dictionary for Pandas</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1"><a class="reference internal" href="../howto/help_and_documentation.html">Get Help and Find Documentation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python for Absolute Beginners</span></p>
 <ul class="current nav bd-sidenav">
@@ -234,9 +233,10 @@
 </ul>
 </details></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Get Help and Learn More</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials.html">List of Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/resources_documentation.html">Resources &amp; Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resources/tutorials.html">Tutorials</a></li>
 </ul>
 
     </div>
@@ -453,9 +453,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-working-with-the-end"><i class="fa-solid fa-pencil"></i> Exercise 3: Working with the end</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-stepping-through-a-list"><i class="fa-solid fa-pencil"></i> Exercise 4: Stepping through a list</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-slicing"><i class="fa-solid fa-pencil"></i> Exercise 5: Slicing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-6-sort-and-sorted"><i class="fa-solid fa-pencil"></i>Exercises 6: Sort and sorted</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-copying-or-not"><i class="fa-solid fa-pencil"></i> Exercise 7: Copying (or not)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-from-strings-to-lists-and-back"><i class="fa-solid fa-pencil"></i> Exercise 8: From strings to lists and back</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-from-strings-to-lists-and-back"><i class="fa-solid fa-pencil"></i> Exercise 6: From strings to lists and back</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-7-sort-and-sorted"><i class="fa-solid fa-pencil"></i>Exercises 7: Sort and sorted</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-copying-or-not"><i class="fa-solid fa-pencil"></i> Exercise 8: Copying (or not)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
@@ -1057,8 +1057,46 @@ blinding lights
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercises-6-sort-and-sorted">
-<h3><i class="fa-solid fa-pencil"></i>Exercises 6: Sort and sorted<a class="headerlink" href="#exercises-6-sort-and-sorted" title="Link to this heading">#</a></h3>
+<section id="exercise-6-from-strings-to-lists-and-back">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 6: From strings to lists and back<a class="headerlink" href="#exercise-6-from-strings-to-lists-and-back" title="Link to this heading">#</a></h3>
+<p>Given this:</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;string to list:&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;tin&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list to string:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list to string:&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>string to list: [&#39;t&#39;, &#39;i&#39;, &#39;n&#39;]
+list to string: gold
+list to string: g-o-l-d
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<ol class="arabic simple">
+<li><p>Explain in simple terms what <code class="docutils literal notranslate"><span class="pre">list('some</span> <span class="pre">string')</span></code> does.</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">'-'.join(['x',</span> <span class="pre">'y'])</span></code> generate?</p></li>
+</ol>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<ol class="arabic simple">
+<li><p>It creates a list of the <code class="docutils literal notranslate"><span class="pre">some</span> <span class="pre">string</span></code>’s characters as elements.</p></li>
+<li><p>It creates a string composed of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, separated by a hyphen character(<code class="docutils literal notranslate"><span class="pre">-</span></code>).</p></li>
+</ol>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercises-7-sort-and-sorted">
+<h3><i class="fa-solid fa-pencil"></i>Exercises 7: Sort and sorted<a class="headerlink" href="#exercises-7-sort-and-sorted" title="Link to this heading">#</a></h3>
 <p>What do these two programs print?</p>
 <p>In simple terms, explain the difference between <code class="docutils literal notranslate"><span class="pre">sorted(letters)</span></code> and <code class="docutils literal notranslate"><span class="pre">letters.sort()</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
@@ -1109,8 +1147,8 @@ blinding lights
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-7-copying-or-not">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 7: Copying (or not)<a class="headerlink" href="#exercise-7-copying-or-not" title="Link to this heading">#</a></h3>
+<section id="exercise-8-copying-or-not">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 8: Copying (or not)<a class="headerlink" href="#exercise-8-copying-or-not" title="Link to this heading">#</a></h3>
 <p>What do these two programs print?</p>
 <p>In simple terms, explain the difference between <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">old</span></code> and <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">old[:]</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
@@ -1161,44 +1199,6 @@ blinding lights
 This means that the two variables both point to the same value.<br />
 Thus, changing the contents of either variable will affect the other.</p>
 <p>In contrast, <code class="docutils literal notranslate"><span class="pre">new</span> <span class="pre">=</span> <span class="pre">old[:]</span></code> is a <strong>slice assignment</strong>, which will only return a copy of <code class="docutils literal notranslate"><span class="pre">old</span></code>.</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="exercise-8-from-strings-to-lists-and-back">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 8: From strings to lists and back<a class="headerlink" href="#exercise-8-from-strings-to-lists-and-back" title="Link to this heading">#</a></h3>
-<p>Given this:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;string to list:&#39;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;tin&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list to string:&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;list to string:&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>string to list: [&#39;t&#39;, &#39;i&#39;, &#39;n&#39;]
-list to string: gold
-list to string: g-o-l-d
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<ol class="arabic simple">
-<li><p>Explain in simple terms what <code class="docutils literal notranslate"><span class="pre">list('some</span> <span class="pre">string')</span></code> does.</p></li>
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">'-'.join(['x',</span> <span class="pre">'y'])</span></code> generate?</p></li>
-</ol>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<ol class="arabic simple">
-<li><p>It creates a list of the <code class="docutils literal notranslate"><span class="pre">some</span> <span class="pre">string</span></code>’s characters as elements.</p></li>
-<li><p>It creates a string composed of <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, separated by a hyphen character(<code class="docutils literal notranslate"><span class="pre">-</span></code>).</p></li>
-</ol>
 </div>
 </section>
 </section>
@@ -1305,9 +1305,9 @@ list to string: g-o-l-d
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-working-with-the-end"><i class="fa-solid fa-pencil"></i> Exercise 3: Working with the end</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-stepping-through-a-list"><i class="fa-solid fa-pencil"></i> Exercise 4: Stepping through a list</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-slicing"><i class="fa-solid fa-pencil"></i> Exercise 5: Slicing</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-6-sort-and-sorted"><i class="fa-solid fa-pencil"></i>Exercises 6: Sort and sorted</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-copying-or-not"><i class="fa-solid fa-pencil"></i> Exercise 7: Copying (or not)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-from-strings-to-lists-and-back"><i class="fa-solid fa-pencil"></i> Exercise 8: From strings to lists and back</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-from-strings-to-lists-and-back"><i class="fa-solid fa-pencil"></i> Exercise 6: From strings to lists and back</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises-7-sort-and-sorted"><i class="fa-solid fa-pencil"></i>Exercises 7: Sort and sorted</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-copying-or-not"><i class="fa-solid fa-pencil"></i> Exercise 8: Copying (or not)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
