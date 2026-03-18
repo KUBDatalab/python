@@ -448,7 +448,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type"><i class="fa-solid fa-pencil"></i> Exercise 3: Choose a type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers"><i class="fa-solid fa-pencil"></i> Exercise 4: Strings to numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-adding-floats-and-strings"><i class="fa-solid fa-pencil"></i> Exercise 5: Adding floats and strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students"><i class="fa-solid fa-pencil"></i> Exercise 6: Number of students</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
@@ -923,59 +922,6 @@ third = &quot;1.1&quot;
 </ol>
 </div>
 </section>
-<hr class="docutils" />
-<section id="exercise-6-number-of-students">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 6: Number of students<a class="headerlink" href="#exercise-6-number-of-students" title="Link to this heading">#</a></h3>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Recap on division types</p>
-<p>There are three different types of division:</p>
-<ol class="arabic simple">
-<li><p>‘Normal’ division (aka floating-point division) is what most people may be
-familiar with:<br />
-5 / 2 = 2.5</p></li>
-<li><p>Floor division, which cuts out the part after the period:<br />
-5 // 2 = 2</p></li>
-<li><p>Modulo division, which only keeps the remained after division:<br />
-5 % 2 = 1</p></li>
-</ol>
-<p>In Python 3,  the <code class="docutils literal notranslate"><span class="pre">/</span></code> operator performs floating-point division, the <code class="docutils literal notranslate"><span class="pre">//</span></code> operator performs floor division, and the <code class="docutils literal notranslate"><span class="pre">%</span></code> operator calculates the modulo division:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>print(&#39;5 / 3:&#39;, 5/3)
-print(&#39;5 // 3:&#39;, 5//3)
-print(&#39;5 % 3:&#39;, 5%3)
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>5 / 3: 1.6666666666666667
-5 // 3: 1
-5 % 3: 2
-</pre></div>
-</div>
-</div>
-<p>If <code class="docutils literal notranslate"><span class="pre">num_students</span></code> is the number of students enrolled in a course (let’s say 600), and <code class="docutils literal notranslate"><span class="pre">num_per_class</span></code> is the number that can attend a single class (let’s say 42):</p>
-<p>Write an expression that calculates the number of classes needed to teach everyone.</p>
-<p>The output should look like this:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>600 students, 42 per class
-14 full classes, plus an extra class with only 12 students
-</pre></div>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>Depending on requirements it might be important to detect when the number of students per class does not divide the number of students evenly.</p>
-<p>Detect it with the modulo operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) and test if the remainder that it returns is greater than 0.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num_students</span> <span class="o">=</span> <span class="mi">600</span>
-<span class="n">num_per_class</span> <span class="o">=</span> <span class="mi">42</span>
-<span class="n">num_classes</span> <span class="o">=</span> <span class="n">num_students</span> <span class="o">//</span> <span class="n">num_per_class</span>
-<span class="n">remainder</span> <span class="o">=</span> <span class="n">num_students</span> <span class="o">%</span> <span class="n">num_per_class</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">num_students</span><span class="p">,</span> <span class="s1">&#39;students,&#39;</span><span class="p">,</span> <span class="n">num_per_class</span><span class="p">,</span> <span class="s1">&#39;per class&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num_classes</span><span class="p">,</span> <span class="s1">&#39;full classes, plus an extra class with only&#39;</span><span class="p">,</span> <span class="n">remainder</span><span class="p">,</span> <span class="s1">&#39;students&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>600 students, 42 per class
-14 full classes, plus an extra class with only 12 students
-</pre></div>
-</div>
-</div>
-</section>
 </section>
 <section id="key-points">
 <h2>Key points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
@@ -1072,7 +1018,6 @@ print(&#39;5 % 3:&#39;, 5%3)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-choose-a-type"><i class="fa-solid fa-pencil"></i> Exercise 3: Choose a type</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-strings-to-numbers"><i class="fa-solid fa-pencil"></i> Exercise 4: Strings to numbers</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-adding-floats-and-strings"><i class="fa-solid fa-pencil"></i> Exercise 5: Adding floats and strings</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-number-of-students"><i class="fa-solid fa-pencil"></i> Exercise 6: Number of students</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
