@@ -445,9 +445,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-own-series">Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
@@ -996,9 +996,8 @@ While we can read the numbers without issue, this will cause problems if we want
 <p>However, as seen above, this produces a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> due to the “Unknown” value at position 2.</p>
 <p>To solve this, we need to use the <code class="docutils literal notranslate"><span class="pre">errors</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>.</p>
 </section>
-</section>
 <section id="exercise-1-converting-to-numeric-values">
-<h2><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values<a class="headerlink" href="#exercise-1-converting-to-numeric-values" title="Link to this heading">#</a></h2>
+<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values<a class="headerlink" href="#exercise-1-converting-to-numeric-values" title="Link to this heading">#</a></h3>
 <p>Convert the cells of the ‘fare’ <code class="docutils literal notranslate"><span class="pre">Series</span></code> to numeric values.<br />
 The “Unknown” value must be convertet to <code class="docutils literal notranslate"><span class="pre">NaN</span></code> by applying the <code class="docutils literal notranslate"><span class="pre">errors</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>.</p>
 <p>Hint: We can get help by using:</p>
@@ -1013,6 +1012,7 @@ The “Unknown” value must be convertet to <code class="docutils literal notra
 <p>This solution changes all cell values to numeric values.<br />
 Any values that cannot be converted — such as strings like “Unknown” — will be replaced with <code class="docutils literal notranslate"><span class="pre">NaN</span></code> instead of raising an error.</p>
 </div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="appending-series">
@@ -1305,9 +1305,9 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#series"><code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-own-series">Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
