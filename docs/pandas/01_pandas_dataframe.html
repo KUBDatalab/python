@@ -447,11 +447,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-own-series">Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-append-row"><i class="fa-solid fa-pencil"></i> Exercise 1: Append row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
 </ul>
 </li>
@@ -999,8 +997,8 @@ While we can read the numbers without issue, this will cause problems if we want
 <p>To solve this, we need to use the <code class="docutils literal notranslate"><span class="pre">errors</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>.</p>
 </section>
 </section>
-<section id="exercise">
-<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<section id="exercise-1-converting-to-numeric-values">
+<h2><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values<a class="headerlink" href="#exercise-1-converting-to-numeric-values" title="Link to this heading">#</a></h2>
 <p>Convert the cells of the ‘fare’ <code class="docutils literal notranslate"><span class="pre">Series</span></code> to numeric values.<br />
 The “Unknown” value must be convertet to <code class="docutils literal notranslate"><span class="pre">NaN</span></code> by applying the <code class="docutils literal notranslate"><span class="pre">errors</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">to_numeric()</span></code>.</p>
 <p>Hint: We can get help by using:</p>
@@ -1203,29 +1201,6 @@ This column is calculated by adding 3 to each value in the ‘Ages’ column.</p
 </div></div></div>
 </details>
 </div>
-</section>
-<hr class="docutils" />
-<section id="exercises">
-<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<section id="exercise-1-append-row">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Append row<a class="headerlink" href="#exercise-1-append-row" title="Link to this heading">#</a></h3>
-<p>Given the <code class="docutils literal notranslate"><span class="pre">Series</span></code>:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;Futrelle&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">,</span> <span class="mf">53.1</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Append this <code class="docutils literal notranslate"><span class="pre">Series</span></code> to ‘df’ but as a row (not a column!).</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df.loc[len(df)] = new_data.tolist()
-</pre></div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
 <section id="exercise-2-create-a-new-column">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column<a class="headerlink" href="#exercise-2-create-a-new-column" title="Link to this heading">#</a></h3>
 <p>Create a new column called ‘Fare_in_DKK’ based on the column ‘Fare’.</p>
@@ -1332,11 +1307,9 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-our-own-series">Creating our own <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-append-row"><i class="fa-solid fa-pencil"></i> Exercise 1: Append row</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
 </ul>
 </li>
