@@ -448,11 +448,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
             </nav>
@@ -1118,6 +1118,20 @@ This is typically done with <code class="docutils literal notranslate"><span cla
 </div>
 <p>In this case, pandas aligns the labels with the column names, which is safer if the column order changes.</p>
 </div>
+<hr class="docutils" />
+<section id="exercise-2-create-a-new-column">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column<a class="headerlink" href="#exercise-2-create-a-new-column" title="Link to this heading">#</a></h3>
+<p>Create a new column called ‘Fare_in_DKK’ based on the column ‘Fare’.</p>
+<p>We assume the old fare prices to be in GBP and the exchange rate to be £1 = 8.7 DKK</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;Fare_in_DKK&#39;] = df[&#39;Fare&#39;] * 8.7
+</pre></div>
+</div>
+<p>This solution creates a new column in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> named ‘Fare_in_DKK’, which contains the fare prices converted from GBP to DKK using the given exchange rate.<br/>
+Each fare value in GBP is multiplied by the exchange rate to obtain the corresponding fare value in DKK.</p>
+</div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="creating-a-new-column-based-on-existing-data">
@@ -1201,19 +1215,6 @@ This column is calculated by adding 3 to each value in the ‘Ages’ column.</p
 </div></div></div>
 </details>
 </div>
-<section id="exercise-2-create-a-new-column">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column<a class="headerlink" href="#exercise-2-create-a-new-column" title="Link to this heading">#</a></h3>
-<p>Create a new column called ‘Fare_in_DKK’ based on the column ‘Fare’.</p>
-<p>We assume the old fare prices to be in GBP and the exchange rate to be £1 = 8.7 DKK</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>df[&#39;Fare_in_DKK&#39;] = df[&#39;Fare&#39;] * 8.7
-</pre></div>
-</div>
-<p>This solution creates a new column in the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> named ‘Fare_in_DKK’, which contains the fare prices converted from GBP to DKK using the given exchange rate.<br/>
-Each fare value in GBP is multiplied by the exchange rate to obtain the corresponding fare value in DKK.</p>
-</div>
-</section>
 </section>
 <hr class="docutils" />
 <section id="key-points">
@@ -1308,11 +1309,11 @@ Each fare value in GBP is multiplied by the exchange rate to obtain the correspo
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-converting-to-numeric-values"><i class="fa-solid fa-pencil"></i> Exercise 1: Converting to numeric values</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appending-series">Appending <code class="docutils literal notranslate"><span class="pre">Series</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-create-a-new-column"><i class="fa-solid fa-pencil"></i> Exercise 2: Create a new column</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-column-based-on-existing-data">Creating a new column based on existing data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
   </nav></div>

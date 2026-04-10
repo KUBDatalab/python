@@ -443,7 +443,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-makes-libraries-and-are-they-safe">Who makes libraries, and are they safe?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-libraries-and-documentation">Where to find libraries and documentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-install-and-import-pandas"><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-install-and-import-pandas"><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import pandas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-upgrade-pandas"><i class="fa-solid fa-pencil"></i> Exercise 2: Upgrade Pandas</a></li>
 </ul>
 </li>
@@ -504,8 +504,8 @@ Instead of writing everything from scratch, you can rely on libraries that alrea
 </div>
 <p>If you have not installed <code class="docutils literal notranslate"><span class="pre">requests</span></code> before, this will download and install the latest version of the library along with its dependencies.</p>
 <p><code class="docutils literal notranslate"><span class="pre">pip</span></code> commands are most often run through a shell such as the Terminal on macOS or the Command Prompt on Windows.<br />
-However, you can also run shell commands directly from Jupyter notebooks by adding an exclamation mark <code class="docutils literal notranslate"><span class="pre">!</span></code> in front of the command:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
+However, you can also run shell commands directly from Jupyter notebooks by adding a percentage sign <code class="docutils literal notranslate"><span class="pre">%</span></code> in front of the command:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span>
 </pre></div>
 </div>
 <p>Sometimes you want to make sure you have the newest version of a library. You can do this by adding the <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> flag:</p>
@@ -515,7 +515,7 @@ However, you can also run shell commands directly from Jupyter notebooks by addi
 <p>Adding <code class="docutils literal notranslate"><span class="pre">--upgrade</span></code> not only installs the library if it is not already installed but also updates it to the latest version if you already have it.<br />
 This is useful for making sure you have the newest features and bug fixes.</p>
 <p>Again, in Jupyter notebooks you can run this with:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">requests</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">requests</span>
 </pre></div>
 </div>
 </section>
@@ -565,11 +565,8 @@ In contrast, you must import the library at the beginning of every Python script
 <hr class="docutils" />
 <section id="where-to-find-libraries-and-documentation">
 <h2>Where to find libraries and documentation<a class="headerlink" href="#where-to-find-libraries-and-documentation" title="Link to this heading">#</a></h2>
-<p>Most Python libraries are listed on the <strong>Python Package Index (PyPI)</strong>:</p>
-<ul class="simple">
-<li><p>Website: <a class="reference external" href="https://pypi.org">https://pypi.org</a></p></li>
-<li><p>This is where <code class="docutils literal notranslate"><span class="pre">pip</span></code> downloads from when you install a library.</p></li>
-</ul>
+<p>Most Python libraries are listed on the <strong>Python Package Index (PyPI)</strong>: <a class="reference external" href="https://pypi.org">https://pypi.org</a><br />
+This is where <code class="docutils literal notranslate"><span class="pre">pip</span></code> downloads from when you install a library.</p>
 <p>Well-known libraries usually have their own documentation websites. A few examples:</p>
 <ul class="simple">
 <li><p>pandas: <a class="reference external" href="https://pandas.pydata.org/docs">https://pandas.pydata.org/docs</a></p></li>
@@ -582,7 +579,7 @@ In contrast, you must import the library at the beginning of every Python script
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-install-and-import-pandas">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import Pandas<a class="headerlink" href="#exercise-1-install-and-import-pandas" title="Link to this heading">#</a></h3>
+<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import pandas<a class="headerlink" href="#exercise-1-install-and-import-pandas" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Check whether you have <code class="docutils literal notranslate"><span class="pre">pandas</span></code> installed. If not, install it:</p></li>
 </ol>
@@ -612,9 +609,9 @@ In contrast, you must import the library at the beginning of every Python script
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
-<li><p>If you are working in Jupyter, remember that you can also run this command with an exclamation mark:</p></li>
+<li><p>If you are working in Jupyter, remember that you can also run this command with a percentage sign:</p></li>
 </ol>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="err">!</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pandas</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -714,7 +711,7 @@ In contrast, you must import the library at the beginning of every Python script
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#who-makes-libraries-and-are-they-safe">Who makes libraries, and are they safe?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-find-libraries-and-documentation">Where to find libraries and documentation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-install-and-import-pandas"><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-install-and-import-pandas"><i class="fa-solid fa-pencil"></i> Exercise 1: Install and import pandas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-upgrade-pandas"><i class="fa-solid fa-pencil"></i> Exercise 2: Upgrade Pandas</a></li>
 </ul>
 </li>
