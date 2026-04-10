@@ -440,7 +440,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-does-not-run-it">Defining a function does not run it</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-arguments-and-parameters">Matching arguments and parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-arguments-and-parameters">Matching arguments and parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter-values">Default parameter values</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-return-to-pass-values-back-from-a-function">Use <code class="docutils literal notranslate"><span class="pre">return</span></code> to pass values back from a function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable scope</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-docstrings-to-provide-online-help">Use docstrings to provide online help</a></li>
@@ -596,11 +599,40 @@ This means:</p>
 </div>
 </details>
 </div>
+<section id="default-parameter-values">
+<h3>Default parameter values<a class="headerlink" href="#default-parameter-values" title="Link to this heading">#</a></h3>
+<p>Sometimes it is useful to make a parameter optional by giving it a default value. This means the function will use the default if no argument is provided.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_named_greeting</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;World&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the function can be called both with and without an argument:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>  <span class="c1"># Hello Alice!</span>
+<span class="n">print_named_greeting</span><span class="p">()</span>         <span class="c1"># Hello World!</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Alice!
+Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the first call, the argument <code class="docutils literal notranslate"><span class="pre">'Alice'</span></code> is used as the value of <code class="docutils literal notranslate"><span class="pre">name</span></code>.<br />
+In the second call, no argument is provided, so the default value <code class="docutils literal notranslate"><span class="pre">'World'</span></code> is used instead.</p>
+</section>
 </section>
 <hr class="docutils" />
 <section id="use-return-to-pass-values-back-from-a-function">
 <h2>Use <code class="docutils literal notranslate"><span class="pre">return</span></code> to pass values back from a function<a class="headerlink" href="#use-return-to-pass-values-back-from-a-function" title="Link to this heading">#</a></h2>
-<p>In the date example above, we printed the results of the function code to output, but there are better way to handle data and objects created within a function. We can use the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> to send a value back to the “global” environment. (We will learn about local and global variables below). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result.</p>
+<p>In the examples above, we printed the results of the function code to output, but there are other ways to handle data and objects created within a function. We can use the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> to send a value back to the “global” environment. (We will learn about local and global variables below). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
@@ -721,7 +753,7 @@ Fine rates: $0.25, $0.75
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Days overdue: </span><span class="si">{</span><span class="n">days_overdue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="ne">NameError</span>: name &#39;days_overdue&#39; is not defined
@@ -985,7 +1017,10 @@ F
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-a-function-does-not-run-it">Defining a function does not run it</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-arguments-and-parameters">Matching arguments and parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matching-arguments-and-parameters">Matching arguments and parameters</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#default-parameter-values">Default parameter values</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-return-to-pass-values-back-from-a-function">Use <code class="docutils literal notranslate"><span class="pre">return</span></code> to pass values back from a function</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-scope">Variable scope</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-docstrings-to-provide-online-help">Use docstrings to provide online help</a></li>
