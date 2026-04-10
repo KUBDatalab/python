@@ -451,10 +451,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-author-lookup"><i class="fa-solid fa-pencil"></i> Exercise 1: Author lookup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-add-and-delete"><i class="fa-solid fa-pencil"></i> Exercise 2: Add and delete</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-loop-through-books"><i class="fa-solid fa-pencil"></i> Exercise 3: Loop through books</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-remove-duplicates"><i class="fa-solid fa-pencil"></i> Exercise 4: Remove duplicates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1"><i class="fa-solid fa-pencil"></i> Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-author-lookup"><i class="fa-solid fa-pencil"></i> Exercise 2: Author lookup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-add-and-delete"><i class="fa-solid fa-pencil"></i> Exercise 3: Add and delete</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-loop-through-books"><i class="fa-solid fa-pencil"></i> Exercise 4: Loop through books</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
@@ -511,7 +511,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1984&#39;, &#39;Brave New World&#39;, &#39;Fahrenheit 451&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;, &#39;1984&#39;]
 </pre></div>
 </div>
 </div>
@@ -576,10 +576,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;date&#39;, &#39;banana&#39;, &#39;apple&#39;}
-{&#39;cherry&#39;, &#39;banana&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;date&#39;, &#39;apple&#39;, &#39;banana&#39;}
+{&#39;banana&#39;, &#39;cherry&#39;}
 {&#39;apple&#39;}
-{&#39;date&#39;, &#39;apple&#39;}
+{&#39;apple&#39;, &#39;date&#39;}
 </pre></div>
 </div>
 </div>
@@ -824,8 +824,27 @@ Frank Herbert
 <hr class="docutils" />
 <section id="exercises">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
-<section id="exercise-1-author-lookup">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 1: Author lookup<a class="headerlink" href="#exercise-1-author-lookup" title="Link to this heading">#</a></h3>
+<section id="exercise-1">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<p>: Remove duplicates</p>
+<p>Given this list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authors = [&quot;Orwell&quot;, &quot;Huxley&quot;, &quot;Orwell&quot;, &quot;Bradbury&quot;]
+</pre></div>
+</div>
+<p>Use a set to remove duplicates and convert it back to a list.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<p>We convert the list to a set to remove duplicates, then back to a list to maintain list functionality.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Orwell&quot;</span><span class="p">,</span> <span class="s2">&quot;Huxley&quot;</span><span class="p">,</span> <span class="s2">&quot;Orwell&quot;</span><span class="p">,</span> <span class="s2">&quot;Bradbury&quot;</span><span class="p">]</span>
+<span class="n">unique_authors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">authors</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">unique_authors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-2-author-lookup">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Author lookup<a class="headerlink" href="#exercise-2-author-lookup" title="Link to this heading">#</a></h3>
 <p>Fill in the blanks so that the program below produces the expected output.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>book = { ____ }
 print(book[&quot;____&quot;])
@@ -845,8 +864,8 @@ print(book[&quot;____&quot;])
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-2-add-and-delete">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Add and delete<a class="headerlink" href="#exercise-2-add-and-delete" title="Link to this heading">#</a></h3>
+<section id="exercise-3-add-and-delete">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 3: Add and delete<a class="headerlink" href="#exercise-3-add-and-delete" title="Link to this heading">#</a></h3>
 <p>What does this code print?</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>book = {&quot;title&quot;: &quot;1984&quot;, &quot;author&quot;: &quot;George Orwell&quot;}
 book[&quot;genre&quot;] = &quot;Dystopian&quot;
@@ -863,8 +882,8 @@ print(book)
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-3-loop-through-books">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 3: Loop through books<a class="headerlink" href="#exercise-3-loop-through-books" title="Link to this heading">#</a></h3>
+<section id="exercise-4-loop-through-books">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 4: Loop through books<a class="headerlink" href="#exercise-4-loop-through-books" title="Link to this heading">#</a></h3>
 <p>Create a dictionary of three books and print their titles and years using a loop.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -877,24 +896,6 @@ print(book)
 
 <span class="k">for</span> <span class="n">title</span><span class="p">,</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">books</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="s2"> was published in </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</section>
-<hr class="docutils" />
-<section id="exercise-4-remove-duplicates">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 4: Remove duplicates<a class="headerlink" href="#exercise-4-remove-duplicates" title="Link to this heading">#</a></h3>
-<p>Given this list:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>authors = [&quot;Orwell&quot;, &quot;Huxley&quot;, &quot;Orwell&quot;, &quot;Bradbury&quot;]
-</pre></div>
-</div>
-<p>Use a set to remove duplicates and convert it back to a list.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<p>We convert the list to a set to remove duplicates, then back to a list to maintain list functionality.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">authors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Orwell&quot;</span><span class="p">,</span> <span class="s2">&quot;Huxley&quot;</span><span class="p">,</span> <span class="s2">&quot;Orwell&quot;</span><span class="p">,</span> <span class="s2">&quot;Bradbury&quot;</span><span class="p">]</span>
-<span class="n">unique_authors</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">authors</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">unique_authors</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -996,10 +997,10 @@ print(book)
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-author-lookup"><i class="fa-solid fa-pencil"></i> Exercise 1: Author lookup</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-add-and-delete"><i class="fa-solid fa-pencil"></i> Exercise 2: Add and delete</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-loop-through-books"><i class="fa-solid fa-pencil"></i> Exercise 3: Loop through books</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-remove-duplicates"><i class="fa-solid fa-pencil"></i> Exercise 4: Remove duplicates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1"><i class="fa-solid fa-pencil"></i> Exercise 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-author-lookup"><i class="fa-solid fa-pencil"></i> Exercise 2: Author lookup</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-add-and-delete"><i class="fa-solid fa-pencil"></i> Exercise 3: Add and delete</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-loop-through-books"><i class="fa-solid fa-pencil"></i> Exercise 4: Loop through books</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
