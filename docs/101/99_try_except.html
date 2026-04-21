@@ -686,15 +686,19 @@ For this reason, it is considered bad practice and should be avoided.</p>
 </ul>
 <p>The purpose of <code class="docutils literal notranslate"><span class="pre">else</span></code> is to separate code that is <em>risky</em> (in the <code class="docutils literal notranslate"><span class="pre">try</span></code>) from code that should only run if everything went well.<br />
 You could place that code inside the <code class="docutils literal notranslate"><span class="pre">try</span></code> block, but then it would be skipped as soon as an error occurred. By putting it in <code class="docutils literal notranslate"><span class="pre">else</span></code>, you make it clear which part is error-prone and which part is normal flow.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
-    <span class="n">number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">secret</span> <span class="o">=</span> <span class="mi">7</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Guess the number (1-10): &quot;</span><span class="p">))</span>
 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Not a valid number.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;That was not a number.&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="c1"># only runs if no error</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You entered:&quot;</span><span class="p">,</span> <span class="n">number</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">guess</span> <span class="o">==</span> <span class="n">secret</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Correct!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Wrong guess.&quot;</span><span class="p">)</span>
 <span class="k">finally</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Programme finished.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Game over.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this example:</p>
