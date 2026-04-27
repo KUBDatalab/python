@@ -214,9 +214,9 @@
 <li class="toctree-l1"><a class="reference internal" href="part3.html">Part 3</a></li>
 
 <li class="toctree-l1 has-children"><a class="reference internal" href="bonus.html">Bonus Material</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="99_reading_writing.html">Reading from and Writing to Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_libraries.html">Libraries in Python</a></li>
 <li class="toctree-l2"><a class="reference internal" href="99_list_comprehensions.html">List Comprehensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="99_reading_writing.html">Reading from and Writing to Files</a></li>
 </ul>
 </details></li>
 </ul>
@@ -510,7 +510,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1984&#39;, &#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;, &#39;1984&#39;]
 </pre></div>
 </div>
 </div>
@@ -575,10 +575,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;cherry&#39;, &#39;date&#39;, &#39;apple&#39;}
-{&#39;banana&#39;, &#39;cherry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;cherry&#39;, &#39;date&#39;, &#39;banana&#39;, &#39;apple&#39;}
+{&#39;cherry&#39;, &#39;banana&#39;}
 {&#39;apple&#39;}
-{&#39;date&#39;, &#39;apple&#39;}
+{&#39;apple&#39;, &#39;date&#39;}
 </pre></div>
 </div>
 </div>
@@ -843,7 +843,7 @@ Frank Herbert
 <hr class="docutils" />
 <section id="exercise-2-author-lookup">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 2: Author lookup<a class="headerlink" href="#exercise-2-author-lookup" title="Link to this heading">#</a></h3>
-<p>Fill in the blanks so that the program below produces the expected output.</p>
+<p>Fill in the blanks to create a dictionary and produce the expected output.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>book = { ____ }
 print(book[&quot;____&quot;])
 </pre></div>
