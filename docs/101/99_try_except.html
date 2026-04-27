@@ -468,7 +468,7 @@ document.write(`
 <p class="admonition-title">Learning Objectives</p>
 <p>Questions:</p>
 <ul class="simple">
-<li><p>What happens when errors occur in a programme?</p></li>
+<li><p>What happens when errors occur in a program?</p></li>
 <li><p>How can error handling improve the user experience?</p></li>
 <li><p>Why is it important to handle different errors in different ways?</p></li>
 </ul>
@@ -483,8 +483,8 @@ document.write(`
 <hr class="docutils" />
 <section id="try-and-except">
 <h2><code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code><a class="headerlink" href="#try-and-except" title="Link to this heading">#</a></h2>
-<p>Errors are common in programming. Instead of letting your programme stop when an error occurs, you can use <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> to handle the problem gracefully.<br />
-This makes your programme more robust and provides clearer feedback to the user.</p>
+<p>Errors are common in programming. Instead of letting your code stop when an error occurs, you can use <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> to handle the problem gracefully.<br />
+This makes your code more robust and provides clearer feedback to the user.</p>
 </section>
 <hr class="docutils" />
 <section id="basic-structure">
@@ -500,10 +500,10 @@ This makes your programme more robust and provides clearer feedback to the user.
 However, a completely bare <code class="docutils literal notranslate"><span class="pre">except:</span></code> is not recommended, because it catches too much. This will be explained in more detail under <a class="reference internal" href="#a-general-catch-all"><span class="xref myst">A general catch-all</span></a>.</p>
 <section id="example-division-by-zero">
 <h3>Example: Division by zero<a class="headerlink" href="#example-division-by-zero" title="Link to this heading">#</a></h3>
-<p>If you attempt to divide by zero, Python raises a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> and immediately stops the programme:</p>
+<p>If you attempt to divide by zero, Python raises a <code class="docutils literal notranslate"><span class="pre">ZeroDivisionError</span></code> and immediately stops the program:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># without try/except the programme stops</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># without try/except the program stops</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">y</span>  <span class="c1"># ZeroDivisionError</span>
@@ -529,7 +529,7 @@ However, a completely bare <code class="docutils literal notranslate"><span clas
 </div>
 </details>
 </div>
-<p>With <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code>, the programme can handle the problem gracefully:</p>
+<p>With <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code>, the program can handle the problem gracefully:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># with try/except the error is handled</span>
@@ -584,7 +584,11 @@ However, a completely bare <code class="docutils literal notranslate"><span clas
 </div>
 </details>
 </div>
-<p>In this example, the programme handles the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> that occurs when trying to convert non-numeric text into an integer.</p>
+<p>In this example, the code handles the <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> that occurs when trying to convert non-numeric text into an integer.</p>
+<div class="seealso admonition">
+<p class="admonition-title">Different Error Types</p>
+<p>You can read more about different error types in Python at <a class="reference external" href="https://www.w3schools.com/python/python_ref_exceptions.asp">W3Schools</a> and <a class="reference external" href="https://www.geeksforgeeks.org/python/built-exceptions-python/">GeeksforGeeks</a>.</p>
+</div>
 </section>
 <hr class="docutils" />
 <section id="multiple-except-blocks">
@@ -618,7 +622,7 @@ However, a completely bare <code class="docutils literal notranslate"><span clas
 <hr class="docutils" />
 <section id="a-general-catch-all">
 <h2>A general catch-all<a class="headerlink" href="#a-general-catch-all" title="Link to this heading">#</a></h2>
-<p>Even if you handle specific errors, your programme might still encounter something unexpected.<br />
+<p>Even if you handle specific errors, your program might still encounter something unexpected.<br />
 In such cases, it can be useful to add a <strong>general catch-all</strong> at the end.</p>
 <p>The recommended form is <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span> <span class="pre">as</span> <span class="pre">e:</span></code>, which captures all “ordinary” errors that inherit from the <code class="docutils literal notranslate"><span class="pre">Exception</span></code> class.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
@@ -632,7 +636,7 @@ In such cases, it can be useful to add a <strong>general catch-all</strong> at t
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An unexpected error occurred:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>This approach allows you to log or display unforeseen errors without crashing the programme.<br />
+<p>This approach allows you to log or display unforeseen errors without crashing the program.<br />
 It still lets system-level events such as <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> (Ctrl+C) and <code class="docutils literal notranslate"><span class="pre">SystemExit</span></code> work normally, because they do not inherit from <code class="docutils literal notranslate"><span class="pre">Exception</span></code>.</p>
 <p>The syntax <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">Exception</span> <span class="pre">as</span> <span class="pre">e:</span></code> means:</p>
 <ul class="simple">
@@ -652,7 +656,7 @@ For instance, if the error was trying to open a file that does not exist, the ou
 <section id="why-not-use-a-bare-except">
 <h3>Why not use a bare <code class="docutils literal notranslate"><span class="pre">except:</span></code>?<a class="headerlink" href="#why-not-use-a-bare-except" title="Link to this heading">#</a></h3>
 <p>A completely bare <code class="docutils literal notranslate"><span class="pre">except:</span></code> will catch <strong>everything</strong>, including <code class="docutils literal notranslate"><span class="pre">KeyboardInterrupt</span></code> and <code class="docutils literal notranslate"><span class="pre">SystemExit</span></code>.<br />
-That means you could block the user from stopping the programme or interfere with Python shutting down.<br />
+That means you could block the user from stopping the program or interfere with Python shutting down.<br />
 For this reason, it is considered bad practice and should be avoided.</p>
 </section>
 <section id="good-vs-bad-practice">
@@ -712,10 +716,10 @@ You could place that code inside the <code class="docutils literal notranslate">
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-handling-numbers">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 1: Handling numbers<a class="headerlink" href="#exercise-1-handling-numbers" title="Link to this heading">#</a></h3>
-<p>Write a programme that asks the user for a number.</p>
+<p>Write a script that asks the user for a number.</p>
 <ul class="simple">
 <li><p>If the user types something that is not a number, catch the error and display a message.</p></li>
-<li><p>Extend the programme to use both <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p></li>
+<li><p>Extend the code to use both <code class="docutils literal notranslate"><span class="pre">except</span></code> and <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p></li>
 </ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -734,7 +738,7 @@ You could place that code inside the <code class="docutils literal notranslate">
 <hr class="docutils" />
 <section id="exercise-2-indexerror-with-a-fruit-list">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 2: <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> with a fruit list<a class="headerlink" href="#exercise-2-indexerror-with-a-fruit-list" title="Link to this heading">#</a></h3>
-<p>Write a programme that asks the user to select an item from a list of fruits.</p>
+<p>Write a script that asks the user to select an item from a list of fruits.</p>
 <ul class="simple">
 <li><p>The list should contain at least three fruit names.</p></li>
 <li><p>Ask the user to enter a number (index) to choose a fruit.</p></li>
@@ -904,7 +908,7 @@ This separation can make the code easier to read and maintain.</p>
 <section id="key-points">
 <h2>Key Points<a class="headerlink" href="#key-points" title="Link to this heading">#</a></h2>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> prevent your programme from crashing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">except</span></code> prevent your code from crashing.</p></li>
 <li><p>Always prefer catching <strong>specific error types</strong>.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">else</span></code> for code that should only run if no error occurs.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">finally</span></code> for code that should always run.</p></li>
