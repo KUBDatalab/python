@@ -510,7 +510,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Brave New World&#39;, &#39;1984&#39;, &#39;Fahrenheit 451&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1984&#39;, &#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;]
 </pre></div>
 </div>
 </div>
@@ -688,6 +688,32 @@ Multiple pairs are separated by commas <code class="docutils literal notranslate
 </div>
 </details>
 </div>
+<p>If the key does not exist, <code class="docutils literal notranslate"><span class="pre">.get()</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code> by default:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">))</span>  <span class="c1"># None</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>None
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also provide a custom default value, which will be returned instead:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">))</span>  <span class="c1"># Unknown</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Unknown
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="updating-and-modifying-dictionaries">
 <h3>Updating and modifying dictionaries<a class="headerlink" href="#updating-and-modifying-dictionaries" title="Link to this heading">#</a></h3>
@@ -776,7 +802,7 @@ year: 1950
 <td><p>Returns key-value pairs as tuples</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">dict.get(key)</span></code></p></td>
-<td><p>Returns the value for a key</p></td>
+<td><p>Returns the value for a key, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the key does not exist</p></td>
 </tr>
 </tbody>
 </table>
