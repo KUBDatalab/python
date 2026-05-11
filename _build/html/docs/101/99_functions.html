@@ -448,8 +448,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-docstrings-to-provide-online-help">Use docstrings to provide online help</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-function"><i class="fa-solid fa-pencil"></i> Exercise 1: Create a function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-conditional-statements-within-functions"><i class="fa-solid fa-pencil"></i> Exercise 2: Conditional statements within functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-local-and-global-variables"><i class="fa-solid fa-pencil"></i> Exercise 3: Local and global variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-local-and-global-variables"><i class="fa-solid fa-pencil"></i> Exercise 2: Local and global variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-dictionary-lookup"><i class="fa-solid fa-pencil"></i> Exercise 3: Dictionary lookup</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
@@ -612,8 +612,8 @@ This means:</p>
 <p>Now the function can be called both with and without an argument:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>  <span class="c1"># Hello Alice!</span>
-<span class="n">print_named_greeting</span><span class="p">()</span>         <span class="c1"># Hello World!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>  <span class="c1"># argument overrides the default</span>
+<span class="n">print_named_greeting</span><span class="p">()</span>         <span class="c1"># no argument, so the default is used</span>
 </pre></div>
 </div>
 </div>
@@ -634,15 +634,23 @@ In the second call, no argument is provided, so the default value <code class="d
 <p>In the examples above, we printed the results of the function code to output, but there are other ways to handle data and objects created within a function. We can use the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> to send a value back to the “global” environment. (We will learn about local and global variables below). A return command can occur anywhere in the function, but is often placed at the very end of a function with the final result.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="mf">0.25</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">days_overdue</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.75</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fine</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_book_label</span><span class="p">(</span><span class="n">book_info</span><span class="p">):</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">book_info</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> by </span><span class="si">{</span><span class="n">book_info</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="k">return</span> <span class="n">label</span>
 
-<span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">book</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;1984&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;George Orwell&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1949</span>
+<span class="p">}</span>
+
+<span class="n">label</span> <span class="o">=</span> <span class="n">get_book_label</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
+
+<span class="c1"># Notice that the function parameter is called book_info,</span>
+<span class="c1"># even though we pass in a variable called book.</span>
+<span class="c1"># The names do not have to match.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -652,29 +660,30 @@ In the second call, no argument is provided, so the default value <code class="d
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $4.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1984 by George Orwell
 </pre></div>
 </div>
 </div>
 </details>
 </div>
-<div class="seealso dropdown admonition">
-<p class="admonition-title">Specify the number of float decimals to display</p>
-<p>In the example above, the fine value is displayed as <code class="docutils literal notranslate"><span class="pre">4.0</span></code>, though ideally it would print as <code class="docutils literal notranslate"><span class="pre">$4.00</span></code>. We can use the <strong>f-string format specifier</strong> of <code class="docutils literal notranslate"><span class="pre">.2f</span></code> to display two decimal points: <code class="docutils literal notranslate"><span class="pre">{fine:.2f}</span></code>. If you wanted to display a float with three decimal points you would change the format specifier to <code class="docutils literal notranslate"><span class="pre">{fine:.3f}</span></code>.<br />
-Here is a <a class="reference external" href="https://fstring.help/cheat/">cheat sheet of other f-string number formats</a>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Fine owed: $4.00&#39;
-</pre></div>
-</div>
-</div>
 <p>A function that does not explicitly <code class="docutils literal notranslate"><span class="pre">return</span></code> a value will automatically return <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;World&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;result of call is: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_book_label</span><span class="p">(</span><span class="n">book_info</span><span class="p">):</span>
+    <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">book_info</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> by </span><span class="si">{</span><span class="n">book_info</span><span class="p">[</span><span class="s1">&#39;author&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+<span class="n">book</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;1984&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;George Orwell&quot;</span>
+<span class="p">}</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">print_book_label</span><span class="p">(</span><span class="n">book</span><span class="p">)</span>
+
+<span class="c1"># The function prints the label, but does not return a value.</span>
+<span class="c1"># So the variable &#39;result&#39; is assigned None.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Result of call is: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -684,8 +693,8 @@ Here is a <a class="reference external" href="https://fstring.help/cheat/">cheat
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
-result of call is: None
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1984 by George Orwell
+Result of call is: None
 </pre></div>
 </div>
 </div>
@@ -698,30 +707,24 @@ result of call is: None
 <p>When we define a variable inside of a function in Python, it is known as a <code class="docutils literal notranslate"><span class="pre">local</span></code> variable, which means that it is not visible to – or known by – the rest of the program. Variables that we define outside of functions are <code class="docutils literal notranslate"><span class="pre">global</span></code> and are therefore visible throughout the program, <em>including</em> from within other functions. The part of a program in which a variable is visible is called its <em>scope</em>.</p>
 <p>This is helpful for people using or writing functions, because they do not need to worry about repeating variable names that have been created elsewhere in the program.</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">initial_fine</span> <span class="o">=</span> <span class="mf">0.25</span>
-<span class="n">late_fine</span> <span class="o">=</span> <span class="mf">0.75</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">calc_fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">initial_fine</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="n">initial_fine</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">days_overdue</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">late_fine</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">fine</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">initial_fine</span></code> and <code class="docutils literal notranslate"><span class="pre">late_fine</span></code> are <em>global variables</em>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">days_overdue</span></code> is a <em>local variable</em> in <code class="docutils literal notranslate"><span class="pre">calc_fine</span></code>. Note that a function parameter is a variable that is automatically assigned a value when the function is called and so acts as a local variable.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fine</span></code> is also a <em>local variable</em>, created inside the function to hold the calculated result.</p></li>
-</ul>
-<div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Fine rates: $</span><span class="si">{</span><span class="n">initial_fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, $</span><span class="si">{</span><span class="n">late_fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># user is a global variable (a dictionary)</span>
+<span class="n">user</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Alice&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;student&quot;</span>
+<span class="p">}</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_user</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+    <span class="c1"># age is a local variable (parameter)</span>
+    <span class="n">description</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old and is a </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;role&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="k">return</span> <span class="n">description</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">describe_user</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+
+<span class="c1"># The function returns a string, so &#39;result&#39; stores that value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>  <span class="c1"># NameError: age is not defined outside the function</span>
 </pre></div>
 </div>
 </div>
@@ -731,16 +734,35 @@ result of call is: None
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fine owed: $4.00
-Fine rates: $0.25, $0.75
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Alice is 25 years old and is a student.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># The function returns a string, so &#39;result&#39; stores that value</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>  <span class="c1"># NameError: age is not defined outside the function</span>
+
+<span class="ne">NameError</span>: name &#39;age&#39; is not defined
 </pre></div>
 </div>
 </div>
 </details>
 </div>
+<p>Explanation</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code> is a <strong>global variable</strong> (a dictionary), defined outside the function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code> is a <strong>local variable</strong> (a parameter), only available inside the function</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code> is also a <strong>local variable</strong>, created inside the function</p></li>
+</ul>
+<p>Even though <code class="docutils literal notranslate"><span class="pre">user</span></code> is defined outside the function, it can still be used inside it.<br />
+Local variables, on the other hand, only exist within the function where they are defined.</p>
+<p>Even though <code class="docutils literal notranslate"><span class="pre">description</span></code> is a local variable, we can still access its value outside the function because it is returned. The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement sends the value back to the place where the function was called, where it can be stored in a new variable (in this case <code class="docutils literal notranslate"><span class="pre">result</span></code>) and used in the rest of the program.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Days overdue: </span><span class="si">{</span><span class="n">days_overdue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trying to access a local variable outside the function will cause an error</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>  <span class="c1"># NameError: name &#39;age&#39; is not defined</span>
 </pre></div>
 </div>
 </div>
@@ -752,25 +774,32 @@ Fine rates: $0.25, $0.75
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Days overdue: </span><span class="si">{</span><span class="n">days_overdue</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Trying to access a local variable outside the function will cause an error</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>  <span class="c1"># NameError: name &#39;age&#39; is not defined</span>
 
-<span class="ne">NameError</span>: name &#39;days_overdue&#39; is not defined
+<span class="ne">NameError</span>: name &#39;age&#39; is not defined
 </pre></div>
 </div>
 </div>
 </details>
 </div>
+<ul class="simple">
+<li><p><strong>Global</strong> variables can be accessed inside functions</p></li>
+<li><p><strong>Local</strong> variables only exist inside the function where they are defined</p></li>
+<li><p>Variables with the same name in different scopes do not interfere with each other</p></li>
+</ul>
 </section>
 <hr class="docutils" />
 <section id="use-docstrings-to-provide-online-help">
 <h2>Use docstrings to provide online help<a class="headerlink" href="#use-docstrings-to-provide-online-help" title="Link to this heading">#</a></h2>
 <p>If the first thing in a function is a string that is not assigned to a variable, that string is attached to the function as its documentation. This kind of documentation at the beginning of a function is called a <code class="docutils literal notranslate"><span class="pre">docstring</span></code>.</p>
+<p>Docstrings are useful because they describe what a function does, what input it expects, and what it returns. They can also be accessed using Python’s built-in <code class="docutils literal notranslate"><span class="pre">help()</span></code> function.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
-    <span class="s2">&quot;Input a fahrenheit temperature and return the value in celsius&quot;</span>
-    <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="n">user_info</span><span class="p">):</span>
+    <span class="s2">&quot;Return the role of a user.&quot;</span>
+    <span class="k">return</span> <span class="n">user_info</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -778,7 +807,7 @@ Fine rates: $0.25, $0.75
 <p>This is helpful because we can now ask Python’s built-in help system to show us the documentation for the function:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">fahr_to_celsius</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">get_role</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -788,10 +817,10 @@ Fine rates: $0.25, $0.75
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function fahr_to_celsius in module __main__:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function get_role in module __main__:
 
-fahr_to_celsius(temp)
-    Input a fahrenheit temperature and return the value in celsius
+get_role(user_info)
+    Return the role of a user.
 </pre></div>
 </div>
 </div>
@@ -800,18 +829,23 @@ fahr_to_celsius(temp)
 <p>We do not need to use triple quotes when we write a docstring, but if we do, we can break the string across multiple lines:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fahr_to_celsius</span><span class="p">(</span><span class="n">temp</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert fahrenheit values to celsius</span>
-<span class="sd">    Input a value in fahrenheit</span>
-<span class="sd">    Output a value in celsius&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="p">((</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">5</span><span class="o">/</span><span class="mi">9</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_role</span><span class="p">(</span><span class="n">user_info</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the role of a user.</span>
+
+<span class="sd">    Input:</span>
+<span class="sd">        user_info (dict): A dictionary containing user data</span>
+
+<span class="sd">    Output:</span>
+<span class="sd">        str: The role of the user</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">user_info</span><span class="p">[</span><span class="s2">&quot;role&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">fahr_to_celsius</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">get_role</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -821,12 +855,16 @@ fahr_to_celsius(temp)
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function fahr_to_celsius in module __main__:
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function get_role in module __main__:
 
-fahr_to_celsius(temp)
-    Convert fahrenheit values to celsius
-    Input a value in fahrenheit
-    Output a value in celsius
+get_role(user_info)
+    Return the role of a user.
+
+    Input:
+        user_info (dict): A dictionary containing user data
+
+    Output:
+        str: The role of the user
 </pre></div>
 </div>
 </div>
@@ -857,77 +895,62 @@ fahr_to_celsius(temp)
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-2-conditional-statements-within-functions">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Conditional statements within functions<a class="headerlink" href="#exercise-2-conditional-statements-within-functions" title="Link to this heading">#</a></h3>
-<p>Create a function called <code class="docutils literal notranslate"><span class="pre">grade_converter</span></code> that takes a numerical score (0 - 100) as its parameter and returns a letter grade based on the score:</p>
-<ul class="simple">
-<li><p>90 and above returns ‘A’</p></li>
-<li><p>80 to 89 returns ‘B’</p></li>
-<li><p>70 to 79 returns ‘C’</p></li>
-<li><p>60 to 69 returns ‘D’</p></li>
-<li><p>Below 60 returns ‘F’</p></li>
-</ul>
-<p>After defining the function, test it using different scores.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">grade_converter</span><span class="p">(</span><span class="n">score</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">score</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">or</span> <span class="n">score</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Invalid score&#39;</span>
-    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;A&#39;</span>
-    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;B&#39;</span>
-    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;C&#39;</span>
-    <span class="k">elif</span> <span class="n">score</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;D&#39;</span>
-    <span class="k">elif</span> <span class="n">score</span> <span class="o">&lt;=</span> <span class="mi">59</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;F&#39;</span>
+<section id="exercise-2-local-and-global-variables">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 2: Local and global variables<a class="headerlink" href="#exercise-2-local-and-global-variables" title="Link to this heading">#</a></h3>
+<p>List all of the global variables and all of the local variables in the following code.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">playlist</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;song&quot;</span><span class="p">:</span> <span class="s2">&quot;Imagine&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;artist&quot;</span><span class="p">:</span> <span class="s2">&quot;John Lennon&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;year&quot;</span><span class="p">:</span> <span class="mi">1971</span>
+<span class="p">}</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">grade_converter</span><span class="p">(</span><span class="mi">91</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">grade_converter</span><span class="p">(</span><span class="mi">75</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">grade_converter</span><span class="p">(</span><span class="mi">59</span><span class="p">))</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">describe_song</span><span class="p">(</span><span class="n">song_data</span><span class="p">):</span>
+    <span class="n">info</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">song_data</span><span class="p">[</span><span class="s1">&#39;song&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> by </span><span class="si">{</span><span class="n">song_data</span><span class="p">[</span><span class="s1">&#39;artist&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> was released in </span><span class="si">{</span><span class="n">song_data</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+    <span class="k">return</span> <span class="n">info</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">describe_song</span><span class="p">(</span><span class="n">playlist</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>A
-C
-F
-</pre></div>
-</div>
-</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">playlist</span></code> is a global variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code> is a global variable</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">song_data</span></code> is a local variable (parameter)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">info</span></code> is a local variable</p></li>
+</ul>
 </section>
 <hr class="docutils" />
-<section id="exercise-3-local-and-global-variables">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 3: Local and global variables<a class="headerlink" href="#exercise-3-local-and-global-variables" title="Link to this heading">#</a></h3>
-<p>List all of the global variables and all of the local variables in the following code.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">fine_rate</span> <span class="o">=</span> <span class="mf">0.25</span>
-
-<span class="k">def</span><span class="w"> </span><span class="nf">fine</span><span class="p">(</span><span class="n">days_overdue</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">days_overdue</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span>  <span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">fine</span> <span class="o">=</span> <span class="p">(</span><span class="n">days_overdue</span> <span class="o">*</span> <span class="n">fine_rate</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">days_overdue</span> <span class="o">-</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">fine_rate</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">fine</span>
-    
-<span class="n">total_fine</span> <span class="o">=</span> <span class="n">calc_fine</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="sa">f</span><span class="s1">&#39;Fine owed: $</span><span class="si">{</span><span class="n">total_fine</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span>
-</pre></div>
-</div>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&#39;Fine owed: $15.00&#39;
-</pre></div>
-</div>
+<section id="exercise-3-dictionary-lookup">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 3: Dictionary lookup<a class="headerlink" href="#exercise-3-dictionary-lookup" title="Link to this heading">#</a></h3>
+<p>Create a function called <code class="docutils literal notranslate"><span class="pre">get_capital</span></code> that takes the name of a country as its parameter and returns the capital city using a dictionary.</p>
+<p>If the country is not found in the dictionary, the function should return <code class="docutils literal notranslate"><span class="pre">&quot;Country</span> <span class="pre">not</span> <span class="pre">found&quot;</span></code>.</p>
+<p>After defining the function, ask the user to enter a country and print the result.</p>
+<p>Hint:</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">.get()</span></code> to safely access values in the dictionary</p></li>
+<li><p>Remember that user input may need to be converted (e.g., using <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>)</p></li>
+</ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>Global variables:</p>
-<ul class="simple">
-<li><p>fine_rate</p></li>
-<li><p>total_fine</p></li>
-</ul>
-<p>Local variables:</p>
-<ul class="simple">
-<li><p>days_overdue</p></li>
-<li><p>fine</p></li>
-</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_capital</span><span class="p">(</span><span class="n">country</span><span class="p">):</span>
+    <span class="n">capitals</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;denmark&quot;</span><span class="p">:</span> <span class="s2">&quot;Copenhagen&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;france&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;germany&quot;</span><span class="p">:</span> <span class="s2">&quot;Berlin&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spain&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span>
+    <span class="p">}</span>
+    
+    <span class="k">return</span> <span class="n">capitals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">country</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="s2">&quot;Country not found&quot;</span><span class="p">)</span>
+
+
+<span class="n">country</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a country: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">get_capital</span><span class="p">(</span><span class="n">country</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">get_capital</span></code> uses a dictionary to store pairs of countries and their capitals. Inside the function, we use the <code class="docutils literal notranslate"><span class="pre">.get()</span></code> method to look up the value associated with the given country.</p>
+<p>Before performing the lookup, we convert the input to lowercase using <code class="docutils literal notranslate"><span class="pre">.lower()</span></code>. This ensures that the function works regardless of how the user types the country name, for example <code class="docutils literal notranslate"><span class="pre">&quot;Denmark&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;denmark&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;DENMARK&quot;</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.get()</span></code> method returns <code class="docutils literal notranslate"><span class="pre">None</span></code> if the key is not found. In this solution, we provide the custom default value <code class="docutils literal notranslate"><span class="pre">&quot;Country</span> <span class="pre">not</span> <span class="pre">found&quot;</span></code>, so the function returns that message instead of <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>Finally, the function returns the result, which is then printed after calling the function.</p>
 </div>
 </section>
 </section>
@@ -1025,8 +1048,8 @@ F
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-docstrings-to-provide-online-help">Use docstrings to provide online help</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercises">Exercises</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-create-a-function"><i class="fa-solid fa-pencil"></i> Exercise 1: Create a function</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-conditional-statements-within-functions"><i class="fa-solid fa-pencil"></i> Exercise 2: Conditional statements within functions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-local-and-global-variables"><i class="fa-solid fa-pencil"></i> Exercise 3: Local and global variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-local-and-global-variables"><i class="fa-solid fa-pencil"></i> Exercise 2: Local and global variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-dictionary-lookup"><i class="fa-solid fa-pencil"></i> Exercise 3: Dictionary lookup</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>

@@ -617,23 +617,8 @@ The comprehension just expresses it more compactly.</p>
 <section id="understanding-the-order-of-execution-in-list-comprehensions">
 <h3>Understanding the order of execution in list comprehensions<a class="headerlink" href="#understanding-the-order-of-execution-in-list-comprehensions" title="Link to this heading">#</a></h3>
 <p>Although the code is written as:</p>
-<div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
-</div>
-</div>
-<details class="admonition hide below-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell output</p>
-<p class="expanded admonition-title">Hide code cell output</p>
-</summary>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 4, 16, 36, 64]
-</pre></div>
-</div>
-</div>
-</details>
 </div>
 <p>The way it <em>executes</em> mirrors a normal <code class="docutils literal notranslate"><span class="pre">for</span></code> loop:</p>
 <ol class="arabic simple">
@@ -641,7 +626,8 @@ The comprehension just expresses it more compactly.</p>
 <li><p>Check the condition <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">x</span> <span class="pre">%</span> <span class="pre">2</span> <span class="pre">==</span> <span class="pre">0</span></code> - keep only the even numbers.</p></li>
 <li><p>Apply the expression <code class="docutils literal notranslate"><span class="pre">x**2</span></code> to each number that passed the test.</p></li>
 </ol>
-<p>So even though the expression appears first in the code, the execution order is: <strong>loop → condition → expression</strong>.</p>
+<p>So even though the expression appears first in the code, the execution order is:<br />
+<strong>loop → condition → expression</strong>.</p>
 <p><em>Tip</em>: If the order feels confusing, rewrite the comprehension as a loop with <code class="docutils literal notranslate"><span class="pre">.append()</span></code> and compare - they are equivalent.</p>
 </section>
 </section>
