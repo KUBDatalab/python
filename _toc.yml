@@ -44,7 +44,7 @@ parts:
       sections:
       - file: docs/101/11_list_comprehensions
       - file: docs/101/12_reading_writing
-      - file: docs/101/13_try_except
+      - file: docs/101/13_error_handling
     - file: docs/pandas/getting_started
       sections:
       - file: docs/pandas/00_pandas_start
