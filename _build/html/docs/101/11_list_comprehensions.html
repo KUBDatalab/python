@@ -438,7 +438,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-list-comprehensions">What are list comprehensions?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-from-a-for-loop">Start from a for loop</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-a-list-comprehension">The syntax of a list comprehension</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-comprehensions-step-by-step">Reading and writing comprehensions step by step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-loops-into-comprehensions">Converting loops into comprehensions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-order-of-execution-in-list-comprehensions">Understanding the order of execution in list comprehensions</a></li>
 </ul>
 </li>
@@ -453,9 +453,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-normalise-names"><i class="fa-solid fa-pencil"></i> Exercise 2: Normalise names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-filter-positives"><i class="fa-solid fa-pencil"></i> Exercise 3: Filter positives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-filter-and-transform"><i class="fa-solid fa-pencil"></i> Exercise 4: Filter and transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-two-letter-combinations"><i class="fa-solid fa-pencil"></i> Exercise 5: Two-letter combinations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-loop-to-comprehension"><i class="fa-solid fa-pencil"></i> Exercise 5: Loop to comprehension</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-word-lengths"><i class="fa-solid fa-pencil"></i> Exercise 6: Word lengths</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-loop-to-comprehension"><i class="fa-solid fa-pencil"></i> Exercise 7: Loop to comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-two-letter-combinations"><i class="fa-solid fa-pencil"></i> Exercise 7: Two-letter combinations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>
@@ -521,7 +521,7 @@ But remember: clarity beats cleverness. If a comprehension starts to feel crowde
 </div>
 </details>
 </div>
-<p>The comprehension version would look like this (same result):</p>
+<p>The equivalent comprehension looks like this:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">squares</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)]</span>
@@ -557,13 +557,13 @@ The comprehension just expresses it more compactly.</p>
 <li><p><strong>if condition</strong> (optional) → a filter deciding whether to include the current <code class="docutils literal notranslate"><span class="pre">item</span></code>.</p></li>
 </ul>
 <p>Think of a list comprehension as a <strong>compressed <code class="docutils literal notranslate"><span class="pre">for</span></code> loop</strong> with an optional filter.</p>
-<section id="reading-and-writing-comprehensions-step-by-step">
-<h3>Reading and writing comprehensions step by step<a class="headerlink" href="#reading-and-writing-comprehensions-step-by-step" title="Link to this heading">#</a></h3>
+<section id="converting-loops-into-comprehensions">
+<h3>Converting loops into comprehensions<a class="headerlink" href="#converting-loops-into-comprehensions" title="Link to this heading">#</a></h3>
 <p>Start with the loop you would normally write, then compress it:</p>
 <ol class="arabic simple">
 <li><p>Write the loop that visits each element.</p></li>
 <li><p>(Optional) Add a condition to filter elements.</p></li>
-<li><p>Move the “result expression” (what you would <code class="docutils literal notranslate"><span class="pre">.append()</span></code>) to the front.</p></li>
+<li><p>Move the expression you would normally append to the front.</p></li>
 </ol>
 <p><strong>Loop → comprehension (even squares 0–9):</strong></p>
 <div class="cell tag_hide-output docutils container">
@@ -727,26 +727,9 @@ The comprehension just expresses it more compactly.</p>
 </div>
 </details>
 </div>
-<p><i class="fa-solid fa-triangle-exclamation"></i> Nested comprehensions can be harder to read. If a comprehension feels hard to read, it is often better to write a regular loop.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Practical Tips and Pitfalls</p>
-<ul class="simple">
-<li><p><strong>Readability first:</strong> If a comprehension is long or has multiple conditions, a regular loop is clearer.</p></li>
-<li><p><strong>Memory:</strong> List comprehensions build the whole list in memory. For very large data, consider a <a class="reference external" href="https://pycon2019.trey.io/generator-expressions">generator expression</a>:</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">squares_gen</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1_000_000</span><span class="p">))</span>  <span class="c1"># parentheses → generator</span>
-</pre></div>
-</div>
-<ul>
-  <li style="list-style-type:none;">
-    Generators produce items one by one (memory-friendly) but can be iterated only once.
-  </li>
-</ul>
-<ul class="simple">
-<li><p><strong>Variable scope:</strong> In modern Python, the loop variable inside a comprehension (e.g., <code class="docutils literal notranslate"><span class="pre">x</span></code>) does not “leak” to the outer scope.</p></li>
-<li><p><strong>Avoid side effects:</strong> A list comprehension should mainly be used to build a new list. Try to keep it simple: take some input → transform it → get output.<br />
-If you put other actions inside (like <code class="docutils literal notranslate"><span class="pre">print()</span></code>, writing to a file, or changing variables), the comprehension becomes confusing. These actions are called <em>side effects</em>.</p></li>
-</ul>
+<div class="attention admonition">
+<p class="admonition-title">Readability First</p>
+<p>Nested comprehensions can be harder to read. If a comprehension becomes too complex, it is often better to use a regular loop instead.</p>
 </div>
 </section>
 </section>
@@ -812,48 +795,8 @@ If you put other actions inside (like <code class="docutils literal notranslate"
 </div>
 </section>
 <hr class="docutils" />
-<section id="exercise-5-two-letter-combinations">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 5: Two-letter combinations<a class="headerlink" href="#exercise-5-two-letter-combinations" title="Link to this heading">#</a></h3>
-<p>Use list comprehension to create all two-letter combinations from <code class="docutils literal notranslate"><span class="pre">&quot;AB&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;CD&quot;</span></code> to get <code class="docutils literal notranslate"><span class="pre">[&quot;AC&quot;,</span> <span class="pre">&quot;AD&quot;,</span> <span class="pre">&quot;BC&quot;,</span> <span class="pre">&quot;BD&quot;]</span></code>.</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combos</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="s2">&quot;AB&quot;</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s2">&quot;CD&quot;</span><span class="p">]</span>
-
-<span class="c1"># combos list:  [&#39;AC&#39;, &#39;AD&#39;, &#39;BC&#39;, &#39;BD&#39;]</span>
-</pre></div>
-</div>
-<p>This is a nested iteration: for each <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">&quot;AB&quot;</span></code>, we iterate <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">&quot;CD&quot;</span></code> and concatenate <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.<br />
-In other words, this comprehension has two loops:</p>
-<ul class="simple">
-<li><p>The first loop takes each letter <code class="docutils literal notranslate"><span class="pre">a</span></code> from <code class="docutils literal notranslate"><span class="pre">&quot;AB&quot;</span></code> → first <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code>, then <code class="docutils literal notranslate"><span class="pre">&quot;B&quot;</span></code>.</p></li>
-<li><p>For each <code class="docutils literal notranslate"><span class="pre">a</span></code>, the second loop takes each letter <code class="docutils literal notranslate"><span class="pre">b</span></code> from <code class="docutils literal notranslate"><span class="pre">&quot;CD&quot;</span></code> → <code class="docutils literal notranslate"><span class="pre">&quot;C&quot;</span></code>, then <code class="docutils literal notranslate"><span class="pre">&quot;D&quot;</span></code>.</p></li>
-<li><p>The expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> joins the two letters into a pair.</p></li>
-</ul>
-<p>So the program first makes <code class="docutils literal notranslate"><span class="pre">&quot;AC&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;AD&quot;</span></code> (with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;A&quot;</span></code>), and then <code class="docutils literal notranslate"><span class="pre">&quot;BC&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;BD&quot;</span></code> (with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;B&quot;</span></code>).</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="exercise-6-word-lengths">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 6: Word lengths<a class="headerlink" href="#exercise-6-word-lengths" title="Link to this heading">#</a></h3>
-<p>From the sentence <code class="docutils literal notranslate"><span class="pre">&quot;List</span> <span class="pre">comprehensions</span> <span class="pre">are</span> <span class="pre">powerful&quot;</span></code>, use list comprehension to make a list of word lengths.</p>
-<div class="tip dropdown admonition">
-<p class="admonition-title">Hint</p>
-<p>Have a look at the <code class="docutils literal notranslate"><span class="pre">split()</span></code> method: <a class="reference external" href="https://www.w3schools.com/python/ref_string_split.asp">https://www.w3schools.com/python/ref_string_split.asp</a>.</p>
-</div>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;List comprehensions are powerful&quot;</span>
-<span class="n">lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
-
-<span class="c1"># lengths list:  [4, 14, 3, 8]</span>
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">split()</span></code> tokenizes the sentence by whitespace; we then apply <code class="docutils literal notranslate"><span class="pre">len(...)</span></code> to each word and collect the lengths.</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="exercise-7-loop-to-comprehension">
-<h3><i class="fa-solid fa-pencil"></i> Exercise 7: Loop to comprehension<a class="headerlink" href="#exercise-7-loop-to-comprehension" title="Link to this heading">#</a></h3>
+<section id="exercise-5-loop-to-comprehension">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 5: Loop to comprehension<a class="headerlink" href="#exercise-5-loop-to-comprehension" title="Link to this heading">#</a></h3>
 <p>Rewrite this loop as a list comprehension:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
@@ -871,6 +814,44 @@ In other words, this comprehension has two loops:</p>
 <p>Execution order is <strong>loop → condition → expression</strong>: iterate <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">0..19</span></code>, keep multiples of 5, then transform with <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">//</span> <span class="pre">5</span></code>.</p>
 </div>
 </section>
+<hr class="docutils" />
+<section id="exercise-6-word-lengths">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 6: Word lengths<a class="headerlink" href="#exercise-6-word-lengths" title="Link to this heading">#</a></h3>
+<p>From the sentence <code class="docutils literal notranslate"><span class="pre">&quot;List</span> <span class="pre">comprehensions</span> <span class="pre">are</span> <span class="pre">powerful&quot;</span></code>, use list comprehension to make a list of word lengths.</p>
+<p><strong>Hint:</strong> You may find the <a class="reference external" href="https://www.w3schools.com/python/ref_string_split.asp"><code class="docutils literal notranslate"><span class="pre">split()</span></code> method</a> useful.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;List comprehensions are powerful&quot;</span>
+<span class="n">lengths</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()]</span>
+
+<span class="c1"># lengths list:  [4, 14, 3, 8]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">split()</span></code> tokenizes the sentence by whitespace; we then apply <code class="docutils literal notranslate"><span class="pre">len(...)</span></code> to each word and collect the lengths.</p>
+</div>
+</section>
+<hr class="docutils" />
+<section id="exercise-7-two-letter-combinations">
+<h3><i class="fa-solid fa-pencil"></i> Exercise 7: Two-letter combinations<a class="headerlink" href="#exercise-7-two-letter-combinations" title="Link to this heading">#</a></h3>
+<p>Use list comprehension to create all two-letter combinations from <code class="docutils literal notranslate"><span class="pre">&quot;AB&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;CD&quot;</span></code> to get <code class="docutils literal notranslate"><span class="pre">[&quot;AC&quot;,</span> <span class="pre">&quot;AD&quot;,</span> <span class="pre">&quot;BC&quot;,</span> <span class="pre">&quot;BD&quot;]</span></code>.</p>
+<p><i class="fa-solid fa-triangle-exclamation"></i> This exercise is a bit more advanced than the previous ones and introduces a nested comprehension. If it feels difficult, try writing it as a regular nested loop first.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">combos</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="s2">&quot;AB&quot;</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s2">&quot;CD&quot;</span><span class="p">]</span>
+
+<span class="c1"># combos list:  [&#39;AC&#39;, &#39;AD&#39;, &#39;BC&#39;, &#39;BD&#39;]</span>
+</pre></div>
+</div>
+<p>This is a nested iteration: for each <code class="docutils literal notranslate"><span class="pre">a</span></code> in <code class="docutils literal notranslate"><span class="pre">&quot;AB&quot;</span></code>, we iterate <code class="docutils literal notranslate"><span class="pre">b</span></code> in <code class="docutils literal notranslate"><span class="pre">&quot;CD&quot;</span></code> and concatenate <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>.<br />
+In other words, this comprehension has two loops:</p>
+<ul class="simple">
+<li><p>The first loop takes each letter <code class="docutils literal notranslate"><span class="pre">a</span></code> from <code class="docutils literal notranslate"><span class="pre">&quot;AB&quot;</span></code> → first <code class="docutils literal notranslate"><span class="pre">&quot;A&quot;</span></code>, then <code class="docutils literal notranslate"><span class="pre">&quot;B&quot;</span></code>.</p></li>
+<li><p>For each <code class="docutils literal notranslate"><span class="pre">a</span></code>, the second loop takes each letter <code class="docutils literal notranslate"><span class="pre">b</span></code> from <code class="docutils literal notranslate"><span class="pre">&quot;CD&quot;</span></code> → <code class="docutils literal notranslate"><span class="pre">&quot;C&quot;</span></code>, then <code class="docutils literal notranslate"><span class="pre">&quot;D&quot;</span></code>.</p></li>
+<li><p>The expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> joins the two letters into a pair.</p></li>
+</ul>
+<p>So the program first makes <code class="docutils literal notranslate"><span class="pre">&quot;AC&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;AD&quot;</span></code> (with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;A&quot;</span></code>), and then <code class="docutils literal notranslate"><span class="pre">&quot;BC&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;BD&quot;</span></code> (with <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">&quot;B&quot;</span></code>).</p>
+</div>
+</section>
 </section>
 <hr class="docutils" />
 <section id="key-points">
@@ -879,7 +860,8 @@ In other words, this comprehension has two loops:</p>
 <li><p>List comprehensions are a quick way to build lists.</p></li>
 <li><p>General syntax: <code class="docutils literal notranslate"><span class="pre">[expression</span> <span class="pre">for</span> <span class="pre">item</span> <span class="pre">in</span> <span class="pre">iterable</span> <span class="pre">if</span> <span class="pre">condition]</span></code>.</p></li>
 <li><p>They work like loops: go through items, check condition, add result.</p></li>
-<li><p>Good for simple transform or filter but use loops if it gets too complex.</p></li>
+<li><p>List comprehensions are best for simple and readable transformations or filters.</p></li>
+<li><p>If a comprehension becomes too complex, a regular loop is often clearer.</p></li>
 </ul>
 </section>
 </section>
@@ -951,7 +933,7 @@ In other words, this comprehension has two loops:</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-list-comprehensions">What are list comprehensions?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#start-from-a-for-loop">Start from a for loop</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-syntax-of-a-list-comprehension">The syntax of a list comprehension</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-comprehensions-step-by-step">Reading and writing comprehensions step by step</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-loops-into-comprehensions">Converting loops into comprehensions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-the-order-of-execution-in-list-comprehensions">Understanding the order of execution in list comprehensions</a></li>
 </ul>
 </li>
@@ -966,9 +948,9 @@ In other words, this comprehension has two loops:</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-normalise-names"><i class="fa-solid fa-pencil"></i> Exercise 2: Normalise names</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-filter-positives"><i class="fa-solid fa-pencil"></i> Exercise 3: Filter positives</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-filter-and-transform"><i class="fa-solid fa-pencil"></i> Exercise 4: Filter and transform</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-two-letter-combinations"><i class="fa-solid fa-pencil"></i> Exercise 5: Two-letter combinations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-loop-to-comprehension"><i class="fa-solid fa-pencil"></i> Exercise 5: Loop to comprehension</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-word-lengths"><i class="fa-solid fa-pencil"></i> Exercise 6: Word lengths</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-loop-to-comprehension"><i class="fa-solid fa-pencil"></i> Exercise 7: Loop to comprehension</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-two-letter-combinations"><i class="fa-solid fa-pencil"></i> Exercise 7: Two-letter combinations</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key Points</a></li>

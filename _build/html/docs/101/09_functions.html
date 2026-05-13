@@ -605,7 +605,7 @@ This means:</p>
 <section id="default-parameter-values">
 <h3>Default parameter values<a class="headerlink" href="#default-parameter-values" title="Link to this heading">#</a></h3>
 <p>Sometimes it is useful to make a parameter optional by giving it a default value. This means the function will use the default if no argument is provided.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_named_greeting</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;World&#39;</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hello </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">!&#39;</span><span class="p">)</span>
@@ -614,19 +614,25 @@ This means:</p>
 </div>
 </div>
 <p>Now the function can be called both with and without an argument:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_named_greeting</span><span class="p">(</span><span class="s1">&#39;Alice&#39;</span><span class="p">)</span>  <span class="c1"># argument overrides the default</span>
 <span class="n">print_named_greeting</span><span class="p">()</span>         <span class="c1"># no argument, so the default is used</span>
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Alice!
 Hello World!
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>In the first call, the argument <code class="docutils literal notranslate"><span class="pre">'Alice'</span></code> is used as the value of <code class="docutils literal notranslate"><span class="pre">name</span></code>.<br />
 In the second call, no argument is provided, so the default value <code class="docutils literal notranslate"><span class="pre">'World'</span></code> is used instead.</p>
