@@ -447,8 +447,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
-<div class="cell_input docutils container">
+  <div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
 <span class="c1"># Generate a random secret number between 1 and 20</span>
 <span class="n">secret_number</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
@@ -474,6 +474,11 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<details class="admonition hide below-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell output</p>
+<p class="expanded admonition-title">Hide code cell output</p>
+</summary>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Welcome to the Number Guessing Game!
 </pre></div>
@@ -502,6 +507,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 
     <script type="text/x-thebe-config">
