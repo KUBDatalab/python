@@ -643,7 +643,7 @@ By default, Python will use your operating system’s preferred encoding, which 
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></p></td>
 <td><p>Append</p></td>
-<td><p>Opens a file for writing at the end. Existing content is kept. Creates the file if it does not exist.</p></td>
+<td><p>Opens a file for appending at the end. Existing content is kept, and all new content is appended to the end of the file. Creates the file if it does not exist.</p></td>
 </tr>
 </tbody>
 </table>
@@ -659,15 +659,15 @@ By default, Python will use your operating system’s preferred encoding, which 
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code></p></td>
 <td><p>Read and write</p></td>
-<td><p>Opens an existing file for both reading and writing without deleting existing content. Writing starts at the current position in the file.</p></td>
+<td><p>Opens an existing file for both reading and writing. The file must already exist. Existing content is not deleted, and writing starts at the current position in the file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code></p></td>
 <td><p>Write and read</p></td>
-<td><p>Opens a file for both reading and writing, but first deletes all existing content. Writing starts at the beginning of the file. Creates the file if it does not exist.</p></td>
+<td><p>Creates a new file or deletes all existing content before writing. Writing starts at the beginning of the file. Also allows reading from the file after new content has been written.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;a+&quot;</span></code></p></td>
 <td><p>Append and read</p></td>
-<td><p>Opens a file for both reading and appending. Existing content is kept, and all new writing happens at the end of the file. Creates the file if it does not exist.</p></td>
+<td><p>Opens a file for both reading and appending. Existing content is kept, and all new content is appended to the end of the file. Creates the file if it does not exist.</p></td>
 </tr>
 </tbody>
 </table>
