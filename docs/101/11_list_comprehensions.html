@@ -707,6 +707,8 @@ The comprehension just expresses it more compactly.</p>
 </section>
 <section id="nested-comprehensions-use-with-care">
 <h3>Nested comprehensions (use with care)<a class="headerlink" href="#nested-comprehensions-use-with-care" title="Link to this heading">#</a></h3>
+<p>List comprehensions can also be nested. This means we can include multiple <code class="docutils literal notranslate"><span class="pre">for</span></code> loops inside a single comprehension. Nested comprehensions are often used to work with nested data structures such as lists of lists.</p>
+<p>In the example below, each <code class="docutils literal notranslate"><span class="pre">row</span></code> in <code class="docutils literal notranslate"><span class="pre">matrix</span></code> is itself a list. The comprehension loops through each row and then through each number (<code class="docutils literal notranslate"><span class="pre">num</span></code>) inside that row, creating a single flattened list.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matrix</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]]</span>
