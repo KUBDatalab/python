@@ -526,7 +526,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;, &#39;1984&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Brave New World&#39;, &#39;Fahrenheit 451&#39;, &#39;1984&#39;]
 </pre></div>
 </div>
 </div>
@@ -591,10 +591,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;date&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;}
-{&#39;cherry&#39;, &#39;banana&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;banana&#39;, &#39;date&#39;, &#39;apple&#39;, &#39;cherry&#39;}
+{&#39;banana&#39;, &#39;cherry&#39;}
 {&#39;apple&#39;}
-{&#39;date&#39;, &#39;apple&#39;}
+{&#39;apple&#39;, &#39;date&#39;}
 </pre></div>
 </div>
 </div>
@@ -707,7 +707,7 @@ Multiple pairs are separated by commas <code class="docutils literal notranslate
 <p>If the key does not exist, <code class="docutils literal notranslate"><span class="pre">.get()</span></code> returns <code class="docutils literal notranslate"><span class="pre">None</span></code> by default:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">))</span>  <span class="c1"># None</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -726,7 +726,7 @@ Multiple pairs are separated by commas <code class="docutils literal notranslate
 <p>You can also provide a custom default value, which will be returned instead:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">))</span>  <span class="c1"># Unknown</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">book</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;publisher&quot;</span><span class="p">,</span> <span class="s2">&quot;Unknown&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -796,7 +796,7 @@ This makes the code cleaner and more readable when you need both parts.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">book</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -806,9 +806,9 @@ This makes the code cleaner and more readable when you need both parts.</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title: 1984
-author: George Orwell
-year: 1950
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>title : 1984
+author : George Orwell
+year : 1950
 </pre></div>
 </div>
 </div>
