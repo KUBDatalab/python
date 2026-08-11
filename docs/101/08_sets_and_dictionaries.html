@@ -490,10 +490,22 @@ document.write(`
 <section id="sets">
 <h2>Sets<a class="headerlink" href="#sets" title="Link to this heading">#</a></h2>
 <p>A <strong>set</strong> in Python is a built-in data type that represents <strong>a collection of unique, unordered items</strong>. Sets are similar to lists, but they automatically remove duplicate entries and do not maintain order.</p>
+<p><strong>You can create a set by enclosing values in curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) or by converting another iterable with the <code class="docutils literal notranslate"><span class="pre">set()</span></code> function.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using curly braces</span>
+<span class="n">fruits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">}</span>
+
+<span class="c1"># Using the set() function</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="why-use-sets">
 <h3>Why use sets?<a class="headerlink" href="#why-use-sets" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p>To eliminate duplicate values from a list.</p></li>
+<li><p>To eliminate duplicate values from a collection.</p></li>
 <li><p>To carry out set operations like <strong>union</strong>, <strong>intersection</strong>, <strong>difference</strong>, and <strong>symmetric difference</strong>.</p></li>
 </ul>
 </section>
@@ -514,7 +526,7 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Brave New World&#39;, &#39;Fahrenheit 451&#39;, &#39;1984&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fahrenheit 451&#39;, &#39;Brave New World&#39;, &#39;1984&#39;]
 </pre></div>
 </div>
 </div>
@@ -579,10 +591,10 @@ document.write(`
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;date&#39;, &#39;apple&#39;, &#39;banana&#39;, &#39;cherry&#39;}
-{&#39;banana&#39;, &#39;cherry&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;date&#39;, &#39;banana&#39;, &#39;cherry&#39;, &#39;apple&#39;}
+{&#39;cherry&#39;, &#39;banana&#39;}
 {&#39;apple&#39;}
-{&#39;apple&#39;, &#39;date&#39;}
+{&#39;date&#39;, &#39;apple&#39;}
 </pre></div>
 </div>
 </div>
