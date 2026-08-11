@@ -703,7 +703,7 @@ vwxyz
 <p>If we use <code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># r+ → requires file to exist, does not truncate</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># r+ → file must exist, existing content is preserved</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
 </pre></div>
@@ -737,7 +737,7 @@ vwxyz
 <p>If we instead use <code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code>:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># w+ → creates or truncates the file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># w+ → creates the file if needed, existing content is deleted</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
 </pre></div>
@@ -772,7 +772,6 @@ vwxyz
 <h2>Reading examples<a class="headerlink" href="#reading-examples" title="Link to this heading">#</a></h2>
 <section id="read-entire-file">
 <h3>Read entire file<a class="headerlink" href="#read-entire-file" title="Link to this heading">#</a></h3>
-<p>Reads the whole file into one string. Useful for small files, but not memory-efficient for very large ones.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -798,10 +797,10 @@ The end
 </div>
 </details>
 </div>
+<p>Reads the whole file into one string. Useful for small files, but not memory-efficient for very large ones.</p>
 </section>
 <section id="read-line-by-line">
 <h3>Read line by line<a class="headerlink" href="#read-line-by-line" title="Link to this heading">#</a></h3>
-<p>Iterates through the file line by line. This is memory-friendly and often the best way when working with larger files.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -827,13 +826,13 @@ The end
 </div>
 </details>
 </div>
+<p>Iterates through the file line by line. This is memory-friendly and often the best way when working with larger files.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">strip()</span></code> method removes any leading or trailing whitespace, such as the newline character <code class="docutils literal notranslate"><span class="pre">\n</span></code> at the end of each line.</p>
 <p>Removing the newline is useful because otherwise <code class="docutils literal notranslate"><span class="pre">print()</span></code> will add its own line break, resulting in unwanted blank lines in the output.<br />
 This ensures the text looks clean and properly formatted when printed.</p>
 </section>
 <section id="read-into-a-list">
 <h3>Read into a list<a class="headerlink" href="#read-into-a-list" title="Link to this heading">#</a></h3>
-<p>Stores all lines in a list, where each element is one line (including <code class="docutils literal notranslate"><span class="pre">\n</span></code>). Convenient if you need random access to specific lines.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -854,6 +853,7 @@ This ensures the text looks clean and properly formatted when printed.</p>
 </div>
 </details>
 </div>
+<p>Stores all lines in a list, where each element is one line (including <code class="docutils literal notranslate"><span class="pre">\n</span></code>). Convenient if you need random access to specific lines.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -861,7 +861,6 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <h2>Writing examples<a class="headerlink" href="#writing-examples" title="Link to this heading">#</a></h2>
 <section id="write-overwrite">
 <h3>Write (overwrite)<a class="headerlink" href="#write-overwrite" title="Link to this heading">#</a></h3>
-<p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> mode, which creates a new file or truncates (clears) the old one. Any existing content is lost.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -871,10 +870,10 @@ This ensures the text looks clean and properly formatted when printed.</p>
 </div>
 </div>
 </div>
+<p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> mode, which creates a new file or truncates (clears) the old one. Any existing content is lost.</p>
 </section>
 <section id="append">
 <h3>Append<a class="headerlink" href="#append" title="Link to this heading">#</a></h3>
-<p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> mode, which keeps the old content and adds new lines at the end of the file.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;output.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -883,6 +882,7 @@ This ensures the text looks clean and properly formatted when printed.</p>
 </div>
 </div>
 </div>
+<p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code> mode, which keeps the old content and adds new lines at the end of the file.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -958,8 +958,8 @@ Each line ends with a newline character.
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads from index 1</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>         <span class="c1"># moves the cursor 1 position from the beginning</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads from there to the end</span>
 </pre></div>
 </div>
 </div>
