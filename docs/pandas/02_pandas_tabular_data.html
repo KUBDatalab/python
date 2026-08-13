@@ -448,8 +448,8 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notna-and-isna"><code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-excel-files">Reading and writing Excel files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
@@ -1629,6 +1629,19 @@ dtype: int64
 </div>
 </section>
 <hr class="docutils" />
+<section id="exercise">
+<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<p>Extract the two passengers whose point of departure (‘Embarked’) is unknown (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Solution</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic[titanic[&#39;Embarked&#39;].isna()]
+</pre></div>
+</div>
+<p>This solution uses boolean indexing to filter the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’, extracting only the rows where the ‘Embarked’ column contains missing values (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
+This approach allows us to identify the passengers whose point of departure is unknown.</p>
+</div>
+</section>
+<hr class="docutils" />
 <section id="filtering-on-column-value">
 <h2>Filtering on column value<a class="headerlink" href="#filtering-on-column-value" title="Link to this heading">#</a></h2>
 <p>We can filter a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> to select rows where a specific column contains a specific value.</p>
@@ -1697,19 +1710,6 @@ dtype: int64
 </table>
 </div></div></div>
 </details>
-</div>
-</section>
-<hr class="docutils" />
-<section id="exercise">
-<h2><i class="fa-solid fa-pencil"></i> Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
-<p>Extract the two passengers whose point of departure (‘Embarked’) is unknown (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>)</p>
-<div class="dropdown admonition">
-<p class="admonition-title">Solution</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>titanic[titanic[&#39;Embarked&#39;].isna()]
-</pre></div>
-</div>
-<p>This solution uses boolean indexing to filter the <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> ‘titanic’, extracting only the rows where the ‘Embarked’ column contains missing values (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).<br />
-This approach allows us to identify the passengers whose point of departure is unknown.</p>
 </div>
 </section>
 <hr class="docutils" />
@@ -2042,8 +2042,8 @@ To do so, we could write:</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notna-and-isna"><code class="docutils literal notranslate"><span class="pre">notna()</span></code> and <code class="docutils literal notranslate"><span class="pre">isna()</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><i class="fa-solid fa-pencil"></i> Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering-on-column-value">Filtering on column value</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reading-and-writing-excel-files">Reading and writing Excel files</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#key-points">Key points</a></li>
 </ul>
