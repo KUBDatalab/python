@@ -1027,7 +1027,7 @@ Name: Age, dtype: float64
 </div></div></div>
 </details>
 </div>
-<p>It does not make much sense to get the average value of the ‘Pclass’. If we are only interested in the average age for each sex, the selection of columns (rectangular brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> as usual) is supported on the grouped data as well:</p>
+<p>It does not make much sense to get the average value of the ‘Pclass’. If we are only interested in the average survival rate for each sex, the selection of columns (rectangular brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> as usual) is supported on the grouped data as well:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)[</span><span class="s2">&quot;Survived&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
