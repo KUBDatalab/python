@@ -924,7 +924,7 @@ dtype: float64
 <p>What is the average age for male versus female Titanic passengers?</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="p">[[</span><span class="s2">&quot;Sex&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">titanic</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Sex&quot;</span><span class="p">)[</span><span class="s2">&quot;Age&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -934,43 +934,13 @@ dtype: float64
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Age</th>
-    </tr>
-    <tr>
-      <th>Sex</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>female</th>
-      <td>27.915709</td>
-    </tr>
-    <tr>
-      <th>male</th>
-      <td>30.726645</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sex
+female    27.915709
+male      30.726645
+Name: Age, dtype: float64
+</pre></div>
+</div>
+</div>
 </details>
 </div>
 <p>As our interest is the average age for each sex, a subselection on these two columns is made first: <code class="docutils literal notranslate"><span class="pre">titanic[[&quot;Sex&quot;,</span> <span class="pre">&quot;Age&quot;]]</span></code>.<br />
