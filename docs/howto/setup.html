@@ -453,7 +453,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-version-of-python">Check your version of Python</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-both-mac-and-windows"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> JupyterLab - both Mac and Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-jupyterlab-both-mac-and-windows"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> Install JupyterLab - both Mac and Windows</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-google-colab">Method 2: Google Colab</a></li>
@@ -472,12 +472,12 @@ document.write(`
   <section id="install-run-python">
 <h1>Install &amp; Run Python<a class="headerlink" href="#install-run-python" title="Link to this heading">#</a></h1>
 <p>Before you can run, you must first walk (or slither). <i class="fab fa-python" aria-hidden="true" style="font-size: 50px;"></i></p>
-<p>In order to get Python to run on your machine, you need to either download it directly or run it through an intermediary. There are many different ways to do this.</p>
-<p>We will highlight three possibilities, any of these will work just fine for our courses.</p>
+<p>In order to get Python running on your machine, you need to either install it directly or run it through an intermediary. There are many different ways to do this.</p>
+<p>We will highlight a simple way to get started and three more permanent options. All of these will work just fine for our courses.</p>
 <div class="tip admonition">
 <p class="admonition-title">Looking for the simplest way to get started?</p>
-<p>Then we would recommend you to check out methods 2 and 3 as they do not require installation locally. You can jump to these by clicking on the menu in the right side.</p>
-<p>You can always change your mind and install Python locally later.</p>
+<p><strong><a class="reference external" href="https://jupyter.org/try-jupyter/lab/index.html">Use JupyterLab in your browser with no installation required here</a>.</strong></p>
+<p>This is the easiest way to get started, as no installation is required. Your notebooks are stored in the browser-based environment rather than as files directly on your computer. This can be a good way to get started, but it has some limitations and may not be suitable for more advanced use. You can always install Python and JupyterLab locally later, as described in <strong>Method 1</strong> below.</p>
 </div>
 <div class="seealso dropdown admonition">
 <p class="admonition-title">Would you rather use another method?</p>
@@ -543,9 +543,8 @@ document.write(`
 <p><strong>Step 1:</strong> Download the Official Installer</p>
 <p>Follow these steps to download the full installer:</p>
 <ul class="simple">
-<li><p>Open a browser window and navigate to the Python.org Downloads page for macOS.</p></li>
-<li><p>Under the “Python Releases for Mac OS X” heading, click the link for the <strong>Latest Python 3 Release - Python 3.x.x</strong>.</p></li>
-<li><p>Scroll to the bottom and click <strong>macOS 64-bit</strong> installer to start the download.</p></li>
+<li><p>Open a browser window and navigate to the <a class="reference external" href="https://www.python.org/downloads/">Python.org Downloads page</a>.</p></li>
+<li><p>Download the latest version for macOS.</p></li>
 <li><p>When the installer is finished downloading, move on to the next step.</p></li>
 </ul>
 <p><strong>Step 2:</strong> Run the Installer</p>
@@ -557,7 +556,7 @@ document.write(`
 <li><p>When the installer is finished copying files, double-click the <strong>Install Certificates</strong> command in the finder window to make sure your SSL root certificates are updated.</p></li>
 </ul>
 <p>Congratulations—you now have the latest version of Python 3 on your macOS computer!</p>
-<p>Now you can skip to the last steps of <a class="reference internal" href="#jupyterlab-both-mac-and-windows"><span class="xref myst">installing jupyter</span></a>.</p>
+<p>You can now move on to <a class="reference internal" href="#jupyterlab-both-mac-and-windows"><span class="xref myst">install JupyterLab</span></a>.</p>
 </section>
 </section>
 <section id="method-1-windows">
@@ -604,7 +603,7 @@ document.write(`
 <p>Follow these steps to download the full installer:</p>
 <ul class="simple">
 <li><p>Open a browser window and navigate to <a class="reference external" href="https://www.python.org/">Python.org</a>.</p></li>
-<li><p>In the drop down menu called “Downloads” click the link for the Latest Python 3 Release - Python 3.x.x.</p></li>
+<li><p><strong>NOTE:</strong> In the drop down menu called “Downloads” click “<strong>get the standalone installer for Python 3.x.x.</strong>”</p></li>
 <li><p>The download should start instantly.</p></li>
 </ul>
 <p>When the installer is finished downloading, move on to the next step.</p>
@@ -614,24 +613,23 @@ document.write(`
 <p>Run the installer by double clicking on the downloaded .exe file.</p>
 <p>Follow these steps to complete the installation:</p>
 <ul class="simple">
-<li><p>Select the box <strong>Install launcher for all users</strong> this allows all users of the computer to use the Python launcher application.</p></li>
-<li><p>Select the box <strong>Add Python 3.x to PATH</strong> this enables you to launch Python from the command line.</p></li>
-<li><p>Click <strong>Install Now</strong>.</p></li>
-<li><p>Click the <strong>Disable path length limit</strong>. This removes the limitation of the path lenghts and can smoothe over any issues in the future with the path length.</p></li>
-<li><p>Press <strong>Close</strong> to finish the installation.</p></li>
+<li><p>Select the box “Install launcher for all users” this allows all users of the computer to use the Python launcher application.</p></li>
+<li><p><strong>NOTE:</strong> Select the box “<strong>Add Python 3.x to PATH</strong>” this enables you to launch Python from the command line.</p></li>
+<li><p>Click “Install Now”.</p></li>
+<li><p>Click the “Disable path length limit”. This removes the limitation of the path lenghts and can smoothe over any issues in the future with the path length.</p></li>
+<li><p>Press “Close” to finish the installation.</p></li>
 </ul>
-<p>Congratulations—you now have the latest version of Python 3 on your computer!</p>
 <div class="attention dropdown admonition">
 <p class="admonition-title">Did you not click add to PATH?</p>
-<p>If you did not click <strong>Add Python to PATH</strong> this can be fixed by following these steps:</p>
+<p>If you did not click “<strong>Add Python to PATH</strong>” this can be fixed by following these steps:</p>
 <ol class="arabic simple">
 <li><p>Open the folder where you downloaded the Python install file.</p></li>
 <li><p>Double click on the Python install file.</p></li>
-<li><p>Click <strong>Modify</strong>.</p></li>
-<li><p>You will see <strong>Optional features</strong>.</p></li>
-<li><p>Click <strong>Next</strong>.</p></li>
-<li><p>Select <strong>Add python to environment variables</strong>.</p></li>
-<li><p>Click <strong>Install</strong>.</p></li>
+<li><p>Click “Modify”.</p></li>
+<li><p>You will see “Optional features”.</p></li>
+<li><p>Click “Next”.</p></li>
+<li><p>Select “<strong>Add python to environment variables</strong>”.</p></li>
+<li><p>Click “Install”.</p></li>
 </ol>
 </div>
 </section>
@@ -647,10 +645,11 @@ document.write(`
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Python 3.12.5
 </pre></div>
 </div>
+<p>Congratulations - you now have the latest version of Python 3 on your computer!</p>
 </section>
 </section>
-<section id="jupyterlab-both-mac-and-windows">
-<h3><i class="fab fa-apple" aria-hidden="true"></i> <i class="fab fa-windows" aria-hidden="true"></i> JupyterLab - both Mac and Windows<a class="headerlink" href="#jupyterlab-both-mac-and-windows" title="Link to this heading">#</a></h3>
+<section id="install-jupyterlab-both-mac-and-windows">
+<h3><i class="fab fa-apple" aria-hidden="true"></i> <i class="fab fa-windows" aria-hidden="true"></i> Install JupyterLab - both Mac and Windows<a class="headerlink" href="#install-jupyterlab-both-mac-and-windows" title="Link to this heading">#</a></h3>
 <p>Now you need to install JupyterLab, the Integrated development environment (IDE) we will be using in this course.</p>
 <p>We will install this from the Terminal (Mac) or PowerShell (Windows) using pip.</p>
 <p>Pip is a package manager which allows you to easily install and manage Python libraries and packages - don’t worry if this doesnt make a lot of sense right now, we will get back to what that means in the course.</p>
@@ -690,16 +689,15 @@ Use ensurepip to install pip from Python.</p>
 <hr class="docutils" />
 <section id="method-2-google-colab">
 <h2>Method 2: Google Colab<a class="headerlink" href="#method-2-google-colab" title="Link to this heading">#</a></h2>
-<p>Google Colab, along with ERDA, is perhaps the easiest of these three options to get up and running, as all it requires is a Google account. After you login, you simply create a new notebook and start coding.</p>
+<p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a> is an easy way to get started, as all it requires is a Google account. After you login, you simply create a new notebook and start coding.</p>
 <p>You can connect your Google Drive to upload files that you want to work with. If you only upload your files directly to Colab, you can work on them, but they will be erased when you close your session or if your session times out, at which point you will need to re-upload your files.</p>
-<p>You can read more about Google Colab <a class="reference external" href="https://colab.research.google.com/?utm_source=scs-index">here</a>. We would also advise that Google is a corporate third party, who mostly want to sell your data so that other people can sell you stuff that Google predicts you will want (hello age of surveillance capitalism).</p>
-<p>While this might not mean much for this course (you might get an ad in your inbox for DataCamp or something), we would urge caution if you are uploading datasets with sensitive data into Google Colab.</p>
+<p>You can read more about Google Colab <a class="reference external" href="https://colab.research.google.com/?utm_source=scs-index">here</a>. We would also advise that Google is a corporate third party, who mostly want to sell your data so that other people can sell you stuff that Google predicts you will want (hello age of surveillance capitalism). While this might not mean much for this course, we would urge caution if you are uploading datasets with sensitive data into Google Colab.</p>
 </section>
 <hr class="docutils" />
 <section id="method-3-erda">
 <h2>Method 3: ERDA<a class="headerlink" href="#method-3-erda" title="Link to this heading">#</a></h2>
-<p>Copenhagen University provides its students and staff with access to its Electronic Research Data Archive (ERDA).</p>
-<p><a class="reference external" href="https://www.erda.dk/">ERDA</a> includes a built-in copy of Jupyter Notebook, which runs the newest version of Python.</p>
+<p>Copenhagen University provides its students and staff with access to its <a class="reference external" href="https://www.erda.dk/">Electronic Research Data Archive (ERDA)</a>.</p>
+<p>ERDA includes a built-in copy of Jupyter Notebook, which runs the newest version of Python.</p>
 <p>Simply select the <strong>Jupyter Notebook</strong> icon after logging in, then select <strong>Start DAG</strong>, and continue on to your coding space.</p>
 <p>Be aware that ERDA cannot read local files off of your computer so you must, like Google Colab, upload any files you wish to work with. Unlike Google Colab, however, ERDA will maintain your files over time, saving you the trouble of worrying about different file pathways in your code.</p>
 <p>ERDA’s self description as well as its terms and conditions can be read <a class="reference external" href="https://www.erda.dk/">here</a>.</p>
@@ -788,7 +786,7 @@ Use ensurepip to install pip from Python.</p>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-your-version-of-python">Check your version of Python</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyterlab-both-mac-and-windows"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> JupyterLab - both Mac and Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-jupyterlab-both-mac-and-windows"><i aria-hidden="true" class="fab fa-apple"></i> <i aria-hidden="true" class="fab fa-windows"></i> Install JupyterLab - both Mac and Windows</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-2-google-colab">Method 2: Google Colab</a></li>
