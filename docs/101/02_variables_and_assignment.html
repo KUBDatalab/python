@@ -880,22 +880,22 @@ Try figuring it out without clicking “Show code cell output”.</p>
 </div>
 </details>
 </div>
-<p>b) If <code class="docutils literal notranslate"><span class="pre">thing</span></code> is a variable name, <code class="docutils literal notranslate"><span class="pre">low</span></code> is a low number, and <code class="docutils literal notranslate"><span class="pre">high</span></code> is a high number:</p>
+<p>b) If <code class="docutils literal notranslate"><span class="pre">var</span></code> is a variable name, <code class="docutils literal notranslate"><span class="pre">low_index</span></code> is a low number, and <code class="docutils literal notranslate"><span class="pre">high_index</span></code> is a higher number:</p>
 <ol class="arabic simple">
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[low:high]</span></code> do?</p></li>
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[low:]</span></code> (without a value after the colon) do?</p></li>
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[:high]</span></code> (without a value before the colon) do?</p></li>
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[:]</span></code> (just a colon) do?</p></li>
-<li><p>What does <code class="docutils literal notranslate"><span class="pre">thing[number:negative-number]</span></code> do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">var[low_index:high_index]</span></code> do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">var[low_index:]</span></code> (without a value after the colon) do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">var[:high_index]</span></code> (without a value before the colon) do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">var[:]</span></code> (just a colon) do?</p></li>
+<li><p>What does <code class="docutils literal notranslate"><span class="pre">var[low_index:negative_index]</span></code> do?</p></li>
 </ol>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <ol class="arabic simple">
-<li><p>It will slice the string, starting at the low index and ending an element before the high index</p></li>
+<li><p>It will slice the string, starting at the low index and up to (but not including!) the high index</p></li>
 <li><p>It will slice the string, starting at the low index and stopping at the end of the string</p></li>
-<li><p>It will slice the string, starting at the beginning on the string, and ending an element before the high index</p></li>
+<li><p>It will slice the string, starting at the beginning and up to (but not including!) the high index</p></li>
 <li><p>It will print the entire string</p></li>
-<li><p>It will slice the string, starting the number index, and ending a distance of the absolute value of negative-number elements from the end of the string</p></li>
+<li><p>It will slice the string, starting at the low index and ending a distance of the absolute value of <code class="docutils literal notranslate"><span class="pre">negative_index</span></code> elements from the end of the string</p></li>
 </ol>
 </div>
 </section>
