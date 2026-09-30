@@ -551,9 +551,9 @@ Afterward, try opening the files and take a quick look at their content.</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: data123.txt already exists.
-Error: example123.txt already exists.
-Error: poem123.txt already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data123.txt was created.
+example123.txt was created.
+poem123.txt was created.
 </pre></div>
 </div>
 </div>
@@ -920,27 +920,6 @@ Each line ends with a newline character.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;new_file123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;First line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Second line</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nn">File /Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/site-packages/IPython/core/interactiveshell.py:346,</span> in <span class="ni">_modified_open</span><span class="nt">(file, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="k">if</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">{</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}:</span>
-<span class="g g-Whitespace">    </span><span class="mi">340</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="sa">f</span><span class="s2">&quot;IPython won&#39;t let you open fd=</span><span class="si">{</span><span class="n">file</span><span class="si">}</span><span class="s2"> by default &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span>         <span class="s2">&quot;as it is likely to crash IPython. If you know what you are doing, &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span>         <span class="s2">&quot;you can use builtins&#39; open.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">344</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">346</span> <span class="k">return</span> <span class="n">io_open</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="ne">FileExistsError</span>: [Errno 17] File exists: &#39;new_file123.txt&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> mode. It works like <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> when creating a new file, but with one important difference: if the file already exists, Python raises a <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code> instead of overwriting it.</p>
 </section>
@@ -976,7 +955,10 @@ Each line ends with a newline character.
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abcdefg
+hijklmn
+opqrstu
+vwxyz
 </pre></div>
 </div>
 </div>
@@ -1007,7 +989,10 @@ Each line ends with a newline character.
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLOfg
+hijklmn
+opqrstu
+vwxyz
 </pre></div>
 </div>
 </div>
