@@ -1064,7 +1064,7 @@ This way you can skip blank lines and only count lines with actual content.</p>
 <hr class="docutils" />
 <section id="exercise-3-write-a-shopping-list">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 3: Write a shopping list<a class="headerlink" href="#exercise-3-write-a-shopping-list" title="Link to this heading">#</a></h3>
-<p>Ask the user for three shopping items and write them to <code class="docutils literal notranslate"><span class="pre">shopping.txt</span></code>.</p>
+<p>Ask the user for three shopping items and write them to <code class="docutils literal notranslate"><span class="pre">shopping123.txt</span></code>.</p>
 <p><strong>Hint:</strong> Use <code class="docutils literal notranslate"><span class="pre">input()</span></code> to ask the user which word to search for.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
@@ -1075,15 +1075,15 @@ for i in range(3):
     item = input(f&quot;Enter item {i+1}: &quot;)
     items.append(item)
 
-# Write the items to shopping.txt, one per line
-with open(&quot;shopping.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+# Write the items to shopping123.txt, one per line
+with open(&quot;shopping123.txt&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
     for item in items:
         f.write(item + &quot;\n&quot;)
 
-print(&quot;Your shopping list has been saved to shopping.txt&quot;)
+print(&quot;Your shopping list has been saved to shopping123.txt&quot;)
 print(&quot;The list contains:&quot;)
 
-with open(&quot;shopping.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+with open(&quot;shopping123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     print(f.read())
 </pre></div>
 </div>
@@ -1098,21 +1098,21 @@ with open(&quot;shopping.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) a
 <hr class="docutils" />
 <section id="exercise-4-append-to-note">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 4: Append to note<a class="headerlink" href="#exercise-4-append-to-note" title="Link to this heading">#</a></h3>
-<p>Ask the user for a short note and append it to <code class="docutils literal notranslate"><span class="pre">notes.txt</span></code>.</p>
+<p>Ask the user for a short note and append it to <code class="docutils literal notranslate"><span class="pre">notes123.txt</span></code>.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p><strong>Append a note to <code class="docutils literal notranslate"><span class="pre">notes.txt</span></code>:</strong></p>
+<p><strong>Append a note to <code class="docutils literal notranslate"><span class="pre">notes123.txt</span></code>:</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Ask the user for a short note
 note = input(&quot;Enter a short note: &quot;)
 
-# Append the note to notes.txt
-with open(&quot;notes.txt&quot;, &quot;a&quot;, encoding=&quot;utf-8&quot;) as f:
+# Append the note to notes123.txt
+with open(&quot;notes123.txt&quot;, &quot;a&quot;, encoding=&quot;utf-8&quot;) as f:
     f.write(note + &quot;\n&quot;)
 
-print(f&#39;Your note &quot;{note}&quot; has been saved to notes.txt&#39;)
-print(&quot;notes.txt now contains:&quot;)
+print(f&#39;Your note &quot;{note}&quot; has been saved to notes123.txt&#39;)
+print(&quot;notes123.txt now contains:&quot;)
 
-with open(&quot;notes.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+with open(&quot;notes123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     print(f.read())
 </pre></div>
 </div>
