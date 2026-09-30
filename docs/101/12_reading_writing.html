@@ -654,7 +654,7 @@ By default, Python will use your operating system’s preferred encoding, which 
 <section id="file-modes-in-open">
 <h3>File modes in <code class="docutils literal notranslate"><span class="pre">open()</span></code><a class="headerlink" href="#file-modes-in-open" title="Link to this heading">#</a></h3>
 <p>When using <code class="docutils literal notranslate"><span class="pre">open()</span></code>, the <strong>mode</strong> tells Python what you want to do with the file.</p>
-<p>The three most common modes are:</p>
+<p>The four most common modes are:</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Mode</p></th>
@@ -674,6 +674,10 @@ By default, Python will use your operating system’s preferred encoding, which 
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;a&quot;</span></code></p></td>
 <td><p>Append</p></td>
 <td><p>Opens a file for appending at the end. Existing content is kept, and all new content is appended to the end of the file. Creates the file if it does not exist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code></p></td>
+<td><p>Create</p></td>
+<td><p>Creates a new file for writing. Gives an error if the file already exists.</p></td>
 </tr>
 </tbody>
 </table>
@@ -698,6 +702,10 @@ By default, Python will use your operating system’s preferred encoding, which 
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;a+&quot;</span></code></p></td>
 <td><p>Append and read</p></td>
 <td><p>Opens a file for both reading and appending. Existing content is kept, and all new content is appended to the end of the file. Creates the file if it does not exist.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;x+&quot;</span></code></p></td>
+<td><p>Create, read and write</p></td>
+<td><p>Creates a new file for both reading and writing. Gives an error if the file already exists.</p></td>
 </tr>
 </tbody>
 </table>
