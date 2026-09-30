@@ -505,21 +505,21 @@ Afterward, try opening the files and take a quick look at their content.</p>
 <p>By the end of this lesson, you will be able to come back to this code and fully understand what it does.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write to data.txt</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># write to data123.txt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;This is a small text file.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;It has a few lines of content.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Each line ends with a newline character.</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1"># write to example.txt</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="c1"># write to example123.txt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;abcdefg</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;hijklmn</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;opqrstu</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;vwxyz&quot;</span><span class="p">)</span>
 
-<span class="c1"># write to poem.txt</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="c1"># write to poem123.txt</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Roses are red</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Violets are blue</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Sugar is sweet</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -542,7 +542,7 @@ Afterward, try opening the files and take a quick look at their content.</p>
 <p>The built-in function <code class="docutils literal notranslate"><span class="pre">open()</span></code> is used to open a file.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
 <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
@@ -573,7 +573,7 @@ Each line ends with a newline character.
 <p>The safer way is to use a context manager. Python will then automatically close the file when you are done.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
@@ -608,7 +608,7 @@ By default, Python will use your operating system’s preferred encoding, which 
 <p>The safest choice is to always write your file operations with an explicit encoding, most commonly UTF-8. UTF-8 is the standard text encoding on the web and on most modern systems, and it can represent all characters in the Unicode standard. By explicitly setting <code class="docutils literal notranslate"><span class="pre">encoding=&quot;utf-8&quot;</span></code>, you make sure that your code behaves consistently across different computers and operating systems - even if their defaults are different.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -676,10 +676,10 @@ By default, Python will use your operating system’s preferred encoding, which 
 <section id="r-vs-w-explained">
 <h3><code class="docutils literal notranslate"><span class="pre">&quot;r+&quot;</span></code> vs. <code class="docutils literal notranslate"><span class="pre">&quot;w+&quot;</span></code> explained<a class="headerlink" href="#r-vs-w-explained" title="Link to this heading">#</a></h3>
 <p>This is often confusing - here’s the difference.</p>
-<p>Let us first look at the <code class="docutils literal notranslate"><span class="pre">example.txt</span></code> file:</p>
+<p>Let us first look at the <code class="docutils literal notranslate"><span class="pre">example123.txt</span></code> file:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
@@ -704,7 +704,7 @@ vwxyz
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># r+ → file must exist, existing content is preserved</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -713,7 +713,7 @@ vwxyz
 <p>Only the first characters are overwritten; the rest remains:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
@@ -738,7 +738,7 @@ vwxyz
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># w+ → creates the file if needed, existing content is deleted</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;HELLO&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -747,7 +747,7 @@ vwxyz
 <p>Any previous content is gone:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
@@ -774,7 +774,7 @@ vwxyz
 <h3>Read entire file<a class="headerlink" href="#read-entire-file" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </pre></div>
@@ -803,7 +803,7 @@ The end
 <h3>Read line by line<a class="headerlink" href="#read-line-by-line" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
 </pre></div>
@@ -835,7 +835,7 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <h3>Read into a list<a class="headerlink" href="#read-into-a-list" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;poem123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
@@ -897,7 +897,7 @@ This ensures the text looks clean and properly formatted when printed.</p>
 <p>If you call <code class="docutils literal notranslate"><span class="pre">f.read()</span></code> again immediately, there is nothing left to read, so Python returns an empty string:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First read:&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads all</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Second read:&quot;</span><span class="p">)</span>
@@ -929,7 +929,7 @@ Second read:
 <p>This allows you to read the file again:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads all</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads again</span>
@@ -957,7 +957,7 @@ Each line ends with a newline character.
 <p>Changing the index value in <code class="docutils literal notranslate"><span class="pre">seek()</span></code> will change the starting position:</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;data123.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>         <span class="c1"># moves the cursor 1 position from the beginning</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>   <span class="c1"># reads from there to the end</span>
 </pre></div>
@@ -983,19 +983,19 @@ Each line ends with a newline character.
 <h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading">#</a></h2>
 <section id="exercise-1-read-and-print">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 1: Read and print<a class="headerlink" href="#exercise-1-read-and-print" title="Link to this heading">#</a></h3>
-<p>Open <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code>, read the content and print it.</p>
+<p>Open <code class="docutils literal notranslate"><span class="pre">poem123.txt</span></code>, read the content and print it.</p>
 <p>Do it first with <code class="docutils literal notranslate"><span class="pre">open()</span></code> + <code class="docutils literal notranslate"><span class="pre">close()</span></code>, then rewrite it using <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open</span></code>.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
 <p><strong>Read using <code class="docutils literal notranslate"><span class="pre">open()</span></code> and <code class="docutils literal notranslate"><span class="pre">close()</span></code>:</strong></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>f = open(&quot;poem123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;)
 content = f.read()
 f.close()
 print(content)  # prints the entire file content
 </pre></div>
 </div>
 <p><strong>Read using <code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">open</span></code> (recommended):</strong></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     content = f.read()
 print(content)  # prints the entire file content
 </pre></div>
@@ -1005,11 +1005,11 @@ print(content)  # prints the entire file content
 <hr class="docutils" />
 <section id="exercise-2-count-lines">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 2: Count lines<a class="headerlink" href="#exercise-2-count-lines" title="Link to this heading">#</a></h3>
-<p>Count how many lines are in <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code> and print the result.</p>
+<p>Count how many lines are in <code class="docutils literal notranslate"><span class="pre">poem123.txt</span></code> and print the result.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p>You can count the number of lines in <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code> like this:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+<p>You can count the number of lines in <code class="docutils literal notranslate"><span class="pre">poem123.txt</span></code> like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     lines = f.readlines()
 num_lines = len(lines)
 print(&quot;Number of lines:&quot;, num_lines)
@@ -1017,7 +1017,7 @@ print(&quot;Number of lines:&quot;, num_lines)
 </div>
 <p>This will print the exact number of lines in the file.</p>
 <p><strong>Tip:</strong> If you want to count only non-empty lines, add a condition:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>with open(&quot;poem123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     lines = f.readlines()
 num_nonempty = len([line for line in lines if line.strip()])
 print(&quot;Number of non-empty lines:&quot;, num_nonempty)
@@ -1093,10 +1093,10 @@ with open(&quot;notes.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f
 <hr class="docutils" />
 <section id="exercise-5-find-a-word">
 <h3><i class="fa-solid fa-pencil"></i> Exercise 5: Find a word<a class="headerlink" href="#exercise-5-find-a-word" title="Link to this heading">#</a></h3>
-<p>Ask the user for a word and print which line numbers in <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code> contain that word.</p>
+<p>Ask the user for a word and print which line numbers in <code class="docutils literal notranslate"><span class="pre">poem123.txt</span></code> contain that word.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Solution</p>
-<p><strong>Find a word in <code class="docutils literal notranslate"><span class="pre">poem.txt</span></code> (case-insensitive):</strong></p>
+<p><strong>Find a word in <code class="docutils literal notranslate"><span class="pre">poem123.txt</span></code> (case-insensitive):</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Ask the user which word to search for
 search_word = input(&quot;Which word do you want to search for? &quot;)
 
@@ -1105,7 +1105,7 @@ found_any = False
 line_number = 1  # start counting lines from 1
 
 # Open the file and go through it line by line
-with open(&quot;poem.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+with open(&quot;poem123.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
     for line in f:
         # Make the search case-insensitive
         if search_word.lower() in line.lower():
