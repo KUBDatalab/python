@@ -16,41 +16,44 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=55c26ed414f5f8a31ebb" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=55c26ed414f5f8a31ebb"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
@@ -58,6 +61,7 @@
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'docs/101/07_conditionals';</script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <script src="../../_static/custom.js?v=e8afc0c0"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -65,34 +69,30 @@
     <link rel="prev" title="For Loops" href="06_for_loops.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
-
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -100,7 +100,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -108,15 +107,59 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
     </header>
   
 
@@ -125,7 +168,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -155,21 +199,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="KUB Datalab - Python - Home"/>
-    <script>document.write(`<img src="../../_static/logo.png" class="logo__image only-dark" alt="KUB Datalab - Python - Home"/>`);</script>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="KUB Datalab - Python - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -248,9 +288,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -380,7 +425,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -394,25 +439,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -434,7 +471,7 @@ document.write(`
                 <h2> Contents </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+                <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-control-whether-or-not-a-block-of-code-is-executed"><code class="docutils literal notranslate"><span class="pre">if</span></code> statements control whether or not a block of code is executed</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-are-often-used-inside-loops">Conditionals are often used inside loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true">Use <code class="docutils literal notranslate"><span class="pre">else</span></code> to execute a block of code when an if condition is not true</a></li>
@@ -505,7 +542,7 @@ document.write(`
 
 
 <span class="k">if</span> <span class="n">pages_written</span> <span class="o">&gt;</span> <span class="mf">3.0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pages_written</span><span class="p">,</span> <span class="s2">&quot;pages great! Continue writing&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pages_written</span><span class="p">,</span> <span class="s2">"pages great! Continue writing"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -526,7 +563,7 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pages_written</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="k">if</span> <span class="n">pages_written</span> <span class="o">&gt;</span> <span class="mf">3.0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pages_written</span><span class="p">,</span> <span class="s2">&quot;pages great! Continue writing&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pages_written</span><span class="p">,</span> <span class="s2">"pages great! Continue writing"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -543,7 +580,7 @@ But it is useful when we have a collection to process, like in this example of a
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pages_written</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.54</span><span class="p">,</span> <span class="mf">2.07</span><span class="p">,</span> <span class="mf">9.22</span><span class="p">,</span> <span class="mf">1.86</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="n">pages_written</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">pages</span> <span class="o">&gt;</span> <span class="mf">3.0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">&#39;pages wauw! You have written more than 3.0 pages!&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">'pages wauw! You have written more than 3.0 pages!'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -569,9 +606,9 @@ It allows us to specify an alternative to execute when the <code class="docutils
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pages_written</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.54</span><span class="p">,</span> <span class="mf">2.07</span><span class="p">,</span> <span class="mf">9.22</span><span class="p">,</span> <span class="mf">1.86</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="n">pages_written</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">pages</span> <span class="o">&gt;</span> <span class="mf">3.0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">&#39;pages wauw! You have written more than 3.0 pages!&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">'pages wauw! You have written more than 3.0 pages!'</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">&#39;pages, you need to write a bit more&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">'pages, you need to write a bit more'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -606,11 +643,11 @@ Use <code class="docutils literal notranslate"><span class="pre">elif</span></co
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pages_written</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.54</span><span class="p">,</span> <span class="mf">2.07</span><span class="p">,</span> <span class="mf">9.22</span><span class="p">,</span> <span class="mf">1.86</span><span class="p">,</span> <span class="mf">1.71</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="n">pages_written</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">pages</span> <span class="o">&gt;</span> <span class="mf">9.0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">&#39;that is SO many pages!&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">'that is SO many pages!'</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">pages</span> <span class="o">&gt;</span> <span class="mf">3.0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">&#39;that is quite a lot of pages&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">'that is quite a lot of pages'</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">&#39;you need a bit more pages&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pages</span><span class="p">,</span> <span class="s1">'you need a bit more pages'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -643,11 +680,11 @@ But if <em>one</em> conditional is fulfilled, Python will “step out of” the 
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">points</span> <span class="o">=</span> <span class="mi">85</span>
 <span class="k">if</span> <span class="n">points</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grade is C&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'grade is C'</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">points</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grade is B&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'grade is B'</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">points</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grade is A&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'grade is A'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -672,11 +709,11 @@ But if <em>one</em> conditional is fulfilled, Python will “step out of” the 
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">points</span> <span class="o">=</span> <span class="mi">85</span>
 <span class="k">if</span> <span class="n">points</span> <span class="o">&gt;=</span> <span class="mi">90</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grade is A&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'grade is A'</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">points</span> <span class="o">&gt;=</span> <span class="mi">80</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grade is B&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'grade is B'</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">points</span> <span class="o">&gt;=</span> <span class="mi">70</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grade is C&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'grade is C'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -698,9 +735,9 @@ This means, that a script will not automatically go back and re-evaluate if valu
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="mf">10.0</span>
 <span class="k">if</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mf">20.0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;moving too fast&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'moving too fast'</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adjusting speed&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'adjusting speed'</span><span class="p">)</span>
     <span class="n">speed</span> <span class="o">=</span> <span class="mf">50.0</span>
 </pre></div>
 </div>
@@ -723,14 +760,14 @@ This means, that a script will not automatically go back and re-evaluate if valu
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">speed</span> <span class="o">=</span> <span class="mf">10.0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># execute the loop 5 times</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">':'</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">speed</span> <span class="o">&gt;</span> <span class="mf">20.0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;moving too fast&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'moving too fast'</span><span class="p">)</span>
         <span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">-</span> <span class="mf">5.0</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;moving too slow&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'moving too slow'</span><span class="p">)</span>
         <span class="n">speed</span> <span class="o">=</span> <span class="n">speed</span> <span class="o">+</span> <span class="mf">10.0</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;final speed:&#39;</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'final speed:'</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -777,19 +814,19 @@ You have data that includes the engagement metrics of various posts, and you wan
 <span class="n">likes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
 <span class="n">shares</span> <span class="o">=</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">]</span>
 
-<span class="c1"># Loop through each post&#39;s data</span>
+<span class="c1"># Loop through each post's data</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;High impact post. Excellent engagement!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"High impact post. Excellent engagement!"</span><span class="p">)</span>
         
     <span class="k">elif</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">500</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Moderate impact post. Decent engagement.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Moderate impact post. Decent engagement."</span><span class="p">)</span>
         
     <span class="k">elif</span> <span class="n">likes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">100</span> <span class="ow">and</span> <span class="n">shares</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Low impact post. Needs improvement.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Low impact post. Needs improvement."</span><span class="p">)</span>
         
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Unexpected data. Check the engagement metrics.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Unexpected data. Check the engagement metrics."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -910,11 +947,11 @@ A way to stop the loop could be:</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pressure</span> <span class="o">=</span> <span class="mf">8.5</span>  <span class="c1"># Brewing pressure in bars</span>
 
 <span class="k">if</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mf">7.0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Brewing delicious strong coffee&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Brewing delicious strong coffee"</span><span class="p">)</span>
 <span class="k">elif</span> <span class="n">pressure</span> <span class="o">&gt;</span> <span class="mf">5.0</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Brewing regular coffee&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Brewing regular coffee"</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Adjusting pressure for delicate espresso&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Adjusting pressure for delicate espresso"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -973,8 +1010,8 @@ What does the function <code class="docutils literal notranslate"><span class="p
 <div class="cell tag_remove-output tag_hide-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="k">while</span> <span class="n">user_input</span> <span class="o">!=</span> <span class="s2">&quot;quit&quot;</span><span class="p">:</span>
-  <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter &#39;quit&#39; to exit: &quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">user_input</span> <span class="o">!=</span> <span class="s2">"quit"</span><span class="p">:</span>
+  <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">"Enter 'quit' to exit: "</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1057,26 +1094,26 @@ Congratulations! You guessed the correct number in 3 attempts.
 <span class="c1"># Keep track of the number of attempts</span>
 <span class="n">attempts</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># Initialise the variable to store the user&#39;s guess</span>
+<span class="c1"># Initialise the variable to store the user's guess</span>
 <span class="n">user_guess</span> <span class="o">=</span> <span class="kc">None</span>  
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welcome to the Number Guessing Game!&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Welcome to the Number Guessing Game!"</span><span class="p">)</span>
 
 <span class="c1"># Continue looping until the correct number is guessed</span>
 <span class="k">while</span> <span class="n">user_guess</span> <span class="o">!=</span> <span class="n">secret_number</span><span class="p">:</span>
     <span class="c1"># Ask the user to guess the secret number</span>
-    <span class="n">user_guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Guess the secret number (1-20): &quot;</span><span class="p">))</span>
+    <span class="n">user_guess</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">"Guess the secret number (1-20): "</span><span class="p">))</span>
 
     <span class="c1"># Increase the attempts counter</span>
     <span class="n">attempts</span> <span class="o">=</span> <span class="n">attempts</span> <span class="o">+</span> <span class="mi">1</span>
 
     <span class="c1"># Compare the guess with the secret number</span>
     <span class="k">if</span> <span class="n">user_guess</span> <span class="o">==</span> <span class="n">secret_number</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Congratulations! You guessed the correct number in&quot;</span><span class="p">,</span> <span class="n">attempts</span><span class="p">,</span> <span class="s2">&quot;attempts.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Congratulations! You guessed the correct number in"</span><span class="p">,</span> <span class="n">attempts</span><span class="p">,</span> <span class="s2">"attempts."</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">user_guess</span> <span class="o">&lt;</span> <span class="n">secret_number</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too low. Try again.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Too low. Try again."</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too high. Try again.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Too high. Try again."</span><span class="p">)</span>
 </pre></div>
 </div>
 <p><strong>Note:</strong> At this stage, the game will crash if the user types something that is not an integer.<br />
@@ -1153,15 +1190,17 @@ If you want to learn how to handle such cases gracefully, take a look at the cha
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-statements-control-whether-or-not-a-block-of-code-is-executed"><code class="docutils literal notranslate"><span class="pre">if</span></code> statements control whether or not a block of code is executed</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditionals-are-often-used-inside-loops">Conditionals are often used inside loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true">Use <code class="docutils literal notranslate"><span class="pre">else</span></code> to execute a block of code when an if condition is not true</a></li>
@@ -1230,8 +1269,8 @@ By <a href="https://kub.kb.dk/datalab" target="_blank">KUB Datalab</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=55c26ed414f5f8a31ebb"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=55c26ed414f5f8a31ebb"></script>
 
   <footer class="bd-footer">
   </footer>
