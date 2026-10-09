@@ -539,6 +539,16 @@
 </div>
 </div>
 </div>
+<p>To create an empty set, you must use the <code class="docutils literal notranslate"><span class="pre">set()</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">empty_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Using empty curly braces (<code class="docutils literal notranslate"><span class="pre">{}</span></code>) creates an empty dictionary (<code class="docutils literal notranslate"><span class="pre">dict</span></code>), not an empty set. (You will learn more about dictionaries further down this page.)<br />
+So, remember to use <code class="docutils literal notranslate"><span class="pre">set()</span></code> whenever you need an <strong>empty set</strong>.</p>
 <section id="why-use-sets">
 <h3>Why use sets?<a class="headerlink" href="#why-use-sets" title="Link to this heading">#</a></h3>
 <ul class="simple">
@@ -563,7 +573,7 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['Brave New World', '1984', 'Fahrenheit 451']
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>['1984', 'Fahrenheit 451', 'Brave New World']
 </pre></div>
 </div>
 </div>
@@ -628,10 +638,10 @@
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'apple', 'date', 'cherry', 'banana'}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{'date', 'apple', 'cherry', 'banana'}
 {'cherry', 'banana'}
 {'apple'}
-{'apple', 'date'}
+{'date', 'apple'}
 </pre></div>
 </div>
 </div>

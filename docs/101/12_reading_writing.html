@@ -588,9 +588,9 @@ Afterward, try opening the files and take a quick look at their content.</p>
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error: data123.txt already exists.
-Error: example123.txt already exists.
-Error: poem123.txt already exists.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>data123.txt was created.
+example123.txt was created.
+poem123.txt was created.
 </pre></div>
 </div>
 </div>
@@ -957,18 +957,6 @@ Each line ends with a newline character.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileExistsError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"new_file123.txt"</span><span class="p">,</span> <span class="s2">"x"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"First line</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">"Second line</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="ne">FileExistsError</span>: [Errno 17] File exists: 'new_file123.txt'
-</pre></div>
-</div>
-</div>
 </div>
 <p>Opens the file in <code class="docutils literal notranslate"><span class="pre">&quot;x&quot;</span></code> mode. It works like <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code> when creating a new file, but with one important difference: if the file already exists, Python raises a <code class="docutils literal notranslate"><span class="pre">FileExistsError</span></code> instead of overwriting it.</p>
 </section>
@@ -1004,7 +992,10 @@ Each line ends with a newline character.
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abcdefg
+hijklmn
+opqrstu
+vwxyz
 </pre></div>
 </div>
 </div>
@@ -1035,7 +1026,10 @@ Each line ends with a newline character.
 <p class="expanded admonition-title">Hide code cell output</p>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLO
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HELLOfg
+hijklmn
+opqrstu
+vwxyz
 </pre></div>
 </div>
 </div>
