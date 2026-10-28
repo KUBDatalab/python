@@ -997,10 +997,10 @@ While we can read the numbers without issue, this will cause problems if we want
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">File pandas/_libs/lib.pyx:2478,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
-<span class="ne">-&gt; </span><span class="mi">2478</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
+<span class="nn">File pandas/_libs/lib.pyx:2766,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+<span class="ne">-&gt; </span><span class="mi">2766</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
 
-<span class="ne">ValueError</span>: Unable to parse string "Unknown"
+<span class="ne">ValueError</span>: Unable to parse string 'Unknown'
 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
@@ -1008,28 +1008,28 @@ While we can read the numbers without issue, this will cause problems if we want
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">18</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fare</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">fare</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/pandas/core/tools/numeric.py:235,</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">ensure_object</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">coerce_numeric</span> <span class="o">=</span> <span class="n">errors</span> <span class="o">!=</span> <span class="s2">"raise"</span>
-<span class="ne">--&gt; </span><span class="mi">235</span>     <span class="n">values</span><span class="p">,</span> <span class="n">new_mask</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_numeric</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span>         <span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span>         <span class="nb">set</span><span class="p">(),</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>         <span class="n">coerce_numeric</span><span class="o">=</span><span class="n">coerce_numeric</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>         <span class="n">convert_to_masked_nullable</span><span class="o">=</span><span class="n">dtype_backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>         <span class="ow">or</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span>             <span class="nb">isinstance</span><span class="p">(</span><span class="n">values_dtype</span><span class="p">,</span> <span class="n">StringDtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>             <span class="ow">and</span> <span class="n">values_dtype</span><span class="o">.</span><span class="n">na_value</span> <span class="ow">is</span> <span class="n">libmissing</span><span class="o">.</span><span class="n">NA</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>         <span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span> <span class="k">if</span> <span class="n">new_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span>     <span class="c1"># Remove unnecessary values, is expected later anyway and enables</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span>     <span class="c1"># downcasting</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="o">~</span><span class="n">new_mask</span><span class="p">]</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.12.15/x64/lib/python3.12/site-packages/pandas/core/tools/numeric.py:259,</span> in <span class="ni">to_numeric</span><span class="nt">(arg, errors, downcast, dtype_backend)</span>
+<span class="g g-Whitespace">    </span><span class="mi">257</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">ensure_object</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">258</span>     <span class="n">coerce_numeric</span> <span class="o">=</span> <span class="n">errors</span> <span class="o">!=</span> <span class="s2">"raise"</span>
+<span class="ne">--&gt; </span><span class="mi">259</span>     <span class="n">values</span><span class="p">,</span> <span class="n">new_mask</span> <span class="o">=</span> <span class="n">lib</span><span class="o">.</span><span class="n">maybe_convert_numeric</span><span class="p">(</span>  <span class="c1"># type: ignore[call-overload]</span>
+<span class="g g-Whitespace">    </span><span class="mi">260</span>         <span class="n">values</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="nb">set</span><span class="p">(),</span>
+<span class="g g-Whitespace">    </span><span class="mi">262</span>         <span class="n">coerce_numeric</span><span class="o">=</span><span class="n">coerce_numeric</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span>         <span class="n">convert_to_masked_nullable</span><span class="o">=</span><span class="n">dtype_backend</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span>         <span class="ow">or</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">265</span>             <span class="nb">isinstance</span><span class="p">(</span><span class="n">values_dtype</span><span class="p">,</span> <span class="n">StringDtype</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">266</span>             <span class="ow">and</span> <span class="n">values_dtype</span><span class="o">.</span><span class="n">na_value</span> <span class="ow">is</span> <span class="n">libmissing</span><span class="o">.</span><span class="n">NA</span>
+<span class="g g-Whitespace">    </span><span class="mi">267</span>         <span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">268</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">270</span> <span class="k">if</span> <span class="n">new_mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">271</span>     <span class="c1"># Remove unnecessary values, is expected later anyway and enables</span>
+<span class="g g-Whitespace">    </span><span class="mi">272</span>     <span class="c1"># downcasting</span>
+<span class="g g-Whitespace">    </span><span class="mi">273</span>     <span class="n">values</span> <span class="o">=</span> <span class="n">values</span><span class="p">[</span><span class="o">~</span><span class="n">new_mask</span><span class="p">]</span>
 
-<span class="nn">File pandas/_libs/lib.pyx:2521,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
-<span class="ne">-&gt; </span><span class="mi">2521</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
+<span class="nn">File pandas/_libs/lib.pyx:2816,</span> in <span class="ni">pandas._libs.lib.maybe_convert_numeric</span><span class="nt">()</span>
+<span class="ne">-&gt; </span><span class="mi">2816</span> <span class="s1">'Could not get source, probably due dynamically evaluated source code.'</span>
 
-<span class="ne">ValueError</span>: Unable to parse string "Unknown" at position 2
+<span class="ne">ValueError</span>: Unable to parse string 'Unknown' at position 2
 </pre></div>
 </div>
 </div>
